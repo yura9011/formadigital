@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,18 +27,472 @@
         }
       }
     </script>
-<script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0"
-  }
-}
-</script>
 </head>
 <body class="bg-neutral-light text-neutral-medium font-sans antialiased">
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+
+    <!-- Header Section -->
+    <header id="page-header" class="sticky top-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-neutral-dark z-50">
+                Forma<span class="text-brand-primary">Digital</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#servicios" class="text-neutral-medium font-medium hover:text-brand-primary transition-colors">Servicios</a>
+                <a href="#portfolio" class="text-neutral-medium font-medium hover:text-brand-primary transition-colors">Portfolio</a>
+                <a href="#sobre-nosotros" class="text-neutral-medium font-medium hover:text-brand-primary transition-colors">Nosotros</a>
+                <a href="#contacto" class="text-neutral-medium font-medium hover:text-brand-primary transition-colors">Contacto</a>
+            </nav>
+            <a href="#contacto" class="hidden md:inline-block bg-brand-primary text-white font-semibold px-5 py-2 rounded-lg hover:bg-brand-secondary transition-all">
+                Empezar
+            </a>
+            <button id="menu-toggle" class="md:hidden text-neutral-dark z-50" aria-label="Toggle menu">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white md:hidden transform transition-transform duration-300 ease-in-out translate-x-full">
+        <div class="flex flex-col items-center justify-center h-full pt-20">
+            <nav class="flex flex-col space-y-8 text-center">
+                <a href="#servicios" class="text-2xl text-neutral-dark font-semibold hover:text-brand-primary transition-colors">Servicios</a>
+                <a href="#portfolio" class="text-2xl text-neutral-dark font-semibold hover:text-brand-primary transition-colors">Portfolio</a>
+                <a href="#sobre-nosotros" class="text-2xl text-neutral-dark font-semibold hover:text-brand-primary transition-colors">Nosotros</a>
+                <a href="#contacto" class="text-2xl text-neutral-dark font-semibold hover:text-brand-primary transition-colors">Contacto</a>
+            </nav>
+            <a href="#contacto" class="mt-12 bg-brand-primary text-white font-semibold px-8 py-4 rounded-lg hover:bg-brand-secondary transition-all">
+                Empezar
+            </a>
+        </div>
+    </div>
+    
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="bg-white py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-neutral-dark leading-tight mb-4">
+                    Contenido profesional para tus redes. <br>
+                    <span class="text-brand-primary">Cero estrés.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-neutral-medium max-w-3xl mx-auto mb-8">
+                    Diseñamos paquetes de publicaciones listos para usar, ayudando a pequeños negocios a mantener una presencia digital coherente y atractiva.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#servicios" class="w-full sm:w-auto bg-brand-primary text-white font-bold text-lg px-8 py-4 rounded-lg hover:bg-brand-secondary transition-transform transform hover:scale-105">
+                        Ver Paquetes
+                    </a>
+                    <a href="#como-funciona" class="w-full sm:w-auto bg-transparent border-2 border-neutral-dark text-neutral-dark font-bold text-lg px-8 py-4 rounded-lg hover:bg-neutral-dark hover:text-white transition-all">
+                        Cómo Funciona
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem/Solution Section -->
+        <section id="problema" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark">Tu presencia online, simplificada.</h2>
+                    <p class="mt-4 text-lg text-neutral-medium max-w-2xl mx-auto">Entendemos los desafíos de gestionar redes sociales. Por eso, te ofrecemos una solución directa.</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-semibold text-neutral-dark">Los Retos Comunes</h3>
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-red-100 p-1.5 rounded-full mt-1">
+                                <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            </div>
+                            <p class="text-neutral-medium text-lg">¿Te falta tiempo para crear contenido de calidad?</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-red-100 p-1.5 rounded-full mt-1">
+                                <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            </div>
+                            <p class="text-neutral-medium text-lg">¿Sientes que tus redes no lucen profesionales?</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-red-100 p-1.5 rounded-full mt-1">
+                                <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            </div>
+                            <p class="text-neutral-medium text-lg">¿La constancia en publicaciones es un desafío para ti?</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <h3 class="text-2xl font-semibold text-neutral-dark mb-4">La Solución: <span class="text-brand-primary">Forma Digital</span></h3>
+                        <p class="text-neutral-medium mb-6">Nos encargamos del diseño y la estrategia de tu contenido para que tú te enfoques en tu negocio.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center space-x-3"><svg class="w-6 h-6 text-brand-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <span>Contenido atractivo y profesional.</span></li>
+                            <li class="flex items-center space-x-3"><svg class="w-6 h-6 text-brand-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <span>Planificación y consistencia.</span></li>
+                            <li class="flex items-center space-x-3"><svg class="w-6 h-6 text-brand-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <span>Ahorro de tiempo y recursos.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="como-funciona" class="bg-white py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark">Nuestro Proceso Simplificado</h2>
+                    <p class="mt-4 text-lg text-neutral-medium max-w-2xl mx-auto">Claridad y eficiencia en cada paso. Así trabajamos para ti.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-8 md:gap-4 relative">
+                    <!-- Step 1 -->
+                    <div class="relative flex flex-col items-center text-center">
+                        <div class="absolute top-8 left-1/2 w-full border-t-2 border-dashed border-gray-300 hidden md:block" style="transform: translateX(-50%); z-index: -1;"></div>
+                        <div class="relative flex items-center justify-center w-16 h-16 bg-brand-light text-brand-primary rounded-full mb-4 ring-8 ring-neutral-light">
+                            <span class="absolute -top-2 -right-2 bg-brand-primary text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full">1</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-neutral-dark mb-2">Elige tu Paquete</h3>
+                        <p class="text-neutral-medium px-4">Explora nuestras opciones y elige la que mejor se adapte a tus necesidades.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="relative flex flex-col items-center text-center">
+                        <div class="absolute top-8 left-1/2 w-full border-t-2 border-dashed border-gray-300 hidden md:block" style="transform: translateX(-50%); z-index: -1;"></div>
+                        <div class="relative flex items-center justify-center w-16 h-16 bg-brand-light text-brand-primary rounded-full mb-4 ring-8 ring-neutral-light">
+                            <span class="absolute -top-2 -right-2 bg-brand-primary text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full">2</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-neutral-dark mb-2">Briefing y Estrategia</h3>
+                        <p class="text-neutral-medium px-4">Nos reunimos contigo para entender a fondo tu marca, tu voz y tus objetivos.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="relative flex flex-col items-center text-center">
+                        <div class="absolute top-8 left-1/2 w-full border-t-2 border-dashed border-gray-300 hidden md:block" style="transform: translateX(-50%); z-index: -1;"></div>
+                        <div class="relative flex items-center justify-center w-16 h-16 bg-brand-light text-brand-primary rounded-full mb-4 ring-8 ring-neutral-light">
+                            <span class="absolute -top-2 -right-2 bg-brand-primary text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full">3</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-neutral-dark mb-2">Recibe tu Contenido</h3>
+                        <p class="text-neutral-medium px-4">Entregamos todo el material gráfico y los textos listos para ser publicados.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="relative flex flex-col items-center text-center">
+                        <div class="relative flex items-center justify-center w-16 h-16 bg-brand-light text-brand-primary rounded-full mb-4 ring-8 ring-neutral-light">
+                            <span class="absolute -top-2 -right-2 bg-brand-primary text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full">4</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.085a2 2 0 00-1.736.93L5 10m7-10a2 2 0 002 2h2.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-neutral-dark mb-2">Publica con Confianza</h3>
+                        <p class="text-neutral-medium px-4">Sube tu contenido fácilmente y observa cómo crece tu presencia online.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packages Section -->
+        <section id="servicios" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark">Planes Flexibles para tu Negocio</h2>
+                    <p class="mt-4 text-lg text-neutral-medium max-w-2xl mx-auto">Elige el paquete que impulse tu marca al siguiente nivel.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- Package 1 -->
+                    <div class="relative border rounded-xl p-8 flex flex-col border-gray-200 bg-neutral-light/50">
+                        <h3 class="text-2xl font-bold text-neutral-dark">Paquete Esencial</h3>
+                        <p class="text-neutral-medium mt-2 mb-6">Para empezar con una presencia sólida y profesional.</p>
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>12 publicaciones para feed</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>20 stories mensuales</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Diseño de plantillas personalizadas</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Análisis básico de hashtags</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Reunión de estrategia mensual</span></li>
+                        </ul>
+                        <a href="#contacto" class="w-full text-center mt-6 font-bold py-3 rounded-lg transition-all bg-white text-brand-primary border border-brand-primary hover:bg-brand-primary hover:text-white">Lo Quiero</a>
+                    </div>
+                    <!-- Package 2 (Popular) -->
+                    <div class="relative border rounded-xl p-8 flex flex-col border-brand-primary ring-2 ring-brand-primary bg-white">
+                        <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Más Popular</div>
+                        <h3 class="text-2xl font-bold text-neutral-dark">Paquete Crecimiento</h3>
+                        <p class="text-neutral-medium mt-2 mb-6">Ideal para negocios que buscan expandir su alcance e interacción.</p>
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>20 publicaciones para feed</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>40 stories mensuales + 4 Reels</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Diseño de plantillas y animaciones</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Análisis avanzado de hashtags y competencia</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>2 reuniones de estrategia mensuales</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Soporte prioritario</span></li>
+                        </ul>
+                        <a href="#contacto" class="w-full text-center mt-6 font-bold py-3 rounded-lg transition-all bg-brand-primary text-white hover:bg-brand-secondary">Lo Quiero</a>
+                    </div>
+                    <!-- Package 3 -->
+                    <div class="relative border rounded-xl p-8 flex flex-col border-gray-200 bg-neutral-light/50">
+                        <h3 class="text-2xl font-bold text-neutral-dark">Paquete Personalizado</h3>
+                        <p class="text-neutral-medium mt-2 mb-6">Una solución a medida para necesidades específicas y objetivos ambiciosos.</p>
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Contenido y volumen a definir</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Gestión de campañas de anuncios</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Reportes de rendimiento detallados</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Consultoría estratégica continua</span></li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Todo lo del plan Crecimiento y más</span></li>
+                        </ul>
+                        <a href="#contacto" class="w-full text-center mt-6 font-bold py-3 rounded-lg transition-all bg-white text-brand-primary border border-brand-primary hover:bg-brand-primary hover:text-white">Lo Quiero</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="bg-white py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark">Nuestro Trabajo Habla por Sí Mismo</h2>
+                    <p class="mt-4 text-lg text-neutral-medium max-w-2xl mx-auto">Creamos contenido que no solo se ve bien, sino que también funciona.</p>
+                </div>
+                
+                <div class="flex justify-center flex-wrap gap-x-4 gap-y-2 mb-12">
+                    <button data-filter="Todos" class="portfolio-filter-btn px-5 py-2 text-sm font-bold rounded-full transition-all duration-300 bg-brand-primary text-white shadow-md">Todos</button>
+                    <button data-filter="Cafetería" class="portfolio-filter-btn px-5 py-2 text-sm font-bold rounded-full transition-all duration-300 bg-gray-100 text-neutral-medium hover:bg-brand-light">Cafetería</button>
+                    <button data-filter="Coach de Vida" class="portfolio-filter-btn px-5 py-2 text-sm font-bold rounded-full transition-all duration-300 bg-gray-100 text-neutral-medium hover:bg-brand-light">Coach de Vida</button>
+                    <button data-filter="Tienda de Ropa" class="portfolio-filter-btn px-5 py-2 text-sm font-bold rounded-full transition-all duration-300 bg-gray-100 text-neutral-medium hover:bg-brand-light">Tienda de Ropa</button>
+                    <button data-filter="Fitness" class="portfolio-filter-btn px-5 py-2 text-sm font-bold rounded-full transition-all duration-300 bg-gray-100 text-neutral-medium hover:bg-brand-light">Fitness</button>
+                    <button data-filter="Startup Tecnológica" class="portfolio-filter-btn px-5 py-2 text-sm font-bold rounded-full transition-all duration-300 bg-gray-100 text-neutral-medium hover:bg-brand-light">Startup Tecnológica</button>
+                    <button data-filter="Decoración" class="portfolio-filter-btn px-5 py-2 text-sm font-bold rounded-full transition-all duration-300 bg-gray-100 text-neutral-medium hover:bg-brand-light">Decoración</button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-4 md:gap-6">
+                    <div class="portfolio-item group relative overflow-hidden rounded-lg" data-category="Cafetería">
+                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80" alt="Branding para Redes" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-70 transition-all duration-300 flex flex-col justify-end p-6">
+                            <p class="text-brand-light text-sm font-semibold uppercase tracking-wider">Cafetería</p>
+                            <h3 class="text-white text-xl font-bold">Branding para Redes</h3>
+                        </div>
+                    </div>
+                    <div class="portfolio-item group relative overflow-hidden rounded-lg" data-category="Coach de Vida">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80" alt="Paquete de Contenido Mensual" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-70 transition-all duration-300 flex flex-col justify-end p-6">
+                            <p class="text-brand-light text-sm font-semibold uppercase tracking-wider">Coach de Vida</p>
+                            <h3 class="text-white text-xl font-bold">Paquete de Contenido Mensual</h3>
+                        </div>
+                    </div>
+                    <div class="portfolio-item group relative overflow-hidden rounded-lg" data-category="Tienda de Ropa">
+                        <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=600&q=80" alt="Campaña de Lanzamiento" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-70 transition-all duration-300 flex flex-col justify-end p-6">
+                            <p class="text-brand-light text-sm font-semibold uppercase tracking-wider">Tienda de Ropa</p>
+                            <h3 class="text-white text-xl font-bold">Campaña de Lanzamiento</h3>
+                        </div>
+                    </div>
+                    <div class="portfolio-item group relative overflow-hidden rounded-lg" data-category="Fitness">
+                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=600&q=80" alt="Historias Interactivas" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-70 transition-all duration-300 flex flex-col justify-end p-6">
+                            <p class="text-brand-light text-sm font-semibold uppercase tracking-wider">Fitness</p>
+                            <h3 class="text-white text-xl font-bold">Historias Interactivas</h3>
+                        </div>
+                    </div>
+                    <div class="portfolio-item group relative overflow-hidden rounded-lg" data-category="Startup Tecnológica">
+                        <img src="https://images.unsplash.com/photo-1556761175-b413da4b248a?auto=format&fit=crop&w=600&q=80" alt="Contenido Educativo" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-70 transition-all duration-300 flex flex-col justify-end p-6">
+                            <p class="text-brand-light text-sm font-semibold uppercase tracking-wider">Startup Tecnológica</p>
+                            <h3 class="text-white text-xl font-bold">Contenido Educativo</h3>
+                        </div>
+                    </div>
+                    <div class="portfolio-item group relative overflow-hidden rounded-lg" data-category="Decoración">
+                        <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=600&q=80" alt="Catálogo Visual" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-70 transition-all duration-300 flex flex-col justify-end p-6">
+                            <p class="text-brand-light text-sm font-semibold uppercase tracking-wider">Decoración</p>
+                            <h3 class="text-white text-xl font-bold">Catálogo Visual</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="sobre-nosotros" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Equipo de Forma Digital" class="rounded-xl shadow-2xl object-cover w-full h-full">
+                    </div>
+                    <div class="md:w-1/2 text-center md:text-left">
+                        <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark">El Toque Humano Detrás de la Estrategia Digital</h2>
+                        <p class="mt-6 text-lg text-neutral-medium">
+                            Somos un estudio independiente con una misión clara: ayudar a pequeños negocios y emprendedores a brillar en el mundo digital.
+                        </p>
+                        <p class="mt-4 text-neutral-medium">
+                            Creemos que una gran presencia en redes sociales no debería ser un lujo inalcanzable. Combinamos diseño, estrategia y una profunda comprensión de tu marca para crear contenido que conecta y convierte. Detrás de Forma Digital hay personas reales apasionadas por ver crecer tu negocio.
+                        </p>
+                        <a href="#contacto" class="mt-8 inline-block bg-brand-primary text-white font-bold px-8 py-3 rounded-lg hover:bg-brand-secondary transition-all">
+                            Conoce más
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="bg-brand-primary py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">¿Listo para Empezar?</h2>
+                    <p class="mt-4 text-lg text-brand-light max-w-2xl mx-auto">Completa el formulario y nos pondremos en contacto contigo para transformar tu presencia digital.</p>
+                </div>
+                <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-neutral-dark">Nombre</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-primary focus:border-brand-primary" placeholder="Tu Nombre Completo">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-neutral-dark">Email</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-primary focus:border-brand-primary" placeholder="tu@email.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-neutral-dark">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-primary focus:border-brand-primary" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-brand-primary hover:bg-brand-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-secondary">
+                                Enviar Mensaje
+                            </button>
+                        </div>
+                    </form>
+                    <div class="mt-8 text-center">
+                        <p class="text-neutral-medium">O escríbenos directamente a:</p>
+                        <a href="mailto:hola@formadigital.com" class="font-semibold text-brand-primary hover:text-brand-secondary">hola@formadigital.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer Section -->
+    <footer class="bg-neutral-dark text-neutral-light">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-2xl font-bold text-white">
+                        Forma<span class="text-brand-primary">Digital</span>
+                    </a>
+                    <p class="text-sm text-gray-400 mt-1">&copy; <span id="current-year"></span> Forma Digital. Todos los derechos reservados.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                           <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // --- Sticky Header ---
+        const header = document.getElementById('page-header');
+        const headerInitialBg = header.classList.contains('bg-transparent');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('bg-white/80', 'shadow-md', 'backdrop-blur-sm');
+                if (headerInitialBg) {
+                    header.classList.remove('bg-transparent');
+                }
+            } else {
+                header.classList.remove('bg-white/80', 'shadow-md', 'backdrop-blur-sm');
+                 if (headerInitialBg) {
+                    header.classList.add('bg-transparent');
+                }
+            }
+        });
+
+        // --- Mobile Menu ---
+        const menuButton = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        const toggleMenu = () => {
+            const isOpening = mobileMenu.classList.contains('translate-x-full');
+            mobileMenu.classList.toggle('translate-x-full');
+            mobileMenu.classList.toggle('translate-x-0');
+            document.body.style.overflow = isOpening ? 'hidden' : 'auto';
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+            header.classList.toggle('bg-white/80', isOpening);
+            header.classList.toggle('shadow-md', isOpening);
+            header.classList.toggle('backdrop-blur-sm', isOpening);
+
+        };
+
+        menuButton.addEventListener('click', toggleMenu);
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('translate-x-full')) {
+                    toggleMenu();
+                }
+            });
+        });
+        
+        // --- Portfolio Filtering ---
+        const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+
+                // Update button styles
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('bg-brand-primary', 'text-white', 'shadow-md');
+                    btn.classList.add('bg-gray-100', 'text-neutral-medium', 'hover:bg-brand-light');
+                });
+                button.classList.add('bg-brand-primary', 'text-white', 'shadow-md');
+                button.classList.remove('bg-gray-100', 'text-neutral-medium', 'hover:bg-brand-light');
+
+                // Filter items - using a small delay for a fade effect
+                portfolioItems.forEach(item => {
+                    item.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.95)';
+                    
+                    setTimeout(() => {
+                        if (filter === 'Todos' || item.dataset.category === filter) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 50);
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }, 300);
+                });
+            });
+        });
+
+        // --- Dynamic Year ---
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // --- Form submission prevent default ---
+        const contactForm = document.querySelector('#contacto form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would normally handle the form submission,
+            // e.g., send data to a server. For this static page,
+            // we'll just show an alert.
+            alert('Gracias por tu mensaje. Nos pondremos en contacto pronto.');
+            this.reset();
+        });
+
+    });
+    </script>
 </body>
 </html>
