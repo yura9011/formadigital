@@ -197,7 +197,11 @@
                     <!-- Package 1 -->
                     <div class="relative border rounded-xl p-8 flex flex-col border-gray-200 bg-neutral-light/50">
                         <h3 class="text-2xl font-bold text-neutral-dark">Paquete Esencial</h3>
-                        <p class="text-neutral-medium mt-2 mb-6">Para empezar con una presencia sólida y profesional.</p>
+                        <div class="my-4">
+                            <span class="text-4xl font-extrabold text-neutral-dark">$250</span>
+                            <span class="text-lg text-neutral-medium">/mes</span>
+                        </div>
+                        <p class="text-neutral-medium mb-6">Para empezar con una presencia sólida y profesional.</p>
                         <ul class="space-y-4 mb-8 flex-grow">
                             <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>12 publicaciones para feed</span></li>
                             <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>20 stories mensuales</span></li>
@@ -211,7 +215,11 @@
                     <div class="relative border rounded-xl p-8 flex flex-col border-brand-primary ring-2 ring-brand-primary bg-white">
                         <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Más Popular</div>
                         <h3 class="text-2xl font-bold text-neutral-dark">Paquete Crecimiento</h3>
-                        <p class="text-neutral-medium mt-2 mb-6">Ideal para negocios que buscan expandir su alcance e interacción.</p>
+                        <div class="my-4">
+                            <span class="text-4xl font-extrabold text-neutral-dark">$450</span>
+                            <span class="text-lg text-neutral-medium">/mes</span>
+                        </div>
+                        <p class="text-neutral-medium mb-6">Ideal para negocios que buscan expandir su alcance e interacción.</p>
                         <ul class="space-y-4 mb-8 flex-grow">
                             <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>20 publicaciones para feed</span></li>
                             <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>40 stories mensuales + 4 Reels</span></li>
@@ -225,7 +233,10 @@
                     <!-- Package 3 -->
                     <div class="relative border rounded-xl p-8 flex flex-col border-gray-200 bg-neutral-light/50">
                         <h3 class="text-2xl font-bold text-neutral-dark">Paquete Personalizado</h3>
-                        <p class="text-neutral-medium mt-2 mb-6">Una solución a medida para necesidades específicas y objetivos ambiciosos.</p>
+                        <div class="my-4">
+                            <span class="text-4xl font-extrabold text-neutral-dark">A Medida</span>
+                        </div>
+                        <p class="text-neutral-medium mb-6">Una solución a medida para necesidades específicas y objetivos ambiciosos.</p>
                         <ul class="space-y-4 mb-8 flex-grow">
                             <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Contenido y volumen a definir</span></li>
                             <li class="flex items-start"><svg class="w-5 h-5 text-brand-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Gestión de campañas de anuncios</span></li>
@@ -335,21 +346,26 @@
                     <p class="mt-4 text-lg text-brand-light max-w-2xl mx-auto">Completa el formulario y nos pondremos en contacto contigo para transformar tu presencia digital.</p>
                 </div>
                 <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg">
-                    <form class="space-y-6">
+                    <div id="form-status" class="mb-6 text-center"></div>
+                    <!-- 
+                      ACTION URL: Replace 'xleylgjw' with your own Formspree form ID.
+                      Go to formspree.io to create one.
+                    -->
+                    <form id="contact-form" action="https://formspree.io/f/xleylgjw" method="POST" class="space-y-6">
                         <div>
                             <label for="name" class="block text-sm font-medium text-neutral-dark">Nombre</label>
-                            <input type="text" id="name" name="name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-primary focus:border-brand-primary" placeholder="Tu Nombre Completo">
+                            <input type="text" id="name" name="name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-primary focus:border-brand-primary" placeholder="Tu Nombre Completo" required>
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-medium text-neutral-dark">Email</label>
-                            <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-primary focus:border-brand-primary" placeholder="tu@email.com">
+                            <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-primary focus:border-brand-primary" placeholder="tu@email.com" required>
                         </div>
                         <div>
                             <label for="message" class="block text-sm font-medium text-neutral-dark">Mensaje</label>
-                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-primary focus:border-brand-primary" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-primary focus:border-brand-primary" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
                         </div>
                         <div>
-                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-brand-primary hover:bg-brand-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-secondary">
+                            <button type="submit" class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-brand-primary hover:bg-brand-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-secondary disabled:opacity-70 disabled:cursor-not-allowed">
                                 Enviar Mensaje
                             </button>
                         </div>
@@ -392,107 +408,6 @@
         </div>
     </footer>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-
-        // --- Sticky Header ---
-        const header = document.getElementById('page-header');
-        const headerInitialBg = header.classList.contains('bg-transparent');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) {
-                header.classList.add('bg-white/80', 'shadow-md', 'backdrop-blur-sm');
-                if (headerInitialBg) {
-                    header.classList.remove('bg-transparent');
-                }
-            } else {
-                header.classList.remove('bg-white/80', 'shadow-md', 'backdrop-blur-sm');
-                 if (headerInitialBg) {
-                    header.classList.add('bg-transparent');
-                }
-            }
-        });
-
-        // --- Mobile Menu ---
-        const menuButton = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const closeIcon = document.getElementById('close-icon');
-
-        const toggleMenu = () => {
-            const isOpening = mobileMenu.classList.contains('translate-x-full');
-            mobileMenu.classList.toggle('translate-x-full');
-            mobileMenu.classList.toggle('translate-x-0');
-            document.body.style.overflow = isOpening ? 'hidden' : 'auto';
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-            header.classList.toggle('bg-white/80', isOpening);
-            header.classList.toggle('shadow-md', isOpening);
-            header.classList.toggle('backdrop-blur-sm', isOpening);
-
-        };
-
-        menuButton.addEventListener('click', toggleMenu);
-
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (!mobileMenu.classList.contains('translate-x-full')) {
-                    toggleMenu();
-                }
-            });
-        });
-        
-        // --- Portfolio Filtering ---
-        const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.dataset.filter;
-
-                // Update button styles
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('bg-brand-primary', 'text-white', 'shadow-md');
-                    btn.classList.add('bg-gray-100', 'text-neutral-medium', 'hover:bg-brand-light');
-                });
-                button.classList.add('bg-brand-primary', 'text-white', 'shadow-md');
-                button.classList.remove('bg-gray-100', 'text-neutral-medium', 'hover:bg-brand-light');
-
-                // Filter items - using a small delay for a fade effect
-                portfolioItems.forEach(item => {
-                    item.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.95)';
-                    
-                    setTimeout(() => {
-                        if (filter === 'Todos' || item.dataset.category === filter) {
-                            item.style.display = 'block';
-                            setTimeout(() => {
-                                item.style.opacity = '1';
-                                item.style.transform = 'scale(1)';
-                            }, 50);
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    }, 300);
-                });
-            });
-        });
-
-        // --- Dynamic Year ---
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // --- Form submission prevent default ---
-        const contactForm = document.querySelector('#contacto form');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would normally handle the form submission,
-            // e.g., send data to a server. For this static page,
-            // we'll just show an alert.
-            alert('Gracias por tu mensaje. Nos pondremos en contacto pronto.');
-            this.reset();
-        });
-
-    });
-    </script>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
