@@ -1,0 +1,23 @@
+{
+  "name": "formadigital-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yura9011/formadigital.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yura9011/formadigital/issues"
+  },
+  "homepage": "https://github.com/yura9011/formadigital#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.1.16"
+  }
+}
