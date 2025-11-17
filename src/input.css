@@ -4,6 +4,30 @@
 
 @layer base {
   body {
-    @apply bg-neutral-light text-neutral-medium font-sans antialiased;
+    @apply bg-dark-bg text-medium-text font-sans antialiased;
+  }
+
+  section {
+    @apply opacity-0 transform translate-y-8 transition-all duration-700 ease-in-out;
+  }
+
+  section.is-visible {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-dark-card border border-gray-800 rounded-xl p-8 transition-all duration-300;
+  }
+  .card:hover {
+    @apply transform -translate-y-2 shadow-2xl shadow-neon-purple/20;
+  }
+
+  .btn {
+    @apply px-8 py-3 rounded-lg font-bold transition-all duration-300;
+  }
+  .btn:hover {
+    @apply transform -translate-y-1 shadow-lg;
   }
 }
