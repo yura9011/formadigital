@@ -1,3 +1,23 @@
+// Función para scroll suave a secciones
+function smoothScrollTo(target) {
+    if (target === '#inicio' || target === '#') {
+        // Si el target es #inicio o #, ir al principio de la página
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    } else {
+        // Si es un ID de sección, buscar la sección y scrollear a ella
+        const element = document.querySelector(target);
+        if (element) {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const components = [
         'hero', 'que-hacemos',
@@ -24,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const headerHTML = await fetchComponent('header', headerPlaceholder);
             if (headerHTML) headerPlaceholder.outerHTML = headerHTML;
         }
-        
+
         const mobileMenuPlaceholder = document.querySelector('mobile-menu-component');
         if (mobileMenuPlaceholder) {
             // Assuming mobile menu is part of header.html or its own file
@@ -45,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         await Promise.all(componentPromises);
-        
+
         // After all components are loaded, initialize animations and other scripts
         console.log("All components loaded. Initializing scripts...");
         setTimeout(() => {

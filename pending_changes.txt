@@ -11,3 +11,4 @@ Remaining tasks for index.html:
 - Ensure all sections use the new "Dark Mode Pro / Neon" style.
 - Eliminar completamente la sección de casos de éxito (completado).
 - Actualizar contenido real para políticas de privacidad, cookies y términos de servicio (completado).
+- Corregir navegación del menú para que funcione correctamente (completado).
