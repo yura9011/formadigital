@@ -637,24 +637,12 @@ section.is-visible {
   inset: 0px;
 }
 
-.bottom-4 {
-  bottom: 1rem;
-}
-
 .bottom-6 {
   bottom: 1.5rem;
 }
 
-.left-0 {
-  left: 0px;
-}
-
 .left-1\/2 {
   left: 50%;
-}
-
-.right-0 {
-  right: 0px;
 }
 
 .right-6 {
@@ -683,14 +671,6 @@ section.is-visible {
 
 .z-50 {
   z-index: 50;
-}
-
-.order-1 {
-  order: 1;
-}
-
-.order-2 {
-  order: 2;
 }
 
 .mx-auto {
@@ -803,10 +783,6 @@ section.is-visible {
   height: 4rem;
 }
 
-.h-2 {
-  height: 0.5rem;
-}
-
 .h-48 {
   height: 12rem;
 }
@@ -841,10 +817,6 @@ section.is-visible {
 
 .w-16 {
   width: 4rem;
-}
-
-.w-2 {
-  width: 0.5rem;
 }
 
 .w-48 {
@@ -983,12 +955,6 @@ section.is-visible {
   row-gap: 2.5rem;
 }
 
-.space-x-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
@@ -1017,12 +983,6 @@ section.is-visible {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
-}
-
-.space-y-3 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
 }
 
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
@@ -1136,11 +1096,6 @@ section.is-visible {
   background-color: rgb(26 25 54 / var(--tw-bg-opacity, 1));
 }
 
-.bg-gray-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(75 85 99 / var(--tw-bg-opacity, 1));
-}
-
 .bg-gray-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
@@ -1196,10 +1151,6 @@ section.is-visible {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.p-2 {
-  padding: 0.5rem;
 }
 
 .p-6 {
@@ -1663,22 +1614,6 @@ section.is-visible {
 }
 
 @media (min-width: 768px) {
-  .md\:-left-6 {
-    left: -1.5rem;
-  }
-
-  .md\:-right-6 {
-    right: -1.5rem;
-  }
-
-  .md\:order-1 {
-    order: 1;
-  }
-
-  .md\:order-2 {
-    order: 2;
-  }
-
   .md\:inline-block {
     display: inline-block;
   }
@@ -1693,10 +1628,6 @@ section.is-visible {
 
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .md\:p-12 {
-    padding: 3rem;
   }
 
   .md\:py-32 {

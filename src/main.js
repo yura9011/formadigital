@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const components = [
-        'hero', 'que-hacemos', 'casos', 
-        'cta-final', 'metodologia', 'planes', 
+        'hero', 'que-hacemos',
+        'cta-final', 'metodologia', 'planes',
         'beneficios', 'visuales', 'contact', 'footer'
     ];
 
@@ -53,65 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
             initializeHeaderBehavior();
             initializeMobileMenu();
             initializeServicesSection();
-            initializeCasosCarousel();
             initializeContactForm();
         }, 100); // A small delay to ensure the DOM is fully painted
-    };
-
-    const initializeCasosCarousel = () => {
-        const carousel = document.getElementById('casos-carousel');
-        if (!carousel) return;
-
-        const slidesContainer = carousel.querySelector('.flex');
-        const slides = carousel.querySelectorAll('.carousel-slide');
-        const prevButton = document.getElementById('casos-prev');
-        const nextButton = document.getElementById('casos-next');
-        const paginationContainer = document.getElementById('casos-pagination');
-
-        let currentIndex = 0;
-        const totalSlides = slides.length;
-
-        if (totalSlides <= 1) {
-            prevButton.style.display = 'none';
-            nextButton.style.display = 'none';
-            return;
-        }
-
-        // Create pagination dots
-        for (let i = 0; i < totalSlides; i++) {
-            const dot = document.createElement('button');
-            dot.classList.add('w-2', 'h-2', 'rounded-full', 'bg-gray-600', 'transition-colors');
-            dot.addEventListener('click', () => {
-                goToSlide(i);
-            });
-            paginationContainer.appendChild(dot);
-        }
-        const paginationDots = paginationContainer.querySelectorAll('button');
-
-        const updateCarousel = () => {
-            slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-            // Update pagination dots
-            paginationDots.forEach((dot, index) => {
-                dot.classList.toggle('bg-neon-purple', index === currentIndex);
-                dot.classList.toggle('bg-gray-600', index !== currentIndex);
-            });
-        };
-
-        const goToSlide = (index) => {
-            currentIndex = (index + totalSlides) % totalSlides;
-            updateCarousel();
-        };
-
-        prevButton.addEventListener('click', () => {
-            goToSlide(currentIndex - 1);
-        });
-
-        nextButton.addEventListener('click', () => {
-            goToSlide(currentIndex + 1);
-        });
-
-        // Initialize
-        updateCarousel();
     };
 
     const initializeContactForm = () => {
