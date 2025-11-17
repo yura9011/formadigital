@@ -66,3 +66,13 @@ local/
 # Production builds (if any)
 build/
 out/
+
+# Test files
+test_*.html
+test_*.css
+
+# Documentation and reference files
+Referencias/
+*.pdf
+implementation_plan.md
+pending_changes.txt
