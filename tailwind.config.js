@@ -8,20 +8,32 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'brand-primary': '#22c55e',   // Un verde vibrante
-        'brand-secondary': '#16a34a', // Un verde más oscuro para hovers
-        'brand-light': '#dcfce7',     // Un verde muy claro para fondos
-        'neutral-dark': '#111827',    // Gris oscuro para títulos (clase: text-neutral-dark)
-        'neutral-medium': '#6b7280',  // Gris medio para párrafos (clase: text-neutral-medium)
-        'neutral-light': '#f9fafb',   // Gris muy claro para el fondo del body (clase: bg-neutral-light)
+        // Primary brand colors - warm, vibrant palette
+        'brand-primary': '#ef4444',     // Vibrant red
+        'brand-secondary': '#dc2626',   // Darker red for hover states
+        'brand-light': '#fef2f2',       // Light red background
 
-        'dark-bg': '#f9fafb',       // Was #0d0c22
-        'dark-card': '#ffffff',      // Was #1a1936
-        'light-text': '#111827',     // Was #f0f0f0
-        'medium-text': '#6b7280',   // Was #a0a0a0
-        'neon-green': '#39FF14',
-        'neon-cyan': '#22d3ee',
-        'neon-magenta': '#d946ef',
+        // Warm, modern color palette
+        'accent-primary': '#f97316',    // Vibrant orange
+        'accent-secondary': '#ea580c',  // Darker orange for hover states
+        'accent-light': '#fff7ed',      // Light orange background
+
+        'warm-bg': '#fef7f0',           // Warm light background
+        'warm-card': '#ffffff',         // White cards
+        'warm-text': '#1f2937',         // Dark text
+        'medium-text': '#4b5563',       // Medium text
+        'light-text': '#6b7280',        // Light text
+
+        // Alternative brand colors
+        'brand-purple': '#8b5cf6',      // Vibrant purple
+        'brand-pink': '#ec4899',        // Vibrant pink
+        'brand-blue': '#3b82f6',        // Vibrant blue
+        'brand-teal': '#14b8a6',        // Vibrant teal
+
+        // Gradients and highlights
+        'gradient-start': '#f97316',
+        'gradient-mid': '#ef4444',
+        'gradient-end': '#ec4899',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'], // Establece "Inter" como la fuente por defecto

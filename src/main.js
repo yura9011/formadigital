@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             initializeMobileMenu();
             initializeServicesSection();
             initializeContactForm();
+            initializeEnhancedAnimations();
         }, 100); // A small delay to ensure the DOM is fully painted
     };
 
@@ -208,6 +209,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (entry.isIntersecting) {
                     console.log(entry.target.id, 'is now visible.');
                     entry.target.classList.add('is-visible');
+                    // Add additional animation effects
+                    entry.target.classList.add('animate-fade-in-up');
                     observer.unobserve(entry.target);
                 }
             });
@@ -223,9 +226,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (header) {
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
-                    header.classList.add('bg-dark-card', 'shadow-lg');
+                    header.classList.add('bg-warm-card', 'shadow-lg', 'backdrop-blur-sm');
                 } else {
-                    header.classList.remove('bg-dark-card', 'shadow-lg');
+                    header.classList.remove('bg-warm-card', 'shadow-lg', 'backdrop-blur-sm');
                 }
             });
         }
@@ -253,6 +256,50 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         }
+    };
+
+    // Enhanced animations and effects
+    const initializeEnhancedAnimations = () => {
+        // Add floating animation to hero elements
+        const heroElements = document.querySelectorAll('.floating-element');
+        heroElements.forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.2}s`;
+        });
+
+        // Add enhanced hover effects to cards
+        const cards = document.querySelectorAll('.card-hover');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('transform', 'hover:-translate-y-1');
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('transform', 'hover:-translate-y-1');
+            });
+        });
+
+        // Add parallax effect to hero section
+        const hero = document.getElementById('inicio');
+        if (hero) {
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.scrollY;
+                hero.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+            });
+        }
+
+        // Enhanced service item interactions
+        const serviceItems = document.querySelectorAll('.service-item-enhanced');
+        serviceItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.classList.add('border-l-4', 'border-gradient-start');
+                item.classList.add('transform', 'translate-x-1');
+            });
+
+            item.addEventListener('mouseleave', () => {
+                item.classList.remove('border-l-4', 'border-gradient-start');
+                item.classList.remove('transform', 'translate-x-1');
+            });
+        });
     };
 
     loadComponents();

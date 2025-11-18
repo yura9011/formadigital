@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-dark-bg text-medium-text font-sans antialiased;
+    @apply bg-warm-bg text-medium-text font-sans antialiased;
   }
 
   section {
@@ -22,16 +22,24 @@
 
 @layer components {
   .card {
-    @apply bg-dark-card border border-gray-800 rounded-xl p-8 transition-all duration-300;
+    @apply bg-warm-card border border-gray-200 rounded-2xl p-8 transition-all duration-300;
   }
   .card:hover {
-    @apply transform -translate-y-2 shadow-2xl shadow-neon-purple/20;
+    @apply transform -translate-y-2 shadow-2xl shadow-gradient-start/20;
   }
 
   .btn {
-    @apply px-8 py-3 rounded-lg font-bold transition-all duration-300;
+    @apply px-8 py-3 rounded-xl font-bold transition-all duration-300;
   }
   .btn:hover {
     @apply transform -translate-y-1 shadow-lg;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-gradient-start to-gradient-end text-white;
+  }
+
+  .btn-primary:hover {
+    @apply from-gradient-mid to-gradient-end;
   }
 }
