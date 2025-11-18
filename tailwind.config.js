@@ -8,9 +8,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'brand-primary': '#4f46e5',   // Un violeta vibrante (clase: bg-brand-primary)
-        'brand-secondary': '#4338ca', // Un violeta más oscuro para hovers (clase: hover:bg-brand-secondary)
-        'brand-light': '#e0e7ff',     // Un violeta muy claro para fondos (clase: bg-brand-light)
+        'brand-primary': '#22c55e',   // Un verde vibrante
+        'brand-secondary': '#16a34a', // Un verde más oscuro para hovers
+        'brand-light': '#dcfce7',     // Un verde muy claro para fondos
         'neutral-dark': '#111827',    // Gris oscuro para títulos (clase: text-neutral-dark)
         'neutral-medium': '#6b7280',  // Gris medio para párrafos (clase: text-neutral-medium)
         'neutral-light': '#f9fafb',   // Gris muy claro para el fondo del body (clase: bg-neutral-light)
@@ -19,7 +19,7 @@ module.exports = {
         'dark-card': '#1a1936',
         'light-text': '#f0f0f0',
         'medium-text': '#a0a0a0',
-        'neon-purple': '#a855f7',
+        'neon-green': '#39FF14',
         'neon-cyan': '#22d3ee',
         'neon-magenta': '#d946ef',
       },
