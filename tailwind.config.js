@@ -15,10 +15,10 @@ module.exports = {
         'neutral-medium': '#6b7280',  // Gris medio para párrafos (clase: text-neutral-medium)
         'neutral-light': '#f9fafb',   // Gris muy claro para el fondo del body (clase: bg-neutral-light)
 
-        'dark-bg': '#0d0c22',
-        'dark-card': '#1a1936',
-        'light-text': '#f0f0f0',
-        'medium-text': '#a0a0a0',
+        'dark-bg': '#f9fafb',       // Was #0d0c22
+        'dark-card': '#ffffff',      // Was #1a1936
+        'light-text': '#111827',     // Was #f0f0f0
+        'medium-text': '#6b7280',   // Was #a0a0a0
         'neon-green': '#39FF14',
         'neon-cyan': '#22d3ee',
         'neon-magenta': '#d946ef',

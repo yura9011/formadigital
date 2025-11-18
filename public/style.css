@@ -560,10 +560,10 @@ html {
 
 body {
   --tw-bg-opacity: 1;
-  background-color: rgb(13 12 34 / var(--tw-bg-opacity, 1));
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
   font-family: Inter, sans-serif;
   --tw-text-opacity: 1;
-  color: rgb(160 160 160 / var(--tw-text-opacity, 1));
+  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -1048,18 +1048,18 @@ section.is-visible {
   border-color: rgb(34 197 94 / var(--tw-border-opacity, 1));
 }
 
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
+}
+
+.border-gray-200\/50 {
+  border-color: rgb(229 231 235 / 0.5);
+}
+
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
-}
-
-.border-gray-700 {
-  --tw-border-opacity: 1;
-  border-color: rgb(55 65 81 / var(--tw-border-opacity, 1));
-}
-
-.border-gray-700\/50 {
-  border-color: rgb(55 65 81 / 0.5);
 }
 
 .border-gray-800 {
@@ -1088,16 +1088,12 @@ section.is-visible {
 
 .bg-dark-bg {
   --tw-bg-opacity: 1;
-  background-color: rgb(13 12 34 / var(--tw-bg-opacity, 1));
-}
-
-.bg-dark-bg\/50 {
-  background-color: rgb(13 12 34 / 0.5);
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
 }
 
 .bg-dark-card {
   --tw-bg-opacity: 1;
-  background-color: rgb(26 25 54 / var(--tw-bg-opacity, 1));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
 .bg-gray-800 {
@@ -1129,6 +1125,10 @@ section.is-visible {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.bg-white\/50 {
+  background-color: rgb(255 255 255 / 0.5);
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1150,7 +1150,11 @@ section.is-visible {
 }
 
 .to-dark-bg {
-  --tw-gradient-to: #0d0c22 var(--tw-gradient-to-position);
+  --tw-gradient-to: #f9fafb var(--tw-gradient-to-position);
+}
+
+.to-neutral-light {
+  --tw-gradient-to: #f9fafb var(--tw-gradient-to-position);
 }
 
 .object-cover {
@@ -1312,7 +1316,7 @@ section.is-visible {
 
 .text-dark-bg {
   --tw-text-opacity: 1;
-  color: rgb(13 12 34 / var(--tw-text-opacity, 1));
+  color: rgb(249 250 251 / var(--tw-text-opacity, 1));
 }
 
 .text-green-500 {
@@ -1322,12 +1326,12 @@ section.is-visible {
 
 .text-light-text {
   --tw-text-opacity: 1;
-  color: rgb(240 240 240 / var(--tw-text-opacity, 1));
+  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 
 .text-medium-text {
   --tw-text-opacity: 1;
-  color: rgb(160 160 160 / var(--tw-text-opacity, 1));
+  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
 }
 
 .text-neon-cyan {
@@ -1476,8 +1480,8 @@ section.is-visible {
   border-color: rgb(34 197 94 / var(--tw-border-opacity, 1));
 }
 
-.hover\:border-neon-cyan\/50:hover {
-  border-color: rgb(34 211 238 / 0.5);
+.hover\:border-brand-primary\/50:hover {
+  border-color: rgb(34 197 94 / 0.5);
 }
 
 .hover\:bg-brand-light:hover {
@@ -1495,8 +1499,8 @@ section.is-visible {
   background-color: rgb(22 163 74 / var(--tw-bg-opacity, 1));
 }
 
-.hover\:bg-gray-800\/60:hover {
-  background-color: rgb(31 41 55 / 0.6);
+.hover\:bg-gray-50\/60:hover {
+  background-color: rgb(249 250 251 / 0.6);
 }
 
 .hover\:bg-green-600:hover {
