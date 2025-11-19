@@ -1,41 +1,83 @@
-<header id="page-header" class="top-0 z-50 transition-all duration-300 bg-transparent">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#" class="text-2xl font-bold text-warm-text z-50" onclick="smoothScrollTo('#inicio')">
+<header id="page-header"
+    class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-gray-100">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center relative">
+        <a href="#" class="text-2xl font-bold text-neutral-dark z-50 font-display tracking-tight"
+            onclick="smoothScrollTo('#inicio')">
             Forma<span class="text-brand-primary">Digital</span>
         </a>
-        <nav class="hidden md:flex space-x-8">
-            <a href="#" class="text-medium-text font-medium hover:text-brand-primary transition-colors" onclick="smoothScrollTo('#inicio')">Inicio</a>
-            <a href="#metodologia" class="text-medium-text font-medium hover:text-brand-primary transition-colors">Metodología</a>
-            <a href="#panel-cliente" class="text-medium-text font-medium hover:text-brand-primary transition-colors">Panel Cliente</a>
-            <a href="#planes" class="text-medium-text font-medium hover:text-brand-primary transition-colors">Planes</a>
-            <a href="#contacto" class="text-medium-text font-medium hover:text-brand-primary transition-colors">Contacto</a>
+
+        <nav class="hidden md:flex space-x-8 items-center">
+            <a href="#" class="text-neutral-medium font-medium hover:text-brand-primary transition-colors text-sm"
+                onclick="smoothScrollTo('#inicio')">Inicio</a>
+            <a href="#metodologia"
+                class="text-neutral-medium font-medium hover:text-brand-primary transition-colors text-sm">Cómo
+                Funciona</a>
+            <a href="#que-hacemos"
+                class="text-neutral-medium font-medium hover:text-brand-primary transition-colors text-sm">Servicios</a>
+            <a href="#visuales"
+                class="text-neutral-medium font-medium hover:text-brand-primary transition-colors text-sm">Portfolio</a>
+            <a href="#planes"
+                class="text-neutral-medium font-medium hover:text-brand-primary transition-colors text-sm">Precios</a>
         </nav>
-        <a href="#contacto" class="hidden md:inline-block bg-brand-primary text-white font-semibold px-5 py-2 rounded-lg hover:bg-brand-secondary transition-all">
-            Empezar
-        </a>
-        <button id="menu-toggle" class="md:hidden text-warm-text z-50" aria-label="Toggle menu">
-            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="#contacto"
+                class="bg-brand-primary text-white font-semibold px-6 py-2.5 rounded-full hover:bg-brand-secondary transition-all shadow-lg shadow-brand-primary/20 text-sm">
+                Empezar Ahora
+            </a>
+        </div>
+
+        <button id="menu-toggle" class="md:hidden text-neutral-dark z-50 focus:outline-none" aria-label="Toggle menu">
+            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
-            <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
         </button>
     </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden pt-24 px-6">
+        <nav class="flex flex-col space-y-6 text-center">
+            <a href="#" class="text-xl font-medium text-neutral-dark hover:text-brand-primary"
+                onclick="smoothScrollTo('#inicio')">Inicio</a>
+            <a href="#metodologia" class="text-xl font-medium text-neutral-dark hover:text-brand-primary">Cómo
+                Funciona</a>
+            <a href="#que-hacemos" class="text-xl font-medium text-neutral-dark hover:text-brand-primary">Servicios</a>
+            <a href="#visuales" class="text-xl font-medium text-neutral-dark hover:text-brand-primary">Portfolio</a>
+            <a href="#planes" class="text-xl font-medium text-neutral-dark hover:text-brand-primary">Precios</a>
+            <a href="#contacto"
+                class="bg-brand-primary text-white font-semibold px-6 py-3 rounded-full hover:bg-brand-secondary transition-all shadow-lg shadow-brand-primary/20 inline-block mx-auto mt-4">
+                Empezar Ahora
+            </a>
+        </nav>
+    </div>
 </header>
 
 <!-- Mobile Menu Overlay -->
-<div id="mobile-menu" class="fixed inset-0 z-40 bg-warm-bg md:hidden transform transition-transform duration-300 ease-in-out translate-x-full">
-    <div class="flex flex-col items-center justify-center h-full pt-20">
-        <nav class="flex flex-col space-y-8 text-center">
-            <a href="#" class="text-2xl text-warm-text font-semibold hover:text-brand-primary transition-colors" onclick="smoothScrollTo('#inicio')">Inicio</a>
-            <a href="#metodologia" class="text-2xl text-warm-text font-semibold hover:text-brand-primary transition-colors">Metodología</a>
-            <a href="#panel-cliente" class="text-2xl text-warm-text font-semibold hover:text-brand-primary transition-colors">Panel Cliente</a>
-            <a href="#planes" class="text-2xl text-warm-text font-semibold hover:text-brand-primary transition-colors">Planes</a>
-            <a href="#contacto" class="text-2xl text-warm-text font-semibold hover:text-brand-primary transition-colors">Contacto</a>
+<div id="mobile-menu"
+    class="fixed inset-0 z-40 bg-white md:hidden transform transition-transform duration-300 ease-in-out translate-x-full">
+    <div class="flex flex-col items-center justify-center h-full space-y-8">
+        <nav class="flex flex-col space-y-6 text-center">
+            <a href="#" class="text-2xl text-neutral-dark font-semibold hover:text-brand-primary transition-colors"
+                onclick="smoothScrollTo('#inicio')">Inicio</a>
+            <a href="#metodologia"
+                class="text-2xl text-neutral-dark font-semibold hover:text-brand-primary transition-colors">Cómo
+                Funciona</a>
+            <a href="#que-hacemos"
+                class="text-2xl text-neutral-dark font-semibold hover:text-brand-primary transition-colors">Servicios</a>
+            <a href="#visuales"
+                class="text-2xl text-neutral-dark font-semibold hover:text-brand-primary transition-colors">Portfolio</a>
+            <a href="#planes"
+                class="text-2xl text-neutral-dark font-semibold hover:text-brand-primary transition-colors">Precios</a>
         </nav>
-        <a href="#contacto" class="mt-12 bg-brand-primary text-white font-semibold px-8 py-4 rounded-lg hover:bg-brand-secondary transition-all">
-            Empezar
+        <a href="#contacto"
+            class="bg-brand-primary text-white font-semibold px-8 py-4 rounded-full hover:bg-brand-secondary transition-all shadow-xl text-lg">
+            Empezar Ahora
         </a>
     </div>
 </div>

@@ -8,36 +8,36 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Primary brand colors - warm, vibrant palette
-        'brand-primary': '#ef4444',     // Vibrant red
-        'brand-secondary': '#dc2626',   // Darker red for hover states
-        'brand-light': '#fef2f2',       // Light red background
-
-        // Warm, modern color palette
-        'accent-primary': '#f97316',    // Vibrant orange
-        'accent-secondary': '#ea580c',  // Darker orange for hover states
-        'accent-light': '#fff7ed',      // Light orange background
-
-        'warm-bg': '#fef7f0',           // Warm light background
-        'warm-card': '#ffffff',         // White cards
-        'warm-text': '#1f2937',         // Dark text
-        'medium-text': '#4b5563',       // Medium text
-        'light-text': '#6b7280',        // Light text
-
-        // Alternative brand colors
-        'brand-purple': '#8b5cf6',      // Vibrant purple
-        'brand-pink': '#ec4899',        // Vibrant pink
-        'brand-blue': '#3b82f6',        // Vibrant blue
-        'brand-teal': '#14b8a6',        // Vibrant teal
-
-        // Gradients and highlights
-        'gradient-start': '#f97316',
-        'gradient-mid': '#ef4444',
-        'gradient-end': '#ec4899',
+        // Primary brand colors - Professional
+        'brand-primary': '#3B82F6', // Blue 500
+        'brand-secondary': '#0EA5E9', // Sky 500
+        'brand-light': '#EFF6FF', // Blue 50
+        'neutral-dark': '#0F172A', // Slate 900
+        'neutral-medium': '#334155', // Slate 700
+        'neutral-light': '#64748B', // Slate 500
+        'neutral-bg': '#F8FAFC', // Slate 50
+        'success': '#10B981', // Emerald 500
+        'warning': '#F59E0B', // Amber 500
+        'error': '#EF4444', // Red 500
+        'gradient-start': '#3B82F6',
+        'gradient-mid': '#0EA5E9',
+        'gradient-end': '#6366F1', // Indigo 500
+        'warm-bg': '#F1F5F9', // Slate 100
+        'warm-text': '#1E293B', // Slate 800
+        'medium-text': '#475569', // Slate 600
+        'light-text': '#94A3B8', // Slate 400
+        'dark-bg': '#020617', // Slate 950
+        'warm-card': '#FFFFFF',
+        'brand-pink': '#8B5CF6', // Violet 500 (Accent)
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'], // Establece "Inter" como la fuente por defecto
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'], // For Headings if needed
       },
+      boxShadow: {
+        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+        'card': '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025)',
+      }
     },
   },
   plugins: [],

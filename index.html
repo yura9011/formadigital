@@ -1,78 +1,110 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forma Digital | Contenido para Redes Sociales</title>
-    <meta name="description" content="Gestión de redes sociales para pequeños negocios en Argentina. Recibe 20+ publicaciones mensuales listas para Instagram y Facebook. Sin contratos largos. Desde $450/mes.">
 
-    <meta name="keywords" content="gestión redes sociales argentina, contenido instagram, community manager, calendario editorial, diseño para redes sociales, marketing digital pymes">
+    <!-- SEO Principal -->
+    <title>Forma Digital | Gestión de Redes Sociales para PyMEs</title>
+    <meta name="description"
+        content="Aumenta tu presencia en redes sin dedicarle tiempo. Creamos contenido profesional para Instagram y Facebook. Planes desde $450/mes.">
+    <meta name="keywords"
+        content="gestión redes sociales, community manager argentina, contenido instagram, diseño redes sociales, marketing digital pymes">
+    <meta name="author" content="Forma Digital">
+    <meta name="robots" content="index, follow">
 
-    <!-- Open Graph para compartir en redes -->
-    <meta property="og:title" content="Forma Digital | Gestión de Redes Sociales para PyMEs">
-    <meta property="og:description" content="Contenido profesional para Instagram y Facebook sin dedicarle ni 1 hora. Desde $450/mes.">
-    <meta property="og:image" content="https://tudominio.com/images/og-image.jpg">
-    <meta property="og:url" content="https://tudominio.com">
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://formadigital.com/">
+    <meta property="og:title" content="Forma Digital | Tu Equipo de Contenido On-Demand">
+    <meta property="og:description"
+        content="Delegá tus redes sociales. Nosotros diseñamos, escribimos y publicamos por vos.">
+    <meta property="og:image" content="https://formadigital.com/images/og-image.jpg">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Forma Digital | Gestión de Redes Sociales">
-    <meta name="twitter:description" content="Contenido profesional para Instagram y Facebook. Desde $450/mes.">
-    <meta name="twitter:image" content="https://tudominio.com/images/twitter-card.jpg">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://formadigital.com/">
+    <meta property="twitter:title" content="Forma Digital | Gestión de Redes Sociales">
+    <meta property="twitter:description"
+        content="Delegá tus redes sociales. Nosotros diseñamos, escribimos y publicamos por vos.">
+    <meta property="twitter:image" content="https://formadigital.com/images/twitter-card.jpg">
+
+    <!-- Favicon & Fonts -->
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link href="./public/style.css" rel="stylesheet">
-    <link href="./public/enhanced-style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self'; connect-src *; form-action https://formspree.io;">
-</head>
-<body class="bg-warm-bg text-medium-text font-sans antialiased">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
 
-    <!-- Header Section -->
+    <!-- Styles -->
+    <link href="./public/style.css" rel="stylesheet">
+    <link href="./public/enhanced-style.css" rel="stylesheet">
+</head>
+
+<body class="bg-neutral-bg text-neutral-medium font-sans antialiased selection:bg-brand-primary selection:text-white">
+
+    <!-- Header / Navegación -->
     <header-component></header-component>
-    
-    <!-- Mobile Menu Overlay -->
-    <mobile-menu-component></mobile-menu-component>
-    
+
     <main>
-        <!-- Hero Section (Inicio) -->
+        <!-- 1. Hero Section: Propuesta de Valor Principal -->
         <hero-section></hero-section>
 
-        <!-- Nueva seccion "Que Hacemos" -->
-        <que-hacemos-section></que-hacemos-section>
-
-
-
-        <!-- CTA Final Section -->
-        <cta-final-section></cta-final-section>
-
-        <!-- Metodologia Section -->
+        <!-- 2. Metodología / Proceso (Reemplaza Social Proof por ahora) -->
+        <!-- "Cómo trabajamos" - Transparencia y Calidad -->
         <metodologia-section></metodologia-section>
 
+        <!-- 3. Problema/Solución -->
+        <que-hacemos-section></que-hacemos-section>
 
-        <!-- Sistema Forma Digital Section -->
-        <planes-section></planes-section>
-
-        <!-- Beneficios Section -->
-        <beneficios-section></beneficios-section>
-
-        <!-- Visuales Section -->
+        <!-- 4. Galería de Estilos (Nuevo - Visual Proof) -->
         <visuales-section></visuales-section>
 
-        <!-- Contact Section -->
-        <contact-section></contact-section>
+        <!-- 5. Beneficios Diferenciales -->
+        <beneficios-section></beneficios-section>
 
-        <!-- Footer Section -->
-        <footer-section></footer-section>
+        <!-- 6. Planes y Precios -->
+        <planes-section></planes-section>
+
+        <!-- 7. Garantía (Nueva Sección - Implementar componente) -->
+        <div id="garantia" class="bg-brand-light py-16 border-t border-brand-primary/10">
+            <div class="container mx-auto px-6 text-center">
+                <div class="text-4xl mb-4">🛡️</div>
+                <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4 font-display">
+                    Garantía de Satisfacción
+                </h2>
+                <p class="text-lg text-neutral-medium max-w-2xl mx-auto">
+                    Si el primer mes no cumple con tus expectativas, revisamos la estrategia sin costo adicional o
+                    cancelas sin penalidad. Queremos ser tus socios a largo plazo.
+                </p>
+            </div>
+        </div>
+
+        <!-- 8. Contacto / CTA Final -->
+        <contact-section></contact-section>
     </main>
-    <script src="./src/main.js"></script>
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/1171458944?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20sus%20paquetes" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 bg-gradient-to-r from-gradient-start to-gradient-end text-white w-16 h-16 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-110 z-50 pulse-cta">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.89.001 2.235.652 4.395 1.849 6.267l.244.399-1.125 4.125 4.224-1.113.397.232z"/>
-        </svg>
+
+    <!-- Footer -->
+    <footer-section></footer-section>
+
+    <!-- Scripts -->
+    <script src="./src/main.js" type="module"></script>
+
+    <!-- WhatsApp Button (Flotante) -->
+    <a href="https://wa.me/1171458944?text=Hola!%20Quiero%20mejorar%20mis%20redes%20sociales" target="_blank"
+        rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 group" aria-label="Contactar por WhatsApp">
+        <div class="absolute inset-0 bg-success rounded-full animate-ping opacity-20 group-hover:opacity-40"></div>
+        <div
+            class="relative bg-success text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:bg-green-600 transition-all duration-300 transform hover:-translate-y-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.89.001 2.235.652 4.395 1.849 6.267l.244.399-1.125 4.125 4.224-1.113.397.232z" />
+            </svg>
+        </div>
     </a>
+
 </body>
+
 </html>

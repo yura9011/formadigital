@@ -21,7 +21,7 @@ function smoothScrollTo(target) {
 document.addEventListener('DOMContentLoaded', () => {
     const components = [
         'hero', 'que-hacemos',
-        'cta-final', 'metodologia', 'planes',
+        'metodologia', 'planes',
         'beneficios', 'visuales', 'contact', 'footer'
     ];
 
