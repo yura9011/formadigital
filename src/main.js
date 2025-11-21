@@ -1,3 +1,39 @@
+
+const initializePricingToggle = () => {
+    const toggle = document.getElementById('plan-toggle');
+    if (!toggle) return;
+
+    const planCards = document.querySelectorAll('.plan-card');
+
+    toggle.addEventListener('change', () => {
+        planCards.forEach(card => {
+            const monthlyPriceEl = card.querySelector('.price-monthly');
+            const monthlySuffixEl = card.querySelector('.price-monthly-suffix');
+            const yearlyPriceEl = card.querySelector('.price-yearly');
+            const yearlySuffixEl = card.querySelector('.price-yearly-suffix');
+
+            if (toggle.checked) {
+                // Annual selected
+                monthlyPriceEl.classList.add('line-through', 'text-gray-400', 'text-2xl');
+                monthlyPriceEl.classList.remove('text-4xl', 'text-neutral-dark');
+                monthlySuffixEl.classList.add('line-through', 'text-gray-400');
+
+
+                yearlyPriceEl.classList.remove('hidden');
+                yearlySuffixEl.classList.remove('hidden');
+
+            } else {
+                // Monthly selected
+                monthlyPriceEl.classList.remove('line-through', 'text-gray-400', 'text-2xl');
+                monthlyPriceEl.classList.add('text-4xl', 'text-neutral-dark');
+                monthlySuffixEl.classList.remove('line-through', 'text-gray-400');
+
+                yearlyPriceEl.classList.add('hidden');
+                yearlySuffixEl.classList.add('hidden');
+            }
+        });
+    });
+}
 // Función para scroll suave a secciones
 function smoothScrollTo(target) {
     if (target === '#inicio' || target === '#') {
@@ -74,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
             initializeMobileMenu();
             initializeServicesSection();
             initializeContactForm();
+            initializePricingToggle();
             initializeEnhancedAnimations();
         }, 100); // A small delay to ensure the DOM is fully painted
     };

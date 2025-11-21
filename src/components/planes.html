@@ -9,13 +9,30 @@
             </p>
         </div>
 
+        <div class="flex justify-center items-center space-x-4 mb-12">
+            <span class="text-lg font-medium text-neutral-medium">Mensual</span>
+            <label for="plan-toggle" class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="plan-toggle" class="sr-only peer">
+                <div class="w-14 h-8 bg-gray-200 rounded-full peer peer-checked:bg-brand-primary transition-colors">
+                </div>
+                <span
+                    class="absolute left-1 top-1 w-6 h-6 bg-white rounded-full transition-transform peer-checked:translate-x-6"></span>
+            </label>
+            <span class="text-lg font-medium text-neutral-medium">Anual</span>
+            <span
+                class="bg-green-200 text-green-800 text-xs font-semibold ml-2 px-2.5 py-0.5 rounded-full">AHORRA
+                20%</span>
+        </div>
+
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto items-start">
 
             <!-- Plan 0: Prueba Gratuita -->
             <div
                 class="bg-white p-8 rounded-2xl border border-dashed border-brand-primary shadow-card hover:shadow-xl transition-all duration-300">
                 <h3 class="text-xl font-bold text-neutral-dark mb-2">Plan de Prueba</h3>
-                <p class="text-sm text-neutral-medium mb-6">Para que pruebes nuestro servicio. Un solo uso por cliente.</p>
+                <p class="text-sm text-neutral-medium mb-6">Para que pruebes nuestro servicio. Un solo uso por cliente.
+                </p>
                 <div class="mb-6">
                     <span class="text-4xl font-bold text-neutral-dark">Gratis</span>
                 </div>
@@ -49,22 +66,22 @@
             </div>
 
             <!-- Plan 1: Start -->
-            <div
-                class="bg-white p-8 rounded-2xl border border-gray-100 shadow-card hover:shadow-xl transition-all duration-300">
+            <div class="plan-card bg-white p-8 rounded-2xl border border-gray-100 shadow-card hover:shadow-xl transition-all duration-300"
+                data-monthly-price="250" data-yearly-price="2200">
                 <h3 class="text-xl font-bold text-neutral-dark mb-2">Plan Inicial</h3>
                 <p class="text-sm text-neutral-medium mb-6">Para mantener tu presencia activa.</p>
                 <div class="mb-6">
-                    <span class="text-4xl font-bold text-neutral-dark">$250</span>
-                    <span class="text-neutral-medium">/mes</span>
-                    <p class="text-sm text-green-600 mt-2 font-semibold">
-                        Paga Anual y Ahorra: <span class="text-neutral-dark font-bold">$2400</span>/año <span
-                            class="bg-green-200 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">20%
-                            OFF</span>
-                    </p>
+                    <div class="price-container">
+                        <span class="price-monthly text-4xl font-bold text-neutral-dark">$250</span>
+                        <span class="price-monthly-suffix text-neutral-medium">/mes</span>
+                        <span
+                            class="price-yearly hidden text-4xl font-bold text-green-600">$2200</span>
+                        <span class="price-yearly-suffix hidden text-neutral-medium">/año</span>
+                    </div>
                 </div>
                 <a href="#contacto"
                     class="block w-full py-3 px-4 bg-gray-50 text-brand-primary font-bold text-center rounded-xl hover:bg-gray-100 transition-colors border border-gray-200 mb-8">
-                    Elegir Plan Anual
+                    Elegir Plan
                 </a>
                 <ul class="space-y-4 text-sm text-neutral-dark">
                     <li class="flex items-center">
@@ -99,25 +116,25 @@
             </div>
 
             <!-- Plan 2: Growth (Recommended) -->
-            <div
-                class="bg-white p-8 rounded-2xl border-2 border-brand-primary shadow-xl relative transform md:-translate-y-4">
+            <div class="plan-card bg-white p-8 rounded-2xl border-2 border-brand-primary shadow-xl relative transform md:-translate-y-4"
+                data-monthly-price="450" data-yearly-price="4300">
                 <div
                     class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-primary text-white px-4 py-1 rounded-full text-xs font-bold tracking-wider">
                     MÁS POPULAR</div>
                 <h3 class="text-xl font-bold text-neutral-dark mb-2">Plan Crecimiento</h3>
                 <p class="text-sm text-neutral-medium mb-6">Para marcas que quieren destacar.</p>
                 <div class="mb-6">
-                    <span class="text-4xl font-bold text-neutral-dark">$450</span>
-                    <span class="text-neutral-medium">/mes</span>
-                    <p class="text-sm text-green-600 mt-2 font-semibold">
-                        Paga Anual y Ahorra: <span class="text-neutral-dark font-bold">$4320</span>/año <span
-                            class="bg-green-200 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">20%
-                            OFF</span>
-                    </p>
+                    <div class="price-container">
+                        <span class="price-monthly text-4xl font-bold text-neutral-dark">$450</span>
+                        <span class="price-monthly-suffix text-neutral-medium">/mes</span>
+                        <span
+                            class="price-yearly hidden text-4xl font-bold text-green-600">$4300</span>
+                        <span class="price-yearly-suffix hidden text-neutral-medium">/año</span>
+                    </div>
                 </div>
                 <a href="#contacto"
                     class="block w-full py-3 px-4 bg-brand-primary text-white font-bold text-center rounded-xl hover:bg-brand-secondary transition-colors shadow-lg shadow-brand-primary/20 mb-8">
-                    Elegir Plan Anual
+                    Elegir Plan
                 </a>
                 <ul class="space-y-4 text-sm text-neutral-dark">
                     <li class="flex items-center">
