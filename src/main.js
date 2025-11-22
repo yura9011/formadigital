@@ -75,6 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
             initializeServicesSection();
             initializeContactForm();
             initializeEnhancedAnimations();
+            
+            // Call updateLanguage to translate newly loaded components
+            // Ensure currentLang is defined, it's globally managed by translations.js
+            const currentLang = localStorage.getItem('preferredLanguage') || 'es';
+            if (window.updateLanguage) {
+                window.updateLanguage(currentLang);
+            }
         }, 100); // A small delay to ensure the DOM is fully painted
     };
 
