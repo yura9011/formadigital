@@ -1,63 +1,246 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Términos de Servicio | Forma Digital</title>
-    <link href="./public/style.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Términos y condiciones de uso de los servicios de Forma Digital.">
+
+    <!-- Tailwind (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#050505',
+                            gray: '#1a1a1a',
+                            accent: '#C6FF17', // Premium Green
+                            'accent-light': '#D4FF25',
+                            'accent-dark': '#B8E600',
+                        },
+                        metallic: {
+                            100: '#F5F5F7',
+                            200: '#E8E8ED',
+                            300: '#D1D1D6',
+                            400: '#8E8E93',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <link href="./public/style_v2.css" rel="stylesheet">
+    <link href="./public/premium.css" rel="stylesheet">
 </head>
-<body class="bg-dark-bg text-medium-text font-sans antialiased">
-    <header-component></header-component>
-    <main class="container mx-auto px-6 py-20">
-        <div class="prose prose-invert max-w-4xl mx-auto">
-            <h1>Términos de Servicio</h1>
-            <p>Al acceder y usar este sitio web, usted acepta quedar sujeto a estos Términos de Servicio, todas las leyes y regulaciones aplicables, y acepta que es responsable del cumplimiento de las leyes locales aplicables. Si no está de acuerdo con alguno de estos términos, se le prohibirá el uso o acceso a este sitio y/o servicios.</p>
 
-            <h2>1. Aceptación de los términos</h2>
-            <p>Al utilizar nuestros servicios, usted acepta estos Términos de Servicio y reconoce que ha leído y comprendido nuestra Política de Privacidad. Si no está de acuerdo con estos términos, no debe utilizar nuestros servicios. El uso continuo de los servicios constituye aceptación continua de estos términos.</p>
+<body class="bg-brand-dark text-white antialiased selection:bg-brand-accent selection:text-brand-dark">
 
-            <h2>2. Descripción de los servicios</h2>
-            <p>Forma Digital proporciona servicios de gestión de redes sociales para pequeños negocios en Argentina, incluyendo la creación de contenido para Instagram y Facebook. Nuestros servicios incluyen, pero no se limitan a, la creación de publicaciones, estrategia de contenido, diseño de imágenes y planificación editorial.</p>
-            <p>Los servicios se proporcionan según las especificaciones acordadas en el contrato individual entre Forma Digital y el cliente. Las entregas y cronogramas pueden variar según el plan contratado y se detallan en el contrato específico.</p>
+    <!-- Header -->
+    <header
+        class="fixed w-full top-0 z-50 transition-all duration-300 bg-brand-dark/80 backdrop-blur-md border-b border-white/10">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="block h-16 w-auto">
+                <img src="images/logo_new.png" alt="FormaDigital" class="h-full w-auto object-contain">
+            </a>
 
-            <h2>3. Responsabilidades del cliente</h2>
-            <p>El cliente se compromete a:</p>
-            <ul>
-                <li>Proporcionar información precisa y actualizada sobre su negocio</li>
-                <li>Respetar los tiempos de respuesta acordados</li>
-                <li>Proporcionar retroalimentación oportuna sobre los contenidos entregados</li>
-                <li>No solicitar contenido que viole derechos de autor o marcas registradas</li>
-                <li>Comunicar cualquier cambio relevante para la estrategia de contenido</li>
-            </ul>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="servicios.html"
+                    class="text-sm font-medium hover:text-brand-accent transition-colors">SERVICIOS</a>
+                <a href="nosotros.html"
+                    class="text-sm font-medium hover:text-brand-accent transition-colors">NOSOTROS</a>
+                <a href="index.html#trabajos"
+                    class="text-sm font-medium hover:text-brand-accent transition-colors">TRABAJOS</a>
+                <a href="index.html#planes"
+                    class="text-sm font-medium hover:text-brand-accent transition-colors">PLANES</a>
+            </nav>
 
-            <h2>4. Propiedad intelectual</h2>
-            <p>Todo el contenido creado por Forma Digital para el cliente pertenece al cliente una vez se ha pagado completamente el servicio. Sin embargo, Forma Digital se reserva el derecho a incluir el trabajo en su portafolio para fines promocionales, a menos que se acuerde lo contrario por escrito.</p>
-            <p>El cliente es responsable de asegurar los derechos de uso para cualquier material proporcionado a Forma Digital que no sea de su propiedad.</p>
+            <a href="contacto.html"
+                class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-brand-dark bg-brand-accent rounded-full hover:bg-white transition-colors duration-300">
+                HABLEMOS
+            </a>
 
-            <h2>5. Modificaciones del servicio</h2>
-            <p>Forma Digital se reserva el derecho de modificar, suspender o interrumpir cualquier aspecto de los servicios en cualquier momento, con o sin previo aviso. Forma Digital no será responsable ante usted ni ante ningún tercero por ninguna modificación, suspensión o interrupción del servicio.</p>
+            <!-- Hamburger Menu Button -->
+            <button id="menu-toggle"
+                class="hamburger md:hidden fixed top-5 right-5 z-[9999] w-12 h-12 flex flex-col justify-center items-center gap-1.5 group focus:outline-none mix-blend-difference">
+                <span class="line w-8 h-0.5 bg-white group-hover:bg-brand-accent"></span>
+                <span class="line w-8 h-0.5 bg-white group-hover:bg-brand-accent"></span>
+                <span class="line w-8 h-0.5 bg-white group-hover:bg-brand-accent"></span>
+            </button>
+        </div>
+    </header>
 
-            <h2>6. Limitación de responsabilidad</h2>
-            <p>En ningún caso Forma Digital será responsable de daños indirectos, incidentales, especiales, consecuentes o punitivos, incluyendo pérdida de beneficios, ingresos o datos, ya sea en una acción contractual o de responsabilidad civil, y sea que Forma Digital haya sido advertido o no de la posibilidad de tales daños.</p>
-            <p>La responsabilidad total de Forma Digital por cualquier reclamación relacionada con los servicios no excederá el monto total pagado por el cliente por los servicios en los últimos 12 meses.</p>
+    <main class="pt-32 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-12">Términos de <span
+                    class="text-brand-accent">Servicio</span></h1>
 
-            <h2>7. Cancelación y reembolsos</h2>
-            <p>Los clientes pueden cancelar sus servicios con un aviso de 30 días. No se otorgan reembolsos por meses parciales o por servicios ya prestados. En caso de cancelación, se completarán las publicaciones en curso pero no se iniciarán nuevas campañas.</p>
+            <div class="space-y-12 text-gray-300 leading-relaxed">
+                <section>
+                    <p class="mb-6">Bienvenido a <strong>Forma Digital</strong>. Al acceder y utilizar nuestro sitio web
+                        y servicios, usted acepta cumplir y estar sujeto a los siguientes términos y condiciones de uso,
+                        que junto con nuestra política de privacidad rigen la relación de Forma Digital con usted en
+                        relación con este sitio web.</p>
+                </section>
 
-            <h2>8. Ley aplicable</h2>
-            <p>Estos Términos de Servicio se regirán e interpretarán de acuerdo con las leyes de la República Argentina, sin dar efecto a ningún principio de conflictos de leyes. Cualquier disputa que surja en relación con estos términos estará sujeta a la jurisdicción exclusiva de los tribunales de la República Argentina.</p>
+                <section>
+                    <h2 class="text-2xl font-display font-bold text-white mb-4">1. Aceptación de los términos</h2>
+                    <p class="mb-4">Al contratar cualquiera de nuestros servicios, usted confirma que ha leído,
+                        entendido y aceptado estos términos. Si no está de acuerdo con alguna parte de estos términos,
+                        no podrá utilizar nuestros servicios.</p>
+                </section>
 
-            <h2>9. Cambios a los términos</h2>
-            <p>Nos reservamos el derecho de actualizar o modificar estos Términos de Servicio en cualquier momento. El uso continuado de los servicios después de tales cambios constituirá aceptación de dichos cambios. Te notificaremos de cualquier cambio sustancial a través de correo electrónico o en nuestro sitio web.</p>
+                <section>
+                    <h2 class="text-2xl font-display font-bold text-white mb-4">2. Descripción del servicio</h2>
+                    <p class="mb-4">Forma Digital ofrece servicios de marketing digital, diseño gráfico, gestión de
+                        redes sociales y desarrollo web. Los detalles específicos, entregables y plazos de cada proyecto
+                        se definirán en una propuesta comercial o contrato individual.</p>
+                </section>
 
-            <h2>10. Contacto</h2>
-            <p>Si tienes alguna pregunta sobre estos Términos de Servicio, puedes contactarnos a través de nuestro formulario de contacto en el sitio web o escribiéndonos a forma.digital.ar@gmail.com.</p>
+                <section>
+                    <h2 class="text-2xl font-display font-bold text-white mb-4">3. Pagos y Facturación</h2>
+                    <p class="mb-4">Los servicios se facturan según lo acordado en la propuesta. Para planes mensuales,
+                        el pago se realiza por adelantado del 1 al 5 de cada mes. Para proyectos puntuales, se requiere
+                        un anticipo del 50% para comenzar el trabajo.</p>
+                    <p>Nos reservamos el derecho de suspender los servicios si los pagos no se realizan en los plazos
+                        establecidos.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-display font-bold text-white mb-4">4. Propiedad Intelectual</h2>
+                    <p class="mb-4">Una vez abonado el servicio en su totalidad, el cliente posee los derechos de uso
+                        sobre los diseños y contenidos finales entregados. Forma Digital se reserva el derecho de
+                        utilizar los trabajos realizados para fines de autopromoción en su portafolio y redes sociales,
+                        salvo acuerdo de confidencialidad previo.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-display font-bold text-white mb-4">5. Cancelación de servicios</h2>
+                    <p class="mb-4">Para servicios recurrentes (planes mensuales), el cliente puede cancelar el servicio
+                        notificando con 30 días de antelación. No se realizan reembolsos por servicios ya prestados o
+                        períodos parciales no utilizados.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-display font-bold text-white mb-4">6. Limitación de responsabilidad</h2>
+                    <p class="mb-4">Forma Digital no será responsable de ningún daño indirecto, incidental o consecuente
+                        que surja del uso de nuestros servicios. Nuestra responsabilidad total se limita al monto pagado
+                        por el cliente por el servicio específico en cuestión.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-display font-bold text-white mb-4">7. Ley Aplicable</h2>
+                    <p class="mb-4">Estos términos se regirán e interpretarán de acuerdo con las leyes de la República
+                        Argentina. Cualquier disputa relacionada con estos términos estará sujeta a la jurisdicción
+                        exclusiva de los tribunales de la Ciudad Autónoma de Buenos Aires.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-display font-bold text-white mb-4">8. Contacto</h2>
+                    <p>Si tiene alguna pregunta sobre estos Términos de Servicio, por favor contáctenos en:</p>
+                    <ul class="list-none mt-4 space-y-2">
+                        <li><strong class="text-white">Email:</strong> forma.digital.ar@gmail.com</li>
+                        <li><strong class="text-white">WhatsApp:</strong> +54 9 11 3066-6060</li>
+                    </ul>
+                </section>
+            </div>
         </div>
     </main>
-    <footer-component></footer-component>
-    <script src="./src/main.js"></script>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-white/10 py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="index.html" class="text-3xl font-display font-bold tracking-tighter mb-6 block">
+                        FORMA<span class="text-brand-accent">.</span>
+                    </a>
+                    <p class="text-gray-400 max-w-sm">
+                        Transformamos negocios a través de estrategias digitales efectivas y diseño impactante.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Menú</h4>
+                    <ul class="space-y-4">
+                        <li><a href="servicios.html"
+                                class="text-gray-400 hover:text-brand-accent transition-colors">Servicios</a></li>
+                        <li><a href="nosotros.html"
+                                class="text-gray-400 hover:text-brand-accent transition-colors">Proceso</a></li>
+                        <li><a href="index.html#trabajos"
+                                class="text-gray-400 hover:text-brand-accent transition-colors">Trabajos</a></li>
+                        <li><a href="index.html#planes"
+                                class="text-gray-400 hover:text-brand-accent transition-colors">Planes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Legal</h4>
+                    <ul class="space-y-4">
+                        <li><a href="privacidad.html"
+                                class="text-gray-400 hover:text-brand-accent transition-colors">Privacidad</a>
+                        </li>
+                        <li><a href="terminos.html" class="text-brand-accent font-bold transition-colors">Términos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2025 Forma Digital. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <!-- Social Icons -->
+                    <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
+                        class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 014.185 3.362c.636-.247 1.363-.416 2.427-.465C7.673 2.013 8.027 2 12.315 2zm-.975 2.166c-2.412.006-2.718.019-3.678.063-.849.04-1.309.184-1.618.303-.408.159-.7.348-1.006.654-.306.306-.495.598-.654 1.006-.119.309-.263.769-.303 1.618-.044.96-.057 1.267-.063 3.678l-.005.975c.006 2.412.019 2.718.063 3.678.04.849.184 1.309.303 1.618.159.408.348.7.654 1.006.654.306.306.598.495 1.006.654.309.119.769.263 1.618.303.96.044 1.267.057 3.678.063l.975.005c2.412-.006 2.718-.019 3.678-.063.849-.04 1.309-.184 1.618-.303.408-.159.7-.348 1.006-.654.306-.306.495-.598.654-1.006.119-.309.263-.769.303-1.618.044-.96.057-1.267.063-3.678l.005-.975c-.006-2.412-.019-2.718-.063-3.678-.04-.849-.184-1.309-.303-1.618-.159-.408-.348-.7-.654-1.006-.306-.306-.598-.495-1.006-.654-.309-.119-.769-.263-1.618-.303-.96-.044-1.267-.057-3.678-.063l-.975-.005zm5.265 2.833a1 1 0 011.002.998v.004a1 1 0 01-1.002.998h-.004a1 1 0 01-1.002-.998v-.004a1 1 0 011.002-.998h.004zM12.32 8.309a3.691 3.691 0 110 7.382 3.691 3.691 0 010-7.382zm0 2.166a1.525 1.525 0 100 3.05 1.525 1.525 0 000-3.05z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/formadigital" target="_blank"
+                        class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.129 22 16.99 22 12z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Toggle Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const megaMenu = document.getElementById('mega-menu');
+        const body = document.body;
+
+        menuToggle.addEventListener('click', () => {
+            megaMenu.classList.toggle('translate-x-full');
+            body.classList.toggle('overflow-hidden');
+
+            // Toggle Hamburger Icon Animation
+            const spans = menuToggle.querySelectorAll('span');
+            if (megaMenu.classList.contains('translate-x-full')) {
+                spans[0].classList.remove('rotate-45', 'translate-y-2');
+                spans[1].classList.remove('opacity-0');
+                spans[2].classList.remove('-rotate-45', '-translate-y-2');
+            } else {
+                spans[0].classList.add('rotate-45', 'translate-y-2');
+                spans[1].classList.add('opacity-0');
+                spans[2].classList.add('-rotate-45', '-translate-y-2');
+            }
+        });
+    </script>
 </body>
+
 </html>

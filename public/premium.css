@@ -1,0 +1,323 @@
+/* ============================================
+   FORMA DIGITAL - PREMIUM EFFECTS
+   ============================================ */
+
+/* Noise Texture Background */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* Radial Glow Effect */
+.bg-radial-glow {
+  background: radial-gradient(circle at 50% 50%,
+      rgba(198, 255, 23, 0.05) 0%,
+      transparent 50%);
+  animation: pulse-radial 8s ease-in-out infinite;
+}
+
+@keyframes pulse-radial {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+}
+
+/* Glassmorphism Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Neon Glow Pulse */
+@keyframes neon-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(198, 255, 23, 0.3),
+      0 0 40px rgba(198, 255, 23, 0.1);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(198, 255, 23, 0.5),
+      0 0 60px rgba(198, 255, 23, 0.2);
+  }
+}
+
+.neon-glow {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Stagger Delays */
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+
+.stagger-2 {
+  animation-delay: 0.2s;
+}
+
+.stagger-3 {
+  animation-delay: 0.3s;
+}
+
+.stagger-4 {
+  animation-delay: 0.4s;
+}
+
+/* Pulse Glow for Accent Dot */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Slide In from Right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ============================================
+   HOVER EFFECTS
+   ============================================ */
+
+/* Premium Button Glow */
+.btn-premium {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.btn-premium::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, #C6FF17, #D4FF25);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  filter: blur(10px);
+}
+
+.btn-premium:hover::before {
+  opacity: 0.6;
+}
+
+/* Card Hover Lift */
+.card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(198, 255, 23, 0.1);
+}
+
+/* ============================================
+   MEGA MENU SPECIFIC
+   ============================================ */
+
+/* Menu Overlay Background */
+.menu-overlay {
+  background: linear-gradient(135deg, #050505 0%, #0a0a0a 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Menu Item Hover Effect */
+.menu-item-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-item-hover::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 4px;
+  height: 0;
+  background: #C6FF17;
+  transition: height 0.3s ease, top 0.3s ease;
+}
+
+.menu-item-hover:hover::before {
+  height: 100%;
+  top: 0;
+}
+
+/* Hamburger Animation */
+.hamburger .line {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.hamburger.active .line:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.hamburger.active .line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.hamburger.active .line:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* ============================================
+   TEXT EFFECTS
+   ============================================ */
+
+/* Premium Gradient Text */
+.text-gradient-premium {
+  background: linear-gradient(135deg,
+      #ffffff 0%,
+      #e0e0e0 50%,
+      #a0a0a0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+/* Neon Text Glow */
+.text-neon {
+  color: #C6FF17;
+  text-shadow: 0 0 10px rgba(198, 255, 23, 0.5),
+    0 0 20px rgba(198, 255, 23, 0.3),
+    0 0 30px rgba(198, 255, 23, 0.1);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Smooth Transitions */
+.transition-premium {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Backdrop Blur */
+.backdrop-premium {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* Premium Shadow */
+.shadow-premium {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(198, 255, 23, 0.05);
+}
+
+.shadow-premium-lg {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(198, 255, 23, 0.1);
+}
+
+/* 3D Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+  .bg-radial-glow {
+    animation: none;
+    /* Reduce animations on mobile */
+  }
+
+  .neon-glow {
+    animation-duration: 3s;
+    /* Slower on mobile */
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
