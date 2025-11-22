@@ -442,11 +442,19 @@
                 };
 
                 const langToggle = document.getElementById('lang-toggle');
-                let currentLang = 'es';
+                // Check localStorage for saved preference, default to 'es'
+                let currentLang = localStorage.getItem('preferredLanguage') || 'es';
+
+                // Initialize language on load
+                if (currentLang !== 'es') {
+                    updateLanguage(currentLang);
+                }
 
                 if (langToggle) {
                     langToggle.addEventListener('click', () => {
                         currentLang = currentLang === 'es' ? 'en' : 'es';
+                        // Save preference
+                        localStorage.setItem('preferredLanguage', currentLang);
                         updateLanguage(currentLang);
                     });
                 }
