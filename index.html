@@ -48,25 +48,31 @@
     <header
         class="fixed w-full top-0 z-50 transition-all duration-300 bg-brand-dark/80 backdrop-blur-md border-b border-white/10">
         <div class="container mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="block h-16 w-auto">
+            <a href="#" class="block h-20 w-auto">
                 <img src="images/logo_new.png" alt="FormaDigital" class="h-full w-auto object-contain">
             </a>
 
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="servicios.html"
-                    class="text-sm font-medium hover:text-brand-accent transition-colors">SERVICIOS</a>
-                <a href="nosotros.html"
-                    class="text-sm font-medium hover:text-brand-accent transition-colors">NOSOTROS</a>
-                <a href="index.html#trabajos"
-                    class="text-sm font-medium hover:text-brand-accent transition-colors">TRABAJOS</a>
-                <a href="index.html#planes"
-                    class="text-sm font-medium hover:text-brand-accent transition-colors">PLANES</a>
-            </nav>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-8">
+                    <a href="servicios.html"
+                        class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                        data-i18n="nav_services">SERVICIOS</a>
+                    <a href="nosotros.html" class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                        data-i18n="nav_about">NOSOTROS</a>
+                    <a href="#trabajos" class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                        data-i18n="nav_work">TRABAJOS</a>
+                </nav>
 
-            <a href="contacto.html"
-                class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-brand-dark bg-brand-accent rounded-full hover:bg-white transition-colors duration-300">
-                HABLEMOS
-            </a>
+                <!-- Language Toggle -->
+                <button id="lang-toggle" class="text-sm font-bold text-gray-300 hover:text-white transition-colors">
+                    <span class="text-brand-accent">ES</span> / EN
+                </button>
+
+                <a href="contacto.html"
+                    class="px-6 py-2 bg-white text-brand-dark font-bold rounded-full hover:bg-brand-accent transition-all duration-300 transform hover:scale-105">
+                    CONTACTAR
+                </a>
+            </div>
 
             <!-- Hamburger Menu Button -->
             <button id="menu-toggle"
@@ -96,22 +102,22 @@
                 </div>
             </div>
 
-            <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="relative z-10 max-w-5xl mx-auto text-center">
                 <h1
-                    class="text-5xl md:text-7xl lg:text-9xl font-display font-bold leading-tight mb-8 tracking-tight animate-fadeInUp mix-blend-overlay md:mix-blend-normal">
-                    ELEVAMOS<br>
-                    <span class="text-gradient-premium drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">TU MARCA</span>
-                    <span class="text-brand-accent inline-block animate-pulse-glow">.</span>
+                    class="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-tight mb-8 animate-fadeInUp stagger-1">
+                    <span class="block text-white" data-i18n="hero_title">Estrategias Digitales que</span>
+                    <span class="block text-brand-accent neon-glow" data-i18n="hero_subtitle">Transforman Marcas</span>
                 </h1>
-                <p
-                    class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 font-light animate-fadeInUp stagger-1 leading-relaxed">
-                    Potencia tu negocio con estrategias de contenido y diseño premium. Nos encargamos de tu presencia
-                    digital para que tú te enfoques en crecer.
+                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed animate-fadeInUp stagger-2"
+                    data-i18n="hero_desc">
+                    Somos una agencia creativa especializada en diseño, desarrollo y marketing digital. Llevamos tu
+                    negocio al siguiente nivel.
                 </p>
-                <div class="flex flex-col md:flex-row gap-4 justify-center animate-fadeInUp stagger-2">
-                    <a href="index.html#planes"
-                        class="px-8 py-4 bg-brand-accent text-brand-dark font-bold rounded-full hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-[0_0_30px_rgba(198,255,23,0.3)] hover:shadow-[0_0_50px_rgba(198,255,23,0.6)] btn-premium">
-                        VER PLANES
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-center animate-fadeInUp stagger-3">
+                    <a href="#planes"
+                        class="btn-premium px-8 py-4 bg-brand-accent text-brand-dark font-bold rounded-full hover:bg-white hover:shadow-[0_0_30px_rgba(204,255,0,0.4)] transition-all duration-300 transform hover:scale-105"
+                        data-i18n="hero_cta">
+                        VER NUESTROS PLANES
                     </a>
                     <a href="nosotros.html"
                         class="px-8 py-4 border border-white/20 text-white font-bold rounded-full hover:bg-white/10 transition-all duration-300 glass backdrop-blur-sm">
@@ -316,33 +322,30 @@
         </section>
 
         <!-- Plans Section -->
-        <section id="planes" class="py-32 bg-brand-dark relative overflow-hidden">
-            <!-- Background Glow -->
-            <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-accent/5 rounded-full blur-[100px] pointer-events-none">
-            </div>
-
+        <section id="planes" class="py-20 relative">
             <div class="container mx-auto px-6 relative z-10">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl md:text-6xl font-display font-bold mb-4">PLANES<span
-                            class="text-brand-accent">.</span></h2>
-                    <p class="text-gray-400 max-w-xl mx-auto mb-8">Inversión inteligente para tu marca. Sin
-                        contratos
-                        forzosos.</p>
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-6" data-i18n="pricing_title">Planes
+                        Simples</h2>
+                    <p class="text-xl text-gray-400 max-w-2xl mx-auto" data-i18n="pricing_subtitle">
+                        Sin contratos forzosos. Cancela cuando quieras.
+                    </p>
+                </div>
 
-                    <!-- Pricing Toggle -->
-                    <div class="flex items-center justify-center gap-4">
-                        <span class="text-white font-bold" id="monthly-label">Mensual</span>
-                        <button id="pricing-toggle"
-                            class="w-16 h-8 bg-brand-gray rounded-full p-1 relative transition-colors duration-300 focus:outline-none border border-white/20"
-                            aria-label="Toggle pricing">
-                            <div
-                                class="w-6 h-6 bg-brand-accent rounded-full shadow-md transform transition-transform duration-300 translate-x-0">
-                            </div>
-                        </button>
-                        <span class="text-gray-400" id="annual-label">Anual <span
-                                class="text-brand-accent text-sm font-bold">(-2 meses)</span></span>
-                    </div>
+                <!-- Pricing Toggle -->
+                <div class="flex justify-center items-center gap-4 mb-12">
+                    <span class="text-white font-bold" id="monthly-label" data-i18n="pricing_monthly">Mensual</span>
+                    <button id="pricing-toggle"
+                        class="w-16 h-8 bg-white/10 rounded-full p-1 transition-all duration-300 focus:outline-none">
+                        <div
+                            class="w-6 h-6 bg-brand-accent rounded-full shadow-md transform transition-transform duration-300">
+                        </div>
+                    </button>
+                    <span class="text-gray-400 font-bold flex items-center gap-2" id="annual-label">
+                        <span data-i18n="pricing_annual">Anual</span>
+                        <span class="text-xs bg-brand-accent text-brand-dark px-2 py-1 rounded-full"
+                            data-i18n="pricing_save">Ahorra 20%</span>
+                    </span>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
@@ -377,15 +380,17 @@
                         <h3 class="text-xl font-bold text-white mb-2">Plan Inicial</h3>
                         <p class="text-gray-400 text-sm mb-6">Para mantener presencia.</p>
                         <div class="mb-6 h-16 flex flex-col justify-center">
-                            <div class="flex items-baseline">
+                            <div class="flex flex-col">
+                                <span class="text-sm text-gray-500 line-through original-price hidden mb-1"></span>
                                 <span class="text-4xl font-bold text-white price-amount" data-monthly="250"
                                     data-annual="2500">$250</span>
                             </div>
                             <span class="text-gray-500 text-sm price-period">/mes</span>
                         </div>
                         <ul class="space-y-4 text-sm text-gray-300 mb-8 min-h-[160px]">
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> 12 Posts
-                                (Feed/Reels)</li>
+                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
+                                    class="dynamic-content" data-monthly="12 Posts (Feed/Reels)"
+                                    data-annual="144 Posts (Feed/Reels)">12 Posts (Feed/Reels)</span></li>
                             <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> Diseño
                                 Gráfico
                                 Pro</li>
@@ -408,16 +413,20 @@
                         <h3 class="text-xl font-bold text-white mb-2">Plan Crecimiento</h3>
                         <p class="text-gray-400 text-sm mb-6">Para marcas que quieren destacar.</p>
                         <div class="mb-6 h-16 flex flex-col justify-center">
-                            <div class="flex items-baseline">
+                            <div class="flex flex-col">
+                                <span class="text-sm text-gray-500 line-through original-price hidden mb-1"></span>
                                 <span class="text-4xl font-bold text-white price-amount" data-monthly="450"
                                     data-annual="4500">$450</span>
                             </div>
                             <span class="text-gray-500 text-sm price-period">/mes</span>
                         </div>
                         <ul class="space-y-4 text-sm text-gray-300 mb-8 min-h-[160px]">
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> 20 Posts
-                                (Feed/Reels)</li>
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> 40 Historias
+                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
+                                    class="dynamic-content" data-monthly="20 Posts (Feed/Reels)"
+                                    data-annual="240 Posts (Feed/Reels)">20 Posts (Feed/Reels)</span></li>
+                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
+                                    class="dynamic-content" data-monthly="40 Historias" data-annual="480 Historias">40
+                                    Historias</span>
                             </li>
                             <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> Diseño
                                 Premium
@@ -586,7 +595,7 @@
                             <span class="sr-only">Instagram</span>
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill-rule="evenodd"
-                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 014.185 3.362c.636-.247 1.363-.416 2.427-.465C7.673 2.013 8.027 2 12.315 2zm-.975 2.166c-2.412.006-2.718.019-3.678.063-.849.04-1.309.184-1.618.303-.408.159-.7.348-1.006.654-.306.306-.495.598-.654 1.006-.119.309-.263.769-.303 1.618-.044.96-.057 1.267-.063 3.678l-.005.975c.006 2.412.019 2.718.063 3.678.04.849.184 1.309.303 1.618.159.408.348.7.654 1.006.654.306.306.598.495 1.006.654.309.119.769.263 1.618.303.96.044 1.267.057 3.678.063l.975.005c2.412-.006 2.718-.019 3.678-.063.849-.04 1.309-.184 1.618-.303.408-.159.7-.348 1.006-.654.306-.306.495-.598.654-1.006.119-.309.263-.769.303-1.618.044-.96.057-1.267.063-3.678l.005-.975c-.006-2.412-.019-2.718-.063-3.678-.04-.849-.184-1.309-.303-1.618-.159-.408-.348-.7-.654-1.006-.306-.306-.598-.495-1.006-.654-.309-.119-.769-.263-1.618-.303-.96-.044-1.267-.057-3.678-.063l-.975-.005zm5.265 2.833a1 1 0 011.002.998v.004a1 1 0 01-1.002.998h-.004a1 1 0 01-1.002-.998v-.004a1 1 0 011.002-.998h.004zM12.32 8.309a3.691 3.691 0 110 7.382 3.691 3.691 0 010-7.382zm0 2.166a1.525 1.525 0 100 3.05 1.525 1.525 0 000-3.05z"
+                                    d="M12 0C8.74 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.636c-.78.312-1.45.729-2.104 1.384-.653.655-1.07 1.324-1.383 2.104-.303.765-.504 1.634-.563 2.913-.058 1.28-.072 1.687-.072 4.116s.014 2.836.072 4.115c.06 1.28.261 2.149.563 2.914.312.78.729 1.45 1.384 2.104.655.653 1.324 1.07 2.104 1.383.765.303 1.634.504 2.913.563 1.28.058 1.687.072 4.116.072s2.835-.014 4.115-.072c1.28-.06 2.149-.261 2.914-.563.78-.312 1.45-.729 2.104-1.384.653-.655 1.07-1.324 1.383-2.104.303-.765.504-1.634.563-2.913.058-1.28.072-1.687.072-4.116s-.014-2.835-.072-4.115c-.06-1.28-.261-2.149-.563-2.914-.312-.78-.729-1.45-1.384-2.104-.655-.653-1.324-1.07-2.104-1.383-.765-.303-1.634-.504-2.913-.563C15.167.014 14.76 0 12 0zm0 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.894.422.417.683.815.894 1.382.166.422.36 1.057.415 2.227.058 1.265.07 1.645.07 4.85s-.012 3.585-.07 4.85c-.055 1.17-.249 1.805-.415 2.227-.217.562-.477.96-.894 1.382-.417.422-.815.683 1.382-.894.422-.166 1.057-.36 2.227-.415C8.415 2.175 8.795 2.163 12 2.163zm0 3.635c-3.44 0-6.24 2.8-6.24 6.24s2.8 6.24 6.24 6.24 6.24-2.8 6.24-6.24-2.8-6.24-6.24-6.24zm0 10.385c-2.28 0-4.14-1.86-4.14-4.14s1.86-4.14 4.14-4.14 4.14 1.86 4.14 4.14-1.86 4.14-4.14 4.14zm5.21-10.81a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"
                                     clip-rule="evenodd" />
                             </svg>
                         </a>
@@ -716,9 +725,13 @@
                 <div
                     class="col-span-1 lg:col-span-3 flex flex-col justify-end lg:justify-center items-center lg:items-end pb-10 lg:pb-0 order-3 lg:order-none">
                     <div class="text-center lg:text-right mb-8">
-                        <p class="text-xl text-white font-display font-bold mb-6">¿Tenés un proyecto?<br>Hablemos.</p>
+                        <p class="text-xl text-white font-display font-bold mb-6">
+                            <span class="block" data-i18n="footer_cta_title">¿Tenés un proyecto?</span>
+                            <span class="block" data-i18n="footer_cta_subtitle">Hablemos.</span>
+                        </p>
                         <a href="contacto.html" onclick="closeMenu()"
-                            class="inline-block px-8 py-3 bg-brand-accent text-brand-dark font-bold rounded-full hover:bg-white hover:shadow-[0_0_20px_rgba(204,255,0,0.4)] transition-all duration-300 transform hover:scale-105">
+                            class="inline-block px-8 py-3 bg-brand-accent text-brand-dark font-bold rounded-full hover:bg-white hover:shadow-[0_0_20px_rgba(204,255,0,0.4)] transition-all duration-300 transform hover:scale-105"
+                            data-i18n="footer_cta_btn">
                             Contactar
                         </a>
                     </div>
@@ -735,12 +748,7 @@
                             class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-brand-dark transition-all duration-300">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill-rule="evenodd"
-                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465 1.067-.047 1.407-.06 4.123-.06h.08v.001zm0-2c-2.709 0-3.024.011-4.087.06-1.097.05-1.853.23-2.533.494-1.409.548-2.495 1.634-3.043 3.043-.264.68-.445 1.436-.494 2.533C2.011 7.29 2 7.605 2 10.315v.63c0 2.71.011 3.025.06 4.087.05 1.097.23 1.853.494 2.533.549 1.409 1.634 2.495 3.043 3.043.68.264 1.436.445 2.533.494 1.063.049 1.379.06 4.087.06h.63c2.71 0 3.025-.011 4.087-.06 1.097-.05 1.853-.23 2.533-.494 1.409-.549 2.495-1.634 3.043-3.043.264-.68.445-1.436.494-2.533.049-1.063.06-1.379.06-4.087v-.63c0-2.71-.011-3.025-.06-4.087-.05-1.097-.23-1.853-.494-2.533a8.345 8.345 0 00-3.043-3.043c-.68-.264-1.436-.445-2.533-.494C15.339 2.011 15.024 2 12.315 2z"
-                                    clip-rule="evenodd" />
-                                <path fill-rule="evenodd"
-                                    d="M12.315 5.817a6.498 6.498 0 010 12.996 6.498 6.498 0 010-12.996zm0 2a4.498 4.498 0 100 8.996 4.498 4.498 0 000-8.996z"
-                                    clip-rule="evenodd" />
-                                <path fill-rule="evenodd" d="M18.856 6.374a1.23 1.23 0 11-2.46 0 1.23 1.23 0 012.46 0z"
+                                    d="M12 0C8.74 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.636c-.78.312-1.45.729-2.104 1.384-.653.655-1.07 1.324-1.383 2.104-.303.765-.504 1.634-.563 2.913-.058 1.28-.072 1.687-.072 4.116s.014 2.836.072 4.115c.06 1.28.261 2.149.563 2.914.312.78.729 1.45 1.384 2.104.655.653 1.324 1.07 2.104 1.383.765.303 1.634.504 2.913.563 1.28.058 1.687.072 4.116.072s2.835-.014 4.115-.072c1.28-.06 2.149-.261 2.914-.563.78-.312 1.45-.729 2.104-1.384.653-.655 1.07-1.324 1.383-2.104.303-.765.504-1.634.563-2.913.058-1.28.072-1.687.072-4.116s-.014-2.835-.072-4.115c-.06-1.28-.261-2.149-.563-2.914-.312-.78-.729-1.45-1.384-2.104-.655-.653-1.324-1.07-2.104-1.383-.765-.303-1.634-.504-2.913-.563C15.167.014 14.76 0 12 0zm0 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.894.422.417.683.815.894 1.382.166.422.36 1.057.415 2.227.058 1.265.07 1.645.07 4.85s-.012 3.585-.07 4.85c-.055 1.17-.249 1.805-.415 2.227-.217.562-.477.96-.894 1.382-.417.422-.815.683 1.382-.894.422-.166 1.057-.36 2.227-.415C8.415 2.175 8.795 2.163 12 2.163zm0 3.635c-3.44 0-6.24 2.8-6.24 6.24s2.8 6.24 6.24 6.24 6.24-2.8 6.24-6.24-2.8-6.24-6.24-6.24zm0 10.385c-2.28 0-4.14-1.86-4.14-4.14s1.86-4.14 4.14-4.14 4.14 1.86 4.14 4.14-1.86 4.14-4.14 4.14zm5.21-10.81a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"
                                     clip-rule="evenodd" />
                             </svg>
                         </a>
@@ -845,13 +853,46 @@
                 annualLabel.classList.replace('text-white', 'text-gray-400');
             }
 
-            // Update Prices
-            priceAmounts.forEach(amount => {
-                const price = isAnnual ? amount.dataset.annual : amount.dataset.monthly;
+            // Update Prices and Content
+            const pricingCards = document.querySelectorAll('.price-amount').forEach(amount => {
+                const card = amount.closest('.p-8'); // Get parent card
+                const originalPriceEl = card.querySelector('.original-price');
+                const dynamicContents = card.querySelectorAll('.dynamic-content');
+
+                const monthlyPrice = parseInt(amount.dataset.monthly);
+                const annualPrice = parseInt(amount.dataset.annual);
+
                 // Animate number change
                 amount.style.opacity = '0';
+
                 setTimeout(() => {
-                    amount.textContent = '$' + price;
+                    if (isAnnual) {
+                        amount.textContent = '$' + annualPrice;
+
+                        // Show Original Price (Monthly * 12)
+                        if (originalPriceEl) {
+                            originalPriceEl.textContent = '$' + (monthlyPrice * 12);
+                            originalPriceEl.classList.remove('hidden');
+                        }
+
+                        // Update Dynamic Content (e.g. Posts count)
+                        dynamicContents.forEach(content => {
+                            content.textContent = content.dataset.annual;
+                        });
+
+                    } else {
+                        amount.textContent = '$' + monthlyPrice;
+
+                        // Hide Original Price
+                        if (originalPriceEl) {
+                            originalPriceEl.classList.add('hidden');
+                        }
+
+                        // Revert Dynamic Content
+                        dynamicContents.forEach(content => {
+                            content.textContent = content.dataset.monthly;
+                        });
+                    }
                     amount.style.opacity = '1';
                 }, 200);
             });
@@ -922,6 +963,105 @@
                 });
             });
         });
+    </script>
+    <script>
+        // Language Switcher Logic
+        const translations = {
+            es: {
+                nav_services: "SERVICIOS",
+                nav_about: "NOSOTROS",
+                nav_work: "TRABAJOS",
+                nav_contact: "CONTACTAR",
+                hero_title: "Estrategias Digitales que",
+                hero_subtitle: "Transforman Marcas",
+                hero_desc: "Somos una agencia creativa especializada en diseño, desarrollo y marketing digital. Llevamos tu negocio al siguiente nivel.",
+                hero_cta: "VER NUESTROS PLANES",
+                pricing_title: "Planes Simples",
+                pricing_subtitle: "Sin contratos forzosos. Cancela cuando quieras.",
+                pricing_monthly: "Mensual",
+                pricing_annual: "Anual",
+                pricing_save: "Ahorra 20%",
+                plan_trial_title: "Plan de Prueba",
+                plan_trial_desc: "Prueba nuestro servicio.",
+                plan_trial_cta: "Empezar Gratis",
+                plan_initial_title: "Plan Inicial",
+                plan_initial_desc: "Para mantener presencia.",
+                plan_initial_cta: "Empezar",
+                plan_growth_title: "Plan Crecimiento",
+                plan_growth_desc: "Para marcas que quieren destacar.",
+                plan_growth_cta: "Elegir este Plan",
+                plan_custom_title: "A Medida",
+                plan_custom_desc: "Necesidades específicas.",
+                plan_custom_cta: "Contactar",
+                footer_cta_title: "¿Tenés un proyecto?",
+                footer_cta_subtitle: "Hablemos.",
+                footer_cta_btn: "Contactar",
+                footer_desc: "Transformamos negocios a través de estrategias digitales efectivas y diseño impactante.",
+                footer_menu: "Menú",
+                footer_legal: "Legal"
+            },
+            en: {
+                nav_services: "SERVICES",
+                nav_about: "ABOUT US",
+                nav_work: "WORK",
+                nav_contact: "CONTACT",
+                hero_title: "Digital Strategies that",
+                hero_subtitle: "Transform Brands",
+                hero_desc: "We are a creative agency specializing in design, development, and digital marketing. We take your business to the next level.",
+                hero_cta: "VIEW OUR PLANS",
+                pricing_title: "Simple Plans",
+                pricing_subtitle: "No forced contracts. Cancel anytime.",
+                pricing_monthly: "Monthly",
+                pricing_annual: "Annual",
+                pricing_save: "Save 20%",
+                plan_trial_title: "Trial Plan",
+                plan_trial_desc: "Try our service.",
+                plan_trial_cta: "Start Free",
+                plan_initial_title: "Initial Plan",
+                plan_initial_desc: "To maintain presence.",
+                plan_initial_cta: "Start",
+                plan_growth_title: "Growth Plan",
+                plan_growth_desc: "For brands that want to stand out.",
+                plan_growth_cta: "Choose this Plan",
+                plan_custom_title: "Custom",
+                plan_custom_desc: "Specific needs.",
+                plan_custom_cta: "Contact Us",
+                footer_cta_title: "Have a project?",
+                footer_cta_subtitle: "Let's talk.",
+                footer_cta_btn: "Contact",
+                footer_desc: "We transform businesses through effective digital strategies and impactful design.",
+                footer_menu: "Menu",
+                footer_legal: "Legal"
+            }
+        };
+
+        const langToggle = document.getElementById('lang-toggle');
+        let currentLang = 'es';
+
+        if (langToggle) {
+            langToggle.addEventListener('click', () => {
+                currentLang = currentLang === 'es' ? 'en' : 'es';
+                updateLanguage(currentLang);
+            });
+        }
+
+        function updateLanguage(lang) {
+            // Update Toggle Text
+            if (langToggle) {
+                langToggle.innerHTML = lang === 'es' ?
+                    '<span class="text-brand-accent">ES</span> / EN' :
+                    'ES / <span class="text-brand-accent">EN</span>';
+            }
+
+            // Update Content
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+        }
     </script>
 </body>
 
