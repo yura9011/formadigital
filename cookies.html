@@ -1,55 +1,332 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Cookies | Forma Digital</title>
-    <link href="./public/style.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Política de Cookies de Forma Digital.">
+
+    <!-- Tailwind (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    spacing: {
+                        '13': '3.25rem',
+                        '21': '5.25rem',
+                        '34': '8.5rem',
+                        '55': '13.75rem',
+                        '89': '22.25rem',
+                        '144': '36rem',
+                        '233': '58.25rem',
+                        '377': '94.25rem',
+                    },
+                    colors: {
+                        bauhaus: {
+                            red: '#D93025',
+                            blue: '#1A73E8',
+                            yellow: '#F9AB00',
+                            black: '#111111',
+                            white: '#F4F4F0',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        display: ['Archivo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bauhaus-red: #D93025;
+            --bauhaus-blue: #1A73E8;
+            --bauhaus-yellow: #F9AB00;
+            --bauhaus-black: #111111;
+            --bauhaus-white: #F4F4F0;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bauhaus-white);
+            color: var(--bauhaus-black);
+            overflow-x: hidden;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F4F4F0;
+            border-left: 1px solid #111;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #111;
+            border: 2px solid #F4F4F0;
+        }
+
+        /* Bauhaus Utilities */
+        .bauhaus-border {
+            border: 2px solid #111111;
+        }
+
+        .bauhaus-shadow {
+            box-shadow: 4px 4px 0px #111111;
+        }
+
+        .bauhaus-shadow-hover:hover {
+            box-shadow: 6px 6px 0px #111111;
+            transform: translate(-2px, -2px);
+        }
+    </style>
 </head>
-<body class="bg-dark-bg text-medium-text font-sans antialiased">
-    <header-component></header-component>
-    <main class="container mx-auto px-6 py-20">
-        <div class="prose prose-invert max-w-4xl mx-auto">
-            <h1 data-i18n="cookies_title">Política de Cookies</h1>
-            <p data-i18n="cookies_intro">Este sitio web utiliza cookies para mejorar la experiencia del usuario y proporcionar funcionalidades personalizadas. Esta Política de Cookies explica qué son las cookies, cómo las utilizamos y cómo puedes gestionarlas.</p>
 
-            <h2 data-i18n="cookies_section1_title">1. ¿Qué son las cookies?</h2>
-            <p data-i18n="cookies_section1_p1">Las cookies son pequeños archivos de texto que se colocan en tu dispositivo (computadora, móvil o tableta) cuando visitas un sitio web. Estos archivos contienen información que se envía al servidor web y que se puede recuperar en visitas posteriores. Las cookies nos permiten reconocer tu navegador, recordar tus preferencias y proporcionar contenido más relevante.</p>
+<body class="bg-bauhaus-white text-bauhaus-black antialiased selection:bg-bauhaus-yellow selection:text-bauhaus-black">
 
-            <h2 data-i18n="cookies_section2_title">2. ¿Qué tipo de cookies utilizamos?</h2>
-            <p data-i18n="cookies_section2_p1">Utilizamos diferentes tipos de cookies con diversos propósitos:</p>
-            <ul>
-                <li data-i18n="cookies_section2_item1"><strong>Cookies esenciales:</strong> Son necesarias para que el sitio web funcione correctamente y permiten funciones básicas como la navegación y el acceso a áreas seguras del sitio.</li>
-                <li data-i18n="cookies_section2_item2"><strong>Cookies de rendimiento:</strong> Recogen información sobre cómo los visitantes utilizan nuestro sitio web, por ejemplo, qué páginas visitan con más frecuencia y si reciben mensajes de error de las páginas web. Estas cookies no recogen información que identifica a un visitante específico.</li>
-                <li data-i18n="cookies_section2_item3"><strong>Cookies funcionales:</strong> Permiten al sitio web recordar información sobre tu elección (como tu nombre de usuario, idioma o región donde te encuentras) y ofrecer características mejoradas y más personales.</li>
-                <li data-i18n="cookies_section2_item4"><strong>Cookies de publicidad:</strong> Se utilizan para limitar la frecuencia con la que ves un anuncio, así como para ayudar a medir la efectividad de las campañas publicitarias.</li>
-            </ul>
+    <!-- Header -->
+    <header
+        class="fixed w-full top-0 z-50 transition-all duration-300 bg-bauhaus-white border-b-2 border-bauhaus-black">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="block h-12 w-auto flex items-center gap-2">
+                <div class="w-8 h-8 bg-bauhaus-red rounded-full border-2 border-bauhaus-black"></div>
+                <div
+                    class="w-8 h-8 bg-bauhaus-blue transform rotate-45 border-2 border-bauhaus-black -ml-4 mix-blend-multiply">
+                </div>
+                <span class="font-display font-black text-xl tracking-tighter">FORMA.DIGITAL</span>
+            </a>
 
-            <h2 data-i18n="cookies_section3_title">3. Cómo gestionar las cookies</h2>
-            <p data-i18n="cookies_section3_p1">Puedes controlar y/o eliminar las cookies según desees. Puedes eliminar todas las cookies que ya se encuentran en tu equipo y puedes configurar la mayoría de los navegadores para que dejen de aceptar cookies. Si lo haces, es posible que tengas que ajustar manually las preferencias cada vez que visites nuestro sitio web, además de que algunos servicios y funcionalidades pueden no funcionar.</p>
-            <p data-i18n="cookies_section3_p2">Para administrar las cookies en tu navegador web:</p>
-            <ul>
-                <li data-i18n="cookies_section3_item1">En <strong>Chrome:</strong> Configuración > Avanzada > Privacidad y seguridad > Configuración de contenido > Cookies</li>
-                <li data-i18n="cookies_section3_item2">En <strong>Firefox:</strong> Opciones > Privacidad y seguridad > Historial > Personalizado > Cookies y datos de sitios</li>
-                <li data-i18n="cookies_section3_item3">En <strong>Safari:</strong> Preferencias > Privacidad > Cookies y datos de sitios web</li>
-                <li data-i18n="cookies_section3_item4">En <strong>Edge:</strong> Configuración > Cookies y permisos del sitio > Administrar y eliminar cookies</li>
-            </ul>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-8">
+                    <a href="servicios.html"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-red transition-colors"
+                        data-i18n="nav_services">SERVICIOS</a>
+                    <a href="nosotros.html"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-blue transition-colors"
+                        data-i18n="nav_about">NOSOTROS</a>
+                    <a href="index.html#trabajos"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-yellow transition-colors"
+                        data-i18n="nav_work">TRABAJOS</a>
+                </nav>
 
-            <h2 data-i18n="cookies_section4_title">4. Cookies de terceros</h2>
-            <p data-i18n="cookies_section4_p1">En ocasiones, contratamos a empresas de terceros para que nos proporcionen servicios como análisis web, publicidad o servicios de marketing. Estas empresas también pueden colocar cookies en nuestro sitio web para recopilar información sobre tu experiencia y usarla para publicidad y/o analítica basada en tu navegación en nuestro sitio web y en otros sitios web.</p>
+                <!-- Language Toggle -->
+                <button id="lang-toggle"
+                    class="text-sm font-bold border-2 border-bauhaus-black px-2 py-1 hover:bg-bauhaus-black hover:text-bauhaus-white transition-colors">
+                    <span class="text-bauhaus-red">ES</span> / EN
+                </button>
 
-            <h2 data-i18n="cookies_section5_title">5. Actualizaciones a esta política</h2>
-            <p data-i18n="cookies_section5_p1">Esta Política de Cookies puede actualizarse periódicamente para reflejar cambios en las tecnologías o en la legislación aplicable. Te recomendamos revisar esta política regularmente para estar informado de cómo utilizamos las cookies.</p>
+                <a href="contacto.html"
+                    class="px-6 py-2 bg-bauhaus-black text-bauhaus-white font-bold uppercase tracking-wider border-2 border-bauhaus-black hover:bg-bauhaus-white hover:text-bauhaus-black transition-all duration-300 bauhaus-shadow">
+                    CONTACTAR
+                </a>
+            </div>
 
-            <h2 data-i18n="cookies_section6_title">6. Contacto</h2>
-            <p data-i18n="cookies_section6_p1">Si tienes alguna pregunta sobre esta Política de Cookies, puedes contactarnos a través de nuestro formulario de contacto en el sitio web o escribiéndonos a forma.digital.ar@gmail.com.</p>
+            <!-- Hamburger Menu Button -->
+            <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 group focus:outline-none z-50">
+                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-red transition-colors"></span>
+                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-blue transition-colors"></span>
+                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-yellow transition-colors"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-bauhaus-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center">
+        <nav class="flex flex-col gap-8 text-center">
+            <a href="servicios.html"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-red transition-colors"
+                onclick="closeMobileMenu()" data-i18n="nav_services">SERVICIOS</a>
+            <a href="nosotros.html"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-blue transition-colors"
+                onclick="closeMobileMenu()" data-i18n="nav_about">NOSOTROS</a>
+            <a href="index.html#trabajos"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-yellow transition-colors"
+                onclick="closeMobileMenu()" data-i18n="nav_work">TRABAJOS</a>
+            <a href="contacto.html"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-black transition-colors"
+                onclick="closeMobileMenu()">CONTACTO</a>
+        </nav>
+    </div>
+
+    <main class="pt-32 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="mb-12 border-l-8 border-bauhaus-yellow pl-6">
+                <h1 class="text-4xl md:text-6xl font-display font-black uppercase" data-i18n="cookies_title">
+                    Política de <span
+                        class="text-bauhaus-black underline decoration-4 underline-offset-8">Cookies</span>
+                </h1>
+            </div>
+
+            <div class="space-y-12 text-gray-800 leading-relaxed font-medium">
+                <section class="bg-white p-8 border-2 border-bauhaus-black bauhaus-shadow">
+                    <p data-i18n="cookies_intro">Este sitio web utiliza cookies para mejorar la experiencia del usuario
+                        y proporcionar funcionalidades personalizadas. Esta Política de Cookies explica qué son las
+                        cookies, cómo las utilizamos y cómo puedes gestionarlas.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="cookies_section1_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">01</span> ¿Qué son las cookies?
+                    </h2>
+                    <p data-i18n="cookies_section1_p1">Las cookies son pequeños archivos de texto que se colocan en tu
+                        dispositivo (computadora, móvil o tableta) cuando visitas un sitio web. Estos archivos contienen
+                        información que se envía al servidor web y que se puede recuperar en visitas posteriores. Las
+                        cookies nos permiten reconocer tu navegador, recordar tus preferencias y proporcionar contenido
+                        más relevante.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="cookies_section2_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">02</span> ¿Qué tipo de cookies
+                        utilizamos?
+                    </h2>
+                    <p class="mb-4" data-i18n="cookies_section2_p1">Utilizamos diferentes tipos de cookies con diversos
+                        propósitos:</p>
+                    <ul class="list-none space-y-2 pl-4 border-l-2 border-bauhaus-red">
+                        <li data-i18n="cookies_section2_item1" class="flex items-start gap-2"><span
+                                class="w-2 h-2 mt-2 bg-bauhaus-black flex-shrink-0"></span> <span><strong>Cookies
+                                    esenciales:</strong> Son necesarias para que el sitio web funcione correctamente y
+                                permiten funciones básicas como la navegación y el acceso a áreas seguras del
+                                sitio.</span></li>
+                        <li data-i18n="cookies_section2_item2" class="flex items-start gap-2"><span
+                                class="w-2 h-2 mt-2 bg-bauhaus-black flex-shrink-0"></span> <span><strong>Cookies de
+                                    rendimiento:</strong> Recogen información sobre cómo los visitantes utilizan nuestro
+                                sitio web.</span></li>
+                        <li data-i18n="cookies_section2_item3" class="flex items-start gap-2"><span
+                                class="w-2 h-2 mt-2 bg-bauhaus-black flex-shrink-0"></span> <span><strong>Cookies
+                                    funcionales:</strong> Permiten al sitio web recordar información sobre tu elección
+                                (como tu nombre de usuario, idioma o región).</span></li>
+                        <li data-i18n="cookies_section2_item4" class="flex items-start gap-2"><span
+                                class="w-2 h-2 mt-2 bg-bauhaus-black flex-shrink-0"></span> <span><strong>Cookies de
+                                    publicidad:</strong> Se utilizan para limitar la frecuencia con la que ves un
+                                anuncio.</span></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="cookies_section3_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">03</span> Cómo gestionar las cookies
+                    </h2>
+                    <p class="mb-4" data-i18n="cookies_section3_p1">Puedes controlar y/o eliminar las cookies según
+                        desees. Puedes eliminar todas las cookies que ya se encuentran en tu equipo y puedes configurar
+                        la mayoría de los navegadores para que dejen de aceptar cookies.</p>
+                    <p class="mb-4" data-i18n="cookies_section3_p2">Para administrar las cookies en tu navegador web:
+                    </p>
+                    <ul class="list-none space-y-2 pl-4 border-l-2 border-bauhaus-blue">
+                        <li data-i18n="cookies_section3_item1" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> <strong>Chrome:</strong> Configuración >
+                            Privacidad y seguridad > Cookies</li>
+                        <li data-i18n="cookies_section3_item2" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> <strong>Firefox:</strong> Opciones > Privacidad
+                            y seguridad > Cookies</li>
+                        <li data-i18n="cookies_section3_item3" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> <strong>Safari:</strong> Preferencias >
+                            Privacidad</li>
+                        <li data-i18n="cookies_section3_item4" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> <strong>Edge:</strong> Configuración > Cookies
+                            y permisos del sitio</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="cookies_section4_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">04</span> Cookies de terceros
+                    </h2>
+                    <p data-i18n="cookies_section4_p1">En ocasiones, contratamos a empresas de terceros para que nos
+                        proporcionen servicios como análisis web, publicidad o servicios de marketing. Estas empresas
+                        también pueden colocar cookies en nuestro sitio web.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="cookies_section5_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">05</span> Actualizaciones
+                    </h2>
+                    <p data-i18n="cookies_section5_p1">Esta Política de Cookies puede actualizarse periódicamente para
+                        reflejar cambios en las tecnologías o en la legislación aplicable.</p>
+                </section>
+
+                <section class="bg-bauhaus-black text-white p-8 border-2 border-bauhaus-black">
+                    <h2 class="text-2xl font-display font-black text-white mb-4" data-i18n="cookies_section6_title">06.
+                        Contacto</h2>
+                    <p data-i18n="cookies_section6_p1">Si tienes alguna pregunta sobre esta Política de Cookies, puedes
+                        contactarnos a través de nuestro formulario de contacto en el sitio web o escribiéndonos a
+                        forma.digital.ar@gmail.com.</p>
+                </section>
+            </div>
         </div>
     </main>
-    <footer-component></footer-component>
-    <script src="./src/main.js"></script>
+
+    <!-- Footer -->
+    <footer id="contacto" class="bg-bauhaus-black text-white pt-24 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start mb-20">
+                <div class="w-full">
+                    <h2 class="text-5xl md:text-7xl font-display font-black mb-8 leading-tight">
+                        EMPECEMOS<br>
+                        <span class="text-bauhaus-yellow underline decoration-4 underline-offset-8">AHORA</span>
+                    </h2>
+                </div>
+
+                <div class="flex flex-col gap-8 lg:pt-8">
+                    <div>
+                        <h3 class="text-bauhaus-yellow font-black mb-4 uppercase tracking-widest">CONTACTO DIRECTO</h3>
+                        <a href="mailto:forma.digital.ar@gmail.com"
+                            class="block text-2xl font-bold hover:text-bauhaus-red transition-colors mb-2">forma.digital.ar@gmail.com</a>
+                        <a href="https://wa.me/5491130666060" target="_blank"
+                            class="block text-2xl font-bold hover:text-bauhaus-red transition-colors">+54 9 11
+                            3066-6060</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm font-bold" data-i18n="footer_copyright">© 2025 Forma Digital. Bauhaus
+                    Edition.</p>
+                <div class="flex gap-4">
+                    <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
+                        class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-yellow transition-colors">IG</a>
+                    <a href="https://www.facebook.com/formadigital" target="_blank"
+                        class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-blue transition-colors">FB</a>
+                    <a href="https://www.linkedin.com/company/forma-digital" target="_blank"
+                        class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-red transition-colors">LI</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('translate-x-full');
+        }
+
+        menuToggle.addEventListener('click', toggleMobileMenu);
+    </script>
     <script src="src/translations.js"></script>
 </body>
+
 </html>

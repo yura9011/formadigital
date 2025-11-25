@@ -13,121 +13,237 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    spacing: {
+                        '13': '3.25rem',
+                        '21': '5.25rem',
+                        '34': '8.5rem',
+                        '55': '13.75rem',
+                        '89': '22.25rem',
+                        '144': '36rem',
+                        '233': '58.25rem',
+                        '377': '94.25rem',
+                    },
                     colors: {
-                        brand: {
-                            dark: '#050505',
-                            gray: '#1a1a1a',
-                            accent: '#C6FF17', // Premium Green
-                            'accent-light': '#D4FF25',
-                            'accent-dark': '#B8E600',
-                        },
-                        metallic: {
-                            100: '#F5F5F7',
-                            200: '#E8E8ED',
-                            300: '#D1D1D6',
-                            400: '#8E8E93',
+                        bauhaus: {
+                            red: '#D93025',
+                            blue: '#1A73E8',
+                            yellow: '#F9AB00',
+                            black: '#111111',
+                            white: '#F4F4F0',
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Syne', 'sans-serif'],
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        display: ['Archivo', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
 
-    <!-- Custom Styles -->
-    <link href="./public/style_v2.css" rel="stylesheet">
-    <link href="./public/premium.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bauhaus-red: #D93025;
+            --bauhaus-blue: #1A73E8;
+            --bauhaus-yellow: #F9AB00;
+            --bauhaus-black: #111111;
+            --bauhaus-white: #F4F4F0;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bauhaus-white);
+            color: var(--bauhaus-black);
+            overflow-x: hidden;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F4F4F0;
+            border-left: 1px solid #111;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #111;
+            border: 2px solid #F4F4F0;
+        }
+
+        /* Bauhaus Utilities */
+        .bauhaus-border {
+            border: 2px solid #111111;
+        }
+
+        .bauhaus-shadow {
+            box-shadow: 4px 4px 0px #111111;
+        }
+
+        .bauhaus-shadow-hover:hover {
+            box-shadow: 6px 6px 0px #111111;
+            transform: translate(-2px, -2px);
+        }
+    </style>
 </head>
 
-<body class="bg-brand-dark text-white antialiased selection:bg-brand-accent selection:text-brand-dark">
+<body class="bg-bauhaus-white text-bauhaus-black antialiased selection:bg-bauhaus-yellow selection:text-bauhaus-black">
 
     <!-- Header -->
     <header
-        class="fixed w-full top-0 z-50 transition-all duration-300 bg-brand-dark/80 backdrop-blur-md border-b border-white/10">
+        class="fixed w-full top-0 z-50 transition-all duration-300 bg-bauhaus-white border-b-2 border-bauhaus-black">
         <div class="container mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="block h-20 w-auto">
-                <img src="images/logo_new.png" alt="FormaDigital" class="h-full w-auto object-contain">
+            <a href="index.html" class="block h-12 w-auto flex items-center gap-2">
+                <div class="w-8 h-8 bg-bauhaus-red rounded-full border-2 border-bauhaus-black"></div>
+                <div
+                    class="w-8 h-8 bg-bauhaus-blue transform rotate-45 border-2 border-bauhaus-black -ml-4 mix-blend-multiply">
+                </div>
+                <span class="font-display font-black text-xl tracking-tighter">FORMA.DIGITAL</span>
             </a>
 
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="servicios.html"
-                    class="text-sm font-medium hover:text-brand-accent transition-colors">SERVICIOS</a>
-                <a href="nosotros.html"
-                    class="text-sm font-medium hover:text-brand-accent transition-colors">NOSOTROS</a>
-                <a href="index.html#trabajos"
-                    class="text-sm font-medium hover:text-brand-accent transition-colors">TRABAJOS</a>
-                <a href="index.html#planes"
-                    class="text-sm font-medium hover:text-brand-accent transition-colors">PLANES</a>
-            </nav>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-8">
+                    <a href="servicios.html"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-red transition-colors"
+                        data-i18n="nav_services">SERVICIOS</a>
+                    <a href="nosotros.html"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-blue transition-colors"
+                        data-i18n="nav_about">NOSOTROS</a>
+                    <a href="index.html#trabajos"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-yellow transition-colors"
+                        data-i18n="nav_work">TRABAJOS</a>
+                </nav>
 
-            <a href="contacto.html"
-                class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-brand-dark bg-brand-accent rounded-full hover:bg-white transition-colors duration-300">
-                HABLEMOS
-            </a>
+                <!-- Language Toggle -->
+                <button id="lang-toggle"
+                    class="text-sm font-bold border-2 border-bauhaus-black px-2 py-1 hover:bg-bauhaus-black hover:text-bauhaus-white transition-colors">
+                    <span class="text-bauhaus-red">ES</span> / EN
+                </button>
+
+                <a href="contacto.html"
+                    class="px-6 py-2 bg-bauhaus-black text-bauhaus-white font-bold uppercase tracking-wider border-2 border-bauhaus-black hover:bg-bauhaus-white hover:text-bauhaus-black transition-all duration-300 bauhaus-shadow">
+                    CONTACTAR
+                </a>
+            </div>
 
             <!-- Hamburger Menu Button -->
-            <button id="menu-toggle"
-                class="hamburger md:hidden fixed top-5 right-5 z-[9999] w-12 h-12 flex flex-col justify-center items-center gap-1.5 group focus:outline-none mix-blend-difference">
-                <span class="line w-8 h-0.5 bg-white group-hover:bg-brand-accent"></span>
-                <span class="line w-8 h-0.5 bg-white group-hover:bg-brand-accent"></span>
-                <span class="line w-8 h-0.5 bg-white group-hover:bg-brand-accent"></span>
+            <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 group focus:outline-none z-50">
+                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-red transition-colors"></span>
+                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-blue transition-colors"></span>
+                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-yellow transition-colors"></span>
             </button>
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-bauhaus-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center">
+        <nav class="flex flex-col gap-8 text-center">
+            <a href="servicios.html"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-red transition-colors"
+                onclick="closeMobileMenu()" data-i18n="nav_services">SERVICIOS</a>
+            <a href="nosotros.html"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-blue transition-colors"
+                onclick="closeMobileMenu()" data-i18n="nav_about">NOSOTROS</a>
+            <a href="index.html#trabajos"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-yellow transition-colors"
+                onclick="closeMobileMenu()" data-i18n="nav_work">TRABAJOS</a>
+            <a href="contacto.html"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-black transition-colors"
+                onclick="closeMobileMenu()">CONTACTO</a>
+        </nav>
+    </div>
+
     <main class="pt-32 pb-20">
         <div class="container mx-auto px-6 max-w-4xl">
-            <h1 class="text-4xl md:text-6xl font-display font-bold mb-12" data-i18n="privacidad_title">Política de <span
-                    class="text-brand-accent">Privacidad</span></h1>
+            <div class="mb-12 border-l-8 border-bauhaus-red pl-6">
+                <h1 class="text-4xl md:text-6xl font-display font-black uppercase" data-i18n="privacidad_title">
+                    Política de <span
+                        class="text-bauhaus-blue underline decoration-4 underline-offset-8">Privacidad</span>
+                </h1>
+            </div>
 
-            <div class="space-y-12 text-gray-300 leading-relaxed">
-                <section>
-                    <p class="mb-6" data-i18n="privacidad_intro1">En <strong>Forma Digital</strong>, accesible desde forma-digital.com.ar, una de
+            <div class="space-y-12 text-gray-800 leading-relaxed font-medium">
+                <section class="bg-white p-8 border-2 border-bauhaus-black bauhaus-shadow">
+                    <p class="mb-6" data-i18n="privacidad_intro1">En <strong>Forma Digital</strong>, accesible desde
+                        forma-digital.com.ar, una de
                         nuestras principales prioridades es la privacidad de nuestros visitantes. Este documento de
                         Política de Privacidad contiene tipos de información que se recopila y registra y cómo la
                         usamos.</p>
-                    <p data-i18n="privacidad_intro2">Si tiene preguntas adicionales o requiere más información sobre nuestra Política de Privacidad,
+                    <p data-i18n="privacidad_intro2">Si tiene preguntas adicionales o requiere más información sobre
+                        nuestra Política de Privacidad,
                         no dude en contactarnos.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-display font-bold text-white mb-4" data-i18n="privacidad_section1_title">1. Información que recopilamos</h2>
-                    <p class="mb-4" data-i18n="privacidad_section1_p1">Recogemos información personal cuando usted se registra en nuestro sitio, se
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="privacidad_section1_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">01</span> Información que
+                        recopilamos
+                    </h2>
+                    <p class="mb-4" data-i18n="privacidad_section1_p1">Recogemos información personal cuando usted se
+                        registra en nuestro sitio, se
                         suscribe a nuestro boletín, responde una encuesta o completa un formulario. La información
                         recogida puede incluir:</p>
-                    <ul class="list-disc pl-6 space-y-2 mb-4">
-                        <li data-i18n="privacidad_section1_item1">Nombre y apellido</li>
-                        <li data-i18n="privacidad_section1_item2">Dirección de correo electrónico</li>
-                        <li data-i18n="privacidad_section1_item3">Número de teléfono</li>
-                        <li data-i18n="privacidad_section1_item4">Información sobre su proyecto o empresa</li>
+                    <ul class="list-none space-y-2 mb-4 pl-4 border-l-2 border-bauhaus-yellow">
+                        <li data-i18n="privacidad_section1_item1" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> Nombre y apellido</li>
+                        <li data-i18n="privacidad_section1_item2" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> Dirección de correo electrónico</li>
+                        <li data-i18n="privacidad_section1_item3" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> Número de teléfono</li>
+                        <li data-i18n="privacidad_section1_item4" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> Información sobre su proyecto o empresa</li>
                     </ul>
-                    <p data-i18n="privacidad_section1_p2">Cuando interactúas con nuestros servicios, también podemos recopilar información técnica sobre tu
+                    <p data-i18n="privacidad_section1_p2">Cuando interactúas con nuestros servicios, también podemos
+                        recopilar información técnica sobre tu
                         dispositivo, dirección IP, tipo de navegador y comportamiento de navegación para mejorar nuestra
                         plataforma.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-display font-bold text-white mb-4" data-i18n="privacidad_section2_title">2. Cómo usamos tu información</h2>
-                    <p class="mb-4" data-i18n="privacidad_section2_p1">Utilizamos la información recopilada de diversas formas, incluyendo:</p>
-                    <ul class="list-disc pl-6 space-y-2">
-                        <li data-i18n="privacidad_section2_item1">Proporcionar, operar y mantener nuestro sitio web</li>
-                        <li data-i18n="privacidad_section2_item2">Mejorar, personalizar y expandir nuestros servicios</li>
-                        <li data-i18n="privacidad_section2_item3">Entender y analizar cómo utilizas nuestro sitio web</li>
-                        <li data-i18n="privacidad_section2_item4">Desarrollar nuevos productos, servicios, características y funcionalidades</li>
-                        <li data-i18n="privacidad_section2_item5">Comunicarnos contigo, ya sea directamente o a través de uno de nuestros socios, para
-                            servicio al cliente, actualizaciones y otra información relacionada con el sitio web, y para
-                            fines de marketing y promoción</li>
-                        <li data-i18n="privacidad_section2_item6">Enviarte correos electrónicos</li>
-                        <li data-i18n="privacidad_section2_item7">Encontrar y prevenir fraudes</li>
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="privacidad_section2_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">02</span> Cómo usamos tu información
+                    </h2>
+                    <p class="mb-4" data-i18n="privacidad_section2_p1">Utilizamos la información recopilada de diversas
+                        formas, incluyendo:</p>
+                    <ul class="list-none space-y-2 pl-4 border-l-2 border-bauhaus-blue">
+                        <li data-i18n="privacidad_section2_item1" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> Proporcionar, operar y mantener nuestro sitio
+                            web</li>
+                        <li data-i18n="privacidad_section2_item2" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> Mejorar, personalizar y expandir nuestros
+                            servicios</li>
+                        <li data-i18n="privacidad_section2_item3" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> Entender y analizar cómo utilizas nuestro sitio
+                            web</li>
+                        <li data-i18n="privacidad_section2_item4" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> Desarrollar nuevos productos, servicios,
+                            características y funcionalidades</li>
+                        <li data-i18n="privacidad_section2_item5" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> Comunicarnos contigo para servicio al cliente y
+                            marketing</li>
+                        <li data-i18n="privacidad_section2_item6" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> Enviarte correos electrónicos</li>
+                        <li data-i18n="privacidad_section2_item7" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> Encontrar y prevenir fraudes</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-display font-bold text-white mb-4" data-i18n="privacidad_section3_title">3. Cookies y Web Beacons</h2>
-                    <p class="mb-4" data-i18n="privacidad_section3_p1">Como cualquier otro sitio web, Forma Digital utiliza 'cookies'. Estas cookies se
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="privacidad_section3_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">03</span> Cookies y Web Beacons
+                    </h2>
+                    <p class="mb-4" data-i18n="privacidad_section3_p1">Como cualquier otro sitio web, Forma Digital
+                        utiliza 'cookies'. Estas cookies se
                         utilizan para almacenar información, incluidas las preferencias de los visitantes y las páginas
                         del sitio web a las que el visitante accedió o visitó. La información se utiliza para optimizar
                         la experiencia de los usuarios personalizando el contenido de nuestra página web según el tipo
@@ -135,35 +251,50 @@
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-display font-bold text-white mb-4" data-i18n="privacidad_section4_title">4. Políticas de privacidad de terceros
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="privacidad_section4_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">04</span> Políticas de terceros
                     </h2>
-                    <p class="mb-4" data-i18n="privacidad_section4_p1">La Política de Privacidad de Forma Digital no se aplica a otros anunciantes o sitios
+                    <p class="mb-4" data-i18n="privacidad_section4_p1">La Política de Privacidad de Forma Digital no se
+                        aplica a otros anunciantes o sitios
                         web. Por lo tanto, le recomendamos que consulte las respectivas Políticas de Privacidad de estos
                         servidores de anuncios de terceros para obtener información más detallada. Puede incluir sus
                         prácticas e instrucciones sobre cómo optar por no participar en ciertas opciones.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-display font-bold text-white mb-4" data-i18n="privacidad_section5_title">5. Derechos de protección de datos
-                        (Argentina)</h2>
-                    <p class="mb-4" data-i18n="privacidad_section5_p1">Nos aseguramos de que conozca todos sus derechos de protección de datos. De acuerdo
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="privacidad_section5_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">05</span> Derechos de protección de
+                        datos
+                    </h2>
+                    <p class="mb-4" data-i18n="privacidad_section5_p1">Nos aseguramos de que conozca todos sus derechos
+                        de protección de datos. De acuerdo
                         con la Ley de Protección de Datos Personales 25.326 de Argentina, todo usuario tiene derecho a:
                     </p>
-                    <ul class="list-disc pl-6 space-y-2">
-                        <li data-i18n="privacidad_section5_item1">El derecho de acceso: tiene derecho a solicitar copias de sus datos personales.</li>
-                        <li data-i18n="privacidad_section5_item2">El derecho de rectificación: tiene derecho a solicitar que corrijamos cualquier información
-                            que crea que es inexacta.</li>
-                        <li data-i18n="privacidad_section5_item3">El derecho a la supresión: tiene derecho a solicitar que borremos sus datos personales, bajo
-                            ciertas condiciones.</li>
+                    <ul class="list-none space-y-2 pl-4 border-l-2 border-bauhaus-red">
+                        <li data-i18n="privacidad_section5_item1" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> <strong>Acceso:</strong> solicitar copias de
+                            sus datos personales.</li>
+                        <li data-i18n="privacidad_section5_item2" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> <strong>Rectificación:</strong> solicitar
+                            corrección de información inexacta.</li>
+                        <li data-i18n="privacidad_section5_item3" class="flex items-center gap-2"><span
+                                class="w-2 h-2 bg-bauhaus-black"></span> <strong>Supresión:</strong> solicitar borrado
+                            de datos personales.</li>
                     </ul>
                 </section>
 
-                <section>
-                    <h2 class="text-2xl font-display font-bold text-white mb-4" data-i18n="privacidad_section6_title">6. Contacto</h2>
-                    <p data-i18n="privacidad_section6_p1">Si tiene alguna pregunta sobre esta Política de Privacidad, puede contactarnos:</p>
+                <section class="bg-bauhaus-black text-white p-8 border-2 border-bauhaus-black">
+                    <h2 class="text-2xl font-display font-black text-white mb-4" data-i18n="privacidad_section6_title">
+                        06. Contacto</h2>
+                    <p data-i18n="privacidad_section6_p1">Si tiene alguna pregunta sobre esta Política de Privacidad,
+                        puede contactarnos:</p>
                     <ul class="list-none mt-4 space-y-2">
-                        <li data-i18n="privacidad_section6_item1"><strong class="text-white">Email:</strong> forma.digital.ar@gmail.com</li>
-                        <li data-i18n="privacidad_section6_item2"><strong class="text-white">Ubicación:</strong> Buenos Aires, Argentina</li>
+                        <li data-i18n="privacidad_section6_item1"><strong class="text-bauhaus-yellow">Email:</strong>
+                            forma.digital.ar@gmail.com</li>
+                        <li data-i18n="privacidad_section6_item2"><strong
+                                class="text-bauhaus-yellow">Ubicación:</strong> Buenos Aires, Argentina</li>
                     </ul>
                 </section>
             </div>
@@ -171,194 +302,58 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brand-dark border-t border-white/10 py-20">
+    <footer id="contacto" class="bg-bauhaus-black text-white pt-24 pb-12">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-2">
-                    <a href="index.html" class="text-3xl font-display font-bold tracking-tighter mb-6 block">
-                        FORMA<span class="text-brand-accent">.</span>
-                    </a>
-                    <p class="text-gray-400 max-w-sm">
-                        Transformamos negocios a través de estrategias digitales efectivas y diseño impactante.
-                    </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start mb-20">
+                <div class="w-full">
+                    <h2 class="text-5xl md:text-7xl font-display font-black mb-8 leading-tight">
+                        EMPECEMOS<br>
+                        <span class="text-bauhaus-yellow underline decoration-4 underline-offset-8">AHORA</span>
+                    </h2>
                 </div>
-                <div>
-                    <h4 class="text-white font-bold mb-6">Menú</h4>
-                    <ul class="space-y-4">
-                        <li><a href="servicios.html"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Servicios</a></li>
-                        <li><a href="nosotros.html"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Proceso</a></li>
-                        <li><a href="index.html#trabajos"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Trabajos</a></li>
-                        <li><a href="index.html#planes"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Planes</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-6">Legal</h4>
-                    <ul class="space-y-4">
-                        <li><a href="privacidad.html"
-                                class="text-brand-accent font-bold transition-colors">Privacidad</a>
-                        </li>
-                        <li><a href="terminos.html"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Términos</a>
-                        </li>
-                    </ul>
+
+                <div class="flex flex-col gap-8 lg:pt-8">
+                    <div>
+                        <h3 class="text-bauhaus-yellow font-black mb-4 uppercase tracking-widest">CONTACTO DIRECTO</h3>
+                        <a href="mailto:forma.digital.ar@gmail.com"
+                            class="block text-2xl font-bold hover:text-bauhaus-red transition-colors mb-2">forma.digital.ar@gmail.com</a>
+                        <a href="https://wa.me/5491130666060" target="_blank"
+                            class="block text-2xl font-bold hover:text-bauhaus-red transition-colors">+54 9 11
+                            3066-6060</a>
+                    </div>
                 </div>
             </div>
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-sm">© 2025 Forma Digital. Todos los derechos reservados.</p>
-                <div class="flex gap-6">
-                    <!-- Social Icons -->
+
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm font-bold" data-i18n="footer_copyright">© 2025 Forma Digital. Bauhaus
+                    Edition.</p>
+                <div class="flex gap-4">
                     <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
-                        class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                        <span class="sr-only">Instagram</span>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465 1.067-.047 1.407-.06 4.123-.06h.08v.001zm0-2c-2.709 0-3.024.011-4.087.06-1.097.05-1.853.23-2.533.494-1.409.548-2.495 1.634-3.043 3.043-.264.68-.445 1.436-.494 2.533C2.011 7.29 2 7.605 2 10.315v.63c0 2.71.011 3.025.06 4.087.05 1.097.23 1.853.494 2.533.549 1.409 1.634 2.495 3.043 3.043.68.264 1.436.445 2.533.494 1.063.049 1.379.06 4.087.06h.63c2.71 0 3.025-.011 4.087-.06 1.097-.05 1.853-.23 2.533-.494 1.409-.549 2.495-1.634 3.043-3.043.264-.68.445-1.436.494-2.533.049-1.063.06-1.379.06-4.087v-.63c0-2.71-.011-3.025-.06-4.087-.05-1.097-.23-1.853-.494-2.533a8.345 8.345 0 00-3.043-3.043c-.68-.264-1.436-.445-2.533-.494C15.339 2.011 15.024 2 12.315 2z"
-                                clip-rule="evenodd" />
-                            <path fill-rule="evenodd"
-                                d="M12.315 5.817a6.498 6.498 0 010 12.996 6.498 6.498 0 010-12.996zm0 2a4.498 4.498 0 100 8.996 4.498 4.498 0 000-8.996z"
-                                clip-rule="evenodd" />
-                            <path fill-rule="evenodd" d="M18.856 6.374a1.23 1.23 0 11-2.46 0 1.23 1.23 0 012.46 0z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
+                        class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-yellow transition-colors">IG</a>
                     <a href="https://www.facebook.com/formadigital" target="_blank"
-                        class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                        <span class="sr-only">Facebook</span>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd"
-                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.129 22 16.99 22 12z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
+                        class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-blue transition-colors">FB</a>
+                    <a href="https://www.linkedin.com/company/forma-digital" target="_blank"
+                        class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-red transition-colors">LI</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Mega Menu Overlay -->
-    <div id="mega-menu"
-        class="fixed inset-0 bg-brand-dark z-[9998] transform translate-x-full transition-transform duration-500 ease-in-out">
-        <div class="container mx-auto px-6 h-full flex flex-col justify-center relative">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 h-[80vh]">
-                <!-- Left Column: Image -->
-                <div class="hidden lg:block lg:col-span-4 relative h-full rounded-3xl overflow-hidden group">
-                    <img src="images/menu_img.png" alt="Menu Image"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500">
-                    </div>
-                    <div class="absolute bottom-8 left-8 text-white">
-                        <p class="text-brand-accent font-bold tracking-wider mb-2">ESTUDIO CREATIVO</p>
-                        <h3 class="text-3xl font-display font-bold">Elevamos tu marca al siguiente nivel.</h3>
-                    </div>
-                </div>
+    <script>
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-                <!-- Middle Column: Navigation -->
-                <div class="col-span-1 lg:col-span-5 flex flex-col justify-center">
-                    <nav class="space-y-6">
-                        <a href="servicios.html" class="group block">
-                            <div class="flex items-baseline gap-4">
-                                <span
-                                    class="text-brand-accent font-display text-xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">(01)</span>
-                                <span
-                                    class="text-5xl md:text-7xl font-display font-bold text-transparent bg-clip-text bg-white group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
-                                    Servicios
-                                </span>
-                            </div>
-                        </a>
-                        <a href="nosotros.html" class="group block">
-                            <div class="flex items-baseline gap-4">
-                                <span
-                                    class="text-brand-accent font-display text-xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">(02)</span>
-                                <span
-                                    class="text-5xl md:text-7xl font-display font-bold text-transparent bg-clip-text bg-white group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
-                                    Nosotros
-                                </span>
-                            </div>
-                        </a>
-                        <a href="index.html#trabajos" class="group block">
-                            <div class="flex items-baseline gap-4">
-                                <span
-                                    class="text-brand-accent font-display text-xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">(03)</span>
-                                <span
-                                    class="text-5xl md:text-7xl font-display font-bold text-transparent bg-clip-text bg-white group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
-                                    Portafolio
-                                </span>
-                            </div>
-                        </a>
-                        <a href="contacto.html" class="group block">
-                            <div class="flex items-baseline gap-4">
-                                <span
-                                    class="text-brand-accent font-display text-xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">(04)</span>
-                                <span
-                                    class="text-5xl md:text-7xl font-display font-bold text-transparent bg-clip-text bg-white group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
-                                    Contacto
-                                </span>
-                            </div>
-                        </a>
-                    </nav>
-                </div>
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+        }
 
-                <!-- Right Column: Contact & Socials -->
-                <div class="col-span-1 lg:col-span-3 flex flex-col justify-center border-l border-white/10 pl-12">
-                    <div class="mb-12">
-                        <h4 class="text-brand-accent font-bold mb-6 tracking-wider">CONTACTO</h4>
-                        <p class="text-gray-400 text-lg mb-2">hola@formadigital.com</p>
-                        <p class="text-gray-400 text-lg">+54 9 11 1234-5678</p>
-                    </div>
+        function closeMobileMenu() {
+            mobileMenu.classList.add('translate-x-full');
+        }
 
-                    <div>
-                        <h4 class="text-brand-accent font-bold mb-6 tracking-wider">SÍGUENOS</h4>
-                        <div class="flex gap-4">
-                            <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
-                                class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                                <span class="sr-only">Instagram</span>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path fill-rule="evenodd"
-                                        d="M12 0C8.74 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.636c-.78.312-1.45.729-2.104 1.384-.653.655-1.07 1.324-1.383 2.104-.303.765-.504 1.634-.563 2.913-.058 1.28-.072 1.687-.072 4.116s.014 2.836.072 4.115c.06 1.28.261 2.149.563 2.914.312.78.729 1.45 1.384 2.104.655.653 1.324 1.07 2.104 1.383.765.303 1.634.504 2.913.563 1.28.058 1.687.072 4.116.072s2.835-.014 4.115-.072c1.28-.06 2.149-.261 2.914-.563.78-.312 1.45-.729 2.104-1.384.653-.655 1.324-1.07 1.383-2.104.303-.765.504-1.634.563-2.913.058-1.28.072-1.687.072-4.116s-.014-2.835-.072-4.115c-.06-1.28-.261-2.149-.563-2.914-.312-.78-.729-1.45-1.384-2.104-.655-.653-1.324-1.07-2.104-1.383-.765-.303-1.634-.504-2.913-.563C15.167.014 14.76 0 12 0zm0 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.894.422.417.683.815.894 1.382.166.422.36 1.057.415 2.227.058 1.265.07 1.645.07 4.85s-.012 3.585-.07 4.85c-.055 1.17-.249 1.805-.415 2.227-.217.562-.477.96.894-1.382.417-.422.815-.683 1.382-.894.422-.166 1.057-.36 2.227-.415C8.415 2.175 8.795 2.163 12 2.163zm0 3.635c-3.44 0-6.24 2.8-6.24 6.24s2.8 6.24 6.24 6.24 6.24-2.8 6.24-6.24-2.8-6.24-6.24-6.24zm0 10.385c-2.28 0-4.14-1.86-4.14-4.14s1.86-4.14 4.14-4.14 4.14 1.86 4.14 4.14-1.86 4.14-4.14 4.14zm5.21-10.81a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="https://www.facebook.com/formadigital" target="_blank"
-                                class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                                <span class="sr-only">Facebook</span>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path fill-rule="evenodd"
-                                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.129 22 16.99 22 12z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                </footer>
-
-                <script>
-                    // Menu Toggle Logic
-                    const menuToggle = document.getElementById('menu-toggle');
-                    const megaMenu = document.getElementById('mega-menu');
-                    const body = document.body;
-
-                    menuToggle.addEventListener('click', () => {
-                        megaMenu.classList.toggle('translate-x-full');
-                        body.classList.toggle('overflow-hidden');
-
-                        // Toggle Hamburger Icon Animation
-                        const spans = menuToggle.querySelectorAll('span');
-                        if (megaMenu.classList.contains('translate-x-full')) {
-                            spans[0].classList.remove('rotate-45', 'translate-y-2');
-                            spans[1].classList.remove('opacity-0');
-                            spans[2].classList.remove('-rotate-45', '-translate-y-2');
-                        } else {
-                            spans[0].classList.add('rotate-45', 'translate-y-2');
-                            spans[1].classList.add('opacity-0');
-                            spans[2].classList.add('-rotate-45', '-translate-y-2');
-                        }
-                    });
-                </script>
+        menuToggle.addEventListener('click', toggleMobileMenu);
+    </script>
     <script src="src/translations.js"></script>
 </body>
 

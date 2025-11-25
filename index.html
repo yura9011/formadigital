@@ -7,570 +7,481 @@
     <title>Forma Digital | Agencia Creativa</title>
     <meta name="description" content="Agencia creativa digital. Transformamos marcas con diseño y estrategia.">
 
-    <!-- Tailwind (CDN for rapid dev, assuming local build exists but this ensures styles work immediately) -->
+    <!-- Tailwind (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    spacing: {
+                        '13': '3.25rem',
+                        '21': '5.25rem',
+                        '34': '8.5rem',
+                        '55': '13.75rem',
+                        '89': '22.25rem',
+                        '144': '36rem',
+                        '233': '58.25rem',
+                        '377': '94.25rem',
+                    },
                     colors: {
-                        brand: {
-                            dark: '#050505',
-                            gray: '#1a1a1a',
-                            accent: '#C6FF17', // Premium Green
-                            'accent-light': '#D4FF25',
-                            'accent-dark': '#B8E600',
-                        },
-                        metallic: {
-                            100: '#F5F5F7',
-                            200: '#E8E8ED',
-                            300: '#D1D1D6',
-                            400: '#8E8E93',
+                        bauhaus: {
+                            red: '#D93025',
+                            blue: '#1A73E8',
+                            yellow: '#F9AB00',
+                            black: '#111111',
+                            white: '#F4F4F0',
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Syne', 'sans-serif'],
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        display: ['Archivo', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
 
-    <!-- Custom Styles -->
-    <link href="./public/style_v2.css" rel="stylesheet">
-    <link href="./public/premium.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bauhaus-red: #D93025;
+            --bauhaus-blue: #1A73E8;
+            --bauhaus-yellow: #F9AB00;
+            --bauhaus-black: #111111;
+            --bauhaus-white: #F4F4F0;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bauhaus-white);
+            color: var(--bauhaus-black);
+            overflow-x: hidden;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F4F4F0;
+            border-left: 1px solid #111;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #111;
+            border: 2px solid #F4F4F0;
+        }
+
+        /* Bauhaus Utilities */
+        .bauhaus-border {
+            border: 2px solid #111111;
+        }
+
+        .bauhaus-shadow {
+            box-shadow: 4px 4px 0px #111111;
+        }
+
+        .bauhaus-shadow-hover:hover {
+            box-shadow: 6px 6px 0px #111111;
+            transform: translate(-2px, -2px);
+        }
+
+        /* Marquee Animation */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
 </head>
 
-<body class="bg-brand-dark text-white antialiased selection:bg-brand-accent selection:text-brand-dark">
+<body class="bg-bauhaus-white text-bauhaus-black antialiased selection:bg-bauhaus-yellow selection:text-bauhaus-black">
 
     <!-- Header -->
     <header
-        class="fixed w-full top-0 z-50 transition-all duration-300 bg-brand-dark/80 backdrop-blur-md border-b border-white/10">
+        class="fixed w-full top-0 z-50 transition-all duration-300 bg-bauhaus-white border-b-2 border-bauhaus-black">
         <div class="container mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="block h-20 w-auto">
-                <img src="images/logo_new.png" alt="FormaDigital" class="h-full w-auto object-contain">
+            <a href="index.html" class="block h-12 w-auto flex items-center gap-2">
+                <div class="w-8 h-8 bg-bauhaus-red rounded-full border-2 border-bauhaus-black"></div>
+                <div
+                    class="w-8 h-8 bg-bauhaus-blue transform rotate-45 border-2 border-bauhaus-black -ml-4 mix-blend-multiply">
+                </div>
+                <span class="font-display font-black text-xl tracking-tighter">FORMA.DIGITAL</span>
             </a>
 
             <div class="hidden md:flex items-center gap-8">
                 <nav class="flex gap-8">
                     <a href="servicios.html"
-                        class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-red transition-colors"
                         data-i18n="nav_services">SERVICIOS</a>
-                    <a href="nosotros.html" class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                    <a href="nosotros.html"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-blue transition-colors"
                         data-i18n="nav_about">NOSOTROS</a>
-                    <a href="#trabajos" class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                    <a href="#trabajos"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-yellow transition-colors"
                         data-i18n="nav_work">TRABAJOS</a>
                 </nav>
 
                 <!-- Language Toggle -->
-                <button id="lang-toggle" class="text-sm font-bold text-gray-300 hover:text-white transition-colors">
-                    <span class="text-brand-accent">ES</span> / EN
+                <button id="lang-toggle"
+                    class="text-sm font-bold border-2 border-bauhaus-black px-2 py-1 hover:bg-bauhaus-black hover:text-bauhaus-white transition-colors">
+                    <span class="text-bauhaus-red">ES</span> / EN
                 </button>
 
                 <a href="contacto.html"
-                    class="px-6 py-2 bg-white text-brand-dark font-bold rounded-full hover:bg-brand-accent transition-all duration-300 transform hover:scale-105">
+                    class="px-6 py-2 bg-bauhaus-black text-bauhaus-white font-bold uppercase tracking-wider border-2 border-bauhaus-black hover:bg-bauhaus-white hover:text-bauhaus-black transition-all duration-300 bauhaus-shadow">
                     CONTACTAR
                 </a>
             </div>
 
             <!-- Hamburger Menu Button -->
-            <button id="menu-toggle"
-                class="hamburger md:hidden fixed top-5 right-5 z-[9999] w-12 h-12 flex flex-col justify-center items-center gap-1.5 group focus:outline-none mix-blend-difference">
-                <span class="line w-8 h-0.5 bg-white group-hover:bg-brand-accent"></span>
-                <span class="line w-8 h-0.5 bg-white group-hover:bg-brand-accent"></span>
-                <span class="line w-8 h-0.5 bg-white group-hover:bg-brand-accent"></span>
+            <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 group focus:outline-none z-50">
+                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-red transition-colors"></span>
+                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-blue transition-colors"></span>
+                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-yellow transition-colors"></span>
             </button>
         </div>
     </header>
 
-    <main>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-bauhaus-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center">
+        <nav class="flex flex-col gap-8 text-center">
+            <a href="servicios.html"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-red transition-colors"
+                onclick="closeMobileMenu()" data-i18n="nav_services">SERVICIOS</a>
+            <a href="nosotros.html"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-blue transition-colors"
+                onclick="closeMobileMenu()" data-i18n="nav_about">NOSOTROS</a>
+            <a href="#trabajos"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-yellow transition-colors"
+                onclick="closeMobileMenu()" data-i18n="nav_work">TRABAJOS</a>
+            <a href="contacto.html"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-black transition-colors"
+                onclick="closeMobileMenu()">CONTACTO</a>
+        </nav>
+    </div>
+
+    <main class="pt-20">
         <!-- Hero Section -->
-        <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
-            id="hero-container">
-            <!-- Background Elements -->
-            <div class="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-gray to-black z-0"></div>
-            <div class="absolute inset-0 opacity-[0.015] bg-noise z-0"></div>
-            <div class="absolute inset-0 bg-radial-glow z-0"></div>
-
-            <!-- 3D Abstract Image (Background/Parallax) -->
-            <div class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none perspective-1000">
-                <div id="hero-image-container" data-depth="0.2"
-                    class="relative w-full max-w-[800px] aspect-square opacity-60 md:opacity-80 mix-blend-screen transition-transform duration-100 ease-out will-change-transform">
-                    <img src="images/hero_abstract.png" alt="Abstract 3D Shape"
-                        class="w-full h-full object-contain drop-shadow-[0_0_50px_rgba(198,255,23,0.3)]">
-                </div>
+        <section
+            class="min-h-[90vh] flex items-center justify-center bg-bauhaus-white relative overflow-hidden border-b-2 border-bauhaus-black">
+            <!-- Geometric Background Elements -->
+            <div
+                class="absolute top-20 left-10 w-32 h-32 bg-bauhaus-red rounded-full mix-blend-multiply opacity-80 animate-pulse">
+            </div>
+            <div
+                class="absolute bottom-20 right-10 w-48 h-48 bg-bauhaus-blue transform rotate-12 mix-blend-multiply opacity-80">
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-bauhaus-yellow rounded-full blur-3xl opacity-20">
             </div>
 
-            <div class="relative z-10 max-w-5xl mx-auto text-center">
-                <h1
-                    class="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-tight mb-8 animate-fadeInUp stagger-1">
-                    <span class="block text-white" data-i18n="hero_title">Estrategias Digitales que</span>
-                    <span class="block text-brand-accent neon-glow" data-i18n="hero_subtitle">Transforman Marcas</span>
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <h1 class="text-6xl md:text-9xl font-display font-black leading-none mb-8 tracking-tighter">
+                    <span class="block hover:text-bauhaus-red transition-colors duration-300"
+                        data-i18n="hero_title_1">FORMA</span>
+                    <span
+                        class="block text-transparent bg-clip-text bg-gradient-to-r from-bauhaus-blue to-bauhaus-black"
+                        data-i18n="hero_title_2">DIGITAL</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed animate-fadeInUp stagger-2"
-                    data-i18n="hero_desc">
-                    Somos una agencia creativa especializada en diseño, desarrollo y marketing digital. Llevamos tu
-                    negocio al siguiente nivel.
+                <p class="text-xl md:text-2xl font-bold max-w-2xl mx-auto mb-12 text-gray-800"
+                    data-i18n="hero_subtitle">
+                    Transformamos ideas en experiencias digitales impactantes. Diseño, estrategia y tecnología en
+                    perfecta armonía.
                 </p>
-                <div class="flex flex-col md:flex-row gap-6 justify-center items-center animate-fadeInUp stagger-3">
+                <div class="flex flex-col md:flex-row gap-6 justify-center">
                     <a href="#planes"
-                        class="btn-premium px-8 py-4 bg-brand-accent text-brand-dark font-bold rounded-full hover:bg-white hover:shadow-[0_0_30px_rgba(204,255,0,0.4)] transition-all duration-300 transform hover:scale-105"
-                        data-i18n="hero_cta">
-                        VER NUESTROS PLANES
+                        class="px-8 py-4 bg-bauhaus-black text-white font-black uppercase tracking-widest border-2 border-bauhaus-black hover:bg-white hover:text-bauhaus-black transition-all duration-300 bauhaus-shadow">
+                        <span data-i18n="hero_cta_primary">VER PLANES</span>
                     </a>
-                    <a href="nosotros.html"
-                        class="px-8 py-4 border border-white/20 text-white font-bold rounded-full hover:bg-white/10 transition-all duration-300 glass backdrop-blur-sm">
-                        CÓMO FUNCIONA
+                    <a href="contacto.html"
+                        class="px-8 py-4 bg-transparent text-bauhaus-black font-black uppercase tracking-widest border-2 border-bauhaus-black hover:bg-bauhaus-red hover:text-white transition-all duration-300 bauhaus-shadow-hover">
+                        <span data-i18n="hero_cta_secondary">HABLEMOS</span>
                     </a>
                 </div>
-            </div>
-
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                </svg>
             </div>
         </section>
 
-        <style>
-            .perspective-1000 {
-                perspective: 1000px;
-            }
-
-            /* Marquee Animation */
-            @keyframes marquee {
-                0% {
-                    transform: translateX(0);
-                }
-
-                100% {
-                    transform: translateX(-50%);
-                }
-            }
-
-            .animate-marquee {
-                animation: marquee 40s linear infinite;
-            }
-
-            .animate-marquee:hover {
-                animation-play-state: paused;
-            }
-        </style>
-
-        <script>
-            // 3D Tilt Effect
-            document.addEventListener('mousemove', (e) => {
-                const heroImage = document.getElementById('hero-image-container');
-                if (heroImage) {
-                    const { innerWidth, innerHeight } = window;
-                    const x = (e.clientX - innerWidth / 2) / 25; // Sensitivity
-                    const y = (e.clientY - innerHeight / 2) / 25;
-
-                    // Apply rotation and slight translation
-                    heroImage.style.transform = `rotateY(${x}deg) rotateX(${-y}deg) translateZ(50px)`;
-                }
-            });
-        </script>
-
-        <!-- Portfolio Section (Infinite Marquee) -->
-        <section id="trabajos" class="py-32 bg-brand-dark overflow-hidden">
-            <div class="container mx-auto px-6 mb-12">
-                <h2 class="text-4xl md:text-6xl font-display font-bold text-center"><span
-                        data-i18n="nav_work">TRABAJOS</span><span class="text-brand-accent">.</span></h2>
+        <!-- Marquee Section -->
+        <div class="bg-bauhaus-yellow border-b-2 border-bauhaus-black py-4 overflow-hidden">
+            <div class="marquee-container">
+                <div class="marquee-content font-display font-black text-2xl uppercase tracking-widest">
+                    ESTRATEGIA • DISEÑO • DESARROLLO • MARKETING • BRANDING • ESTRATEGIA • DISEÑO • DESARROLLO •
+                    MARKETING • BRANDING •
+                    ESTRATEGIA • DISEÑO • DESARROLLO • MARKETING • BRANDING • ESTRATEGIA • DISEÑO • DESARROLLO •
+                    MARKETING • BRANDING •
+                </div>
             </div>
+        </div>
 
-            <div class="relative w-full">
-                <div class="flex gap-8 animate-marquee w-max px-4">
-                    <!-- Project 1 -->
+        <!-- Services Preview -->
+        <section class="py-24 bg-white border-b-2 border-bauhaus-black">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
                     <div
-                        class="w-[85vw] md:w-[400px] lg:w-[500px] group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand-gray shrink-0">
+                        class="p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all group">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex flex-col justify-end p-8">
-                            <span
-                                class="text-brand-accent font-bold mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
-                                data-i18n="visuales_style">ESTILO</span>
-                            <h3 class="text-3xl font-display font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75"
-                                data-i18n="visuales_style1_title">
-                                Minimalista & Clean</h3>
+                            class="w-16 h-16 bg-bauhaus-red rounded-full mb-6 border-2 border-bauhaus-black group-hover:scale-110 transition-transform">
                         </div>
-                        <img src="images/571982124_17842289142610474_2729963465656201081_n.jpg" alt="Estilo Minimalista"
-                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700">
+                        <h3 class="text-2xl font-display font-black mb-4 uppercase" data-i18n="service_1_title">
+                            Estrategia</h3>
+                        <p class="font-medium text-gray-600 mb-6" data-i18n="service_1_desc">Analizamos tu mercado y
+                            definimos el camino más efectivo para alcanzar tus objetivos comerciales.</p>
+                        <a href="servicios.html"
+                            class="text-bauhaus-red font-bold uppercase tracking-wider hover:underline">LEER MÁS -></a>
                     </div>
-
-                    <!-- Project 2 -->
+                    <!-- Card 2 -->
                     <div
-                        class="w-[400px] md:w-[500px] group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand-gray shrink-0">
+                        class="p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all group">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex flex-col justify-end p-8">
-                            <span
-                                class="text-brand-accent font-bold mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
-                                data-i18n="visuales_style">ESTILO</span>
-                            <h3 class="text-3xl font-display font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75"
-                                data-i18n="visuales_style2_title">
-                                Bold & Impactante</h3>
+                            class="w-16 h-16 bg-bauhaus-blue transform rotate-3 mb-6 border-2 border-bauhaus-black group-hover:rotate-12 transition-transform">
                         </div>
-                        <img src="images/post-image-1761850652612.jpeg" alt="Estilo Bold"
-                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700">
+                        <h3 class="text-2xl font-display font-black mb-4 uppercase" data-i18n="service_2_title">
+                            Contenido</h3>
+                        <p class="font-medium text-gray-600 mb-6" data-i18n="service_2_desc">Creamos narrativas visuales
+                            y textuales que conectan con tu audiencia y generan engagement real.</p>
+                        <a href="servicios.html"
+                            class="text-bauhaus-blue font-bold uppercase tracking-wider hover:underline">LEER MÁS -></a>
                     </div>
-
-                    <!-- Project 3 -->
+                    <!-- Card 3 -->
                     <div
-                        class="w-[400px] md:w-[500px] group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand-gray shrink-0">
+                        class="p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all group">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex flex-col justify-end p-8">
-                            <span
-                                class="text-brand-accent font-bold mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
-                                data-i18n="visuales_style">ESTILO</span>
-                            <h3 class="text-3xl font-display font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75"
-                                data-i18n="visuales_style3_title">
-                                Editorial & Elegante</h3>
+                            class="w-16 h-16 bg-bauhaus-yellow rounded-none mb-6 border-2 border-bauhaus-black group-hover:rounded-full transition-all">
                         </div>
-                        <img src="images/573865867_17842286523610474_7650289683523815886_n.jpg" alt="Estilo Editorial"
-                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700">
+                        <h3 class="text-2xl font-display font-black mb-4 uppercase" data-i18n="service_3_title">Diseño
+                        </h3>
+                        <p class="font-medium text-gray-600 mb-6" data-i18n="service_3_desc">Identidades visuales
+                            memorables que destacan en un mercado saturado. Estética y función.</p>
+                        <a href="servicios.html"
+                            class="text-bauhaus-yellow font-bold uppercase tracking-wider hover:underline">LEER MÁS
+                            -></a>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Project 4 -->
+        <!-- Portfolio Preview -->
+        <section id="trabajos" class="py-24 bg-bauhaus-white border-b-2 border-bauhaus-black">
+            <div class="container mx-auto px-6">
+                <div class="flex justify-between items-end mb-16">
+                    <h2 class="text-5xl md:text-7xl font-display font-black uppercase">
+                        TRABAJOS <span class="text-bauhaus-red">RECENTES</span>
+                    </h2>
+                    <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
+                        class="hidden md:block px-6 py-3 border-2 border-bauhaus-black font-bold uppercase hover:bg-bauhaus-black hover:text-white transition-colors">
+                        VER INSTAGRAM
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div
-                        class="w-[400px] md:w-[500px] group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand-gray shrink-0">
+                        class="group relative border-2 border-bauhaus-black overflow-hidden aspect-video bauhaus-shadow">
+                        <img src="images/portfolio1.png" alt="Portfolio 1"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex flex-col justify-end p-8">
-                            <span
-                                class="text-brand-accent font-bold mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
-                                data-i18n="visuales_style">ESTILO</span>
-                            <h3 class="text-3xl font-display font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75"
-                                data-i18n="visuales_style4_title">
-                                Moderno & Tech</h3>
-                        </div>
-                        <img src="images/post-image-1761851482138.jpeg" alt="Estilo Tech"
-                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700">
-                    </div>
-
-                    <!-- Project 5 -->
-                    <div
-                        class="w-[400px] md:w-[500px] group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand-gray shrink-0">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex flex-col justify-end p-8">
-                            <span
-                                class="text-brand-accent font-bold mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
-                                data-i18n="visuales_style">ESTILO</span>
-                            <h3 class="text-3xl font-display font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75"
-                                data-i18n="visuales_style5_title">
-                                Vibrante & Color</h3>
-                        </div>
-                        <img src="images/post-image-1761851067915.jpeg" alt="Estilo Vibrante"
-                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700">
-                    </div>
-
-                    <!-- Your Brand Card (Compact) -->
-                    <div
-                        class="w-[65vw] md:w-[300px] group relative overflow-hidden rounded-2xl aspect-[3/4] bg-brand-gray border border-brand-accent/20 flex items-center justify-center shrink-0 hover:border-brand-accent transition-colors">
-                        <div class="text-center p-6">
-                            <h3 class="text-2xl font-display font-bold text-white mb-2" data-i18n="visuales_card_title">
-                                TU MARCA</h3>
-                            <p class="text-gray-400 text-sm mb-6" data-i18n="visuales_card_desc">¿Listo para destacar?
-                            </p>
-                            <a href="#contacto"
-                                class="inline-block px-6 py-2 bg-brand-accent text-brand-dark text-sm font-bold rounded-full hover:bg-white transition-colors"
-                                data-i18n="visuales_card_cta">
-                                Empezar
-                            </a>
+                            class="absolute inset-0 bg-bauhaus-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-display font-black text-3xl uppercase">Social Media</span>
                         </div>
                     </div>
-
-                    <!-- Duplicate for Infinite Loop -->
-                    <!-- Project 1 -->
                     <div
-                        class="w-[85vw] md:w-[400px] lg:w-[500px] group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand-gray shrink-0">
+                        class="group relative border-2 border-bauhaus-black overflow-hidden aspect-video bauhaus-shadow">
+                        <img src="images/portfolio2.png" alt="Portfolio 2"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex flex-col justify-end p-8">
-                            <span
-                                class="text-brand-accent font-bold mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
-                                data-i18n="visuales_style">ESTILO</span>
-                            <h3 class="text-3xl font-display font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75"
-                                data-i18n="visuales_style1_title">
-                                Minimalista & Clean</h3>
+                            class="absolute inset-0 bg-bauhaus-blue/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-display font-black text-3xl uppercase">Branding</span>
                         </div>
-                        <img src="images/571982124_17842289142610474_2729963465656201081_n.jpg" alt="Estilo Minimalista"
-                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700">
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div
-                        class="w-[85vw] md:w-[400px] lg:w-[500px] group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand-gray shrink-0">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex flex-col justify-end p-8">
-                            <span
-                                class="text-brand-accent font-bold mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
-                                data-i18n="visuales_style">ESTILO</span>
-                            <h3 class="text-3xl font-display font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75"
-                                data-i18n="visuales_style2_title">
-                                Bold & Impactante</h3>
-                        </div>
-                        <img src="images/post-image-1761850652612.jpeg" alt="Estilo Bold"
-                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700">
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div
-                        class="w-[85vw] md:w-[400px] lg:w-[500px] group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand-gray shrink-0">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex flex-col justify-end p-8">
-                            <span
-                                class="text-brand-accent font-bold mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
-                                data-i18n="visuales_style">ESTILO</span>
-                            <h3 class="text-3xl font-display font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75"
-                                data-i18n="visuales_style3_title">
-                                Editorial & Elegante</h3>
-                        </div>
-                        <img src="images/573865867_17842286523610474_7650289683523815886_n.jpg" alt="Estilo Editorial"
-                            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Plans Section -->
-        <section id="planes" class="py-20 relative">
-            <div class="container mx-auto px-6 relative z-10">
+        <section id="planes" class="py-24 bg-white border-b-2 border-bauhaus-black">
+            <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-6" data-i18n="pricing_title">Planes
-                        Simples</h2>
-                    <p class="text-xl text-gray-400 max-w-2xl mx-auto" data-i18n="pricing_subtitle">
-                        Sin contratos forzosos. Cancela cuando quieras.
-                    </p>
+                    <h2 class="text-5xl md:text-7xl font-display font-black mb-8 uppercase" data-i18n="planes_title">
+                        PLANES</h2>
+
+                    <!-- Pricing Toggle -->
+                    <div class="flex items-center justify-center gap-6">
+                        <span id="monthly-label"
+                            class="text-xl font-bold uppercase transition-colors text-bauhaus-black"
+                            data-i18n="planes_toggle_month">MENSUAL</span>
+                        <button id="pricing-toggle"
+                            class="w-20 h-10 bg-bauhaus-white border-2 border-bauhaus-black rounded-full relative transition-colors focus:outline-none">
+                            <div
+                                class="w-8 h-8 bg-bauhaus-black rounded-full absolute top-0.5 left-1 transition-transform duration-300">
+                            </div>
+                        </button>
+                        <span id="annual-label" class="text-xl font-bold uppercase transition-colors text-gray-400"
+                            data-i18n="planes_toggle_year">ANUAL (-20%)</span>
+                    </div>
                 </div>
 
-                <!-- Pricing Toggle -->
-                <div class="flex justify-center items-center gap-4 mb-12">
-                    <span class="text-white font-bold" id="monthly-label" data-i18n="pricing_monthly">Mensual</span>
-                    <button id="pricing-toggle"
-                        class="w-16 h-8 bg-white/10 rounded-full p-1 transition-all duration-300 focus:outline-none">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Plan 1 -->
+                    <div
+                        class="p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all flex flex-col">
+                        <h3 class="text-2xl font-display font-black uppercase mb-4" data-i18n="plan_1_title">START</h3>
+                        <div class="mb-6">
+                            <span
+                                class="text-sm text-gray-500 line-through original-price hidden font-bold">$300000</span>
+                            <div class="flex items-baseline">
+                                <span class="text-5xl font-black price-amount" data-monthly="25000"
+                                    data-annual="250000">$25000</span>
+                                <span class="text-sm font-bold text-gray-500 ml-2 price-period"
+                                    data-i18n="planes_period_month">/mes</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-1">
+                            <li class="flex items-center gap-3 font-medium"><span class="w-3 h-3 bg-bauhaus-red"></span>
+                                <span class="dynamic-content" data-key-monthly="plan_1_item_1_monthly"
+                                    data-key-annual="plan_1_item_1_annual" data-i18n="plan_1_item_1_monthly">8 Posts + 4
+                                    Stories</span></li>
+                            <li class="flex items-center gap-3 font-medium"><span class="w-3 h-3 bg-bauhaus-red"></span>
+                                <span data-i18n="plan_item_copy">Copywriting Persuasivo</span></li>
+                            <li class="flex items-center gap-3 font-medium"><span class="w-3 h-3 bg-bauhaus-red"></span>
+                                <span data-i18n="plan_item_design">Diseño Gráfico</span></li>
+                        </ul>
+                        <a href="https://wa.me/5491130666060?text=Hola,%20me%20interesa%20el%20plan%20START"
+                            target="_blank"
+                            class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center border-2 border-bauhaus-black hover:bg-bauhaus-red transition-colors"
+                            data-i18n="plan_cta">ELEGIR PLAN</a>
+                    </div>
+
+                    <!-- Plan 2 (Featured) -->
+                    <div
+                        class="p-8 border-2 border-bauhaus-black bg-bauhaus-black text-white bauhaus-shadow transform md:-translate-y-4 relative">
                         <div
-                            class="w-6 h-6 bg-brand-accent rounded-full shadow-md transform transition-transform duration-300">
+                            class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bauhaus-yellow text-bauhaus-black px-4 py-1 font-black uppercase tracking-widest border-2 border-bauhaus-black text-sm">
+                            POPULAR
                         </div>
-                    </button>
-                    <span class="text-gray-400 font-bold flex items-center gap-2" id="annual-label">
-                        <span data-i18n="pricing_annual">Anual</span>
-                        <span class="text-xs bg-brand-accent text-brand-dark px-2 py-1 rounded-full"
-                            data-i18n="pricing_save">Ahorra 20%</span>
-                    </span>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                    <!-- Plan 0: Free -->
-                    <div
-                        class="p-8 border border-white/10 rounded-2xl bg-brand-gray/20 hover:border-white/30 transition-all">
-                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="planes_prueba_title">Plan de Prueba
-                        </h3>
-                        <p class="text-gray-400 text-sm mb-6" data-i18n="planes_prueba_desc">Prueba nuestro servicio.
-                        </p>
-                        <div class="mb-6 h-16 flex flex-col justify-center">
-                            <span class="text-4xl font-bold text-white" data-i18n="planes_prueba_price">Gratis</span>
-                            <span class="text-gray-500 text-sm" data-i18n="planes_prueba_note">Un solo uso</span>
-                        </div>
-                        <ul class="space-y-4 text-sm text-gray-300 mb-8 min-h-[160px]">
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
-                                    data-i18n="planes_prueba_item1">5 Posts
-                                    (Feed)</span>
-                            </li>
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
-                                    data-i18n="planes_prueba_item2">Diseño
-                                    Gráfico</span>
-                            </li>
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
-                                    data-i18n="planes_prueba_item3_text">Redacción de
-                                    Copys</span></li>
-                        </ul>
-                        <a href="#contacto"
-                            class="block w-full py-3 px-4 border border-white/20 text-white font-bold text-center rounded-xl hover:bg-white hover:text-brand-dark transition-all"
-                            data-i18n="planes_prueba_cta">
-                            Empezar Gratis
-                        </a>
-                    </div>
-
-                    <!-- Plan 1: Start -->
-                    <div
-                        class="p-8 border border-white/10 rounded-2xl bg-brand-gray/20 hover:border-white/30 transition-all">
-                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="planes_inicial_title">Plan Inicial</h3>
-                        <p class="text-gray-400 text-sm mb-6" data-i18n="planes_inicial_desc">Para mantener presencia.
-                        </p>
-                        <div class="mb-6 h-16 flex flex-col justify-center">
-                            <div class="flex flex-col">
-                                <span class="text-sm text-gray-500 line-through original-price hidden mb-1"></span>
-                                <span class="text-4xl font-bold text-white price-amount" data-monthly="250"
-                                    data-annual="2500">$250</span>
+                        <h3 class="text-2xl font-display font-black uppercase mb-4 text-bauhaus-yellow"
+                            data-i18n="plan_2_title">GROWTH</h3>
+                        <div class="mb-6">
+                            <span
+                                class="text-sm text-gray-400 line-through original-price hidden font-bold">$480000</span>
+                            <div class="flex items-baseline">
+                                <span class="text-5xl font-black price-amount" data-monthly="40000"
+                                    data-annual="400000">$40000</span>
+                                <span class="text-sm font-bold text-gray-400 ml-2 price-period"
+                                    data-i18n="planes_period_month">/mes</span>
                             </div>
-                            <span class="text-gray-500 text-sm price-period" data-i18n="planes_period_month">/mes</span>
                         </div>
-                        <ul class="space-y-4 text-sm text-gray-300 mb-8 min-h-[160px]">
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
-                                    class="dynamic-content" data-key-monthly="plan_initial_item1_monthly"
-                                    data-key-annual="plan_initial_item1_annual"
-                                    data-i18n="plan_initial_item1_monthly">12 Posts (Feed/Reels)</span></li>
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
-                                    data-i18n="planes_inicial_item2">Diseño
-                                    Gráfico
-                                    Pro</span></li>
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
-                                    data-i18n="planes_inicial_item3">Redacción de
-                                    Copys</span></li>
+                        <ul class="space-y-4 mb-8 flex-1">
+                            <li class="flex items-center gap-3 font-medium"><span
+                                    class="w-3 h-3 bg-bauhaus-yellow"></span> <span class="dynamic-content"
+                                    data-key-monthly="plan_2_item_1_monthly" data-key-annual="plan_2_item_1_annual"
+                                    data-i18n="plan_2_item_1_monthly">12 Posts + 8 Stories</span></li>
+                            <li class="flex items-center gap-3 font-medium"><span
+                                    class="w-3 h-3 bg-bauhaus-yellow"></span> <span data-i18n="plan_item_reels">2 Reels
+                                    / TikToks</span></li>
+                            <li class="flex items-center gap-3 font-medium"><span
+                                    class="w-3 h-3 bg-bauhaus-yellow"></span> <span data-i18n="plan_item_report">Reporte
+                                    Mensual</span></li>
                         </ul>
-                        <a href="#contacto"
-                            class="block w-full py-3 px-4 border border-white/20 text-white font-bold text-center rounded-xl hover:bg-white hover:text-brand-dark transition-all"
-                            data-i18n="planes_inicial_cta">
-                            Empezar
-                        </a>
+                        <a href="https://wa.me/5491130666060?text=Hola,%20me%20interesa%20el%20plan%20GROWTH"
+                            target="_blank"
+                            class="w-full py-3 bg-bauhaus-yellow text-bauhaus-black font-black uppercase text-center border-2 border-white hover:bg-white transition-colors"
+                            data-i18n="plan_cta">ELEGIR PLAN</a>
                     </div>
 
-                    <!-- Plan 2: Growth -->
+                    <!-- Plan 3 -->
                     <div
-                        class="p-8 border-2 border-brand-accent rounded-2xl bg-brand-gray/40 relative transform md:-translate-y-4">
-                        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-accent text-brand-dark px-4 py-1 rounded-full text-xs font-bold tracking-wider"
-                            data-i18n="planes_badge_popular">
-                            MÁS POPULAR
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="planes_crecimiento_title">Plan
-                            Crecimiento</h3>
-                        <p class="text-gray-400 text-sm mb-6" data-i18n="planes_crecimiento_desc">Para marcas que
-                            quieren destacar.</p>
-                        <div class="mb-6 h-16 flex flex-col justify-center">
-                            <div class="flex flex-col">
-                                <span class="text-sm text-gray-500 line-through original-price hidden mb-1"></span>
-                                <span class="text-4xl font-bold text-white price-amount" data-monthly="450"
-                                    data-annual="4500">$450</span>
+                        class="p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all flex flex-col">
+                        <h3 class="text-2xl font-display font-black uppercase mb-4" data-i18n="plan_3_title">SCALE</h3>
+                        <div class="mb-6">
+                            <span
+                                class="text-sm text-gray-500 line-through original-price hidden font-bold">$720000</span>
+                            <div class="flex items-baseline">
+                                <span class="text-5xl font-black price-amount" data-monthly="60000"
+                                    data-annual="600000">$60000</span>
+                                <span class="text-sm font-bold text-gray-500 ml-2 price-period"
+                                    data-i18n="planes_period_month">/mes</span>
                             </div>
-                            <span class="text-gray-500 text-sm price-period" data-i18n="planes_period_month">/mes</span>
                         </div>
-                        <ul class="space-y-4 text-sm text-gray-300 mb-8 min-h-[160px]">
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
-                                    class="dynamic-content" data-key-monthly="plan_growth_item1_monthly"
-                                    data-key-annual="plan_growth_item1_annual" data-i18n="plan_growth_item1_monthly">20
-                                    Posts (Feed/Reels)</span></li>
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
-                                    class="dynamic-content" data-key-monthly="plan_growth_item2_monthly"
-                                    data-key-annual="plan_growth_item2_annual" data-i18n="plan_growth_item2_monthly">40
-                                    Historias</span>
-                            </li>
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
-                                    data-i18n="planes_crecimiento_item3">Diseño
-                                    Premium</span>
-                            </li>
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
-                                    data-i18n="planes_crecimiento_item4_combined">Estrategia &
-                                    Reportes</span></li>
+                        <ul class="space-y-4 mb-8 flex-1">
+                            <li class="flex items-center gap-3 font-medium"><span
+                                    class="w-3 h-3 bg-bauhaus-blue"></span> <span class="dynamic-content"
+                                    data-key-monthly="plan_3_item_1_monthly" data-key-annual="plan_3_item_1_annual"
+                                    data-i18n="plan_3_item_1_monthly">20 Posts + 12 Stories</span></li>
+                            <li class="flex items-center gap-3 font-medium"><span
+                                    class="w-3 h-3 bg-bauhaus-blue"></span> <span data-i18n="plan_item_ads">Gestión de
+                                    Ads</span></li>
+                            <li class="flex items-center gap-3 font-medium"><span
+                                    class="w-3 h-3 bg-bauhaus-blue"></span> <span data-i18n="plan_item_meeting">Reunión
+                                    Quincenal</span></li>
                         </ul>
-                        <a href="#contacto"
-                            class="block w-full py-3 px-4 bg-brand-accent text-brand-dark font-bold text-center rounded-xl hover:bg-white transition-all"
-                            data-i18n="planes_crecimiento_cta">
-                            Elegir este Plan
-                        </a>
+                        <a href="https://wa.me/5491130666060?text=Hola,%20me%20interesa%20el%20plan%20SCALE"
+                            target="_blank"
+                            class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center border-2 border-bauhaus-black hover:bg-bauhaus-blue transition-colors"
+                            data-i18n="plan_cta">ELEGIR PLAN</a>
                     </div>
-
-                    <!-- Plan 3: Custom -->
-                    <div
-                        class="p-8 border border-white/10 rounded-2xl bg-brand-gray/20 hover:border-white/30 transition-all">
-                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="planes_medida_title">A Medida</h3>
-                        <p class="text-gray-400 text-sm mb-6" data-i18n="planes_medida_desc">Necesidades específicas.
-                        </p>
-                        <div class="mb-6 h-16 flex flex-col justify-center">
-                            <span class="text-3xl font-bold text-white" data-i18n="planes_medida_price">Consultar</span>
-                            <span class="text-gray-500 text-sm" data-i18n="planes_medida_note">Personalizado</span>
-                        </div>
-                        <ul class="space-y-4 text-sm text-gray-300 mb-8 min-h-[160px]">
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
-                                    data-i18n="planes_medida_item1">Todo lo del
-                                    Plan
-                                    Crecimiento</span></li>
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
-                                    data-i18n="planes_medida_item2">Gestión de
-                                    Ads</span>
-                            </li>
-                            <li class="flex items-center"><span class="text-brand-accent mr-2">✓</span> <span
-                                    data-i18n="planes_medida_item3">Community
-                                    Management</span></li>
-                        </ul>
-                        <a href="#contacto"
-                            class="block w-full py-3 px-4 border border-white/20 text-white font-bold text-center rounded-xl hover:bg-white hover:text-brand-dark transition-all"
-                            data-i18n="planes_medida_cta">
-                            Contactar
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Banner -->
-        <section class="py-20 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark to-brand-gray z-0"></div>
-            <div
-                class="absolute inset-0 bg-[url('images/menu_img_1.png')] opacity-10 bg-cover bg-center mix-blend-overlay z-0">
-            </div>
-            <div class="container mx-auto px-6 relative z-10">
-                <div
-                    class="bg-white/5 border border-white/10 rounded-3xl p-12 md:p-16 text-center backdrop-blur-sm relative overflow-hidden group">
-                    <div
-                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-50">
-                    </div>
-
-                    <h2 class="text-3xl md:text-5xl font-display font-bold mb-6" data-i18n="cta_banner_title">
-                        ¿Estás preparando un proyecto?
-                    </h2>
-                    <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto" data-i18n="cta_banner_desc">
-                        Te asesoramos sin compromiso. Descubre cómo podemos llevar tu marca al siguiente nivel.
-                    </p>
-                    <a href="contacto.html"
-                        class="inline-flex items-center justify-center px-8 py-4 bg-transparent border border-white text-white font-bold rounded-full hover:bg-white hover:text-brand-dark transition-all duration-300 group-hover:scale-105">
-                        <span data-i18n="cta_banner_btn">Cuéntanos sobre tu proyecto</span>
-                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer id="contacto" class="bg-black pt-32 pb-12 border-t border-white/10">
+        <footer id="contacto" class="bg-bauhaus-black text-white pt-24 pb-12">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start mb-20">
                     <div class="w-full">
-                        <h2 class="text-5xl md:text-7xl font-display font-bold mb-8 leading-tight"
+                        <h2 class="text-5xl md:text-7xl font-display font-black mb-8 leading-tight"
                             data-i18n="footer_form_title">
-                            ¿TIENES UN<br>
-                            <span class="text-brand-accent">PROYECTO?</span>
+                            EMPECEMOS<br>
+                            <span class="text-bauhaus-yellow underline decoration-4 underline-offset-8">AHORA</span>
                         </h2>
-                        <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
+                        <div class="bg-white p-8 border-2 border-white/20">
                             <form action="https://formspree.io/f/manlpzyq" method="POST" class="space-y-4">
                                 <div>
-                                    <label class="block text-sm font-bold text-gray-400 mb-2"
+                                    <label class="block text-sm font-black text-bauhaus-black mb-2 uppercase"
                                         data-i18n="contact_form_name">Nombre</label>
                                     <input type="text" name="name"
-                                        class="w-full bg-brand-dark border border-white/20 rounded-lg px-4 py-3 text-white focus:border-brand-accent focus:outline-none"
-                                        placeholder="Tu nombre" data-i18n-placeholder="contact_form_name_placeholder"
+                                        class="w-full bg-gray-100 border-2 border-bauhaus-black px-4 py-3 text-bauhaus-black focus:bg-white focus:outline-none focus:border-bauhaus-blue transition-colors font-bold"
+                                        placeholder="TU NOMBRE" data-i18n-placeholder="contact_form_name_placeholder"
                                         required>
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-bold text-gray-400 mb-2"
+                                    <label class="block text-sm font-black text-bauhaus-black mb-2 uppercase"
                                         data-i18n="contact_form_email">Email</label>
                                     <input type="email" name="email"
-                                        class="w-full bg-brand-dark border border-white/20 rounded-lg px-4 py-3 text-white focus:border-brand-accent focus:outline-none"
-                                        placeholder="tu@email.com"
+                                        class="w-full bg-gray-100 border-2 border-bauhaus-black px-4 py-3 text-bauhaus-black focus:bg-white focus:outline-none focus:border-bauhaus-blue transition-colors font-bold"
+                                        placeholder="TU@EMAIL.COM"
                                         data-i18n-placeholder="contact_form_email_placeholder" required>
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-bold text-gray-400 mb-2"
+                                    <label class="block text-sm font-black text-bauhaus-black mb-2 uppercase"
                                         data-i18n="contact_form_message">Mensaje</label>
                                     <textarea name="message" rows="3"
-                                        class="w-full bg-brand-dark border border-white/20 rounded-lg px-4 py-3 text-white focus:border-brand-accent focus:outline-none"
-                                        placeholder="Cuéntanos sobre tu proyecto..."
+                                        class="w-full bg-gray-100 border-2 border-bauhaus-black px-4 py-3 text-bauhaus-black focus:bg-white focus:outline-none focus:border-bauhaus-blue transition-colors font-bold"
+                                        placeholder="CUÉNTANOS SOBRE TU PROYECTO..."
                                         data-i18n-placeholder="contact_form_message_placeholder" required></textarea>
                                 </div>
                                 <button type="submit"
-                                    class="w-full py-4 bg-brand-accent text-brand-dark font-bold rounded-lg hover:bg-white transition-colors"
+                                    class="w-full py-4 bg-bauhaus-red text-white font-black uppercase tracking-widest border-2 border-bauhaus-black hover:bg-bauhaus-blue transition-colors"
                                     data-i18n="contact_form_submit">
                                     ENVIAR MENSAJE
                                 </button>
@@ -580,81 +491,46 @@
 
                     <div class="flex flex-col gap-8 lg:pt-8">
                         <div>
-                            <h3 class="text-gray-500 font-bold mb-4" data-i18n="footer_contact_direct">CONTACTO DIRECTO
-                            </h3>
+                            <h3 class="text-bauhaus-yellow font-black mb-4 uppercase tracking-widest"
+                                data-i18n="footer_contact_direct">CONTACTO DIRECTO</h3>
                             <a href="mailto:forma.digital.ar@gmail.com"
-                                class="block text-xl hover:text-brand-accent transition-colors mb-2">forma.digital.ar@gmail.com</a>
+                                class="block text-2xl font-bold hover:text-bauhaus-red transition-colors mb-2">forma.digital.ar@gmail.com</a>
                             <a href="https://wa.me/5491130666060" target="_blank"
-                                class="block text-xl hover:text-brand-accent transition-colors">+54 9 11
+                                class="block text-2xl font-bold hover:text-bauhaus-red transition-colors">+54 9 11
                                 3066-6060</a>
                         </div>
                         <div>
-                            <h3 class="text-gray-500 font-bold mb-4" data-i18n="footer_location_title">UBICACIÓN</h3>
-                            <p class="text-gray-400" data-i18n="footer_location_text">Buenos Aires, Argentina</p>
+                            <h3 class="text-bauhaus-yellow font-black mb-4 uppercase tracking-widest"
+                                data-i18n="footer_location_title">UBICACIÓN</h3>
+                            <p class="text-xl font-bold" data-i18n="footer_location_text">Buenos Aires, Argentina</p>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold mb-6">Legal</h4>
+                            <ul class="space-y-2">
+                                <li><a href="privacidad.html"
+                                        class="text-gray-400 hover:text-bauhaus-yellow transition-colors font-bold">Privacidad</a>
+                                </li>
+                                <li><a href="terminos.html"
+                                        class="text-gray-400 hover:text-bauhaus-yellow transition-colors font-bold">Términos</a>
+                                </li>
+                                <li><a href="cookies.html"
+                                        class="text-gray-400 hover:text-bauhaus-yellow transition-colors font-bold">Cookies</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                    <div class="col-span-1 md:col-span-2">
-                        <a href="index.html" class="text-3xl font-display font-bold tracking-tighter mb-6 block">
-                            FORMA<span class="text-brand-accent">.</span>
-                        </a>
-                        <p class="text-gray-400 max-w-sm" data-i18n="footer_desc">
-                            Transformamos negocios a través de estrategias digitales efectivas y diseño impactante.
-                        </p>
-                    </div>
-                    <div>
-                        <h4 class="text-white font-bold mb-6" data-i18n="footer_menu">Menú</h4>
-                        <ul class="space-y-4">
-                            <li><a href="servicios.html" class="text-gray-400 hover:text-brand-accent transition-colors"
-                                    data-i18n="nav_services">Servicios</a></li>
-                            <li><a href="nosotros.html" class="text-gray-400 hover:text-brand-accent transition-colors"
-                                    data-i18n="nav_process">Proceso</a></li>
-                            <li><a href="index.html#trabajos"
-                                    class="text-gray-400 hover:text-brand-accent transition-colors"
-                                    data-i18n="nav_work">Trabajos</a></li>
-                            <li><a href="index.html#planes"
-                                    class="text-gray-400 hover:text-brand-accent transition-colors"
-                                    data-i18n="nav_plans">Planes</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="text-white font-bold mb-6" data-i18n="footer_legal">Legal</h4>
-                        <ul class="space-y-4">
-                            <li><a href="privacidad.html"
-                                    class="text-gray-400 hover:text-brand-accent transition-colors"
-                                    data-i18n="footer_legal_item1">Privacidad</a>
-                            </li>
-                            <li><a href="terminos.html" class="text-gray-400 hover:text-brand-accent transition-colors"
-                                    data-i18n="footer_legal_item2">Términos</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-gray-500 text-sm" data-i18n="footer_copyright">© 2025 Forma Digital. Todos los
-                        derechos reservados.</p>
-                    <div class="flex gap-6">
-                        <!-- Social Icons -->
+                <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-400 text-sm font-bold" data-i18n="footer_copyright">© 2025 Forma Digital.
+                        Bauhaus Edition.</p>
+                    <div class="flex gap-4">
                         <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
-                            class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                            <span class="sr-only">Instagram</span>
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M12 0C8.74 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.636c-.78.312-1.45.729-2.104 1.384-.653.655-1.07 1.324-1.383 2.104-.303.765-.504 1.634-.563 2.913-.058 1.28-.072 1.687-.072 4.116s.014 2.836.072 4.115c.06 1.28.261 2.149.563 2.914.312.78.729 1.45 1.384 2.104.655.653 1.324 1.07 2.104 1.383.765.303 1.634.504 2.913.563 1.28.058 1.687.072 4.116.072s2.835-.014 4.115-.072c1.28-.06 2.149-.261 2.914-.563.78-.312 1.45-.729 2.104-1.384.653-.655 1.07-1.324 1.383-2.104.303-.765.504-1.634.563-2.913.058-1.28.072-1.687.072-4.116s-.014-2.835-.072-4.115c-.06-1.28-.261-2.149-.563-2.914-.312-.78-.729-1.45-1.384-2.104-.655-.653-1.324-1.07-2.104-1.383-.765-.303-1.634-.504-2.913-.563C15.167.014 14.76 0 12 0zm0 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.894.422.417.683.815.894 1.382.166.422.36 1.057.415 2.227.058 1.265.07 1.645.07 4.85s-.012 3.585-.07 4.85c-.055 1.17-.249 1.805-.415 2.227-.217.562-.477.96-.894 1.382-.417.422-.815.683 1.382-.894.422-.166 1.057-.36 2.227-.415C8.415 2.175 8.795 2.163 12 2.163zm0 3.635c-3.44 0-6.24 2.8-6.24 6.24s2.8 6.24 6.24 6.24 6.24-2.8 6.24-6.24-2.8-6.24-6.24-6.24zm0 10.385c-2.28 0-4.14-1.86-4.14-4.14s1.86-4.14 4.14-4.14 4.14 1.86 4.14 4.14-1.86 4.14-4.14 4.14zm5.21-10.81a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </a>
+                            class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-yellow transition-colors">IG</a>
                         <a href="https://www.facebook.com/formadigital" target="_blank"
-                            class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                            <span class="sr-only">Facebook</span>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd"
-                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.129 22 16.99 22 12z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </a>
+                            class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-blue transition-colors">FB</a>
+                        <a href="https://www.linkedin.com/company/forma-digital" target="_blank"
+                            class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-red transition-colors">LI</a>
                     </div>
                 </div>
             </div>
@@ -662,380 +538,78 @@
 
     </main>
 
-    <!-- Full Screen Overlay Menu -->
-    <div id="mega-menu"
-        class="fixed inset-0 w-full h-full menu-overlay z-[9998] opacity-0 invisible transition-all duration-500 overflow-y-auto lg:overflow-hidden">
-        <div class="container mx-auto px-6 min-h-full py-24 lg:py-24 flex flex-col lg:block">
-            <div class="grid grid-cols-1 lg:grid-cols-12 h-auto lg:h-full gap-8 flex-1">
-
-                <!-- Left Column: Dynamic Image -->
-                <div class="block lg:col-span-4 h-64 lg:h-full relative order-1 lg:order-none mb-8 lg:mb-0">
-                    <div class="w-full h-full lg:h-[80%] rounded-2xl overflow-hidden relative lg:mt-10">
-                        <img id="menu-image" src="images/menu_img_1.png" alt="Menu Highlight"
-                            class="w-full h-full object-cover transition-opacity duration-500 opacity-100">
-                        <div class="absolute inset-0 bg-black/20"></div>
-                    </div>
-                </div>
-
-                <!-- Center Column: Categories -->
-                <div
-                    class="col-span-1 lg:col-span-5 flex flex-col justify-center lg:pl-12 order-2 lg:order-none mb-12 lg:mb-0">
-                    <nav class="space-y-6 lg:space-y-8 text-center lg:text-left">
-                        <!-- Category 1 -->
-                        <a href="servicios.html" class="menu-item group cursor-pointer block"
-                            data-image="images/menu_img_1.png">
-                            <div class="flex items-center justify-center lg:justify-start gap-4 mb-2">
-                                <span
-                                    class="w-2 h-2 rounded-full bg-brand-accent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-300 hidden lg:block"></span>
-                                <h3 class="text-3xl md:text-5xl font-display font-bold text-white group-hover:text-brand-accent transition-colors duration-300"
-                                    data-i18n="menu_services">
-                                    (01) Servicios
-                                </h3>
-                            </div>
-                            <div
-                                class="lg:pl-6 overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-500 ease-in-out">
-                                <ul class="text-gray-400 space-y-1 text-sm md:text-base inline-block text-left">
-                                    <li data-i18n="menu_services_item1">Creación de contenido</li>
-                                    <li data-i18n="menu_services_item2">Diseño gráfico</li>
-                                    <li data-i18n="menu_services_item3">Estrategia digital</li>
-                                    <li data-i18n="menu_services_item4">Gestión de redes</li>
-                                </ul>
-                            </div>
-                        </a>
-
-                        <!-- Category 2 -->
-                        <a href="nosotros.html" class="menu-item group cursor-pointer block"
-                            data-image="images/menu_img_2.png">
-                            <div class="flex items-center justify-center lg:justify-start gap-4 mb-2">
-                                <span
-                                    class="w-2 h-2 rounded-full bg-brand-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block"></span>
-                                <h3 class="text-3xl md:text-5xl font-display font-bold text-white group-hover:text-brand-accent transition-colors duration-300"
-                                    data-i18n="menu_about">
-                                    (02) Nosotros
-                                </h3>
-                            </div>
-                            <div
-                                class="lg:pl-6 overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-500 ease-in-out">
-                                <ul class="text-gray-400 space-y-1 text-sm md:text-base inline-block text-left">
-                                    <li data-i18n="menu_about_item1">Nuestra metodología</li>
-                                    <li data-i18n="menu_about_item2">Por qué elegirnos</li>
-                                    <li data-i18n="menu_about_item3">Experiencia</li>
-                                </ul>
-                            </div>
-                        </a>
-
-                        <!-- Category 3 -->
-                        <a href="index.html#trabajos" class="menu-item group cursor-pointer block"
-                            data-image="images/menu_img_3.png">
-                            <div class="flex items-center justify-center lg:justify-start gap-4 mb-2">
-                                <span
-                                    class="w-2 h-2 rounded-full bg-brand-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block"></span>
-                                <h3 class="text-3xl md:text-5xl font-display font-bold text-white group-hover:text-brand-accent transition-colors duration-300"
-                                    data-i18n="menu_portfolio">
-                                    (03) Portafolio
-                                </h3>
-                            </div>
-                            <div
-                                class="lg:pl-6 overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-500 ease-in-out">
-                                <ul class="text-gray-400 space-y-1 text-sm md:text-base inline-block text-left">
-                                    <li data-i18n="menu_portfolio_item1">Trabajos realizados</li>
-                                    <li data-i18n="menu_portfolio_item2">Casos de éxito</li>
-                                    <li data-i18n="menu_portfolio_item3">Estilos de diseño</li>
-                                </ul>
-                            </div>
-                        </a>
-
-                        <!-- Category 4 -->
-                        <a href="contacto.html" class="menu-item group cursor-pointer block"
-                            data-image="images/menu_img_1.png">
-                            <div class="flex items-center justify-center lg:justify-start gap-4 mb-2">
-                                <span
-                                    class="w-2 h-2 rounded-full bg-brand-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:block"></span>
-                                <h3 class="text-3xl md:text-5xl font-display font-bold text-white group-hover:text-brand-accent transition-colors duration-300"
-                                    data-i18n="menu_contact">
-                                    (04) Contacto
-                                </h3>
-                            </div>
-                            <div
-                                class="lg:pl-6 overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-500 ease-in-out">
-                                <ul class="text-gray-400 space-y-1 text-sm md:text-base inline-block text-left">
-                                    <li data-i18n="menu_contact_item1">Hablemos de tu proyecto</li>
-                                    <li data-i18n="menu_contact_item2">Solicitar presupuesto</li>
-                                    <li data-i18n="menu_contact_item3">Información de contacto</li>
-                                </ul>
-                            </div>
-                        </a>
-                    </nav>
-                </div>
-
-                <!-- Right Column: CTA + Socials -->
-                <div
-                    class="col-span-1 lg:col-span-3 flex flex-col justify-end lg:justify-center items-center lg:items-end pb-10 lg:pb-0 order-3 lg:order-none">
-                    <div class="text-center lg:text-right mb-8">
-                        <p class="text-xl text-white font-display font-bold mb-6">
-                            <span class="block" data-i18n="footer_cta_title">¿Tenés un proyecto?</span>
-                            <span class="block" data-i18n="footer_cta_subtitle">Hablemos.</span>
-                        </p>
-                        <a href="contacto.html" onclick="closeMenu()"
-                            class="inline-block px-8 py-3 bg-brand-accent text-brand-dark font-bold rounded-full hover:bg-white hover:shadow-[0_0_20px_rgba(204,255,0,0.4)] transition-all duration-300 transform hover:scale-105"
-                            data-i18n="footer_cta_btn">
-                            Contactar
-                        </a>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <a href="https://www.linkedin.com/company/forma-digital" target="_blank"
-                            class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-brand-dark transition-all duration-300">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                            </svg>
-                        </a>
-                        <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
-                            class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-brand-dark transition-all duration-300">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M12 0C8.74 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.636c-.78.312-1.45.729-2.104 1.384-.653.655-1.07 1.324-1.383 2.104-.303.765-.504 1.634-.563 2.913-.058 1.28-.072 1.687-.072 4.116s.014 2.836.072 4.115c.06 1.28.261 2.149.563 2.914.312.78.729 1.45 1.384 2.104.655.653 1.324 1.07 2.104 1.383.765.303 1.634.504 2.913.563 1.28.058 1.687.072 4.116.072s2.835-.014 4.115-.072c1.28-.06 2.149-.261 2.914-.563.78-.312 1.45-.729 2.104-1.384.653-.655 1.07-1.324 1.383-2.104.303-.765.504-1.634.563-2.913.058-1.28.072-1.687.072-4.116s-.014-2.835-.072-4.115c-.06-1.28-.261-2.149-.563-2.914-.312-.78-.729-1.45-1.384-2.104-.655-.653-1.324-1.07-2.104-1.383-.765-.303-1.634-.504-2.913-.563C15.167.014 14.76 0 12 0zm0 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.894.422.417.683.815.894 1.382.166.422.36 1.057.415 2.227.058 1.265.07 1.645.07 4.85s-.012 3.585-.07 4.85c-.055 1.17-.249 1.805-.415 2.227-.217.562-.477.96-.894 1.382-.417.422-.815.683 1.382-.894.422-.166 1.057-.36 2.227-.415C8.415 2.175 8.795 2.163 12 2.163zm0 3.635c-3.44 0-6.24 2.8-6.24 6.24s2.8 6.24 6.24 6.24 6.24-2.8 6.24-6.24-2.8-6.24-6.24-6.24zm0 10.385c-2.28 0-4.14-1.86-4.14-4.14s1.86-4.14 4.14-4.14 4.14 1.86 4.14 4.14-1.86 4.14-4.14 4.14zm5.21-10.81a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                        <a href="https://wa.me/5491130666060" target="_blank"
-                            class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-brand-dark transition-all duration-300">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Menu Toggle Logic
+        // Mobile Menu Logic
         const menuToggle = document.getElementById('menu-toggle');
-        const megaMenu = document.getElementById('mega-menu');
-        const menuSpans = menuToggle.querySelectorAll('span');
-        const menuItems = document.querySelectorAll('.menu-item');
-        const menuImage = document.getElementById('menu-image');
-        let isMenuOpen = false;
+        const mobileMenu = document.getElementById('mobile-menu');
 
-        function toggleMenu() {
-            isMenuOpen = !isMenuOpen;
-
-            if (isMenuOpen) {
-                // Open Menu
-                megaMenu.classList.remove('opacity-0', 'invisible');
-                megaMenu.classList.add('opacity-100', 'visible');
-                document.body.style.overflow = 'hidden';
-
-                // Animate Hamburger to X
-                menuToggle.classList.add('active');
-            } else {
-                closeMenu();
-            }
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
         }
 
-        function closeMenu() {
-            isMenuOpen = false;
-
-            // Close Menu
-            megaMenu.classList.remove('opacity-100', 'visible');
-            megaMenu.classList.add('opacity-0', 'invisible');
-            document.body.style.overflow = '';
-
-            // Animate X back to Hamburger
-            menuToggle.classList.remove('active');
+        function closeMobileMenu() {
+            mobileMenu.classList.add('translate-x-full');
         }
 
-        menuToggle.addEventListener('click', toggleMenu);
+        menuToggle.addEventListener('click', toggleMobileMenu);
 
-        // Close on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && isMenuOpen) {
-                closeMenu();
-            }
-        });
-
-        // Hover Effects for Image Change
-        menuItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                const newImage = item.getAttribute('data-image');
-                if (newImage) {
-                    menuImage.style.opacity = '0';
-                    setTimeout(() => {
-                        menuImage.src = newImage;
-                        menuImage.style.opacity = '1';
-                    }, 200);
-                }
-            });
-        });
-    </script>
-
-    <script>
         // Pricing Toggle Logic
         const toggleBtn = document.getElementById('pricing-toggle');
         const toggleDot = toggleBtn.querySelector('div');
-        const priceAmounts = document.querySelectorAll('.price-amount');
-        const pricePeriods = document.querySelectorAll('.price-period');
         const monthlyLabel = document.getElementById('monthly-label');
         const annualLabel = document.getElementById('annual-label');
-
         let isAnnual = false;
 
         toggleBtn.addEventListener('click', () => {
             isAnnual = !isAnnual;
 
-            // Update Toggle UI
+            // UI Update
             if (isAnnual) {
                 toggleDot.classList.add('translate-x-8');
-                toggleBtn.classList.add('bg-brand-accent/20');
-                monthlyLabel.classList.replace('text-white', 'text-gray-400');
-                annualLabel.classList.replace('text-gray-400', 'text-white');
+                toggleBtn.classList.add('bg-bauhaus-black');
+                monthlyLabel.classList.replace('text-bauhaus-black', 'text-gray-400');
+                annualLabel.classList.replace('text-gray-400', 'text-bauhaus-black');
             } else {
                 toggleDot.classList.remove('translate-x-8');
-                toggleBtn.classList.remove('bg-brand-accent/20');
-                monthlyLabel.classList.replace('text-gray-400', 'text-white');
-                annualLabel.classList.replace('text-white', 'text-gray-400');
+                toggleBtn.classList.remove('bg-bauhaus-black');
+                monthlyLabel.classList.replace('text-gray-400', 'text-bauhaus-black');
+                annualLabel.classList.replace('text-bauhaus-black', 'text-gray-400');
             }
 
-            // Update Prices and Content
-            const pricingCards = document.querySelectorAll('.price-amount').forEach(amount => {
-                const card = amount.closest('.p-8'); // Get parent card
-                const originalPriceEl = card.querySelector('.original-price');
-                const dynamicContents = card.querySelectorAll('.dynamic-content');
+            // Price Update
+            document.querySelectorAll('.price-amount').forEach(el => {
+                const monthly = el.dataset.monthly;
+                const annual = el.dataset.annual;
+                el.textContent = '$' + (isAnnual ? annual : monthly);
 
-                const monthlyPrice = parseInt(amount.dataset.monthly);
-                const annualPrice = parseInt(amount.dataset.annual);
-
-                // Animate number change
-                amount.style.opacity = '0';
-
-                setTimeout(() => {
+                // Show/Hide Original Price
+                const card = el.closest('div').parentElement;
+                const originalPrice = card.querySelector('.original-price');
+                if (originalPrice) {
                     if (isAnnual) {
-                        amount.textContent = '$' + annualPrice;
-
-                        // Show Original Price (Monthly * 12)
-                        if (originalPriceEl) {
-                            originalPriceEl.textContent = '$' + (monthlyPrice * 12);
-                            originalPriceEl.classList.remove('hidden');
-                        }
-
-                        // Update Dynamic Content (e.g. Posts count)
-                        dynamicContents.forEach(content => {
-                            // Update data-i18n key
-                            const annualKey = content.getAttribute('data-key-annual');
-                            if (annualKey) {
-                                content.setAttribute('data-i18n', annualKey);
-                            }
-                        });
-
+                        originalPrice.textContent = '$' + (parseInt(monthly) * 12);
+                        originalPrice.classList.remove('hidden');
                     } else {
-                        amount.textContent = '$' + monthlyPrice;
-
-                        // Hide Original Price
-                        if (originalPriceEl) {
-                            originalPriceEl.classList.add('hidden');
-                        }
-
-                        // Revert Dynamic Content
-                        dynamicContents.forEach(content => {
-                            // Update data-i18n key
-                            const monthlyKey = content.getAttribute('data-key-monthly');
-                            if (monthlyKey) {
-                                content.setAttribute('data-i18n', monthlyKey);
-                            }
-                        });
+                        originalPrice.classList.add('hidden');
                     }
-
-                    // Trigger translation update for the new keys
-                    const currentLang = localStorage.getItem('preferredLanguage') || 'es';
-                    if (window.updateLanguage) {
-                        window.updateLanguage(currentLang);
-                    }
-
-                    amount.style.opacity = '1';
-                }, 200);
+                }
             });
 
-            // Update Period Text
-            pricePeriods.forEach(period => {
-                period.style.opacity = '0';
-                setTimeout(() => {
-                    // Update data-i18n key
-                    if (isAnnual) {
-                        period.setAttribute('data-i18n', 'planes_period_year');
-                    } else {
-                        period.setAttribute('data-i18n', 'planes_period_month');
-                    }
-
-                    // Trigger translation update
-                    const currentLang = localStorage.getItem('preferredLanguage') || 'es';
-                    if (window.updateLanguage) {
-                        window.updateLanguage(currentLang);
-                    }
-
-                    period.style.opacity = '1';
-                }, 200);
-            });
-        });
-    </script>
-
-    <script>
-        // Top Tier Hero Animation Logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const heroContainer = document.getElementById('hero-container');
-            const heroImage = document.getElementById('hero-image-container');
-            const magneticButtons = document.querySelectorAll('.btn-premium');
-
-            if (!heroContainer || !heroImage) return;
-
-            // Mouse Move Parallax & Tilt
-            heroContainer.addEventListener('mousemove', (e) => {
-                const { clientX, clientY } = e;
-                const { innerWidth, innerHeight } = window;
-
-                // Calculate percentage from center (-1 to 1)
-                const x = (clientX / innerWidth - 0.5) * 2;
-                const y = (clientY / innerHeight - 0.5) * 2;
-
-                // Parallax Move
-                const depth = heroImage.getAttribute('data-depth') || 0.2;
-                const moveX = x * 20 * depth; // Max 20px movement
-                const moveY = y * 20 * depth;
-
-                // 3D Tilt
-                const rotateX = y * -5; // Max 5deg tilt
-                const rotateY = x * 5;
-
-                // Apply Transform
-                heroImage.style.transform = `
-                    translate3d(${moveX}px, ${moveY}px, 0)
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                `;
+            // Period Update
+            document.querySelectorAll('.price-period').forEach(el => {
+                el.setAttribute('data-i18n', isAnnual ? 'planes_period_year' : 'planes_period_month');
             });
 
-            // Reset on Mouse Leave
-            heroContainer.addEventListener('mouseleave', () => {
-                heroImage.style.transform = 'translate3d(0, 0, 0) rotateX(0) rotateY(0)';
+            // Dynamic Content Update
+            document.querySelectorAll('.dynamic-content').forEach(el => {
+                const key = isAnnual ? el.dataset.keyAnnual : el.dataset.keyMonthly;
+                if (key) el.setAttribute('data-i18n', key);
             });
 
-            // Magnetic Buttons
-            magneticButtons.forEach(btn => {
-                btn.addEventListener('mousemove', (e) => {
-                    const rect = btn.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2;
-                    const y = e.clientY - rect.top - rect.height / 2;
-
-                    btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-                });
-
-                btn.addEventListener('mouseleave', () => {
-                    btn.style.transform = 'translate(0, 0)';
-                });
-            });
+            // Trigger Translation Update
+            if (window.updateLanguage) {
+                window.updateLanguage(localStorage.getItem('preferredLanguage') || 'es');
+            }
         });
     </script>
     <script src="src/translations.js"></script>

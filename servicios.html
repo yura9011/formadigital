@@ -7,246 +7,272 @@
     <title>Servicios | Forma Digital</title>
     <meta name="description" content="Nuestros servicios de marketing digital y creación de contenido.">
 
-    <!-- Tailwind (CDN for rapid dev) -->
+    <!-- Tailwind (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    spacing: {
+                        '13': '3.25rem',
+                        '21': '5.25rem',
+                        '34': '8.5rem',
+                        '55': '13.75rem',
+                        '89': '22.25rem',
+                        '144': '36rem',
+                        '233': '58.25rem',
+                        '377': '94.25rem',
+                    },
                     colors: {
-                        brand: {
-                            dark: '#050505',
-                            gray: '#1a1a1a',
-                            accent: '#C6FF17', // Premium Green
-                            'accent-light': '#D4FF25',
-                            'accent-dark': '#B8E600',
-                        },
-                        metallic: {
-                            100: '#F5F5F7',
-                            200: '#E8E8ED',
-                            300: '#D1D1D6',
-                            400: '#8E8E93',
+                        bauhaus: {
+                            red: '#D93025',
+                            blue: '#1A73E8',
+                            yellow: '#F9AB00',
+                            black: '#111111',
+                            white: '#F4F4F0',
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Syne', 'sans-serif'],
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        display: ['Archivo', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
 
-    <!-- Custom Styles -->
-    <link href="./public/style_v2.css" rel="stylesheet">
-    <link href="./public/premium.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bauhaus-red: #D93025;
+            --bauhaus-blue: #1A73E8;
+            --bauhaus-yellow: #F9AB00;
+            --bauhaus-black: #111111;
+            --bauhaus-white: #F4F4F0;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bauhaus-white);
+            color: var(--bauhaus-black);
+            overflow-x: hidden;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F4F4F0;
+            border-left: 1px solid #111;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #111;
+            border: 2px solid #F4F4F0;
+        }
+
+        /* Bauhaus Utilities */
+        .bauhaus-border {
+            border: 2px solid #111111;
+        }
+
+        .bauhaus-shadow {
+            box-shadow: 4px 4px 0px #111111;
+        }
+
+        .bauhaus-shadow-hover:hover {
+            box-shadow: 6px 6px 0px #111111;
+            transform: translate(-2px, -2px);
+        }
+    </style>
 </head>
 
-<body class="bg-brand-dark text-white antialiased selection:bg-brand-accent selection:text-brand-dark">
+<body class="bg-bauhaus-white text-bauhaus-black antialiased selection:bg-bauhaus-yellow selection:text-bauhaus-black">
 
     <!-- Header -->
     <header
-        class="fixed w-full top-0 z-50 transition-all duration-300 bg-brand-dark/80 backdrop-blur-md border-b border-white/10">
+        class="fixed w-full top-0 z-50 transition-all duration-300 bg-bauhaus-white border-b-2 border-bauhaus-black">
         <div class="container mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="block h-20 w-auto">
-                <img src="images/logo_new.png" alt="FormaDigital" class="h-full w-auto object-contain">
+            <a href="index.html" class="block h-12 w-auto flex items-center gap-2">
+                <div class="w-8 h-8 bg-bauhaus-red rounded-full border-2 border-bauhaus-black"></div>
+                <div
+                    class="w-8 h-8 bg-bauhaus-blue transform rotate-45 border-2 border-bauhaus-black -ml-4 mix-blend-multiply">
+                </div>
+                <span class="font-display font-black text-xl tracking-tighter">FORMA.DIGITAL</span>
             </a>
 
             <div class="hidden md:flex items-center gap-8">
                 <nav class="flex gap-8">
                     <a href="servicios.html"
-                        class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                        class="text-sm font-bold uppercase tracking-widest text-bauhaus-red transition-colors"
                         data-i18n="nav_services">SERVICIOS</a>
-                    <a href="nosotros.html" class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                    <a href="nosotros.html"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-blue transition-colors"
                         data-i18n="nav_about">NOSOTROS</a>
                     <a href="index.html#trabajos"
-                        class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-yellow transition-colors"
                         data-i18n="nav_work">TRABAJOS</a>
-                    <a href="index.html#planes"
-                        class="text-sm font-medium text-gray-300 hover:text-white transition-colors">PLANES</a>
                 </nav>
 
                 <!-- Language Toggle -->
-                <button id="lang-toggle" class="text-sm font-bold text-gray-300 hover:text-white transition-colors">
-                    <span class="text-brand-accent">ES</span> / EN
+                <button id="lang-toggle"
+                    class="text-sm font-bold border-2 border-bauhaus-black px-2 py-1 hover:bg-bauhaus-black hover:text-bauhaus-white transition-colors">
+                    <span class="text-bauhaus-red">ES</span> / EN
                 </button>
 
                 <a href="contacto.html"
-                    class="px-6 py-2 bg-white text-brand-dark font-bold rounded-full hover:bg-brand-accent transition-all duration-300 transform hover:scale-105"
-                    data-i18n="nav_contact">
+                    class="px-6 py-2 bg-bauhaus-black text-bauhaus-white font-bold uppercase tracking-wider border-2 border-bauhaus-black hover:bg-bauhaus-white hover:text-bauhaus-black transition-all duration-300 bauhaus-shadow">
                     CONTACTAR
                 </a>
             </div>
 
             <!-- Hamburger Menu Button -->
-            <button id="menu-toggle"
-                class="hamburger md:hidden fixed top-5 right-5 z-[9999] w-12 h-12 flex flex-col justify-center items-center gap-1.5 group focus:outline-none mix-blend-difference">
-                <span class="line w-8 h-0.5 bg-white group-hover:bg-brand-accent"></span>
-                <span class="line w-8 h-0.5 bg-white group-hover:bg-brand-accent"></span>
-                <span class="line w-8 h-0.5 bg-white group-hover:bg-brand-accent"></span>
+            <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 group focus:outline-none z-50">
+                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-red transition-colors"></span>
+                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-blue transition-colors"></span>
+                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-yellow transition-colors"></span>
             </button>
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-bauhaus-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center">
+        <nav class="flex flex-col gap-8 text-center">
+            <a href="servicios.html"
+                class="text-4xl font-display font-black uppercase text-bauhaus-red transition-colors"
+                onclick="closeMobileMenu()" data-i18n="nav_services">SERVICIOS</a>
+            <a href="nosotros.html"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-blue transition-colors"
+                onclick="closeMobileMenu()" data-i18n="nav_about">NOSOTROS</a>
+            <a href="index.html#trabajos"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-yellow transition-colors"
+                onclick="closeMobileMenu()" data-i18n="nav_work">TRABAJOS</a>
+            <a href="contacto.html"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-black transition-colors"
+                onclick="closeMobileMenu()">CONTACTO</a>
+        </nav>
+    </div>
+
     <main class="pt-20">
         <!-- Intro Section -->
-        <section class="py-20 bg-brand-dark relative">
+        <section class="py-20 bg-bauhaus-white relative border-b-2 border-bauhaus-black">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col lg:flex-row items-center gap-16">
-                    <div class="w-full lg:w-1/2 relative group">
-                        <div
-                            class="absolute inset-0 bg-brand-accent/20 rounded-2xl transform -rotate-3 transition-transform duration-500 group-hover:-rotate-6 blur-xl opacity-50 animate-pulse">
-                        </div>
-                        <div
-                            class="relative rounded-2xl overflow-hidden aspect-[4/3] animate-float shadow-2xl shadow-brand-accent/10">
+                    <div class="w-full lg:w-1/2 relative">
+                        <!-- Bauhaus Geometric Composition -->
+                        <div class="relative aspect-[4/3] border-4 border-bauhaus-black bg-white p-8 bauhaus-shadow">
+                            <div class="absolute top-4 left-4 w-20 h-20 bg-bauhaus-red rounded-full mix-blend-multiply">
+                            </div>
+                            <div
+                                class="absolute bottom-4 right-4 w-32 h-32 bg-bauhaus-blue transform rotate-12 mix-blend-multiply">
+                            </div>
+                            <div
+                                class="absolute top-1/2 left-1/2 w-40 h-40 bg-bauhaus-yellow -translate-x-1/2 -translate-y-1/2 border-2 border-bauhaus-black">
+                            </div>
                             <img src="images/social_media_strategy.png" alt="Estrategia Digital"
-                                class="w-full h-full object-cover transition-all duration-500 hover:scale-105">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                class="relative z-10 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 border-2 border-bauhaus-black">
                         </div>
                     </div>
-                    <div class="w-full lg:w-1/2 opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards_0.2s]">
+                    <div class="w-full lg:w-1/2">
                         <div class="flex items-center gap-4 mb-6">
-                            <span class="w-12 h-1 bg-brand-accent"></span>
-                            <span class="text-brand-accent font-bold tracking-wider uppercase"
-                                data-i18n="services_intro_tag">Las redes sociales en el
-                                mix de marketing</span>
+                            <span class="w-12 h-2 bg-bauhaus-red border border-bauhaus-black"></span>
+                            <span class="text-bauhaus-black font-bold tracking-wider uppercase"
+                                data-i18n="services_intro_tag">REDES SOCIALES & MARKETING</span>
                         </div>
-                        <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 leading-tight">
-                            <span data-i18n="services_intro_title_1">El poder de la</span><br>
-                            <span class="text-brand-accent" data-i18n="services_intro_title_2">influencia digital</span>
+                        <h2 class="text-5xl md:text-6xl font-display font-black mb-6 leading-tight">
+                            <span data-i18n="services_intro_title_1">EL PODER DE LA</span><br>
+                            <span class="text-bauhaus-blue underline decoration-4 underline-offset-4"
+                                data-i18n="services_intro_title_2">INFLUENCIA</span>
                         </h2>
-                        <p class="text-gray-400 text-lg leading-relaxed mb-6" data-i18n="services_intro_desc_1">
-                            Transformamos interacciones en relaciones duraderas. El <strong class="text-white">marketing
-                                en redes
-                                sociales</strong> no es solo publicar; es crear una comunidad leal que impulse tu
-                            crecimiento.
-                            A través de estrategias precisas, conectamos tu marca con las personas correctas en el
-                            momento perfecto.
+                        <p class="text-gray-800 text-lg leading-relaxed mb-6 font-medium"
+                            data-i18n="services_intro_desc_1">
+                            Transformamos interacciones en relaciones duraderas. El <strong
+                                class="text-bauhaus-red">marketing en redes sociales</strong> no es solo publicar; es
+                            crear una comunidad leal que impulse tu crecimiento.
                         </p>
-                        <p class="text-gray-400 text-lg leading-relaxed mb-8" data-i18n="services_intro_desc_2">
-                            Nuestro enfoque integra creatividad y datos. Como tu <strong class="text-white">socio
-                                estratégico</strong>,
-                            diseñamos campañas que no solo generan likes, sino resultados tangibles. Desde la producción
-                            de contenido
-                            de alto impacto hasta el análisis detallado de métricas, nos aseguramos de que cada acción
-                            cuente para
-                            el éxito de tu negocio.
+                        <p class="text-gray-800 text-lg leading-relaxed mb-8 font-medium"
+                            data-i18n="services_intro_desc_2">
+                            Nuestro enfoque integra creatividad y datos. Como tu <strong class="text-bauhaus-red">socio
+                                estratégico</strong>, diseñamos campañas que no solo generan likes, sino resultados
+                            tangibles.
                         </p>
                     </div>
                 </div>
 
-                <div class="mt-20 max-w-4xl mx-auto text-center">
-                    <p class="text-gray-300 text-xl leading-relaxed" data-i18n="services_intro_quote">
-                        Falta de alcance, ausencia de interacciones, mensaje inadecuado, altas pérdidas de distribución,
-                        ... En ningún ámbito del marketing digital las empresas se permiten tantos errores y ensayo y
-                        error como en el marketing en redes sociales. Te ayudamos a alcanzar tus objetivos en las redes
-                        sociales.
+                <div
+                    class="mt-20 max-w-4xl mx-auto text-center border-2 border-bauhaus-black p-8 bg-bauhaus-yellow/10 bauhaus-shadow">
+                    <p class="text-bauhaus-black text-xl leading-relaxed font-bold italic"
+                        data-i18n="services_intro_quote">
+                        "Falta de alcance, ausencia de interacciones... Te ayudamos a alcanzar tus objetivos en las
+                        redes sociales."
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section id="servicios" class="py-32 bg-brand-dark relative border-t border-white/5">
+        <section id="servicios" class="py-32 bg-white relative border-b-2 border-bauhaus-black">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col lg:flex-row items-center gap-16">
                     <div class="w-full lg:w-1/2">
                         <div class="flex items-center gap-4 mb-6">
-                            <span class="w-12 h-1 bg-brand-accent"></span>
-                            <span class="text-brand-accent font-bold tracking-wider uppercase"
-                                data-i18n="services_offer_tag">Redes sociales para
-                                empresas</span>
+                            <span class="w-12 h-2 bg-bauhaus-blue border border-bauhaus-black"></span>
+                            <span class="text-bauhaus-black font-bold tracking-wider uppercase"
+                                data-i18n="services_offer_tag">SOLUCIONES EMPRESARIALES</span>
                         </div>
-                        <h2 class="text-4xl md:text-5xl font-display font-bold mb-8" data-i18n="services_offer_title">
-                            ¿Qué puedo ofrecerte?
+                        <h2 class="text-4xl md:text-5xl font-display font-black mb-8" data-i18n="services_offer_title">
+                            ¿QUÉ OFRECEMOS?
                         </h2>
 
                         <ul class="space-y-4 mb-8">
                             <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
-                                <span class="text-gray-300 text-lg" data-i18n="services_offer_1">Adquisición de nuevos
-                                    clientes;</span>
+                                <span class="w-4 h-4 bg-bauhaus-red border border-bauhaus-black"></span>
+                                <span class="text-bauhaus-black text-lg font-bold"
+                                    data-i18n="services_offer_1">Adquisición de clientes</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
-                                <span class="text-gray-300 text-lg" data-i18n="services_offer_2">Mayor conciencia y
-                                    alcance;</span>
+                                <span class="w-4 h-4 bg-bauhaus-blue border border-bauhaus-black rounded-full"></span>
+                                <span class="text-bauhaus-black text-lg font-bold" data-i18n="services_offer_2">Mayor
+                                    alcance y conciencia</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
-                                <span class="text-gray-300 text-lg" data-i18n="services_offer_3"><span
-                                        class="text-brand-accent">Marca del
-                                        empleador</span> y contratación de personal;</span>
+                                <span
+                                    class="w-4 h-4 bg-bauhaus-yellow border border-bauhaus-black transform rotate-45"></span>
+                                <span class="text-bauhaus-black text-lg font-bold" data-i18n="services_offer_3">Marca
+                                    empleadora</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
-                                <span class="text-gray-300 text-lg" data-i18n="services_offer_4">Lealtad al cliente y
-                                    cuidado de la imagen.</span>
+                                <span class="w-4 h-4 bg-bauhaus-black"></span>
+                                <span class="text-bauhaus-black text-lg font-bold" data-i18n="services_offer_4">Lealtad
+                                    y cuidado de imagen</span>
                             </li>
                         </ul>
-
-                        <p class="text-gray-400 leading-relaxed" data-i18n="services_offer_desc">
-                            Las redes sociales pueden aportar más de lo que crees. Cada red social está dirigida a
-                            diferentes grupos objetivo y ofrece muchas oportunidades que las empresas pueden explotar de
-                            forma inteligente.
-                        </p>
                     </div>
 
-                    <div class="w-full lg:w-1/2 relative">
-                        <div
-                            class="relative rounded-2xl overflow-hidden aspect-square bg-brand-gray/20 p-8 flex items-center justify-center">
-                            <!-- Abstract representation of services/platforms -->
-                            <div class="grid grid-cols-2 gap-4 w-full h-full">
-                                <div
-                                    class="bg-brand-dark/50 rounded-xl border border-white/10 p-4 flex items-center justify-center group hover:border-brand-accent/50 transition-all">
-                                    <svg class="w-12 h-12 text-white group-hover:text-brand-accent transition-colors"
-                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <div
-                                    class="bg-brand-dark/50 rounded-xl border border-white/10 p-4 flex items-center justify-center group hover:border-brand-accent/50 transition-all">
-                                    <svg class="w-12 h-12 text-white group-hover:text-brand-accent transition-colors"
-                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <div
-                                    class="bg-brand-dark/50 rounded-xl border border-white/10 p-4 flex items-center justify-center group hover:border-brand-accent/50 transition-all">
-                                    <svg class="w-12 h-12 text-white group-hover:text-brand-accent transition-colors"
-                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <div
-                                    class="bg-brand-dark/50 rounded-xl border border-white/10 p-4 flex items-center justify-center group hover:border-brand-accent/50 transition-all">
-                                    <svg class="w-12 h-12 text-white group-hover:text-brand-accent transition-colors"
-                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                            d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z">
-                                        </path>
-                                    </svg>
-                                </div>
+                    <div class="w-full lg:w-1/2">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div
+                                class="aspect-square bg-bauhaus-red border-2 border-bauhaus-black flex items-center justify-center hover:translate-x-1 hover:translate-y-1 transition-transform">
+                                <span class="text-white font-display font-black text-4xl">01</span>
+                            </div>
+                            <div
+                                class="aspect-square bg-bauhaus-blue border-2 border-bauhaus-black flex items-center justify-center hover:translate-x-1 hover:translate-y-1 transition-transform">
+                                <span class="text-white font-display font-black text-4xl">02</span>
+                            </div>
+                            <div
+                                class="aspect-square bg-bauhaus-yellow border-2 border-bauhaus-black flex items-center justify-center hover:translate-x-1 hover:translate-y-1 transition-transform">
+                                <span class="text-bauhaus-black font-display font-black text-4xl">03</span>
+                            </div>
+                            <div
+                                class="aspect-square bg-white border-2 border-bauhaus-black flex items-center justify-center hover:translate-x-1 hover:translate-y-1 transition-transform">
+                                <span class="text-bauhaus-black font-display font-black text-4xl">04</span>
                             </div>
                         </div>
                     </div>
@@ -255,50 +281,46 @@
         </section>
 
         <!-- Social Media Platforms Section -->
-        <section class="py-20 bg-brand-dark border-t border-white/5">
+        <section class="py-20 bg-bauhaus-white border-b-2 border-bauhaus-black">
             <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- LinkedIn -->
-                    <div class="p-8 border-l-2 border-brand-accent/20 hover:border-brand-accent transition-colors pl-8">
-                        <h3 class="text-2xl font-display font-bold mb-4" data-i18n="services_platform_linkedin_title">
-                            LinkedIn: la red profesional</h3>
-                        <p class="text-gray-400 leading-relaxed" data-i18n="services_platform_linkedin_desc">
-                            En esta red social profesional, busque empleados o socios comerciales (B2B), promocione sus
-                            productos y servicios y llegue a su audiencia de manera específica.
+                    <div class="p-8 border-2 border-bauhaus-black bg-white bauhaus-shadow-hover transition-all">
+                        <h3 class="text-2xl font-display font-black mb-4 flex items-center gap-2">
+                            <span class="w-4 h-4 bg-bauhaus-blue"></span> LinkedIn
+                        </h3>
+                        <p class="text-gray-600 font-medium" data-i18n="services_platform_linkedin_desc">
+                            Red profesional B2B. Encuentre socios, empleados y promocione servicios.
                         </p>
                     </div>
 
                     <!-- Google My Business -->
-                    <div class="p-8 border-l-2 border-brand-accent/20 hover:border-brand-accent transition-colors pl-8">
-                        <h3 class="text-2xl font-display font-bold mb-4" data-i18n="services_platform_gmb_title">Google
-                            My Business - presencia local</h3>
-                        <p class="text-gray-400 leading-relaxed" data-i18n="services_platform_gmb_desc">
-                            Aumente la visibilidad de su negocio en Google Maps y en los resultados de búsqueda locales.
-                            Google My Business le permite gestionar su información empresarial, interactuar con clientes
-                            y
-                            mejorar su posicionamiento local.
+                    <div class="p-8 border-2 border-bauhaus-black bg-white bauhaus-shadow-hover transition-all">
+                        <h3 class="text-2xl font-display font-black mb-4 flex items-center gap-2">
+                            <span class="w-4 h-4 bg-bauhaus-red"></span> Google Business
+                        </h3>
+                        <p class="text-gray-600 font-medium" data-i18n="services_platform_gmb_desc">
+                            Presencia local. Aumente visibilidad en Maps y búsquedas locales.
                         </p>
                     </div>
 
                     <!-- Facebook -->
-                    <div class="p-8 border-l-2 border-brand-accent/20 hover:border-brand-accent transition-colors pl-8">
-                        <h3 class="text-2xl font-display font-bold mb-4" data-i18n="services_platform_fb_title">Facebook
-                            - la comunidad</h3>
-                        <p class="text-gray-400 leading-relaxed" data-i18n="services_platform_fb_desc">
-                            Además de ser una herramienta de comunicación popular entre amigos, Facebook también es una
-                            importante herramienta de marketing. Llegue a clientes y empleados potenciales de manera
-                            específica utilizando el perfil de su empresa.
+                    <div class="p-8 border-2 border-bauhaus-black bg-white bauhaus-shadow-hover transition-all">
+                        <h3 class="text-2xl font-display font-black mb-4 flex items-center gap-2">
+                            <span class="w-4 h-4 bg-bauhaus-blue rounded-full"></span> Facebook
+                        </h3>
+                        <p class="text-gray-600 font-medium" data-i18n="services_platform_fb_desc">
+                            Comunidad y marketing. Llegue a clientes potenciales con perfiles de empresa.
                         </p>
                     </div>
 
                     <!-- Instagram -->
-                    <div class="p-8 border-l-2 border-brand-accent/20 hover:border-brand-accent transition-colors pl-8">
-                        <h3 class="text-2xl font-display font-bold mb-4" data-i18n="services_platform_ig_title">
-                            Instagram - el cuadro de imagen</h3>
-                        <p class="text-gray-400 leading-relaxed" data-i18n="services_platform_ig_desc">
-                            Fotos, carretes e historias: las empresas también publican contenido sobre sus nuevos
-                            productos, empleados y "detrás de escena", y llegan fácil y eficazmente a muchos usuarios
-                            interesantes con opciones de segmentación.
+                    <div class="p-8 border-2 border-bauhaus-black bg-white bauhaus-shadow-hover transition-all">
+                        <h3 class="text-2xl font-display font-black mb-4 flex items-center gap-2">
+                            <span class="w-4 h-4 bg-bauhaus-yellow transform rotate-45"></span> Instagram
+                        </h3>
+                        <p class="text-gray-600 font-medium" data-i18n="services_platform_ig_desc">
+                            Visual y dinámico. Fotos, reels e historias para conectar con la audiencia.
                         </p>
                     </div>
                 </div>
@@ -306,583 +328,159 @@
         </section>
 
         <!-- Content Ingredients Section -->
-        <section class="py-32 bg-brand-dark relative border-t border-white/5">
+        <section class="py-32 bg-bauhaus-black text-white relative border-b-2 border-bauhaus-black">
             <div class="container mx-auto px-6">
                 <div class="mb-20">
-                    <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">
-                        <span data-i18n="services_content_title_1">Crecimiento sostenible a través del</span> <span
-                            class="text-brand-accent" data-i18n="services_content_title_2">marketing de
-                            contenidos</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-black mb-6">
+                        <span data-i18n="services_content_title_1">CRECIMIENTO SOSTENIBLE</span><br>
+                        <span class="text-bauhaus-yellow" data-i18n="services_content_title_2">MARKETING DE
+                            CONTENIDOS</span>
                     </h2>
-                    <h3 class="text-3xl md:text-4xl font-display font-bold mb-8 text-white"
-                        data-i18n="services_content_subtitle">
-                        El contenido es el ingrediente indispensable del marketing
-                    </h3>
-                    <p class="text-gray-400 text-lg leading-relaxed max-w-4xl" data-i18n="services_content_desc_1">
-                        Al transmitir mensajes auténticos y específicos, fortaleces tu visibilidad y al mismo tiempo
-                        construyes una relación de confianza. Ya sea que desee realizar prospecciones o reclutar, una
-                        <strong class="text-white">Estrategia de contenido bien diseñada</strong> aumenta su
-                        visibilidad, estimula la demanda y ayuda a reducir los costes de gestión publicitaria.
-                    </p>
-                    <p class="text-gray-400 text-lg leading-relaxed max-w-4xl mt-6" data-i18n="services_content_desc_2">
-                        El desafío de <strong class="text-white">marketing de contenidos</strong> y de <strong
-                            class="text-white">storytelling</strong> consiste en dar forma a tus mensajes publicitarios
-                        de forma específica, en formatos adaptados a diferentes medios.
-                    </p>
-                </div>
-
-                <div class="mb-16">
-                    <p class="text-xl text-gray-300 leading-relaxed" data-i18n="services_content_list_intro">
-                        En alineación con su <span class="text-brand-accent hover:underline">estrategia de
-                            marketing</span> global y gracias a nuestro <span
-                            class="text-brand-accent hover:underline">Departamento de marketing 360°</span>, nuestro
-                        <strong class="text-white">agencia de contenidos</strong> diseña y produce contenidos
-                        específicos y adaptados:
+                    <p class="text-gray-300 text-lg leading-relaxed max-w-4xl font-bold"
+                        data-i18n="services_content_desc_1">
+                        El contenido es el ingrediente indispensable. Transmitimos mensajes auténticos para fortalecer
+                        visibilidad y confianza.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                     <!-- Textos -->
-                    <div>
-                        <h4 class="text-2xl font-display font-bold text-white mb-6 flex items-center gap-3">
-                            <span class="text-brand-accent">(01)</span> <span
-                                data-i18n="services_content_text_title">Textos</span>
+                    <div class="border-t-4 border-bauhaus-red pt-6">
+                        <h4 class="text-3xl font-display font-black text-white mb-6">
+                            <span class="text-bauhaus-red">01.</span> TEXTOS
                         </h4>
-                        <ul class="space-y-3 text-gray-400">
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_text_1">Textos publicitarios</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_text_2">Contenido para sitios web</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_text_3">Proyectos y estudios de
-                                    casos</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_text_4">Anuncios de empleo</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_text_5">Contenido de redes sociales</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_text_6">Boletines informativos</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_text_7">Textos de prensa</span>
-                            </li>
+                        <ul class="space-y-3 text-gray-300 font-medium">
+                            <li class="flex items-center gap-2">■ Textos publicitarios</li>
+                            <li class="flex items-center gap-2">■ Contenido web</li>
+                            <li class="flex items-center gap-2">■ Estudios de caso</li>
+                            <li class="flex items-center gap-2">■ Newsletters</li>
                         </ul>
                     </div>
 
                     <!-- Imágenes -->
-                    <div>
-                        <h4 class="text-2xl font-display font-bold text-white mb-6 flex items-center gap-3">
-                            <span class="text-brand-accent">(02)</span> <span
-                                data-i18n="services_content_img_title">Imágenes</span>
+                    <div class="border-t-4 border-bauhaus-blue pt-6">
+                        <h4 class="text-3xl font-display font-black text-white mb-6">
+                            <span class="text-bauhaus-blue">02.</span> IMÁGENES
                         </h4>
-                        <ul class="space-y-3 text-gray-400">
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_img_1">Fotos corporativas</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_img_2">Retrato de equipos</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_img_3">Informes de proyectos</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_img_4">Brotes de productos</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_img_5">Contenido de redes sociales</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_img_6">Fotos del evento</span>
-                            </li>
+                        <ul class="space-y-3 text-gray-300 font-medium">
+                            <li class="flex items-center gap-2">■ Fotos corporativas</li>
+                            <li class="flex items-center gap-2">■ Retratos de equipo</li>
+                            <li class="flex items-center gap-2">■ Fotografía de producto</li>
+                            <li class="flex items-center gap-2">■ Cobertura de eventos</li>
                         </ul>
                     </div>
 
                     <!-- Vídeos -->
-                    <div>
-                        <h4 class="text-2xl font-display font-bold text-white mb-6 flex items-center gap-3">
-                            <span class="text-brand-accent">(03)</span> <span
-                                data-i18n="services_content_vid_title">Vídeos</span>
+                    <div class="border-t-4 border-bauhaus-yellow pt-6">
+                        <h4 class="text-3xl font-display font-black text-white mb-6">
+                            <span class="text-bauhaus-yellow">03.</span> VÍDEOS
                         </h4>
-                        <ul class="space-y-3 text-gray-400">
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_vid_1">Películas institucionales</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_vid_2">Vídeos de la marca del
-                                    empleador</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_vid_3">Presentaciones de productos</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_vid_4">Testimonios de proyectos y
-                                    clientes</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_vid_5">Entrevistas a empleados</span>
-                            </li>
-                            <li class="flex items-center gap-2"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                                <span data-i18n="services_content_vid_6">Historias de redes sociales</span>
-                            </li>
+                        <ul class="space-y-3 text-gray-300 font-medium">
+                            <li class="flex items-center gap-2">■ Institucionales</li>
+                            <li class="flex items-center gap-2">■ Marca empleadora</li>
+                            <li class="flex items-center gap-2">■ Testimonios</li>
+                            <li class="flex items-center gap-2">■ Reels & Stories</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Content Marketing Section -->
-        <section class="py-32 bg-white text-brand-dark relative overflow-hidden">
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="flex flex-col lg:flex-row items-center gap-16">
-                    <div class="w-full lg:w-1/2 flex justify-center">
-                        <!-- Abstract graphic for Content Marketing -->
-                        <div
-                            class="relative w-full max-w-md aspect-square bg-gray-100 rounded-3xl p-12 flex items-center justify-center">
-                            <div class="absolute inset-0 border-2 border-brand-accent rounded-3xl transform rotate-6">
-                            </div>
-                            <div class="relative z-10 text-center">
-                                <svg class="w-24 h-24 mx-auto mb-6 text-brand-dark" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                                    </path>
-                                </svg>
-                                <div class="flex justify-center gap-8">
-                                    <svg class="w-16 h-16 text-brand-dark" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
-                                        </path>
-                                    </svg>
-                                    <svg class="w-16 h-16 text-brand-dark" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                            d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
-                                        </path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                            d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
+        <!-- Footer -->
+        <footer id="contacto" class="bg-bauhaus-black text-white pt-24 pb-12">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start mb-20">
+                    <div class="w-full">
+                        <h2 class="text-5xl md:text-7xl font-display font-black mb-8 leading-tight"
+                            data-i18n="footer_form_title">
+                            EMPECEMOS<br>
+                            <span class="text-bauhaus-yellow underline decoration-4 underline-offset-8">AHORA</span>
+                        </h2>
+                        <div class="bg-white p-8 border-2 border-white/20">
+                            <form action="https://formspree.io/f/manlpzyq" method="POST" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-black text-bauhaus-black mb-2 uppercase"
+                                        data-i18n="contact_form_name">Nombre</label>
+                                    <input type="text" name="name"
+                                        class="w-full bg-gray-100 border-2 border-bauhaus-black px-4 py-3 text-bauhaus-black focus:bg-white focus:outline-none focus:border-bauhaus-blue transition-colors font-bold"
+                                        placeholder="TU NOMBRE" data-i18n-placeholder="contact_form_name_placeholder"
+                                        required>
                                 </div>
-                            </div>
-                            <!-- Connecting lines (simulated) -->
-                            <div
-                                class="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 border border-brand-accent rounded-full opacity-20 animate-pulse">
-                            </div>
+                                <div>
+                                    <label class="block text-sm font-black text-bauhaus-black mb-2 uppercase"
+                                        data-i18n="contact_form_email">Email</label>
+                                    <input type="email" name="email"
+                                        class="w-full bg-gray-100 border-2 border-bauhaus-black px-4 py-3 text-bauhaus-black focus:bg-white focus:outline-none focus:border-bauhaus-blue transition-colors font-bold"
+                                        placeholder="TU@EMAIL.COM"
+                                        data-i18n-placeholder="contact_form_email_placeholder" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-black text-bauhaus-black mb-2 uppercase"
+                                        data-i18n="contact_form_message">Mensaje</label>
+                                    <textarea name="message" rows="3"
+                                        class="w-full bg-gray-100 border-2 border-bauhaus-black px-4 py-3 text-bauhaus-black focus:bg-white focus:outline-none focus:border-bauhaus-blue transition-colors font-bold"
+                                        placeholder="CUÉNTANOS SOBRE TU PROYECTO..."
+                                        data-i18n-placeholder="contact_form_message_placeholder" required></textarea>
+                                </div>
+                                <button type="submit"
+                                    class="w-full py-4 bg-bauhaus-red text-white font-black uppercase tracking-widest border-2 border-bauhaus-black hover:bg-bauhaus-blue transition-colors"
+                                    data-i18n="contact_form_submit">
+                                    ENVIAR MENSAJE
+                                </button>
+                            </form>
                         </div>
                     </div>
-                    <div class="w-full lg:w-1/2">
-                        <div class="flex items-center gap-4 mb-6">
-                            <span class="w-12 h-1 bg-brand-accent"></span>
-                            <span class="text-brand-dark font-bold tracking-wider uppercase"
-                                data-i18n="services_marketing_tag">¿Por qué marketing de
-                                contenidos y narración de historias?</span>
-                        </div>
-                        <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight">
-                            <span data-i18n="services_marketing_title_1">Mensajes publicitarios que</span><br>
-                            <span class="text-brand-accent" data-i18n="services_marketing_title_2">dan en el
-                                blanco</span>
-                        </h2>
-                        <p class="text-gray-600 text-lg leading-relaxed mb-8" data-i18n="services_marketing_desc_1">
-                            Ante la publicidad simplista o repetitiva y la intensidad mediática actual, las audiencias
-                            están disminuyendo rápidamente. Sin embargo, su público objetivo está buscando activamente
-                            <strong class="text-brand-dark">contenido relevante</strong> que ofrecen un valor añadido
-                            real.
-                        </p>
-                        <p class="text-gray-600 text-lg leading-relaxed mb-12" data-i18n="services_marketing_desc_2">
-                            Ya sea publicidad tradicional, en tu sitio web o en las redes sociales, está ahí <strong
-                                class="text-brand-dark">calidad y originalidad de tu contenido</strong> quién marcará la
-                            diferencia para sus clientes potenciales o futuros empleados.
-                        </p>
 
-                        <div class="border-l-4 border-brand-accent pl-6 py-2">
-                            <p class="text-2xl font-display font-bold text-brand-dark italic mb-4"
-                                data-i18n="services_marketing_quote">
-                                "Nadie lee publicidad. La gente lee lo que les interesa; y a veces es un anuncio."
-                            </p>
-                            <p class="text-gray-500 font-bold uppercase tracking-wider text-sm"
-                                data-i18n="services_marketing_author">
-                                — Howard Luck Gossage
-                            </p>
+                    <div class="flex flex-col gap-8 lg:pt-8">
+                        <div>
+                            <h3 class="text-bauhaus-yellow font-black mb-4 uppercase tracking-widest"
+                                data-i18n="footer_contact_direct">CONTACTO DIRECTO</h3>
+                            <a href="mailto:forma.digital.ar@gmail.com"
+                                class="block text-2xl font-bold hover:text-bauhaus-red transition-colors mb-2">forma.digital.ar@gmail.com</a>
+                            <a href="https://wa.me/5491130666060" target="_blank"
+                                class="block text-2xl font-bold hover:text-bauhaus-red transition-colors">+54 9 11
+                                3066-6060</a>
+                        </div>
+                        <div>
+                            <h3 class="text-bauhaus-yellow font-black mb-4 uppercase tracking-widest"
+                                data-i18n="footer_location_title">UBICACIÓN</h3>
+                            <p class="text-xl font-bold" data-i18n="footer_location_text">Buenos Aires, Argentina</p>
                         </div>
                     </div>
                 </div>
+
+                <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-400 text-sm font-bold" data-i18n="footer_copyright">© 2025 Forma Digital.
+                        Bauhaus Edition.</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
+                            class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-yellow transition-colors">IG</a>
+                        <a href="https://www.facebook.com/formadigital" target="_blank"
+                            class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-blue transition-colors">FB</a>
+                        <a href="https://www.linkedin.com/company/forma-digital" target="_blank"
+                            class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-red transition-colors">LI</a>
+                    </div>
+                </div>
             </div>
-        </section>
+        </footer>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-brand-dark border-t border-white/10 py-20">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-2">
-                    <a href="index.html" class="text-3xl font-display font-bold tracking-tighter mb-6 block">
-                        FORMA<span class="text-brand-accent">.</span>
-                    </a>
-                    <p class="text-gray-400 max-w-sm">
-                        Transformamos negocios a través de estrategias digitales efectivas y diseño impactante.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-6">Menú</h4>
-                    <ul class="space-y-4">
-                        <li><a href="servicios.html"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Servicios</a></li>
-                        <li><a href="nosotros.html"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Proceso</a></li>
-                        <li><a href="index.html#trabajos"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Trabajos</a></li>
-                        <li><a href="index.html#planes"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Planes</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-6">Legal</h4>
-                    <ul class="space-y-4">
-                        <li><a href="privacidad.html"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Privacidad</a>
-                        </li>
-                        <li><a href="terminos.html"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Términos</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-sm">© 2024 Forma Digital. Todos los derechos reservados.</p>
-                <div class="flex gap-6">
-                    <!-- Social Icons -->
-                    <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
-                        class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                        <span class="sr-only">Instagram</span>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M12 0C8.74 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.636c-.78.312-1.45.729-2.104 1.384-.653.655-1.07 1.324-1.383 2.104-.303.765-.504 1.634-.563 2.913-.058 1.28-.072 1.687-.072 4.116s.014 2.836.072 4.115c.06 1.28.261 2.149.563 2.914.312.78.729 1.45 1.384 2.104.655.653 1.324 1.07 2.104 1.383.765.303 1.634.504 2.913.563 1.28.058 1.687.072 4.116.072s2.835-.014 4.115-.072c1.28-.06 2.149-.261 2.914-.563.78-.312 1.45-.729 2.104-1.384.653-.655 1.07-1.324 1.383-2.104.303-.765.504-1.634.563-2.913.058-1.28.072-1.687.072-4.116s-.014-2.835-.072-4.115c-.06-1.28-.261-2.149-.563-2.914-.312-.78-.729-1.45-1.384-2.104-.655-.653-1.324-1.07-2.104-1.383-.765-.303-1.634-.504-2.913-.563C15.167.014 14.76 0 12 0zm0 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.894.422.417.683.815.894 1.382.166.422.36 1.057.415 2.227.058 1.265.07 1.645.07 4.85s-.012 3.585-.07 4.85c-.055 1.17-.249 1.805-.415 2.227-.217.562-.477.96-.894 1.382-.417.422-.815.683-1.382.894-.422.166-1.057.36-2.227.415-1.265.058-1.645.07-4.85.07s-3.585-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.415-.562-.217-.96-.477-1.382-.894-.422-.417-.683-.815-.894-1.382-.166-.422-.36-1.057-.415-2.227-.058-1.265-.07-1.645-.07-4.85s.012-3.585.07-4.85c.055-1.17.249-1.805.415-2.227.217-.562.477-.96.894-1.382.417-.422.815-.683 1.382-.894.422-.166 1.057-.36 2.227-.415C8.415 2.175 8.795 2.163 12 2.163zm0 3.635c-3.44 0-6.24 2.8-6.24 6.24s2.8 6.24 6.24 6.24 6.24-2.8 6.24-6.24-2.8-6.24-6.24-6.24zm0 10.385c-2.28 0-4.14-1.86-4.14-4.14s1.86-4.14 4.14-4.14 4.14 1.86 4.14 4.14-1.86 4.14-4.14 4.14zm5.21-10.81a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    <a href="https://www.facebook.com/formadigital" target="_blank"
-                        class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                        <span class="sr-only">Facebook</span>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd"
-                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.129 22 16.99 22 12z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <script>
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    <!-- Mega Menu Overlay -->
-    <div id="mega-menu"
-        class="fixed inset-0 bg-brand-dark z-[9998] transform translate-x-full transition-transform duration-500 ease-in-out">
-        <div class="container mx-auto px-6 h-full flex flex-col justify-center relative">
-            <!-- Close Button (handled by the toggle button in header) -->
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+        }
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 h-[80vh]">
-                <!-- Left Column: Image -->
-                <div class="hidden lg:block lg:col-span-4 relative h-full rounded-3xl overflow-hidden group">
-                    <img src="images/menu_img.png" alt="Menu Image"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500">
-                    </div>
-                    <div class="absolute bottom-8 left-8 text-white">
-                        <p class="text-brand-accent font-bold tracking-wider mb-2">ESTUDIO CREATIVO</p>
-                        <h3 class="text-3xl font-display font-bold">Elevamos tu marca al siguiente nivel.</h3>
-                    </div>
-                </div>
+        function closeMobileMenu() {
+            mobileMenu.classList.add('translate-x-full');
+        }
 
-                <!-- Middle Column: Navigation -->
-                <div class="col-span-1 lg:col-span-5 flex flex-col justify-center">
-                    <nav class="space-y-6">
-                        <a href="servicios.html" class="group block">
-                            <div class="flex items-baseline gap-4">
-                                <span
-                                    class="text-brand-accent font-display text-xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">(01)</span>
-                                <span
-                                    class="text-5xl md:text-7xl font-display font-bold text-transparent bg-clip-text bg-white group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
-                                    Servicios
-                                </span>
-                            </div>
-                        </a>
-                        <a href="nosotros.html" class="group block">
-                            <div class="flex items-baseline gap-4">
-                                <span
-                                    class="text-brand-accent font-display text-xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">(02)</span>
-                                <span
-                                    class="text-5xl md:text-7xl font-display font-bold text-transparent bg-clip-text bg-white group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
-                                    Nosotros
-                                </span>
-                            </div>
-                        </a>
-                        <a href="index.html#trabajos" class="group block">
-                            <div class="flex items-baseline gap-4">
-                                <span
-                                    class="text-brand-accent font-display text-xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">(03)</span>
-                                <span
-                                    class="text-5xl md:text-7xl font-display font-bold text-transparent bg-clip-text bg-white group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
-                                    Portafolio
-                                </span>
-                            </div>
-                        </a>
-                        <a href="contacto.html" class="group block">
-                            <div class="flex items-baseline gap-4">
-                                <span
-                                    class="text-brand-accent font-display text-xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">(04)</span>
-                                <span
-                                    class="text-5xl md:text-7xl font-display font-bold text-transparent bg-clip-text bg-white group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
-                                    Contacto
-                                </span>
-                            </div>
-                        </a>
-                    </nav>
-                </div>
-
-                <!-- Right Column: Contact & Socials -->
-                <div class="col-span-1 lg:col-span-3 flex flex-col justify-center border-l border-white/10 pl-12">
-                    <div class="mb-12">
-                        <h4 class="text-brand-accent font-bold mb-6 tracking-wider">CONTACTO</h4>
-                        <p class="text-gray-400 text-lg mb-2">hola@formadigital.com</p>
-                        <p class="text-gray-400 text-lg">+54 9 11 1234-5678</p>
-                    </div>
-
-                    <div>
-                        <h4 class="text-brand-accent font-bold mb-6 tracking-wider">SÍGUENOS</h4>
-                        <div class="flex gap-4">
-                            <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
-                                class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-brand-dark transition-all duration-300">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path fill-rule="evenodd"
-                                        d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 014.185 3.362c.636-.247 1.363-.416 2.427-.465C7.673 2.013 8.027 2 12.315 2zm-.975 2.166c-2.412.006-2.718.019-3.678.063-.849.04-1.309.184-1.618.303-.408.159-.7.348-1.006.654-.306.306-.495.598-.654 1.006-.119.309-.263.769-.303 1.618-.044.96-.057 1.267-.063 3.678l-.005.975c.006 2.412.019 2.718.063 3.678.04.849.184 1.309.303 1.618.159.408.348.7.654 1.006.654.306.306.598.495 1.006.654.309.119.769.263 1.618.303.96.044 1.267.057 3.678.063l.975.005c2.412-.006 2.718-.019 3.678-.063.849-.04 1.309-.184 1.618-.303.408-.159.7-.348 1.006-.654.306-.306.495-.598.654-1.006.119-.309.263-.769.303-1.618.044-.96.057-1.267.063-3.678l.005-.975c-.006-2.412-.019-2.718-.063-3.678-.04-.849-.184-1.309-.303-1.618-.159-.408-.348-.7-.654-1.006-.306-.306-.598-.495-1.006-.654-.309-.119-.769-.263-1.618-.303-.96-.044-1.267-.057-3.678-.063l-.975-.005zm5.265 2.833a1 1 0 011.002.998v.004a1 1 0 01-1.002.998h-.004a1 1 0 01-1.002-.998v-.004a1 1 0 011.002-.998h.004zM12.32 8.309a3.691 3.691 0 110 7.382 3.691 3.691 0 010-7.382zm0 2.166a1.525 1.525 0 100 3.05 1.525 1.525 0 000-3.05z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            </main>
-
-            <!-- Mega Menu Overlay -->
-            <div id="mega-menu"
-                class="fixed inset-0 bg-brand-dark z-[9998] transform translate-x-full transition-transform duration-500 ease-in-out">
-                <div class="container mx-auto px-6 h-full flex flex-col justify-center relative">
-                    <!-- Close Button (handled by the toggle button in header) -->
-
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 h-[80vh]">
-                        <!-- Left Column: Image -->
-                        <div class="hidden lg:block lg:col-span-4 relative h-full rounded-3xl overflow-hidden group">
-                            <img src="images/menu_img.png" alt="Menu Image"
-                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                            <div
-                                class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500">
-                            </div>
-                            <div class="absolute bottom-8 left-8 text-white">
-                                <p class="text-brand-accent font-bold tracking-wider mb-2">ESTUDIO CREATIVO</p>
-                                <h3 class="text-3xl font-display font-bold">Elevamos tu marca al siguiente nivel.</h3>
-                            </div>
-                        </div>
-
-                        <!-- Middle Column: Navigation -->
-                        <div class="col-span-1 lg:col-span-5 flex flex-col justify-center">
-                            <nav class="space-y-6">
-                                <a href="servicios.html" class="group block">
-                                    <div class="flex items-baseline gap-4">
-                                        <span
-                                            class="text-brand-accent font-display text-xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">(01)</span>
-                                        <span
-                                            class="text-5xl md:text-7xl font-display font-bold text-transparent bg-clip-text bg-white group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
-                                            Servicios
-                                        </span>
-                                    </div>
-                                </a>
-                                <a href="nosotros.html" class="group block">
-                                    <div class="flex items-baseline gap-4">
-                                        <span
-                                            class="text-brand-accent font-display text-xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">(02)</span>
-                                        <span
-                                            class="text-5xl md:text-7xl font-display font-bold text-transparent bg-clip-text bg-white group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
-                                            Nosotros
-                                        </span>
-                                    </div>
-                                </a>
-                                <a href="index.html#trabajos" class="group block">
-                                    <div class="flex items-baseline gap-4">
-                                        <span
-                                            class="text-brand-accent font-display text-xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">(03)</span>
-                                        <span
-                                            class="text-5xl md:text-7xl font-display font-bold text-transparent bg-clip-text bg-white group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
-                                            Portafolio
-                                        </span>
-                                    </div>
-                                </a>
-                                <a href="contacto.html" class="group block">
-                                    <div class="flex items-baseline gap-4">
-                                        <span
-                                            class="text-brand-accent font-display text-xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">(04)</span>
-                                        <span
-                                            class="text-5xl md:text-7xl font-display font-bold text-transparent bg-clip-text bg-white group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
-                                            Contacto
-                                        </span>
-                                    </div>
-                                </a>
-                            </nav>
-                        </div>
-
-                        <!-- Right Column: Contact & Socials -->
-                        <div
-                            class="col-span-1 lg:col-span-3 flex flex-col justify-center border-l border-white/10 pl-12">
-                            <div class="mb-12">
-                                <h4 class="text-brand-accent font-bold mb-6 tracking-wider">CONTACTO</h4>
-                                <p class="text-gray-400 text-lg mb-2">hola@formadigital.com</p>
-                                <p class="text-gray-400 text-lg">+54 9 11 1234-5678</p>
-                            </div>
-
-                            <div>
-                                <h4 class="text-brand-accent font-bold mb-6 tracking-wider">SÍGUENOS</h4>
-                                <div class="flex gap-4">
-                                    <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
-                                        class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                                        <span class="sr-only">Instagram</span>
-                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                            <path fill-rule="evenodd"
-                                                d="M12 0C8.74 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.636c-.78.312-1.45.729-2.104 1.384-.653.655-1.07 1.324-1.383 2.104-.303.765-.504 1.634-.563 2.913-.058 1.28-.072 1.687-.072 4.116s.014 2.836.072 4.115c.06 1.28.261 2.149.563 2.914.312.78.729 1.45 1.384 2.104.655.653 1.324 1.07 2.104 1.383.765.303 1.634.504 2.913.563 1.28.058 1.687.072 4.116.072s2.835-.014 4.115-.072c1.28-.06 2.149-.261 2.914-.563.78-.312 1.45-.729 2.104-1.384.653-.655 1.07-1.324 1.383-2.104.303-.765.504-1.634.563-2.913.058-1.28.072-1.687.072-4.116s-.014-2.835-.072-4.115c-.06-1.28-.261-2.149-.563-2.914-.312-.78-.729-1.45-1.384-2.104-.655-.653-1.324-1.07-2.104-1.383-.765-.303-1.634-.504-2.913-.563C15.167.014 14.76 0 12 0zm0 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.894.422.417.683.815.894 1.382.166.422.36 1.057.415 2.227.058 1.265.07 1.645.07 4.85s-.012 3.585-.07 4.85c-.055 1.17-.249 1.805-.415 2.227-.217.562-.477.96-.894 1.382-.417.422-.815.683-1.382.894-.422.166-1.057.36-2.227.415-1.265.058-1.645.07-4.85.07s-3.585-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.415-.562-.217-.96-.477-1.382-.894-.422-.417-.683-.815-.894-1.382-.166-.422-.36-1.057-.415-2.227-.058-1.265-.07-1.645-.07-4.85s.012-3.585.07-4.85c.055-1.17.249-1.805.415-2.227.217-.562.477-.96.894-1.382.417-.422.815-.683 1.382-.894.422-.166 1.057-.36 2.227-.415C8.415 2.175 8.795 2.163 12 2.163zm0 3.635c-3.44 0-6.24 2.8-6.24 6.24s2.8 6.24 6.24 6.24 6.24-2.8 6.24-6.24-2.8-6.24-6.24-6.24zm0 10.385c-2.28 0-4.14-1.86-4.14-4.14s1.86-4.14 4.14-4.14 4.14 1.86 4.14 4.14-1.86 4.14-4.14 4.14zm5.21-10.81a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </a>
-                                    <a href="https://www.facebook.com/formadigital" target="_blank"
-                                        class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                                        <span class="sr-only">Facebook</span>
-                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                            <path fill-rule="evenodd"
-                                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.129 22 16.99 22 12z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <script>
-                        // Menu Toggle Logic
-                        const menuToggle = document.getElementById('menu-toggle');
-                        const megaMenu = document.getElementById('mega-menu');
-                        const body = document.body;
-
-                        menuToggle.addEventListener('click', () => {
-                            megaMenu.classList.toggle('translate-x-full');
-                            body.classList.toggle('overflow-hidden');
-
-                            // Toggle Hamburger Icon Animation
-                            const spans = menuToggle.querySelectorAll('span');
-                            if (megaMenu.classList.contains('translate-x-full')) {
-                                spans[0].classList.remove('rotate-45', 'translate-y-2');
-                                spans[1].classList.remove('opacity-0');
-                                spans[2].classList.remove('-rotate-45', '-translate-y-2');
-                            } else {
-                                spans[0].classList.add('rotate-45', 'translate-y-2');
-                                spans[1].classList.add('opacity-0');
-                                spans[2].classList.add('-rotate-45', '-translate-y-2');
-                            }
-                        });
-                    </script>
-                </div>
-            </div>
-
-            <!-- Footer -->
-            <footer class="bg-brand-dark border-t border-white/10 py-20">
-                <div class="container mx-auto px-6">
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                        <div class="col-span-1 md:col-span-2">
-                            <a href="index.html" class="text-3xl font-display font-bold tracking-tighter mb-6 block">
-                                FORMA<span class="text-brand-accent">.</span>
-                            </a>
-                            <p class="text-gray-400 max-w-sm">
-                                Transformamos negocios a través de estrategias digitales efectivas y diseño impactante.
-                            </p>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-bold mb-6">Menú</h4>
-                            <ul class="space-y-4">
-                                <li><a href="servicios.html"
-                                        class="text-gray-400 hover:text-brand-accent transition-colors">Servicios</a>
-                                </li>
-                                <li><a href="nosotros.html"
-                                        class="text-gray-400 hover:text-brand-accent transition-colors">Proceso</a></li>
-                                <li><a href="index.html#trabajos"
-                                        class="text-gray-400 hover:text-brand-accent transition-colors">Trabajos</a>
-                                </li>
-                                <li><a href="index.html#planes"
-                                        class="text-gray-400 hover:text-brand-accent transition-colors">Planes</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-bold mb-6">Legal</h4>
-                            <ul class="space-y-4">
-                                <li><a href="privacidad.html"
-                                        class="text-gray-400 hover:text-brand-accent transition-colors">Privacidad</a>
-                                </li>
-                                <li><a href="terminos.html"
-                                        class="text-gray-400 hover:text-brand-accent transition-colors">Términos</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div
-                        class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p class="text-gray-500 text-sm">© 2024 Forma Digital. Todos los derechos reservados.</p>
-                        <div class="flex gap-6">
-                            <!-- Social Icons -->
-                            <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
-                                class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                                <span class="sr-only">Instagram</span>
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path fill-rule="evenodd"
-                                        d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 014.185 3.362c.636-.247 1.363-.416 2.427-.465C7.673 2.013 8.027 2 12.315 2zm-.975 2.166c-2.412.006-2.718.019-3.678.063-.849.04-1.309.184-1.618.303-.408.159-.7.348-1.006.654-.306.306-.495.598-.654 1.006-.119.309-.263.769-.303 1.618-.044.96-.057 1.267-.063 3.678l-.005.975c.006 2.412.019 2.718.063 3.678.04.849.184 1.309.303 1.618.159.408.348.7.654 1.006.654.306.306.598.495 1.006.654.309.119.769.263 1.618.303.96.044 1.267.057 3.678.063l.975.005c2.412-.006 2.718-.019 3.678-.063.849-.04 1.309-.184 1.618-.303.408-.159.7-.348 1.006-.654.306-.306.495-.598.654-1.006.119-.309.263-.769.303-1.618.044-.96.057-1.267.063-3.678l.005-.975c-.006-2.412-.019-2.718-.063-3.678-.04-.849-.184-1.309-.303-1.618-.159-.408-.348-.7-.654-1.006-.306-.306-.598-.495-1.006-.654-.309-.119-.769-.263-1.618-.303-.96-.044-1.267-.057-3.678-.063l-.975-.005zm5.265 2.833a1 1 0 011.002.998v.004a1 1 0 01-1.002.998h-.004a1 1 0 01-1.002-.998v-.004a1 1 0 011.002-.998h.004zM12.32 8.309a3.691 3.691 0 110 7.382 3.691 3.691 0 010-7.382zm0 2.166a1.525 1.525 0 100 3.05 1.525 1.525 0 000-3.05z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="https://www.facebook.com/formadigital" target="_blank"
-                                class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                                <span class="sr-only">Facebook</span>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path fill-rule="evenodd"
-                                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.129 22 16.99 22 12z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+        menuToggle.addEventListener('click', toggleMobileMenu);
+    </script>
     <script src="src/translations.js"></script>
 </body>
 

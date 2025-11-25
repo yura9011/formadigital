@@ -13,142 +13,262 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    spacing: {
+                        '13': '3.25rem',
+                        '21': '5.25rem',
+                        '34': '8.5rem',
+                        '55': '13.75rem',
+                        '89': '22.25rem',
+                        '144': '36rem',
+                        '233': '58.25rem',
+                        '377': '94.25rem',
+                    },
                     colors: {
-                        brand: {
-                            dark: '#050505',
-                            gray: '#1a1a1a',
-                            accent: '#C6FF17', // Premium Green
-                            'accent-light': '#D4FF25',
-                            'accent-dark': '#B8E600',
-                        },
-                        metallic: {
-                            100: '#F5F5F7',
-                            200: '#E8E8ED',
-                            300: '#D1D1D6',
-                            400: '#8E8E93',
+                        bauhaus: {
+                            red: '#D93025',
+                            blue: '#1A73E8',
+                            yellow: '#F9AB00',
+                            black: '#111111',
+                            white: '#F4F4F0',
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Syne', 'sans-serif'],
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        display: ['Archivo', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
 
-    <!-- Custom Styles -->
-    <link href="./public/style_v2.css" rel="stylesheet">
-    <link href="./public/premium.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bauhaus-red: #D93025;
+            --bauhaus-blue: #1A73E8;
+            --bauhaus-yellow: #F9AB00;
+            --bauhaus-black: #111111;
+            --bauhaus-white: #F4F4F0;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bauhaus-white);
+            color: var(--bauhaus-black);
+            overflow-x: hidden;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F4F4F0;
+            border-left: 1px solid #111;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #111;
+            border: 2px solid #F4F4F0;
+        }
+
+        /* Bauhaus Utilities */
+        .bauhaus-border {
+            border: 2px solid #111111;
+        }
+
+        .bauhaus-shadow {
+            box-shadow: 4px 4px 0px #111111;
+        }
+
+        .bauhaus-shadow-hover:hover {
+            box-shadow: 6px 6px 0px #111111;
+            transform: translate(-2px, -2px);
+        }
+    </style>
 </head>
 
-<body class="bg-brand-dark text-white antialiased selection:bg-brand-accent selection:text-brand-dark">
+<body class="bg-bauhaus-white text-bauhaus-black antialiased selection:bg-bauhaus-yellow selection:text-bauhaus-black">
 
     <!-- Header -->
     <header
-        class="fixed w-full top-0 z-50 transition-all duration-300 bg-brand-dark/80 backdrop-blur-md border-b border-white/10">
+        class="fixed w-full top-0 z-50 transition-all duration-300 bg-bauhaus-white border-b-2 border-bauhaus-black">
         <div class="container mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="block h-20 w-auto">
-                <img src="images/logo_new.png" alt="FormaDigital" class="h-full w-auto object-contain">
+            <a href="index.html" class="block h-12 w-auto flex items-center gap-2">
+                <div class="w-8 h-8 bg-bauhaus-red rounded-full border-2 border-bauhaus-black"></div>
+                <div
+                    class="w-8 h-8 bg-bauhaus-blue transform rotate-45 border-2 border-bauhaus-black -ml-4 mix-blend-multiply">
+                </div>
+                <span class="font-display font-black text-xl tracking-tighter">FORMA.DIGITAL</span>
             </a>
 
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="servicios.html"
-                    class="text-sm font-medium hover:text-brand-accent transition-colors">SERVICIOS</a>
-                <a href="nosotros.html"
-                    class="text-sm font-medium hover:text-brand-accent transition-colors">NOSOTROS</a>
-                <a href="index.html#trabajos"
-                    class="text-sm font-medium hover:text-brand-accent transition-colors">TRABAJOS</a>
-                <a href="index.html#planes"
-                    class="text-sm font-medium hover:text-brand-accent transition-colors">PLANES</a>
-            </nav>
+            <div class="hidden md:flex items-center gap-8">
+                <nav class="flex gap-8">
+                    <a href="servicios.html"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-red transition-colors"
+                        data-i18n="nav_services">SERVICIOS</a>
+                    <a href="nosotros.html"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-blue transition-colors"
+                        data-i18n="nav_about">NOSOTROS</a>
+                    <a href="index.html#trabajos"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-yellow transition-colors"
+                        data-i18n="nav_work">TRABAJOS</a>
+                </nav>
 
-            <a href="contacto.html"
-                class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-brand-dark bg-brand-accent rounded-full hover:bg-white transition-colors duration-300">
-                HABLEMOS
-            </a>
+                <!-- Language Toggle -->
+                <button id="lang-toggle"
+                    class="text-sm font-bold border-2 border-bauhaus-black px-2 py-1 hover:bg-bauhaus-black hover:text-bauhaus-white transition-colors">
+                    <span class="text-bauhaus-red">ES</span> / EN
+                </button>
+
+                <a href="contacto.html"
+                    class="px-6 py-2 bg-bauhaus-black text-bauhaus-white font-bold uppercase tracking-wider border-2 border-bauhaus-black hover:bg-bauhaus-white hover:text-bauhaus-black transition-all duration-300 bauhaus-shadow">
+                    CONTACTAR
+                </a>
+            </div>
 
             <!-- Hamburger Menu Button -->
-            <button id="menu-toggle"
-                class="hamburger md:hidden fixed top-5 right-5 z-[9999] w-12 h-12 flex flex-col justify-center items-center gap-1.5 group focus:outline-none mix-blend-difference">
-                <span class="line w-8 h-0.5 bg-white group-hover:bg-brand-accent"></span>
-                <span class="line w-8 h-0.5 bg-white group-hover:bg-brand-accent"></span>
-                <span class="line w-8 h-0.5 bg-white group-hover:bg-brand-accent"></span>
+            <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 group focus:outline-none z-50">
+                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-red transition-colors"></span>
+                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-blue transition-colors"></span>
+                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-yellow transition-colors"></span>
             </button>
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-bauhaus-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center">
+        <nav class="flex flex-col gap-8 text-center">
+            <a href="servicios.html"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-red transition-colors"
+                onclick="closeMobileMenu()" data-i18n="nav_services">SERVICIOS</a>
+            <a href="nosotros.html"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-blue transition-colors"
+                onclick="closeMobileMenu()" data-i18n="nav_about">NOSOTROS</a>
+            <a href="index.html#trabajos"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-yellow transition-colors"
+                onclick="closeMobileMenu()" data-i18n="nav_work">TRABAJOS</a>
+            <a href="contacto.html"
+                class="text-4xl font-display font-black uppercase hover:text-bauhaus-black transition-colors"
+                onclick="closeMobileMenu()">CONTACTO</a>
+        </nav>
+    </div>
+
     <main class="pt-32 pb-20">
         <div class="container mx-auto px-6 max-w-4xl">
-            <h1 class="text-4xl md:text-6xl font-display font-bold mb-12" data-i18n="terminos_title">Términos de <span
-                    class="text-brand-accent">Servicio</span></h1>
+            <div class="mb-12 border-l-8 border-bauhaus-blue pl-6">
+                <h1 class="text-4xl md:text-6xl font-display font-black uppercase" data-i18n="terminos_title">
+                    Términos de <span class="text-bauhaus-red underline decoration-4 underline-offset-8">Servicio</span>
+                </h1>
+            </div>
 
-            <div class="space-y-12 text-gray-300 leading-relaxed">
-                <section>
-                    <p class="mb-6" data-i18n="terminos_intro1">Bienvenido a <strong>Forma Digital</strong>. Al acceder y utilizar nuestro sitio web
+            <div class="space-y-12 text-gray-800 leading-relaxed font-medium">
+                <section class="bg-white p-8 border-2 border-bauhaus-black bauhaus-shadow">
+                    <p class="mb-6" data-i18n="terminos_intro1">Bienvenido a <strong>Forma Digital</strong>. Al acceder
+                        y utilizar nuestro sitio web
                         y servicios, usted acepta cumplir y estar sujeto a los siguientes términos y condiciones de uso,
                         que junto con nuestra política de privacidad rigen la relación de Forma Digital con usted en
                         relación con este sitio web.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-display font-bold text-white mb-4" data-i18n="terminos_section1_title">1. Aceptación de los términos</h2>
-                    <p class="mb-4" data-i18n="terminos_section1_p1">Al contratar cualquiera de nuestros servicios, usted confirma que ha leído,
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="terminos_section1_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">01</span> Aceptación de los términos
+                    </h2>
+                    <p class="mb-4" data-i18n="terminos_section1_p1">Al contratar cualquiera de nuestros servicios,
+                        usted confirma que ha leído,
                         entendido y aceptado estos términos. Si no está de acuerdo con alguna parte de estos términos,
                         no podrá utilizar nuestros servicios.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-display font-bold text-white mb-4" data-i18n="terminos_section2_title">2. Descripción del servicio</h2>
-                    <p class="mb-4" data-i18n="terminos_section2_p1">Forma Digital ofrece servicios de marketing digital, diseño gráfico, gestión de
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="terminos_section2_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">02</span> Descripción del servicio
+                    </h2>
+                    <p class="mb-4" data-i18n="terminos_section2_p1">Forma Digital ofrece servicios de marketing
+                        digital, diseño gráfico, gestión de
                         redes sociales y desarrollo web. Los detalles específicos, entregables y plazos de cada proyecto
                         se definirán en una propuesta comercial o contrato individual.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-display font-bold text-white mb-4" data-i18n="terminos_section3_title">3. Pagos y Facturación</h2>
-                    <p class="mb-4" data-i18n="terminos_section3_p1">Los servicios se facturan según lo acordado en la propuesta. Para planes mensuales,
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="terminos_section3_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">03</span> Pagos y Facturación
+                    </h2>
+                    <p class="mb-4" data-i18n="terminos_section3_p1">Los servicios se facturan según lo acordado en la
+                        propuesta. Para planes mensuales,
                         el pago se realiza por adelantado del 1 al 5 de cada mes. Para proyectos puntuales, se requiere
                         un anticipo del 50% para comenzar el trabajo.</p>
-                    <p data-i18n="terminos_section3_p2">Nos reservamos el derecho de suspender los servicios si los pagos no se realizan en los plazos
+                    <p data-i18n="terminos_section3_p2">Nos reservamos el derecho de suspender los servicios si los
+                        pagos no se realizan en los plazos
                         establecidos.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-display font-bold text-white mb-4" data-i18n="terminos_section4_title">4. Propiedad Intelectual</h2>
-                    <p class="mb-4" data-i18n="terminos_section4_p1">Una vez abonado el servicio en su totalidad, el cliente posee los derechos de uso
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="terminos_section4_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">04</span> Propiedad Intelectual
+                    </h2>
+                    <p class="mb-4" data-i18n="terminos_section4_p1">Una vez abonado el servicio en su totalidad, el
+                        cliente posee los derechos de uso
                         sobre los diseños y contenidos finales entregados. Forma Digital se reserva el derecho de
                         utilizar los trabajos realizados para fines de autopromoción en su portafolio y redes sociales,
                         salvo acuerdo de confidencialidad previo.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-display font-bold text-white mb-4" data-i18n="terminos_section5_title">5. Cancelación de servicios</h2>
-                    <p class="mb-4" data-i18n="terminos_section5_p1">Para servicios recurrentes (planes mensuales), el cliente puede cancelar el servicio
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="terminos_section5_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">05</span> Cancelación de servicios
+                    </h2>
+                    <p class="mb-4" data-i18n="terminos_section5_p1">Para servicios recurrentes (planes mensuales), el
+                        cliente puede cancelar el servicio
                         notificando con 30 días de antelación. No se realizan reembolsos por servicios ya prestados o
                         períodos parciales no utilizados.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-display font-bold text-white mb-4" data-i18n="terminos_section6_title">6. Limitación de responsabilidad</h2>
-                    <p class="mb-4" data-i18n="terminos_section6_p1">Forma Digital no será responsable de ningún daño indirecto, incidental o consecuente
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="terminos_section6_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">06</span> Limitación de
+                        responsabilidad
+                    </h2>
+                    <p class="mb-4" data-i18n="terminos_section6_p1">Forma Digital no será responsable de ningún daño
+                        indirecto, incidental o consecuente
                         que surja del uso de nuestros servicios. Nuestra responsabilidad total se limita al monto pagado
                         por el cliente por el servicio específico en cuestión.</p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-display font-bold text-white mb-4" data-i18n="terminos_section7_title">7. Ley Aplicable</h2>
-                    <p class="mb-4" data-i18n="terminos_section7_p1">Estos términos se regirán e interpretarán de acuerdo con las leyes de la República
+                    <h2 class="text-2xl font-display font-black text-bauhaus-black mb-4 flex items-center gap-3"
+                        data-i18n="terminos_section7_title">
+                        <span class="bg-bauhaus-black text-white px-2 py-1 text-lg">07</span> Ley Aplicable
+                    </h2>
+                    <p class="mb-4" data-i18n="terminos_section7_p1">Estos términos se regirán e interpretarán de
+                        acuerdo con las leyes de la República
                         Argentina. Cualquier disputa relacionada con estos términos estará sujeta a la jurisdicción
                         exclusiva de los tribunales de la Ciudad Autónoma de Buenos Aires.</p>
                 </section>
 
-                <section>
-                    <h2 class="text-2xl font-display font-bold text-white mb-4" data-i18n="terminos_section8_title">8. Contacto</h2>
-                    <p data-i18n="terminos_section8_p1">Si tiene alguna pregunta sobre estos Términos de Servicio, por favor contáctenos en:</p>
+                <section class="bg-bauhaus-black text-white p-8 border-2 border-bauhaus-black">
+                    <h2 class="text-2xl font-display font-black text-white mb-4" data-i18n="terminos_section8_title">08.
+                        Contacto</h2>
+                    <p data-i18n="terminos_section8_p1">Si tiene alguna pregunta sobre estos Términos de Servicio, por
+                        favor contáctenos en:</p>
                     <ul class="list-none mt-4 space-y-2">
-                        <li data-i18n="terminos_section8_item1"><strong class="text-white">Email:</strong> forma.digital.ar@gmail.com</li>
-                        <li data-i18n="terminos_section8_item2"><strong class="text-white">WhatsApp:</strong> +54 9 11 3066-6060</li>
+                        <li data-i18n="terminos_section8_item1"><strong class="text-bauhaus-yellow">Email:</strong>
+                            forma.digital.ar@gmail.com</li>
+                        <li data-i18n="terminos_section8_item2"><strong class="text-bauhaus-yellow">WhatsApp:</strong>
+                            +54 9 11 3066-6060</li>
                     </ul>
                 </section>
             </div>
@@ -156,90 +276,57 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brand-dark border-t border-white/10 py-20">
+    <footer id="contacto" class="bg-bauhaus-black text-white pt-24 pb-12">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-2">
-                    <a href="index.html" class="text-3xl font-display font-bold tracking-tighter mb-6 block">
-                        FORMA<span class="text-brand-accent">.</span>
-                    </a>
-                    <p class="text-gray-400 max-w-sm">
-                        Transformamos negocios a través de estrategias digitales efectivas y diseño impactante.
-                    </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start mb-20">
+                <div class="w-full">
+                    <h2 class="text-5xl md:text-7xl font-display font-black mb-8 leading-tight">
+                        EMPECEMOS<br>
+                        <span class="text-bauhaus-yellow underline decoration-4 underline-offset-8">AHORA</span>
+                    </h2>
                 </div>
-                <div>
-                    <h4 class="text-white font-bold mb-6">Menú</h4>
-                    <ul class="space-y-4">
-                        <li><a href="servicios.html"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Servicios</a></li>
-                        <li><a href="nosotros.html"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Proceso</a></li>
-                        <li><a href="index.html#trabajos"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Trabajos</a></li>
-                        <li><a href="index.html#planes"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Planes</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-6">Legal</h4>
-                    <ul class="space-y-4">
-                        <li><a href="privacidad.html"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Privacidad</a>
-                        </li>
-                        <li><a href="terminos.html" class="text-brand-accent font-bold transition-colors">Términos</a>
-                        </li>
-                    </ul>
+
+                <div class="flex flex-col gap-8 lg:pt-8">
+                    <div>
+                        <h3 class="text-bauhaus-yellow font-black mb-4 uppercase tracking-widest">CONTACTO DIRECTO</h3>
+                        <a href="mailto:forma.digital.ar@gmail.com"
+                            class="block text-2xl font-bold hover:text-bauhaus-red transition-colors mb-2">forma.digital.ar@gmail.com</a>
+                        <a href="https://wa.me/5491130666060" target="_blank"
+                            class="block text-2xl font-bold hover:text-bauhaus-red transition-colors">+54 9 11
+                            3066-6060</a>
+                    </div>
                 </div>
             </div>
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-sm">© 2025 Forma Digital. Todos los derechos reservados.</p>
-                <div class="flex gap-6">
-                    <!-- Social Icons -->
+
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm font-bold" data-i18n="footer_copyright">© 2025 Forma Digital. Bauhaus
+                    Edition.</p>
+                <div class="flex gap-4">
                     <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
-                        class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                        <span class="sr-only">Instagram</span>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M12 0C8.74 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.636c-.78.312-1.45.729-2.104 1.384-.653.655-1.07 1.324-1.383 2.104-.303.765-.504 1.634-.563 2.913-.058 1.28-.072 1.687-.072 4.116s.014 2.836.072 4.115c.06 1.28.261 2.149.563 2.914.312.78.729 1.45 1.384 2.104.655.653 1.324 1.07 2.104 1.383.765.303 1.634.504 2.913.563 1.28.058 1.687.072 4.116.072s2.835-.014 4.115-.072c1.28-.06 2.149-.261 2.914-.563.78-.312 1.45-.729 2.104-1.384.653-.655 1.324-1.07 1.383-2.104.303-.765.504-1.634.563-2.913.058-1.28.072-1.687.072-4.116s-.014-2.835-.072-4.115c-.06-1.28-.261-2.149-.563-2.914-.312-.78-.729-1.45-1.384-2.104-.655-.653-1.324-1.07-2.104-1.383-.765-.303-1.634-.504-2.913-.563C15.167.014 14.76 0 12 0zm0 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.894.422.417.683.815.894 1.382.166.422.36 1.057.415 2.227.058 1.265.07 1.645.07 4.85s-.012 3.585-.07 4.85c-.055 1.17-.249 1.805-.415 2.227-.217.562-.477.96.894-1.382.417-.422.815-.683 1.382-.894.422-.166 1.057-.36 2.227-.415C8.415 2.175 8.795 2.163 12 2.163zm0 3.635c-3.44 0-6.24 2.8-6.24 6.24s2.8 6.24 6.24 6.24 6.24-2.8 6.24-6.24-2.8-6.24-6.24-6.24zm0 10.385c-2.28 0-4.14-1.86-4.14-4.14s1.86-4.14 4.14-4.14 4.14 1.86 4.14 4.14-1.86 4.14-4.14 4.14zm5.21-10.81a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
+                        class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-yellow transition-colors">IG</a>
                     <a href="https://www.facebook.com/formadigital" target="_blank"
-                        class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                        <span class="sr-only">Facebook</span>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd"
-                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.129 22 16.99 22 12z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
+                        class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-blue transition-colors">FB</a>
+                    <a href="https://www.linkedin.com/company/forma-digital" target="_blank"
+                        class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-red transition-colors">LI</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Menu Toggle Logic
+        // Mobile Menu Logic
         const menuToggle = document.getElementById('menu-toggle');
-        const megaMenu = document.getElementById('mega-menu');
-        const body = document.body;
+        const mobileMenu = document.getElementById('mobile-menu');
 
-        menuToggle.addEventListener('click', () => {
-            megaMenu.classList.toggle('translate-x-full');
-            body.classList.toggle('overflow-hidden');
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+        }
 
-            // Toggle Hamburger Icon Animation
-            const spans = menuToggle.querySelectorAll('span');
-            if (megaMenu.classList.contains('translate-x-full')) {
-                spans[0].classList.remove('rotate-45', 'translate-y-2');
-                spans[1].classList.remove('opacity-0');
-                spans[2].classList.remove('-rotate-45', '-translate-y-2');
-            } else {
-                spans[0].classList.add('rotate-45', 'translate-y-2');
-                spans[1].classList.add('opacity-0');
-                spans[2].classList.add('-rotate-45', '-translate-y-2');
-            }
-        });
+        function closeMobileMenu() {
+            mobileMenu.classList.add('translate-x-full');
+        }
+
+        menuToggle.addEventListener('click', toggleMobileMenu);
     </script>
     <script src="src/translations.js"></script>
 </body>

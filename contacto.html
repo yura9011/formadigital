@@ -13,116 +13,127 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    spacing: {
+                        '13': '3.25rem',
+                        '21': '5.25rem',
+                        '34': '8.5rem',
+                        '55': '13.75rem',
+                        '89': '22.25rem',
+                        '144': '36rem',
+                        '233': '58.25rem',
+                        '377': '94.25rem',
+                    },
                     colors: {
-                        brand: {
-                            dark: '#050505',
-                            gray: '#1a1a1a',
-                            accent: '#C6FF17', // Premium Green
-                            'accent-light': '#D4FF25',
-                            'accent-dark': '#B8E600',
-                        },
-                        metallic: {
-                            100: '#F5F5F7',
-                            200: '#E8E8ED',
-                            300: '#D1D1D6',
-                            400: '#8E8E93',
+                        bauhaus: {
+                            red: '#D93025',
+                            blue: '#1A73E8',
+                            yellow: '#F9AB00',
+                            black: '#111111',
+                            white: '#F4F4F0',
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Syne', 'sans-serif'],
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        display: ['Archivo', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
 
-    <!-- Custom Styles -->
-    <link href="./public/style_v2.css" rel="stylesheet">
-    <!DOCTYPE html>
-    <html lang="es" class="scroll-smooth">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Contacto | Forma Digital</title>
-        <meta name="description" content="Contáctanos para transformar tu marca.">
+    <style>
+        :root {
+            --bauhaus-red: #D93025;
+            --bauhaus-blue: #1A73E8;
+            --bauhaus-yellow: #F9AB00;
+            --bauhaus-black: #111111;
+            --bauhaus-white: #F4F4F0;
+        }
 
-        <!-- Tailwind (CDN) -->
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        colors: {
-                            brand: {
-                                dark: '#050505',
-                                gray: '#1a1a1a',
-                                accent: '#C6FF17', // Premium Green
-                                'accent-light': '#D4FF25',
-                                'accent-dark': '#B8E600',
-                            },
-                            metallic: {
-                                100: '#F5F5F7',
-                                200: '#E8E8ED',
-                                300: '#D1D1D6',
-                                400: '#8E8E93',
-                            }
-                        },
-                        fontFamily: {
-                            sans: ['Inter', 'sans-serif'],
-                            display: ['Syne', 'sans-serif'],
-                        }
-                    }
-                }
-            }
-        </script>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bauhaus-white);
+            color: var(--bauhaus-black);
+            overflow-x: hidden;
+        }
 
-        <!-- Custom Styles -->
-        <link href="./public/style_v2.css" rel="stylesheet">
-        <link href="./public/premium.css" rel="stylesheet">
-    </head>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F4F4F0;
+            border-left: 1px solid #111;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #111;
+            border: 2px solid #F4F4F0;
+        }
+
+        /* Bauhaus Utilities */
+        .bauhaus-border {
+            border: 2px solid #111111;
+        }
+
+        .bauhaus-shadow {
+            box-shadow: 4px 4px 0px #111111;
+        }
+
+        .bauhaus-shadow-hover:hover {
+            box-shadow: 6px 6px 0px #111111;
+            transform: translate(-2px, -2px);
+        }
+    </style>
+</head>
 
 <body
-    class="bg-brand-dark text-white antialiased selection:bg-brand-accent selection:text-brand-dark h-screen overflow-hidden flex items-center justify-center">
+    class="bg-bauhaus-white text-bauhaus-black antialiased selection:bg-bauhaus-yellow selection:text-bauhaus-black h-screen overflow-hidden flex items-center justify-center">
 
     <div class="container mx-auto px-6 h-full flex flex-col justify-center relative py-12">
         <!-- Close Button -->
-        <a href="index.html" class="absolute top-8 right-6 z-50 text-white hover:text-brand-accent transition-colors">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        <a href="index.html"
+            class="absolute top-8 right-6 z-50 text-bauhaus-black hover:text-bauhaus-red transition-colors">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
         </a>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center max-w-6xl mx-auto w-full">
             <!-- Left Column: Form -->
             <div class="w-full">
-                <h1 class="text-5xl md:text-7xl font-display font-bold mb-8 leading-tight">
+                <h1 class="text-5xl md:text-7xl font-display font-black mb-8 leading-tight">
                     ¿TIENES UN<br>
-                    <span class="text-brand-accent">PROYECTO?</span>
+                    <span class="text-bauhaus-blue underline decoration-4 underline-offset-8">PROYECTO?</span>
                 </h1>
-                <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
+                <div class="bg-white p-8 border-2 border-bauhaus-black bauhaus-shadow">
                     <form action="https://formspree.io/f/manlpzyq" method="POST" class="space-y-4">
                         <div>
-                            <label class="block text-sm font-bold text-gray-400 mb-2">Nombre</label>
+                            <label class="block text-sm font-black text-bauhaus-black mb-2 uppercase">Nombre</label>
                             <input type="text" name="name"
-                                class="w-full bg-brand-dark border border-white/20 rounded-lg px-4 py-3 text-white focus:border-brand-accent focus:outline-none"
-                                placeholder="Tu nombre" required>
+                                class="w-full bg-gray-100 border-2 border-bauhaus-black px-4 py-3 text-bauhaus-black focus:bg-white focus:outline-none focus:border-bauhaus-blue transition-colors font-bold"
+                                placeholder="TU NOMBRE" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-gray-400 mb-2">Email</label>
+                            <label class="block text-sm font-black text-bauhaus-black mb-2 uppercase">Email</label>
                             <input type="email" name="email"
-                                class="w-full bg-brand-dark border border-white/20 rounded-lg px-4 py-3 text-white focus:border-brand-accent focus:outline-none"
-                                placeholder="tu@email.com" required>
+                                class="w-full bg-gray-100 border-2 border-bauhaus-black px-4 py-3 text-bauhaus-black focus:bg-white focus:outline-none focus:border-bauhaus-blue transition-colors font-bold"
+                                placeholder="TU@EMAIL.COM" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-gray-400 mb-2">Mensaje</label>
+                            <label class="block text-sm font-black text-bauhaus-black mb-2 uppercase">Mensaje</label>
                             <textarea name="message" rows="4"
-                                class="w-full bg-brand-dark border border-white/20 rounded-lg px-4 py-3 text-white focus:border-brand-accent focus:outline-none"
-                                placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+                                class="w-full bg-gray-100 border-2 border-bauhaus-black px-4 py-3 text-bauhaus-black focus:bg-white focus:outline-none focus:border-bauhaus-blue transition-colors font-bold"
+                                placeholder="CUÉNTANOS SOBRE TU PROYECTO..." required></textarea>
                         </div>
                         <button type="submit"
-                            class="w-full py-4 bg-brand-accent text-brand-dark font-bold rounded-lg hover:bg-white transition-colors">
+                            class="w-full py-4 bg-bauhaus-red text-white font-black uppercase tracking-widest border-2 border-bauhaus-black hover:bg-bauhaus-blue transition-colors">
                             ENVIAR MENSAJE
                         </button>
                     </form>
@@ -132,140 +143,48 @@
             <!-- Right Column: Contact Info -->
             <div class="flex flex-col gap-12">
                 <div>
-                    <h3 class="text-brand-accent font-bold mb-6 tracking-wider text-xl">CONTACTO DIRECTO</h3>
+                    <h3
+                        class="text-bauhaus-yellow font-black mb-6 uppercase tracking-widest text-xl bg-bauhaus-black text-white inline-block px-2">
+                        CONTACTO DIRECTO</h3>
                     <a href="mailto:forma.digital.ar@gmail.com"
-                        class="block text-2xl md:text-3xl hover:text-brand-accent transition-colors mb-4 font-display font-bold">forma.digital.ar@gmail.com</a>
+                        class="block text-2xl md:text-3xl hover:text-bauhaus-red transition-colors mb-4 font-display font-bold">forma.digital.ar@gmail.com</a>
                     <a href="https://wa.me/5491130666060" target="_blank"
-                        class="block text-2xl md:text-3xl hover:text-brand-accent transition-colors font-display font-bold">+54
-                        9 11
-                        3066-6060</a>
+                        class="block text-2xl md:text-3xl hover:text-bauhaus-red transition-colors font-display font-bold">+54
+                        9 11 3066-6060</a>
                 </div>
 
                 <div>
-                    <h3 class="text-brand-accent font-bold mb-6 tracking-wider text-xl">UBICACIÓN</h3>
-                    <p class="text-gray-400 text-xl">Buenos Aires, Argentina</p>
+                    <h3
+                        class="text-bauhaus-yellow font-black mb-6 uppercase tracking-widest text-xl bg-bauhaus-black text-white inline-block px-2">
+                        UBICACIÓN</h3>
+                    <p class="text-bauhaus-black text-xl font-bold">Buenos Aires, Argentina</p>
                 </div>
 
                 <div>
-                    <h3 class="text-brand-accent font-bold mb-6 tracking-wider text-xl">SÍGUENOS</h3>
+                    <h3
+                        class="text-bauhaus-yellow font-black mb-6 uppercase tracking-widest text-xl bg-bauhaus-black text-white inline-block px-2">
+                        SÍGUENOS</h3>
                     <div class="flex gap-4">
                         <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
-                            class="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
+                            class="w-14 h-14 bg-white border-2 border-bauhaus-black flex items-center justify-center hover:bg-bauhaus-yellow transition-all duration-300 bauhaus-shadow-hover">
                             <span class="sr-only">Instagram</span>
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd"
-                                    d="M12 0C8.74 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.636c-.78.312-1.45.729-2.104 1.384-.653.655-1.07 1.324-1.383 2.104-.303.765-.504 1.634-.563 2.913-.058 1.28-.072 1.687-.072 4.116s.014 2.836.072 4.115c.06 1.28.261 2.149.563 2.914.312.78.729 1.45 1.384 2.104.655.653 1.324 1.07 2.104 1.383.765.303 1.634.504 2.913.563 1.28.058 1.687.072 4.116.072s2.835-.014 4.115-.072c1.28-.06 2.149-.261 2.914-.563.78-.312 1.45-.729 2.104-1.384.653-.655 1.07-1.324 1.383-2.104.303-.765.504-1.634.563-2.913.058-1.28.072-1.687.072-4.116s-.014-2.835-.072-4.115c-.06-1.28-.261-2.149-.563-2.914-.312-.78-.729-1.45-1.384-2.104-.655-.653-1.324-1.07-2.104-1.383-.765-.303-1.634-.504-2.913-.563C15.167.014 14.76 0 12 0zm0 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.894.422.417.683.815.894 1.382.166.422.36 1.057.415 2.227.058 1.265.07 1.645.07 4.85s-.012 3.585-.07 4.85c-.055 1.17-.249 1.805-.415 2.227-.217.562-.477.96-.894 1.382-.417-.422.815-.683 1.382-.894.422-.166 1.057-.36 2.227-.415C8.415 2.175 8.795 2.163 12 2.163zm0 3.635c-3.44 0-6.24 2.8-6.24 6.24s2.8 6.24 6.24 6.24 6.24-2.8 6.24-6.24-2.8-6.24-6.24-6.24zm0 10.385c-2.28 0-4.14-1.86-4.14-4.14s1.86-4.14 4.14-4.14 4.14 1.86 4.14 4.14-1.86 4.14-4.14 4.14zm5.21-10.81a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"
-                                    clip-rule="evenodd" />
-                            </svg>
+                            <span class="font-black text-xl">IG</span>
                         </a>
                         <a href="https://www.linkedin.com/company/forma-digital" target="_blank"
-                            class="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
+                            class="w-14 h-14 bg-white border-2 border-bauhaus-black flex items-center justify-center hover:bg-bauhaus-blue transition-all duration-300 bauhaus-shadow-hover">
                             <span class="sr-only">LinkedIn</span>
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd"
-                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                                    clip-rule="evenodd" />
-                            </svg>
+                            <span class="font-black text-xl">LI</span>
+                        </a>
+                        <a href="https://www.facebook.com/formadigital" target="_blank"
+                            class="w-14 h-14 bg-white border-2 border-bauhaus-black flex items-center justify-center hover:bg-bauhaus-red transition-all duration-300 bauhaus-shadow-hover">
+                            <span class="sr-only">Facebook</span>
+                            <span class="font-black text-xl">FB</span>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="bg-brand-dark border-t border-white/10 py-20">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-2">
-                    <a href="index.html" class="text-3xl font-display font-bold tracking-tighter mb-6 block">
-                        FORMA<span class="text-brand-accent">.</span>
-                    </a>
-                    <p class="text-gray-400 max-w-sm">
-                        Transformamos negocios a través de estrategias digitales efectivas y diseño impactante.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-6">Menú</h4>
-                    <ul class="space-y-4">
-                        <li><a href="servicios.html"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Servicios</a></li>
-                        <li><a href="nosotros.html"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Proceso</a></li>
-                        <li><a href="index.html#trabajos"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Trabajos</a></li>
-                        <li><a href="index.html#planes"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Planes</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="hidden md:flex items-center gap-8">
-                        <nav class="flex gap-8">
-                            <a href="servicios.html"
-                                class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
-                                data-i18n="nav_services">SERVICIOS</a>
-                            <a href="nosotros.html"
-                                class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
-                                data-i18n="nav_about">NOSOTROS</a>
-                            <a href="index.html#trabajos"
-                                class="text-sm font-medium text-gray-300 hover:text-white transition-colors"
-                                data-i18n="nav_work">TRABAJOS</a>
-                        </nav>
-
-                        <!-- Language Toggle -->
-                        <button id="lang-toggle"
-                            class="text-sm font-bold text-gray-300 hover:text-white transition-colors">
-                            <span class="text-brand-accent">ES</span> / EN
-                        </button>
-
-                        <a href="contacto.html"
-                            class="px-6 py-2 bg-white text-brand-dark font-bold rounded-full hover:bg-brand-accent transition-all duration-300 transform hover:scale-105"
-                            data-i18n="nav_contact">
-                            CONTACTAR
-                        </a>
-                    </div>
-                    <h4 class="text-white font-bold mb-6">Legal</h4>
-                    <ul class="space-y-4">
-                        <li><a href="privacidad.html"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Privacidad</a>
-                        </li>
-                        <li><a href="terminos.html"
-                                class="text-gray-400 hover:text-brand-accent transition-colors">Términos</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-sm">© 2024 Forma Digital. Todos los derechos reservados.</p>
-                <div class="flex gap-6">
-                    <!-- Social Icons -->
-                    <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
-                        class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                        <span class="sr-only">Instagram</span>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 014.185 3.362c.636-.247 1.363-.416 2.427-.465C7.673 2.013 8.027 2 12.315 2zm-.975 2.166c-2.412.006-2.718.019-3.678.063-.849.04-1.309.184-1.618.303-.408.159-.7.348-1.006.654-.306.306-.495.598-.654 1.006-.119.309-.263.769-.303 1.618-.044.96-.057 1.267-.063 3.678l-.005.975c.006 2.412.019 2.718.063 3.678.04.849.184 1.309.303 1.618.159.408.348.7.654 1.006.654.306.306.598.495 1.006.654.309.119.769.263 1.618.303.96.044 1.267.057 3.678.063l.975.005c2.412-.006 2.718-.019 3.678-.063.849-.04 1.309-.184 1.618-.303.408-.159.7-.348 1.006-.654.306-.306.495-.598.654-1.006.119-.309.263-.769.303-1.618.044-.96.057-1.267.063-3.678l.005-.975c-.006-2.412-.019-2.718-.063-3.678-.04-.849-.184-1.309-.303-1.618-.159-.408-.348-.7-.654-1.006-.306-.306-.598-.495-1.006-.654-.309-.119-.769-.263-1.618-.303-.96-.044-1.267-.057-3.678-.063l-.975-.005zm5.265 2.833a1 1 0 011.002.998v.004a1 1 0 01-1.002.998h-.004a1 1 0 01-1.002-.998v-.004a1 1 0 011.002-.998h.004zM12.32 8.309a3.691 3.691 0 110 7.382 3.691 3.691 0 010-7.382zm0 2.166a1.525 1.525 0 100 3.05 1.525 1.525 0 000-3.05z"
-                                clip-rule="evenodd" />
-                            <path fill-rule="evenodd"
-                                d="M12.315 5.817a6.498 6.498 0 010 12.996 6.498 6.498 0 010-12.996zm0 2a4.498 4.498 0 100 8.996 4.498 4.498 0 000-8.996z"
-                                clip-rule="evenodd" />
-                            <path fill-rule="evenodd" d="M18.856 6.374a1.23 1.23 0 11-2.46 0 1.23 1.23 0 012.46 0z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    <a href="https://www.facebook.com/formadigital" target="_blank"
-                        class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-accent hover:text-brand-dark hover:border-brand-accent transition-all duration-300">
-                        <span class="sr-only">Facebook</span>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd"
-                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.129 22 16.99 22 12z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
     <script src="src/translations.js"></script>
 </body>
 
