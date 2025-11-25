@@ -341,30 +341,54 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <!-- Plan 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                    <!-- Plan 1: Free -->
                     <div
-                        class="p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all flex flex-col">
-                        <h3 class="text-2xl font-display font-black uppercase mb-4" data-i18n="plan_1_title">START</h3>
+                        class="p-6 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all flex flex-col">
+                        <h3 class="text-2xl font-display font-black uppercase mb-4">TRIAL</h3>
+                        <div class="mb-6">
+                            <div class="flex items-baseline">
+                                <span class="text-4xl font-black price-amount" data-monthly="0"
+                                    data-annual="0">$0</span>
+                                <span class="text-sm font-bold text-gray-500 ml-2">USD</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-1">
+                            <li class="flex items-center gap-3 font-medium"><span
+                                    class="w-3 h-3 bg-bauhaus-black"></span> <span>5 Posts</span></li>
+                            <li class="flex items-center gap-3 font-medium"><span
+                                    class="w-3 h-3 bg-bauhaus-black"></span> <span>Diseño Básico</span></li>
+                            <li class="flex items-center gap-3 font-medium"><span
+                                    class="w-3 h-3 bg-bauhaus-black"></span> <span>1 Revisión</span></li>
+                        </ul>
+                        <a href="https://wa.me/5491130666060?text=Hola,%20me%20interesa%20el%20plan%20TRIAL"
+                            target="_blank"
+                            class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center border-2 border-bauhaus-black hover:bg-bauhaus-red transition-colors"
+                            data-i18n="plan_cta">ELEGIR PLAN</a>
+                    </div>
+
+                    <!-- Plan 2: $250 -->
+                    <div
+                        class="p-6 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all flex flex-col">
+                        <h3 class="text-2xl font-display font-black uppercase mb-4">START</h3>
                         <div class="mb-6">
                             <span
-                                class="text-sm text-gray-500 line-through original-price hidden font-bold">$300000</span>
+                                class="text-sm text-gray-500 line-through original-price hidden font-bold">$3000</span>
                             <div class="flex items-baseline">
-                                <span class="text-5xl font-black price-amount" data-monthly="25000"
-                                    data-annual="250000">$25000</span>
+                                <span class="text-4xl font-black price-amount" data-monthly="250"
+                                    data-annual="2400">$250</span>
                                 <span class="text-sm font-bold text-gray-500 ml-2 price-period"
                                     data-i18n="planes_period_month">/mes</span>
+                                <span class="text-sm font-bold text-gray-500 ml-1">USD</span>
                             </div>
                         </div>
                         <ul class="space-y-4 mb-8 flex-1">
                             <li class="flex items-center gap-3 font-medium"><span class="w-3 h-3 bg-bauhaus-red"></span>
-                                <span class="dynamic-content" data-key-monthly="plan_1_item_1_monthly"
-                                    data-key-annual="plan_1_item_1_annual" data-i18n="plan_1_item_1_monthly">8 Posts + 4
-                                    Stories</span></li>
+                                <span>12 Posts + 8 Stories</span></li>
                             <li class="flex items-center gap-3 font-medium"><span class="w-3 h-3 bg-bauhaus-red"></span>
-                                <span data-i18n="plan_item_copy">Copywriting Persuasivo</span></li>
+                                <span>Copywriting</span></li>
                             <li class="flex items-center gap-3 font-medium"><span class="w-3 h-3 bg-bauhaus-red"></span>
-                                <span data-i18n="plan_item_design">Diseño Gráfico</span></li>
+                                <span>Reporte Mensual</span></li>
                         </ul>
                         <a href="https://wa.me/5491130666060?text=Hola,%20me%20interesa%20el%20plan%20START"
                             target="_blank"
@@ -372,36 +396,32 @@
                             data-i18n="plan_cta">ELEGIR PLAN</a>
                     </div>
 
-                    <!-- Plan 2 (Featured) -->
+                    <!-- Plan 3: $450 (Featured) -->
                     <div
-                        class="p-8 border-2 border-bauhaus-black bg-bauhaus-black text-white bauhaus-shadow transform md:-translate-y-4 relative">
+                        class="p-6 border-2 border-bauhaus-black bg-bauhaus-black text-white bauhaus-shadow transform md:-translate-y-4 relative flex flex-col">
                         <div
                             class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bauhaus-yellow text-bauhaus-black px-4 py-1 font-black uppercase tracking-widest border-2 border-bauhaus-black text-sm">
                             POPULAR
                         </div>
-                        <h3 class="text-2xl font-display font-black uppercase mb-4 text-bauhaus-yellow"
-                            data-i18n="plan_2_title">GROWTH</h3>
+                        <h3 class="text-2xl font-display font-black uppercase mb-4 text-bauhaus-yellow">GROWTH</h3>
                         <div class="mb-6">
                             <span
-                                class="text-sm text-gray-400 line-through original-price hidden font-bold">$480000</span>
+                                class="text-sm text-gray-400 line-through original-price hidden font-bold">$5400</span>
                             <div class="flex items-baseline">
-                                <span class="text-5xl font-black price-amount" data-monthly="40000"
-                                    data-annual="400000">$40000</span>
+                                <span class="text-4xl font-black price-amount" data-monthly="450"
+                                    data-annual="4320">$450</span>
                                 <span class="text-sm font-bold text-gray-400 ml-2 price-period"
                                     data-i18n="planes_period_month">/mes</span>
+                                <span class="text-sm font-bold text-gray-400 ml-1">USD</span>
                             </div>
                         </div>
                         <ul class="space-y-4 mb-8 flex-1">
                             <li class="flex items-center gap-3 font-medium"><span
-                                    class="w-3 h-3 bg-bauhaus-yellow"></span> <span class="dynamic-content"
-                                    data-key-monthly="plan_2_item_1_monthly" data-key-annual="plan_2_item_1_annual"
-                                    data-i18n="plan_2_item_1_monthly">12 Posts + 8 Stories</span></li>
+                                    class="w-3 h-3 bg-bauhaus-yellow"></span> <span>20 Posts + 12 Stories</span></li>
                             <li class="flex items-center gap-3 font-medium"><span
-                                    class="w-3 h-3 bg-bauhaus-yellow"></span> <span data-i18n="plan_item_reels">2 Reels
-                                    / TikToks</span></li>
+                                    class="w-3 h-3 bg-bauhaus-yellow"></span> <span>4 Reels / TikToks</span></li>
                             <li class="flex items-center gap-3 font-medium"><span
-                                    class="w-3 h-3 bg-bauhaus-yellow"></span> <span data-i18n="plan_item_report">Reporte
-                                    Mensual</span></li>
+                                    class="w-3 h-3 bg-bauhaus-yellow"></span> <span>Gestión de Ads</span></li>
                         </ul>
                         <a href="https://wa.me/5491130666060?text=Hola,%20me%20interesa%20el%20plan%20GROWTH"
                             target="_blank"
@@ -409,36 +429,27 @@
                             data-i18n="plan_cta">ELEGIR PLAN</a>
                     </div>
 
-                    <!-- Plan 3 -->
+                    <!-- Plan 4: Custom -->
                     <div
-                        class="p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all flex flex-col">
-                        <h3 class="text-2xl font-display font-black uppercase mb-4" data-i18n="plan_3_title">SCALE</h3>
+                        class="p-6 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all flex flex-col">
+                        <h3 class="text-2xl font-display font-black uppercase mb-4">CUSTOM</h3>
                         <div class="mb-6">
-                            <span
-                                class="text-sm text-gray-500 line-through original-price hidden font-bold">$720000</span>
                             <div class="flex items-baseline">
-                                <span class="text-5xl font-black price-amount" data-monthly="60000"
-                                    data-annual="600000">$60000</span>
-                                <span class="text-sm font-bold text-gray-500 ml-2 price-period"
-                                    data-i18n="planes_period_month">/mes</span>
+                                <span class="text-3xl font-black">A MEDIDA</span>
                             </div>
                         </div>
                         <ul class="space-y-4 mb-8 flex-1">
                             <li class="flex items-center gap-3 font-medium"><span
-                                    class="w-3 h-3 bg-bauhaus-blue"></span> <span class="dynamic-content"
-                                    data-key-monthly="plan_3_item_1_monthly" data-key-annual="plan_3_item_1_annual"
-                                    data-i18n="plan_3_item_1_monthly">20 Posts + 12 Stories</span></li>
+                                    class="w-3 h-3 bg-bauhaus-blue"></span> <span>Estrategia 360°</span></li>
                             <li class="flex items-center gap-3 font-medium"><span
-                                    class="w-3 h-3 bg-bauhaus-blue"></span> <span data-i18n="plan_item_ads">Gestión de
-                                    Ads</span></li>
+                                    class="w-3 h-3 bg-bauhaus-blue"></span> <span>Equipo Dedicado</span></li>
                             <li class="flex items-center gap-3 font-medium"><span
-                                    class="w-3 h-3 bg-bauhaus-blue"></span> <span data-i18n="plan_item_meeting">Reunión
-                                    Quincenal</span></li>
+                                    class="w-3 h-3 bg-bauhaus-blue"></span> <span>Soporte 24/7</span></li>
                         </ul>
-                        <a href="https://wa.me/5491130666060?text=Hola,%20me%20interesa%20el%20plan%20SCALE"
+                        <a href="https://wa.me/5491130666060?text=Hola,%20me%20interesa%20un%20plan%20A%20MEDIDA"
                             target="_blank"
                             class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center border-2 border-bauhaus-black hover:bg-bauhaus-blue transition-colors"
-                            data-i18n="plan_cta">ELEGIR PLAN</a>
+                            data-i18n="plan_cta">CONSULTAR</a>
                     </div>
                 </div>
             </div>
@@ -580,13 +591,17 @@
             document.querySelectorAll('.price-amount').forEach(el => {
                 const monthly = el.dataset.monthly;
                 const annual = el.dataset.annual;
+
+                // Skip if no data attributes (e.g. custom plan)
+                if (!monthly || !annual) return;
+
                 el.textContent = '$' + (isAnnual ? annual : monthly);
 
                 // Show/Hide Original Price
                 const card = el.closest('div').parentElement;
                 const originalPrice = card.querySelector('.original-price');
                 if (originalPrice) {
-                    if (isAnnual) {
+                    if (isAnnual && parseInt(monthly) > 0) {
                         originalPrice.textContent = '$' + (parseInt(monthly) * 12);
                         originalPrice.classList.remove('hidden');
                     } else {
@@ -598,12 +613,6 @@
             // Period Update
             document.querySelectorAll('.price-period').forEach(el => {
                 el.setAttribute('data-i18n', isAnnual ? 'planes_period_year' : 'planes_period_month');
-            });
-
-            // Dynamic Content Update
-            document.querySelectorAll('.dynamic-content').forEach(el => {
-                const key = isAnnual ? el.dataset.keyAnnual : el.dataset.keyMonthly;
-                if (key) el.setAttribute('data-i18n', key);
             });
 
             // Trigger Translation Update
