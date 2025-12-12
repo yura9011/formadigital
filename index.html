@@ -111,6 +111,78 @@
                 transform: translateX(-50%);
             }
         }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Slow Spin Animation */
+        @keyframes slow-spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-spin-slow {
+            animation: slow-spin 20s linear infinite;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* Fade In Up Animation for Pricing Cards */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Tab Content Transitions */
+        .tab-content {
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+
+        .tab-content.hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            display: none;
+        }
+
+        .tab-content.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Plan Card Hover Animation */
+        .plan-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
     </style>
 </head>
 
@@ -187,13 +259,13 @@
             class="min-h-[90vh] flex items-center justify-center bg-bauhaus-white relative overflow-hidden border-b-2 border-bauhaus-black">
             <!-- Geometric Background Elements -->
             <div
-                class="absolute top-20 left-10 w-32 h-32 bg-bauhaus-red rounded-full mix-blend-multiply opacity-80 animate-pulse">
+                class="absolute top-20 left-10 w-32 h-32 bg-bauhaus-red rounded-full mix-blend-multiply opacity-80 animate-float">
             </div>
             <div
-                class="absolute bottom-20 right-10 w-48 h-48 bg-bauhaus-blue transform rotate-12 mix-blend-multiply opacity-80">
+                class="absolute bottom-20 right-10 w-48 h-48 bg-bauhaus-blue mix-blend-multiply opacity-80 animate-spin-slow">
             </div>
             <div
-                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-bauhaus-yellow rounded-full blur-3xl opacity-20">
+                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-bauhaus-yellow rounded-full blur-3xl opacity-20 animate-pulse-slow">
             </div>
 
             <div class="container mx-auto px-6 text-center relative z-10">
@@ -314,114 +386,395 @@
         <!-- Plans Section -->
         <section id="planes" class="py-24 bg-white border-b-2 border-bauhaus-black">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-5xl md:text-7xl font-display font-black mb-8 uppercase" data-i18n="planes_title">
+                <div class="text-center mb-12">
+                    <h2 class="text-5xl md:text-7xl font-display font-black mb-4 uppercase" data-i18n="planes_title">
                         PLANES</h2>
+                    <p class="text-lg text-gray-600 font-medium" data-i18n="planes_subtitle">Soluciones adaptadas a tu
+                        negocio</p>
+                </div>
 
-                    <!-- Pricing Toggle -->
-                    <div class="flex items-center justify-center gap-6">
-                        <span id="monthly-label"
-                            class="text-xl font-bold uppercase transition-colors text-bauhaus-black"
-                            data-i18n="planes_toggle_month">MENSUAL</span>
-                        <button id="pricing-toggle"
-                            class="w-20 h-10 bg-bauhaus-white border-2 border-bauhaus-black rounded-full relative transition-colors focus:outline-none">
-                            <div
-                                class="w-8 h-8 bg-bauhaus-black rounded-full absolute top-0.5 left-1 transition-transform duration-300">
-                            </div>
+                <!-- Service Tabs -->
+                <div class="flex justify-center mb-12">
+                    <div class="inline-flex border-2 border-bauhaus-black">
+                        <button id="tab-gmb"
+                            class="px-8 py-4 font-display font-black uppercase tracking-wider text-lg transition-all duration-300 bg-bauhaus-black text-white hover:bg-bauhaus-red"
+                            onclick="switchTab('gmb')">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                </svg>
+                                GMB
+                            </span>
                         </button>
-                        <span id="annual-label" class="text-xl font-bold uppercase transition-colors text-gray-400"
-                            data-i18n="planes_toggle_year">ANUAL (-20%)</span>
+                        <button id="tab-rrss"
+                            class="px-8 py-4 font-display font-black uppercase tracking-wider text-lg transition-all duration-300 bg-bauhaus-white text-bauhaus-black hover:bg-bauhaus-blue hover:text-white"
+                            onclick="switchTab('rrss')">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z" />
+                                </svg>
+                                RRSS
+                            </span>
+                        </button>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <!-- Plan 1: $250 -->
-                    <div
-                        class="p-6 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all flex flex-col">
-                        <h3 class="text-2xl font-display font-black uppercase mb-4">START</h3>
-                        <div class="mb-6">
-                            <span
-                                class="text-sm text-gray-500 line-through original-price hidden font-bold">$3000</span>
-                            <div class="flex items-baseline">
-                                <span class="text-4xl font-black price-amount" data-monthly="250"
-                                    data-annual="2400">$250</span>
-                                <span class="text-sm font-bold text-gray-500 ml-2 price-period"
-                                    data-i18n="planes_period_month">/mes</span>
-                                <span class="text-sm font-bold text-gray-500 ml-1">USD</span>
+                <!-- GMB Plans -->
+                <div id="planes-gmb" class="tab-content transition-all duration-500">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-8">
+
+                        <!-- GMB Pack Inicial -->
+                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white transition-all duration-300 flex flex-col hover:shadow-[6px_6px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5"
+                            style="animation: fadeInUp 0.5s ease-out 0.1s both;">
+                            <div
+                                class="w-12 h-12 bg-bauhaus-red rounded-full mb-4 border-2 border-bauhaus-black flex items-center justify-center">
+                                <span class="text-white font-black text-lg">1</span>
                             </div>
+                            <h3 class="text-xl font-display font-black uppercase mb-2">INICIAL</h3>
+                            <p class="text-xs text-gray-500 mb-4 font-medium">Contrato mínimo 3 meses</p>
+                            <div class="mb-4">
+                                <div class="flex items-baseline">
+                                    <span class="text-3xl font-black">$100.000</span>
+                                    <span class="text-sm font-bold text-gray-500 ml-1">/mes</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 mb-6 flex-1 text-sm">
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
+                                    <span>Auditoría completa</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
+                                    <span>Plan de acción</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
+                                    <span>Respuesta reseñas (50/mes)</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
+                                    <span>Condición "Caso de Éxito"</span>
+                                </li>
+                            </ul>
+                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20GMB%20INICIAL"
+                                target="_blank"
+                                class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm border-2 border-bauhaus-black hover:bg-bauhaus-red transition-colors duration-300">
+                                CONSULTAR
+                            </a>
                         </div>
-                        <ul class="space-y-4 mb-8 flex-1">
-                            <li class="flex items-center gap-3 font-medium"><span class="w-3 h-3 bg-bauhaus-red"></span>
-                                <span>12 Posts + 8 Stories</span>
-                            </li>
-                            <li class="flex items-center gap-3 font-medium"><span class="w-3 h-3 bg-bauhaus-red"></span>
-                                <span>Copywriting</span>
-                            </li>
-                            <li class="flex items-center gap-3 font-medium"><span class="w-3 h-3 bg-bauhaus-red"></span>
-                                <span>Reporte Mensual</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20plan%20START"
-                            target="_blank"
-                            class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center border-2 border-bauhaus-black hover:bg-bauhaus-red transition-colors"
-                            data-i18n="plan_cta">ELEGIR PLAN</a>
+
+                        <!-- GMB Mantenimiento Básico -->
+                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white transition-all duration-300 flex flex-col hover:shadow-[6px_6px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5"
+                            style="animation: fadeInUp 0.5s ease-out 0.2s both;">
+                            <div
+                                class="w-12 h-12 bg-bauhaus-blue mb-4 border-2 border-bauhaus-black flex items-center justify-center">
+                                <span class="text-white font-black text-lg">B</span>
+                            </div>
+                            <h3 class="text-xl font-display font-black uppercase mb-2">BÁSICO</h3>
+                            <p class="text-xs text-gray-500 mb-4 font-medium">Mantenimiento mensual</p>
+                            <div class="mb-4">
+                                <div class="flex items-baseline">
+                                    <span class="text-3xl font-black">$30.000</span>
+                                    <span class="text-sm font-bold text-gray-500 ml-1">/mes</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 mb-6 flex-1 text-sm">
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-blue mt-1.5 flex-shrink-0"></span>
+                                    <span>2 fotos al mes</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-blue mt-1.5 flex-shrink-0"></span>
+                                    <span>Gestión de reseñas (5)</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-blue mt-1.5 flex-shrink-0"></span>
+                                    <span>2 revisiones anuales</span>
+                                </li>
+                            </ul>
+                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20GMB%20BÁSICO"
+                                target="_blank"
+                                class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm border-2 border-bauhaus-black hover:bg-bauhaus-blue transition-colors duration-300">
+                                CONSULTAR
+                            </a>
+                        </div>
+
+                        <!-- GMB Mantenimiento Intermedio -->
+                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white transition-all duration-300 flex flex-col hover:shadow-[6px_6px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5"
+                            style="animation: fadeInUp 0.5s ease-out 0.3s both;">
+                            <div
+                                class="w-12 h-12 bg-bauhaus-yellow mb-4 border-2 border-bauhaus-black flex items-center justify-center transform rotate-12">
+                                <span class="text-bauhaus-black font-black text-lg -rotate-12">I</span>
+                            </div>
+                            <h3 class="text-xl font-display font-black uppercase mb-2">INTERMEDIO</h3>
+                            <p class="text-xs text-gray-500 mb-4 font-medium">Mantenimiento mensual</p>
+                            <div class="mb-4">
+                                <div class="flex items-baseline">
+                                    <span class="text-3xl font-black">$50.000</span>
+                                    <span class="text-sm font-bold text-gray-500 ml-1">/mes</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 mb-6 flex-1 text-sm">
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
+                                    <span>1 foto por semana</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
+                                    <span>Gestión de reseñas (10)</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
+                                    <span>2 revisiones anuales</span>
+                                </li>
+                            </ul>
+                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20GMB%20INTERMEDIO"
+                                target="_blank"
+                                class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm border-2 border-bauhaus-black hover:bg-bauhaus-yellow hover:text-bauhaus-black transition-colors duration-300">
+                                CONSULTAR
+                            </a>
+                        </div>
+
+                        <!-- GMB Mantenimiento Ilimitado (Featured) -->
+                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-black text-white transition-all duration-300 flex flex-col relative shadow-[4px_4px_0px_#D93025] hover:shadow-[8px_8px_0px_#D93025] hover:-translate-x-1 hover:-translate-y-1"
+                            style="animation: fadeInUp 0.5s ease-out 0.4s both;">
+                            <div
+                                class="absolute top-0 right-0 bg-bauhaus-red text-white px-3 py-1 font-black uppercase text-xs border-l-2 border-b-2 border-bauhaus-black">
+                                POPULAR
+                            </div>
+                            <div
+                                class="w-12 h-12 bg-bauhaus-red rounded-full mb-4 border-2 border-white flex items-center justify-center animate-pulse">
+                                <span class="text-white font-black text-lg">∞</span>
+                            </div>
+                            <h3 class="text-xl font-display font-black uppercase mb-2 text-bauhaus-yellow">ILIMITADO
+                            </h3>
+                            <p class="text-xs text-gray-400 mb-4 font-medium">Mantenimiento premium</p>
+                            <div class="mb-4">
+                                <div class="flex items-baseline">
+                                    <span class="text-3xl font-black">$100.000</span>
+                                    <span class="text-sm font-bold text-gray-400 ml-1">/mes</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 mb-6 flex-1 text-sm">
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
+                                    <span>2 fotos por semana</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
+                                    <span>Gestión de reseñas (50)</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
+                                    <span>2 revisiones anuales</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium text-bauhaus-yellow">
+                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
+                                    <span>+ Página web GRATIS (6 meses)</span>
+                                </li>
+                            </ul>
+                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20GMB%20ILIMITADO"
+                                target="_blank"
+                                class="w-full py-3 bg-bauhaus-yellow text-bauhaus-black font-black uppercase text-center text-sm border-2 border-white hover:bg-white transition-colors duration-300">
+                                CONSULTAR
+                            </a>
+                        </div>
                     </div>
 
-                    <!-- Plan 2: $450 (Featured) -->
-                    <div
-                        class="p-8 border-2 border-bauhaus-black bg-bauhaus-black text-white bauhaus-shadow relative flex flex-col">
+                    <!-- Add-on: Página Web -->
+                    <div class="max-w-2xl mx-auto mt-8" style="animation: fadeInUp 0.5s ease-out 0.5s both;">
                         <div
-                            class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-bauhaus-yellow text-bauhaus-black px-4 py-1 font-black uppercase tracking-widest border-2 border-bauhaus-black text-sm">
-                            POPULAR
-                        </div>
-                        <h3 class="text-2xl font-display font-black uppercase mb-4 text-bauhaus-yellow">GROWTH</h3>
-                        <div class="mb-6">
-                            <span
-                                class="text-sm text-gray-400 line-through original-price hidden font-bold">$5400</span>
-                            <div class="flex items-baseline">
-                                <span class="text-4xl font-black price-amount" data-monthly="450"
-                                    data-annual="4320">$450</span>
-                                <span class="text-sm font-bold text-gray-400 ml-2 price-period"
-                                    data-i18n="planes_period_month">/mes</span>
-                                <span class="text-sm font-bold text-gray-400 ml-1">USD</span>
+                            class="p-6 border-2 border-dashed border-bauhaus-black bg-gray-50 flex flex-col md:flex-row items-center justify-between gap-4 hover:border-solid hover:bg-bauhaus-yellow/10 transition-all duration-300">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-10 h-10 bg-bauhaus-blue flex items-center justify-center border-2 border-bauhaus-black">
+                                    <span class="text-white font-black">+</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-black uppercase">Página Web Básica</h4>
+                                    <p class="text-sm text-gray-600">Sin personalización • Hosting 1 año incluido</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="text-2xl font-black">$80.000</span>
+                                <span class="text-sm font-bold text-gray-500">pago único</span>
                             </div>
                         </div>
-                        <ul class="space-y-4 mb-8 flex-1">
-                            <li class="flex items-center gap-3 font-medium"><span
-                                    class="w-3 h-3 bg-bauhaus-yellow"></span> <span>20 Posts + 12 Stories</span></li>
-                            <li class="flex items-center gap-3 font-medium"><span
-                                    class="w-3 h-3 bg-bauhaus-yellow"></span> <span>4 Reels / TikToks</span></li>
-                            <li class="flex items-center gap-3 font-medium"><span
-                                    class="w-3 h-3 bg-bauhaus-yellow"></span> <span>Gestión de Ads</span></li>
-                        </ul>
-                        <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20plan%20GROWTH"
-                            target="_blank"
-                            class="w-full py-3 bg-bauhaus-yellow text-bauhaus-black font-black uppercase text-center border-2 border-white hover:bg-white transition-colors"
-                            data-i18n="plan_cta">ELEGIR PLAN</a>
                     </div>
+                </div>
 
-                    <!-- Plan 4: Custom -->
-                    <div
-                        class="p-6 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all flex flex-col">
-                        <h3 class="text-2xl font-display font-black uppercase mb-4">CUSTOM</h3>
-                        <div class="mb-6">
-                            <div class="flex items-baseline">
-                                <span class="text-3xl font-black">A MEDIDA</span>
+                <!-- RRSS Plans -->
+                <div id="planes-rrss" class="tab-content hidden transition-all duration-500">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+
+                        <!-- RRSS Básico -->
+                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white transition-all duration-300 flex flex-col hover:shadow-[6px_6px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5"
+                            style="animation: fadeInUp 0.5s ease-out 0.1s both;">
+                            <div
+                                class="w-12 h-12 bg-bauhaus-red rounded-full mb-4 border-2 border-bauhaus-black flex items-center justify-center">
+                                <span class="text-white font-black text-sm">FB+IG</span>
                             </div>
+                            <h3 class="text-xl font-display font-black uppercase mb-2">BÁSICO</h3>
+                            <p class="text-xs text-gray-500 mb-4 font-medium">FB + IG (espejo)</p>
+                            <div class="mb-4">
+                                <div class="flex items-baseline">
+                                    <span class="text-3xl font-black">$150.000</span>
+                                    <span class="text-sm font-bold text-gray-500 ml-1">/mes</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 mb-6 flex-1 text-sm">
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
+                                    <span>8 Posts</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
+                                    <span>2 Stories</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
+                                    <span>2 Reels simples</span>
+                                </li>
+                            </ul>
+                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20RRSS%20BÁSICO"
+                                target="_blank"
+                                class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm border-2 border-bauhaus-black hover:bg-bauhaus-red transition-colors duration-300">
+                                CONSULTAR
+                            </a>
                         </div>
-                        <ul class="space-y-4 mb-8 flex-1">
-                            <li class="flex items-center gap-3 font-medium"><span
-                                    class="w-3 h-3 bg-bauhaus-blue"></span> <span>Estrategia 360°</span></li>
-                            <li class="flex items-center gap-3 font-medium"><span
-                                    class="w-3 h-3 bg-bauhaus-blue"></span> <span>Equipo Dedicado</span></li>
-                            <li class="flex items-center gap-3 font-medium"><span
-                                    class="w-3 h-3 bg-bauhaus-blue"></span> <span>Soporte 24/7</span></li>
-                        </ul>
-                        <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20un%20plan%20A%20MEDIDA"
-                            target="_blank"
-                            class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center border-2 border-bauhaus-black hover:bg-bauhaus-blue transition-colors"
-                            data-i18n="plan_cta">CONSULTAR</a>
+
+                        <!-- RRSS Básico Plus -->
+                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white transition-all duration-300 flex flex-col hover:shadow-[6px_6px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5"
+                            style="animation: fadeInUp 0.5s ease-out 0.2s both;">
+                            <div
+                                class="w-12 h-12 bg-bauhaus-blue mb-4 border-2 border-bauhaus-black flex items-center justify-center">
+                                <span class="text-white font-black text-xs">FB+IG+</span>
+                            </div>
+                            <h3 class="text-xl font-display font-black uppercase mb-2">BÁSICO PLUS</h3>
+                            <p class="text-xs text-gray-500 mb-4 font-medium">FB + IG o TikTok o LinkedIn</p>
+                            <div class="mb-4">
+                                <div class="flex items-baseline">
+                                    <span class="text-3xl font-black">$200.000</span>
+                                    <span class="text-sm font-bold text-gray-500 ml-1">/mes</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 mb-6 flex-1 text-sm">
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-blue mt-1.5 flex-shrink-0"></span>
+                                    <span>8 Posts</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-blue mt-1.5 flex-shrink-0"></span>
+                                    <span>4 Stories</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-blue mt-1.5 flex-shrink-0"></span>
+                                    <span>4 Reels simples</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium text-gray-500 text-xs">
+                                    <span class="w-2 h-2 bg-gray-400 mt-1.5 flex-shrink-0"></span>
+                                    <span>o TikTok 8 / LinkedIn 8</span>
+                                </li>
+                            </ul>
+                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20RRSS%20BÁSICO%20PLUS"
+                                target="_blank"
+                                class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm border-2 border-bauhaus-black hover:bg-bauhaus-blue transition-colors duration-300">
+                                CONSULTAR
+                            </a>
+                        </div>
+
+                        <!-- RRSS Intermedio -->
+                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white transition-all duration-300 flex flex-col hover:shadow-[6px_6px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5"
+                            style="animation: fadeInUp 0.5s ease-out 0.3s both;">
+                            <div
+                                class="w-12 h-12 bg-bauhaus-yellow mb-4 border-2 border-bauhaus-black flex items-center justify-center transform -rotate-6">
+                                <span class="text-bauhaus-black font-black text-xs rotate-6">ALL</span>
+                            </div>
+                            <h3 class="text-xl font-display font-black uppercase mb-2">INTERMEDIO</h3>
+                            <p class="text-xs text-gray-500 mb-4 font-medium">FB + IG o TikTok</p>
+                            <div class="mb-4">
+                                <div class="flex items-baseline">
+                                    <span class="text-3xl font-black">$250.000</span>
+                                    <span class="text-sm font-bold text-gray-500 ml-1">/mes</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 mb-6 flex-1 text-sm">
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
+                                    <span>12 Posts</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
+                                    <span>8 Stories</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
+                                    <span>4 Reels simples</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium text-gray-500 text-xs">
+                                    <span class="w-2 h-2 bg-gray-400 mt-1.5 flex-shrink-0"></span>
+                                    <span>o TikTok 12</span>
+                                </li>
+                            </ul>
+                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20RRSS%20INTERMEDIO"
+                                target="_blank"
+                                class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm border-2 border-bauhaus-black hover:bg-bauhaus-yellow hover:text-bauhaus-black transition-colors duration-300">
+                                CONSULTAR
+                            </a>
+                        </div>
+
+                        <!-- RRSS Personalizado (Featured) -->
+                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-black text-white transition-all duration-300 flex flex-col relative shadow-[4px_4px_0px_#1A73E8] hover:shadow-[8px_8px_0px_#1A73E8] hover:-translate-x-1 hover:-translate-y-1"
+                            style="animation: fadeInUp 0.5s ease-out 0.4s both;">
+                            <div
+                                class="absolute top-0 right-0 bg-bauhaus-blue text-white px-3 py-1 font-black uppercase text-xs border-l-2 border-b-2 border-bauhaus-black">
+                                PRO
+                            </div>
+                            <div
+                                class="w-12 h-12 bg-bauhaus-blue rounded-full mb-4 border-2 border-white flex items-center justify-center">
+                                <span class="text-white font-black text-lg">★</span>
+                            </div>
+                            <h3 class="text-xl font-display font-black uppercase mb-2 text-bauhaus-yellow">PERSONALIZADO
+                            </h3>
+                            <p class="text-xs text-gray-400 mb-4 font-medium">Servicio a medida</p>
+                            <div class="mb-4">
+                                <div class="flex items-baseline">
+                                    <span class="text-3xl font-black">$280.000</span>
+                                    <span class="text-sm font-bold text-gray-400 ml-1">/mes</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-3 mb-6 flex-1 text-sm">
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
+                                    <span>Contenido a medida</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
+                                    <span>Estrategia personalizada</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
+                                    <span>Múltiples plataformas</span>
+                                </li>
+                                <li class="flex items-start gap-2 font-medium">
+                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
+                                    <span>Soporte prioritario</span>
+                                </li>
+                            </ul>
+                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20RRSS%20PERSONALIZADO"
+                                target="_blank"
+                                class="w-full py-3 bg-bauhaus-yellow text-bauhaus-black font-black uppercase text-center text-sm border-2 border-white hover:bg-white transition-colors duration-300">
+                                CONSULTAR
+                            </a>
+                        </div>
                     </div>
+                </div>
+
+                <!-- CTA Note -->
+                <div class="text-center mt-12 opacity-0" style="animation: fadeInUp 0.5s ease-out 0.6s forwards;">
+                    <p class="text-gray-500 text-sm font-medium">Todos los precios en ARS • Consultas sin compromiso</p>
                 </div>
             </div>
         </section>
@@ -535,61 +888,58 @@
 
         menuToggle.addEventListener('click', toggleMobileMenu);
 
-        // Pricing Toggle Logic
-        const toggleBtn = document.getElementById('pricing-toggle');
-        const toggleDot = toggleBtn.querySelector('div');
-        const monthlyLabel = document.getElementById('monthly-label');
-        const annualLabel = document.getElementById('annual-label');
-        let isAnnual = false;
+        // Tab Switching Logic for Pricing Section
+        function switchTab(tabName) {
+            const gmbTab = document.getElementById('tab-gmb');
+            const rrssTab = document.getElementById('tab-rrss');
+            const gmbContent = document.getElementById('planes-gmb');
+            const rrssContent = document.getElementById('planes-rrss');
 
-        toggleBtn.addEventListener('click', () => {
-            isAnnual = !isAnnual;
+            // Reset animations on cards
+            const resetAnimations = (container) => {
+                container.querySelectorAll('.plan-card').forEach((card, index) => {
+                    card.style.animation = 'none';
+                    card.offsetHeight; // Trigger reflow
+                    card.style.animation = `fadeInUp 0.5s ease-out ${0.1 + index * 0.1}s both`;
+                });
+            };
 
-            // UI Update
-            if (isAnnual) {
-                toggleDot.classList.add('translate-x-8');
-                toggleBtn.classList.add('bg-bauhaus-black');
-                monthlyLabel.classList.replace('text-bauhaus-black', 'text-gray-400');
-                annualLabel.classList.replace('text-gray-400', 'text-bauhaus-black');
+            if (tabName === 'gmb') {
+                // Update tab styles
+                gmbTab.classList.remove('bg-bauhaus-white', 'text-bauhaus-black');
+                gmbTab.classList.add('bg-bauhaus-black', 'text-white');
+                rrssTab.classList.remove('bg-bauhaus-black', 'text-white');
+                rrssTab.classList.add('bg-bauhaus-white', 'text-bauhaus-black');
+
+                // Show/Hide content with animation
+                rrssContent.classList.add('hidden');
+                rrssContent.classList.remove('active');
+                gmbContent.classList.remove('hidden');
+                gmbContent.classList.add('active');
+
+                // Reset animations
+                resetAnimations(gmbContent);
             } else {
-                toggleDot.classList.remove('translate-x-8');
-                toggleBtn.classList.remove('bg-bauhaus-black');
-                monthlyLabel.classList.replace('text-gray-400', 'text-bauhaus-black');
-                annualLabel.classList.replace('text-bauhaus-black', 'text-gray-400');
+                // Update tab styles
+                rrssTab.classList.remove('bg-bauhaus-white', 'text-bauhaus-black');
+                rrssTab.classList.add('bg-bauhaus-black', 'text-white');
+                gmbTab.classList.remove('bg-bauhaus-black', 'text-white');
+                gmbTab.classList.add('bg-bauhaus-white', 'text-bauhaus-black');
+
+                // Show/Hide content with animation
+                gmbContent.classList.add('hidden');
+                gmbContent.classList.remove('active');
+                rrssContent.classList.remove('hidden');
+                rrssContent.classList.add('active');
+
+                // Reset animations
+                resetAnimations(rrssContent);
             }
+        }
 
-            // Price Update
-            document.querySelectorAll('.price-amount').forEach(el => {
-                const monthly = el.dataset.monthly;
-                const annual = el.dataset.annual;
-
-                // Skip if no data attributes (e.g. custom plan)
-                if (!monthly || !annual) return;
-
-                el.textContent = '$' + (isAnnual ? annual : monthly);
-
-                // Show/Hide Original Price
-                const card = el.closest('div').parentElement;
-                const originalPrice = card.querySelector('.original-price');
-                if (originalPrice) {
-                    if (isAnnual && parseInt(monthly) > 0) {
-                        originalPrice.textContent = '$' + (parseInt(monthly) * 12);
-                        originalPrice.classList.remove('hidden');
-                    } else {
-                        originalPrice.classList.add('hidden');
-                    }
-                }
-            });
-
-            // Period Update
-            document.querySelectorAll('.price-period').forEach(el => {
-                el.setAttribute('data-i18n', isAnnual ? 'planes_period_year' : 'planes_period_month');
-            });
-
-            // Trigger Translation Update
-            if (window.updateLanguage) {
-                window.updateLanguage(localStorage.getItem('preferredLanguage') || 'es');
-            }
+        // Initialize with GMB tab active
+        document.addEventListener('DOMContentLoaded', () => {
+            switchTab('gmb');
         });
     </script>
     <script src="src/translations.js"></script>
