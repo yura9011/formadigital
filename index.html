@@ -62,6 +62,414 @@
             overflow-x: hidden;
         }
 
+        /* Prevent scroll during intro */
+        body.intro-active {
+            overflow: hidden;
+        }
+
+        /* ========================================
+           INTRO OVERLAY ANIMATIONS
+           ======================================== */
+        .intro-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: all;
+        }
+
+        .intro-overlay.hidden {
+            pointer-events: none;
+        }
+
+        /* Intro panels that slide away */
+        .intro-panel {
+            position: absolute;
+            transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .intro-panel-left {
+            left: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: var(--bauhaus-black);
+            transform: translateX(0);
+        }
+
+        .intro-panel-right {
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: var(--bauhaus-yellow);
+            transform: translateX(0);
+        }
+
+        .intro-overlay.reveal .intro-panel-left {
+            transform: translateX(-100%);
+        }
+
+        .intro-overlay.reveal .intro-panel-right {
+            transform: translateX(100%);
+        }
+
+        /* Intro geometric shapes */
+        .intro-shape {
+            position: absolute;
+            z-index: 10000;
+        }
+
+        .intro-circle {
+            width: 120px;
+            height: 120px;
+            background: var(--bauhaus-red);
+            border-radius: 50%;
+            border: 3px solid var(--bauhaus-white);
+            animation: introCirclePulse 1.2s ease-in-out infinite alternate;
+        }
+
+        .intro-square {
+            width: 80px;
+            height: 80px;
+            background: var(--bauhaus-blue);
+            border: 3px solid var(--bauhaus-white);
+            animation: introSquareSpin 2s linear infinite;
+        }
+
+        @keyframes introCirclePulse {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes introSquareSpin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .intro-overlay.reveal .intro-shape {
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
+
+        /* ========================================
+           HERO ENTRY ANIMATIONS
+           ======================================== */
+
+        /* Geometric shapes entering from edges */
+        @keyframes enterFromTopLeft {
+            0% {
+                transform: translate(-200%, -200%) scale(0.5);
+                opacity: 0;
+            }
+
+            60% {
+                transform: translate(10%, 10%) scale(1.1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes enterFromBottomRight {
+            0% {
+                transform: translate(200%, 200%) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+
+            60% {
+                transform: translate(-10%, -10%) rotate(200deg) scale(1.1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(180deg) scale(1);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes pulseIn {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.2;
+            }
+        }
+
+        /* Text reveal animations */
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Hero animated elements - initially hidden */
+        .hero-shape-1,
+        .hero-shape-2,
+        .hero-shape-3,
+        .hero-title-1,
+        .hero-title-2,
+        .hero-subtitle,
+        .hero-cta {
+            opacity: 0;
+        }
+
+        /* When intro completes, animate elements in */
+        body.intro-complete .hero-shape-1 {
+            animation: enterFromTopLeft 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation-delay: 0.2s;
+        }
+
+        body.intro-complete .hero-shape-2 {
+            animation: enterFromBottomRight 2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation-delay: 0.5s;
+        }
+
+        body.intro-complete .hero-shape-3 {
+            animation: pulseIn 2.5s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+
+        body.intro-complete .hero-title-1 {
+            animation: slideInFromLeft 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.8s;
+        }
+
+        body.intro-complete .hero-title-2 {
+            animation: slideInFromRight 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 1.2s;
+        }
+
+        body.intro-complete .hero-subtitle {
+            animation: fadeInUp 1.2s ease-out forwards;
+            animation-delay: 1.8s;
+        }
+
+        body.intro-complete .hero-cta {
+            animation: scaleIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        body.intro-complete .hero-cta:nth-child(1) {
+            animation-delay: 2.2s;
+        }
+
+        body.intro-complete .hero-cta:nth-child(2) {
+            animation-delay: 2.5s;
+        }
+
+        /* Creative continuous animations - diagonal drift, orbit */
+        @keyframes diagonalDrift {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate(30px, -20px) scale(1.05);
+            }
+
+            50% {
+                transform: translate(-15px, -40px) scale(0.95);
+            }
+
+            75% {
+                transform: translate(-25px, 10px) scale(1.02);
+            }
+        }
+
+        @keyframes orbitFloat {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(40px, 20px) rotate(90deg);
+            }
+
+            50% {
+                transform: translate(0, 40px) rotate(180deg);
+            }
+
+            75% {
+                transform: translate(-40px, 20px) rotate(270deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        @keyframes breatheScale {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.15;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.15);
+                opacity: 0.25;
+            }
+        }
+
+        /* After entry animation completes, transition to creative movements */
+        body.intro-complete .hero-shape-1.animate-after {
+            animation: diagonalDrift 12s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        body.intro-complete .hero-shape-2.animate-after {
+            animation: orbitFloat 18s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        body.intro-complete .hero-shape-3.animate-after {
+            animation: breatheScale 8s ease-in-out infinite;
+        }
+
+        /* Text outline effect for dramatic typography */
+        .text-outline {
+            -webkit-text-stroke: 2px var(--bauhaus-black);
+            color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .text-outline:hover {
+            -webkit-text-stroke: 0;
+            color: var(--bauhaus-red);
+        }
+
+        /* ========================================
+           SCROLL REVEAL ANIMATIONS
+           ======================================== */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-reveal-left.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-reveal-right.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-reveal-scale.revealed {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger delays for groups */
+        .scroll-stagger-1 {
+            transition-delay: 0.1s;
+        }
+
+        .scroll-stagger-2 {
+            transition-delay: 0.2s;
+        }
+
+        .scroll-stagger-3 {
+            transition-delay: 0.3s;
+        }
+
+        .scroll-stagger-4 {
+            transition-delay: 0.4s;
+        }
+
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 12px;
@@ -150,19 +558,6 @@
             animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
 
-        /* Fade In Up Animation for Pricing Cards */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         /* Tab Content Transitions */
         .tab-content {
             transition: opacity 0.4s ease-out, transform 0.4s ease-out;
@@ -186,7 +581,16 @@
     </style>
 </head>
 
-<body class="bg-bauhaus-white text-bauhaus-black antialiased selection:bg-bauhaus-yellow selection:text-bauhaus-black">
+<body
+    class="bg-bauhaus-white text-bauhaus-black antialiased selection:bg-bauhaus-yellow selection:text-bauhaus-black intro-active">
+
+    <!-- Intro Overlay -->
+    <div id="intro-overlay" class="intro-overlay">
+        <div class="intro-panel intro-panel-left"></div>
+        <div class="intro-panel intro-panel-right"></div>
+        <div class="intro-shape intro-circle" style="top: 40%; left: 45%;"></div>
+        <div class="intro-shape intro-square" style="top: 50%; left: 52%;"></div>
+    </div>
 
     <!-- Header -->
     <header
@@ -255,39 +659,37 @@
 
     <main class="pt-20">
         <!-- Hero Section -->
-        <section
+        <section id="hero-section"
             class="min-h-[90vh] flex items-center justify-center bg-bauhaus-white relative overflow-hidden border-b-2 border-bauhaus-black">
-            <!-- Geometric Background Elements -->
-            <div
-                class="absolute top-20 left-10 w-32 h-32 bg-bauhaus-red rounded-full mix-blend-multiply opacity-80 animate-float">
+            <!-- Geometric Background Elements - Animated -->
+            <div class="hero-shape-1 absolute top-20 left-10 w-32 h-32 bg-bauhaus-red rounded-full mix-blend-multiply">
             </div>
-            <div
-                class="absolute bottom-20 right-10 w-48 h-48 bg-bauhaus-blue mix-blend-multiply opacity-80 animate-spin-slow">
+            <div class="hero-shape-2 absolute bottom-20 right-10 w-48 h-48 bg-bauhaus-blue mix-blend-multiply">
             </div>
-            <div
-                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-bauhaus-yellow rounded-full blur-3xl opacity-20 animate-pulse-slow">
+            <div class="hero-shape-3 absolute top-1/2 left-1/2 w-96 h-96 bg-bauhaus-yellow rounded-full blur-3xl">
             </div>
 
             <div class="container mx-auto px-6 text-center relative z-10">
-                <h1 class="text-6xl md:text-9xl font-display font-black leading-none mb-8 tracking-tighter">
-                    <span class="block hover:text-bauhaus-red transition-colors duration-300"
+                <h1
+                    class="text-6xl md:text-9xl font-display font-black leading-none mb-8 tracking-tighter overflow-hidden">
+                    <span class="hero-title-1 block text-outline hover:text-bauhaus-red transition-colors duration-300"
                         data-i18n="hero_title_1">FORMA</span>
                     <span
-                        class="block text-transparent bg-clip-text bg-gradient-to-r from-bauhaus-blue to-bauhaus-black"
+                        class="hero-title-2 block text-transparent bg-clip-text bg-gradient-to-r from-bauhaus-blue to-bauhaus-black"
                         data-i18n="hero_title_2">DIGITAL</span>
                 </h1>
-                <p class="text-xl md:text-2xl font-bold max-w-2xl mx-auto mb-12 text-gray-800"
+                <p class="hero-subtitle text-xl md:text-2xl font-bold max-w-2xl mx-auto mb-12 text-gray-800"
                     data-i18n="hero_subtitle">
                     Transformamos ideas en experiencias digitales impactantes. Diseño, estrategia y tecnología en
                     perfecta armonía.
                 </p>
                 <div class="flex flex-col md:flex-row gap-6 justify-center">
                     <a href="#planes"
-                        class="px-8 py-4 bg-bauhaus-black text-white font-black uppercase tracking-widest border-2 border-bauhaus-black hover:bg-white hover:text-bauhaus-black transition-all duration-300 bauhaus-shadow">
+                        class="hero-cta px-8 py-4 bg-bauhaus-black text-white font-black uppercase tracking-widest border-2 border-bauhaus-black hover:bg-white hover:text-bauhaus-black transition-all duration-300 bauhaus-shadow">
                         <span data-i18n="hero_cta_primary">VER PLANES</span>
                     </a>
                     <a href="contacto.html"
-                        class="px-8 py-4 bg-transparent text-bauhaus-black font-black uppercase tracking-widest border-2 border-bauhaus-black hover:bg-bauhaus-red hover:text-white transition-all duration-300 bauhaus-shadow-hover">
+                        class="hero-cta px-8 py-4 bg-transparent text-bauhaus-black font-black uppercase tracking-widest border-2 border-bauhaus-black hover:bg-bauhaus-red hover:text-white transition-all duration-300 bauhaus-shadow-hover">
                         <span data-i18n="hero_cta_secondary">HABLEMOS</span>
                     </a>
                 </div>
@@ -312,7 +714,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Card 1 -->
                     <div
-                        class="p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all group">
+                        class="scroll-reveal scroll-stagger-1 p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all group">
                         <div
                             class="w-16 h-16 bg-bauhaus-red rounded-full mb-6 border-2 border-bauhaus-black group-hover:scale-110 transition-transform">
                         </div>
@@ -323,7 +725,7 @@
                     </div>
                     <!-- Card 2 -->
                     <div
-                        class="p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all group">
+                        class="scroll-reveal scroll-stagger-2 p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all group">
                         <div
                             class="w-16 h-16 bg-bauhaus-blue transform rotate-3 mb-6 border-2 border-bauhaus-black group-hover:rotate-12 transition-transform">
                         </div>
@@ -334,7 +736,7 @@
                     </div>
                     <!-- Card 3 -->
                     <div
-                        class="p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all group">
+                        class="scroll-reveal scroll-stagger-3 p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all group">
                         <div
                             class="w-16 h-16 bg-bauhaus-yellow rounded-none mb-6 border-2 border-bauhaus-black group-hover:rounded-full transition-all">
                         </div>
@@ -351,18 +753,18 @@
         <section id="trabajos" class="py-24 bg-bauhaus-white border-b-2 border-bauhaus-black">
             <div class="container mx-auto px-6">
                 <div class="flex justify-between items-end mb-16">
-                    <h2 class="text-5xl md:text-7xl font-display font-black uppercase">
+                    <h2 class="scroll-reveal text-5xl md:text-7xl font-display font-black uppercase">
                         TRABAJOS <span class="text-bauhaus-red">RECENTES</span>
                     </h2>
                     <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
-                        class="hidden md:block px-6 py-3 border-2 border-bauhaus-black font-bold uppercase hover:bg-bauhaus-black hover:text-white transition-colors">
+                        class="scroll-reveal hidden md:block px-6 py-3 border-2 border-bauhaus-black font-bold uppercase hover:bg-bauhaus-black hover:text-white transition-colors">
                         VER INSTAGRAM
                     </a>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div
-                        class="group relative border-2 border-bauhaus-black overflow-hidden aspect-video bauhaus-shadow">
+                        class="scroll-reveal-left scroll-stagger-1 group relative border-2 border-bauhaus-black overflow-hidden aspect-video bauhaus-shadow">
                         <img src="images/post-image-1761850652612.jpeg" alt="Portfolio 1"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                         <div
@@ -371,7 +773,7 @@
                         </div>
                     </div>
                     <div
-                        class="group relative border-2 border-bauhaus-black overflow-hidden aspect-video bauhaus-shadow">
+                        class="scroll-reveal-right scroll-stagger-2 group relative border-2 border-bauhaus-black overflow-hidden aspect-video bauhaus-shadow">
                         <img src="images/post-image-1761851067915.jpeg" alt="Portfolio 2"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                         <div
@@ -386,7 +788,7 @@
         <!-- Plans Section -->
         <section id="planes" class="py-24 bg-white border-b-2 border-bauhaus-black">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
+                <div class="text-center mb-12 scroll-reveal">
                     <h2 class="text-5xl md:text-7xl font-display font-black mb-4 uppercase" data-i18n="planes_title">
                         PLANES</h2>
                     <p class="text-lg text-gray-600 font-medium" data-i18n="planes_subtitle">Soluciones adaptadas a tu
@@ -394,7 +796,7 @@
                 </div>
 
                 <!-- Service Tabs -->
-                <div class="flex justify-center mb-12">
+                <div class="flex justify-center mb-12 scroll-reveal scroll-stagger-1">
                     <div class="inline-flex border-2 border-bauhaus-black">
                         <button id="tab-gmb"
                             class="px-8 py-4 font-display font-black uppercase tracking-wider text-lg transition-all duration-300 bg-bauhaus-black text-white hover:bg-bauhaus-red"
@@ -783,7 +1185,7 @@
         <footer id="contacto" class="bg-bauhaus-black text-white pt-24 pb-12">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start mb-20">
-                    <div class="w-full">
+                    <div class="w-full scroll-reveal-left">
                         <h2 class="text-5xl md:text-7xl font-display font-black mb-8 leading-tight"
                             data-i18n="footer_form_title">
                             EMPECEMOS<br>
@@ -824,7 +1226,7 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col gap-8 lg:pt-8">
+                    <div class="flex flex-col gap-8 lg:pt-8 scroll-reveal-right">
                         <div>
                             <h3 class="text-bauhaus-yellow font-black mb-4 uppercase tracking-widest"
                                 data-i18n="footer_contact_direct">CONTACTO DIRECTO</h3>
@@ -856,7 +1258,8 @@
                     </div>
                 </div>
 
-                <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div
+                    class="scroll-reveal border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p class="text-gray-400 text-sm font-bold" data-i18n="footer_copyright">© 2025 Forma Digital.
                         Bauhaus Edition.</p>
                     <div class="flex gap-4">
@@ -874,7 +1277,64 @@
     </main>
 
     <script>
-        // Mobile Menu Logic
+            // ========================================
+            // INTRO ANIMATION SEQUENCE
+            // ========================================
+            (function initIntroAnimation() {
+                const overlay = document.getElementById('intro-overlay');
+                const body = document.body;
+
+                // Start reveal after a brief moment (slower)
+                setTimeout(() => {
+                    overlay.classList.add('reveal');
+                }, 1800);
+
+                // Complete intro and trigger hero animations (slower)
+                setTimeout(() => {
+                    body.classList.remove('intro-active');
+                    body.classList.add('intro-complete');
+                    overlay.classList.add('hidden');
+
+                    // Add continuous animations after initial entry completes
+                    setTimeout(() => {
+                        const shape1 = document.querySelector('.hero-shape-1');
+                        const shape2 = document.querySelector('.hero-shape-2');
+                        const shape3 = document.querySelector('.hero-shape-3');
+                        if (shape1) shape1.classList.add('animate-after');
+                        if (shape2) shape2.classList.add('animate-after');
+                        if (shape3) shape3.classList.add('animate-after');
+                    }, 4000);
+                }, 3200);
+            })();
+
+        // ========================================
+        // SCROLL REVEAL ANIMATIONS
+        // ========================================
+        const scrollRevealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    // Optionally unobserve after reveal for performance
+                    scrollRevealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Apply scroll reveal to elements after intro completes
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait for intro to complete, then observe scroll elements
+            setTimeout(() => {
+                document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale')
+                    .forEach(el => scrollRevealObserver.observe(el));
+            }, 2500);
+        });
+
+        // ========================================
+        // MOBILE MENU LOGIC
+        // ========================================
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -888,7 +1348,9 @@
 
         menuToggle.addEventListener('click', toggleMobileMenu);
 
-        // Tab Switching Logic for Pricing Section
+        // ========================================
+        // TAB SWITCHING LOGIC FOR PRICING SECTION
+        // ========================================
         function switchTab(tabName) {
             const gmbTab = document.getElementById('tab-gmb');
             const rrssTab = document.getElementById('tab-rrss');
