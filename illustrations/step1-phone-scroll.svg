@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300">
+  <style>
+    .phone { fill: #111111; }
+    .screen { fill: #F4F4F0; }
+    .hand { fill: #D93025; opacity: 0.9; }
+    .finger { fill: #D93025; }
+    .content-line { fill: #cccccc; }
+    
+    /* Scrolling finger animation */
+    @keyframes scrollFinger {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(20px); }
+    }
+    
+    .finger-moving {
+      animation: scrollFinger 1.5s ease-in-out infinite;
+    }
+    
+    /* Content lines moving */
+    @keyframes scrollContent {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    
+    .content-scroll {
+      animation: scrollContent 1.5s ease-in-out infinite;
+    }
+  </style>
+  
+  <!-- Phone body -->
+  <rect class="phone" x="40" y="30" width="120" height="220" rx="15"/>
+  
+  <!-- Screen -->
+  <rect class="screen" x="48" y="45" width="104" height="190" rx="5"/>
+  
+  <!-- Content lines (animated) -->
+  <g class="content-scroll">
+    <rect class="content-line" x="58" y="60" width="84" height="8" rx="2"/>
+    <rect class="content-line" x="58" y="78" width="60" height="8" rx="2"/>
+    <rect class="content-line" x="58" y="96" width="74" height="8" rx="2"/>
+    <rect class="content-line" x="58" y="114" width="50" height="8" rx="2"/>
+    <rect class="content-line" x="58" y="132" width="84" height="8" rx="2"/>
+    <rect class="content-line" x="58" y="150" width="65" height="8" rx="2"/>
+    <rect class="content-line" x="58" y="168" width="78" height="8" rx="2"/>
+    <rect class="content-line" x="58" y="186" width="55" height="8" rx="2"/>
+    <rect class="content-line" x="58" y="204" width="70" height="8" rx="2"/>
+  </g>
+  
+  <!-- Hand silhouette (thumb side) -->
+  <ellipse class="hand" cx="25" cy="180" rx="20" ry="45"/>
+  
+  <!-- Scrolling finger -->
+  <g class="finger-moving">
+    <ellipse class="finger" cx="100" cy="140" rx="12" ry="25"/>
+  </g>
+  
+  <!-- Camera notch -->
+  <circle fill="#333" cx="100" cy="38" r="3"/>
+</svg>

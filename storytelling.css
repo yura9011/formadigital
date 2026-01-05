@@ -1,0 +1,748 @@
+/* ================================================
+   FORMADIGITAL HERO STORYTELLING - DRAFT
+   Scroll-snap based narrative experience
+   ================================================ */
+
+:root {
+    --bauhaus-red: #D93025;
+    --bauhaus-blue: #1A73E8;
+    --bauhaus-yellow: #F9AB00;
+    --bauhaus-black: #111111;
+    --bauhaus-white: #F4F4F0;
+    --story-transition: 0.6s ease-out;
+}
+
+/* ================================================
+   SCROLL SNAP CONTAINER
+   ================================================ */
+.storytelling-hero {
+    height: 300vh;
+    /* 5 steps × 60vh - faster transitions */
+    position: relative;
+}
+
+.story-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.story-step {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    background: var(--bauhaus-white);
+    /* Solid background to prevent bleed-through */
+}
+
+.story-step.active {
+    display: flex;
+    /* Only active step is rendered */
+    pointer-events: auto;
+}
+
+/* ================================================
+   STEP-SPECIFIC ANIMATIONS
+   ================================================ */
+
+/* Step 1: El Problema - Text slides from left, circle pulses */
+.story-step[data-step="1"].active {
+    animation: step1Enter 0.6s ease-out forwards;
+}
+
+.story-step[data-step="1"].active .step-shape {
+    animation: circlePulse 2s ease-in-out infinite;
+}
+
+@keyframes step1Enter {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes circlePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.15;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.25;
+    }
+}
+
+/* Step 2: La Consecuencia - Text fades with delay, square drops and rotates */
+.story-step[data-step="2"].active {
+    animation: step2Enter 0.7s ease-out forwards;
+}
+
+.story-step[data-step="2"].active .step-shape {
+    animation: squareDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes step2Enter {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes squareDrop {
+    from {
+        transform: rotate(0deg) translateY(-100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotate(15deg) translateY(0);
+        opacity: 0.2;
+    }
+}
+
+/* Step 3: Lo que no sabés - Glitch-like reveal, triangle emerges */
+.story-step[data-step="3"].active {
+    animation: step3Glitch 0.5s steps(8) forwards;
+}
+
+.story-step[data-step="3"].active .step-shape {
+    animation: triangleEmerge 0.6s ease-out forwards;
+}
+
+@keyframes step3Glitch {
+    0% {
+        opacity: 0;
+        transform: translateX(-5px);
+        filter: blur(3px);
+    }
+
+    25% {
+        opacity: 0.5;
+        transform: translateX(5px);
+        filter: blur(0);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: translateX(-3px);
+    }
+
+    75% {
+        opacity: 0.9;
+        transform: translateX(2px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes triangleEmerge {
+    from {
+        opacity: 0;
+        transform: scale(0.5) rotate(-30deg);
+    }
+
+    to {
+        opacity: 0.2;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Step 4: La Solución - Smooth slide up, rectangle expands */
+.story-step[data-step="4"].active {
+    animation: step4SlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.story-step[data-step="4"].active .step-shape {
+    animation: rectangleExpand 0.7s ease-out forwards;
+}
+
+@keyframes step4SlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rectangleExpand {
+    from {
+        opacity: 0;
+        transform: rotate(-10deg) scaleX(0.3);
+    }
+
+    to {
+        opacity: 0.2;
+        transform: rotate(-10deg) scaleX(1);
+    }
+}
+
+/* Step 5: CTA - Scale in from center, buttons bounce */
+.story-step[data-step="5"].active {
+    animation: step5ScaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.story-step[data-step="5"].active .cta-button {
+    animation: buttonBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    opacity: 0;
+}
+
+.story-step[data-step="5"].active .cta-button:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.story-step[data-step="5"].active .cta-button:nth-child(2) {
+    animation-delay: 0.45s;
+}
+
+@keyframes step5ScaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes buttonBounce {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ================================================
+   STEP CONTENT
+   ================================================ */
+.step-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 2rem;
+    z-index: 10;
+}
+
+.step-number {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--bauhaus-red);
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.step-title {
+    font-family: 'Archivo', sans-serif;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--bauhaus-black);
+    margin-bottom: 1rem;
+}
+
+.step-subtitle {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 400;
+    color: var(--bauhaus-black);
+    opacity: 0.6;
+}
+
+/* CTA Step */
+.step-content--cta .step-title {
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid var(--bauhaus-black);
+    transition: all 0.3s ease;
+}
+
+.cta-button--primary {
+    background: var(--bauhaus-black);
+    color: var(--bauhaus-white);
+}
+
+.cta-button--primary:hover {
+    background: var(--bauhaus-blue);
+    border-color: var(--bauhaus-blue);
+}
+
+.cta-button--secondary {
+    background: transparent;
+    color: var(--bauhaus-black);
+}
+
+.cta-button--secondary:hover {
+    background: var(--bauhaus-yellow);
+    border-color: var(--bauhaus-yellow);
+}
+
+/* ================================================
+   ILLUSTRATED GIF ANIMATIONS
+   Each step has unique positioning and Bauhaus framing
+   ================================================ */
+.step-illustration {
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border: 3px solid var(--bauhaus-black);
+    background: var(--bauhaus-white);
+    box-shadow: 8px 8px 0 var(--bauhaus-black);
+}
+
+.story-step.active .step-illustration {
+    opacity: 1;
+}
+
+.illustration-gif {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Lottie player sizing */
+lottie-player {
+    width: 100%;
+    height: auto;
+}
+
+/* Step 1: Top right, red accent - "Searching" */
+.story-step[data-step="1"] .step-illustration {
+    top: 15%;
+    right: 8%;
+    width: 320px;
+    max-width: 35vw;
+    border-color: var(--bauhaus-red);
+    box-shadow: 8px 8px 0 var(--bauhaus-red);
+    animation: step1IllustrationIn 0.8s ease-out forwards;
+}
+
+@keyframes step1IllustrationIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px) rotate(3deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) rotate(2deg);
+    }
+}
+
+/* Step 2: Bottom left, blue accent - "Walking away" */
+.story-step[data-step="2"] .step-illustration {
+    bottom: 15%;
+    left: 5%;
+    width: 350px;
+    max-width: 40vw;
+    border-color: var(--bauhaus-blue);
+    box-shadow: -8px 8px 0 var(--bauhaus-blue);
+    animation: step2IllustrationIn 0.8s ease-out forwards;
+}
+
+@keyframes step2IllustrationIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Step 3: Center right, yellow accent - "Confusion" */
+.story-step[data-step="3"] .step-illustration {
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    width: 300px;
+    max-width: 35vw;
+    border-color: var(--bauhaus-yellow);
+    box-shadow: 8px 8px 0 var(--bauhaus-yellow);
+    animation: step3IllustrationIn 0.6s steps(6) forwards;
+}
+
+@keyframes step3IllustrationIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) scale(0.8);
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Step 4: Top left, black accent - "Success" */
+.story-step[data-step="4"] .step-illustration {
+    top: 12%;
+    left: 8%;
+    width: 280px;
+    max-width: 30vw;
+    border-color: var(--bauhaus-black);
+    box-shadow: 8px 8px 0 var(--bauhaus-black);
+    animation: step4IllustrationIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes step4IllustrationIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Step 5: Bottom right, mixed accent - "CTA Map" */
+.story-step[data-step="5"] .step-illustration {
+    bottom: 20%;
+    right: 5%;
+    width: 260px;
+    max-width: 28vw;
+    border-color: var(--bauhaus-red);
+    box-shadow: 6px 6px 0 var(--bauhaus-blue);
+    animation: step5IllustrationIn 0.6s ease-out forwards;
+}
+
+@keyframes step5IllustrationIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) rotate(-2deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(-1deg);
+    }
+}
+
+/* ================================================
+   DECORATIVE SHAPES
+   ================================================ */
+.step-shape {
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+}
+
+.shape-circle {
+    width: 300px;
+    height: 300px;
+    background: var(--bauhaus-red);
+    border-radius: 50%;
+    top: 15%;
+    right: 10%;
+}
+
+.shape-square {
+    width: 200px;
+    height: 200px;
+    background: var(--bauhaus-blue);
+    bottom: 20%;
+    left: 8%;
+}
+
+.shape-triangle {
+    width: 0;
+    height: 0;
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-bottom: 200px solid var(--bauhaus-yellow);
+    top: 20%;
+    left: 15%;
+    background: none;
+}
+
+.shape-rectangle {
+    width: 250px;
+    height: 100px;
+    background: var(--bauhaus-black);
+    bottom: 25%;
+    right: 12%;
+}
+
+/* ================================================
+   PROGRESS INDICATOR
+   ================================================ */
+.progress-indicator {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progress-line {
+    position: absolute;
+    width: 2px;
+    height: 200px;
+    background: rgba(17, 17, 17, 0.15);
+    border-radius: 1px;
+}
+
+.progress-line-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: var(--bauhaus-black);
+    border-radius: 1px;
+    transition: height 0.4s ease-out;
+}
+
+.progress-dots {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.progress-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--bauhaus-black);
+    background: var(--bauhaus-white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.progress-dot:hover {
+    transform: scale(1.3);
+}
+
+.progress-dot.active {
+    background: var(--bauhaus-black);
+    transform: scale(1.2);
+}
+
+.progress-dot.completed {
+    background: var(--bauhaus-blue);
+    border-color: var(--bauhaus-blue);
+}
+
+/* ================================================
+   SCROLL HINT
+   ================================================ */
+.scroll-hint {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 100;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.scroll-hint.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.scroll-hint span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-weight: 600;
+    opacity: 0.5;
+}
+
+.scroll-arrow {
+    width: 16px;
+    height: 16px;
+    border-left: 2px solid var(--bauhaus-black);
+    border-bottom: 2px solid var(--bauhaus-black);
+    transform: rotate(-45deg);
+    animation: scrollBounce 2s ease-in-out infinite;
+    opacity: 0.5;
+}
+
+@keyframes scrollBounce {
+
+    0%,
+    100% {
+        transform: rotate(-45deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-45deg) translateY(8px);
+    }
+}
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 768px) {
+    .progress-indicator {
+        right: 1rem;
+    }
+
+    .progress-line {
+        height: 150px;
+    }
+
+    .progress-dots {
+        gap: 30px;
+    }
+
+    .progress-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .step-shape {
+        transform: scale(0.6);
+    }
+
+    .shape-circle {
+        top: 5%;
+        right: -10%;
+    }
+
+    .shape-square {
+        bottom: 10%;
+        left: -5%;
+    }
+
+    .shape-triangle {
+        top: 10%;
+        left: -5%;
+    }
+
+    .shape-rectangle {
+        bottom: 15%;
+        right: -5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .progress-indicator {
+        display: none;
+        /* Hide on very small screens */
+    }
+
+    .step-content {
+        padding: 1rem;
+    }
+
+    .step-title {
+        font-size: clamp(1.5rem, 8vw, 2.5rem);
+    }
+
+    .step-subtitle {
+        font-size: 1rem;
+    }
+
+    .step-number {
+        font-size: 0.65rem;
+    }
+
+    .step-illustration {
+        max-width: 180px;
+        max-height: 180px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 1.5rem;
+        font-size: 0.875rem;
+    }
+
+    .scroll-hint {
+        bottom: 1.5rem;
+        font-size: 0.65rem;
+    }
+}
+
+/* ================================================
+   NOSCRIPT FALLBACK
+   ================================================ */
+noscript .story-step {
+    position: relative;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+noscript .progress-indicator,
+noscript .scroll-hint {
+    display: none;
+}

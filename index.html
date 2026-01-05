@@ -4,8 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forma Digital | Agencia Creativa</title>
-    <meta name="description" content="Agencia creativa digital. Transformamos marcas con diseño y estrategia.">
+    <title>Forma Digital | Draft Hero</title>
+    <meta name="description" content="Transformamos ideas en experiencias digitales impactantes">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H94YE5GPGL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-H94YE5GPGL');
+    </script>
 
     <!-- Tailwind (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,16 +22,6 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    spacing: {
-                        '13': '3.25rem',
-                        '21': '5.25rem',
-                        '34': '8.5rem',
-                        '55': '13.75rem',
-                        '89': '22.25rem',
-                        '144': '36rem',
-                        '233': '58.25rem',
-                        '377': '94.25rem',
-                    },
                     colors: {
                         bauhaus: {
                             red: '#D93025',
@@ -41,475 +40,19 @@
         }
     </script>
 
+    <!-- Lottie Player -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;800;900&family=Space+Grotesk:wght@300;400;500;700&display=swap"
         rel="stylesheet">
 
+    <!-- Storytelling Styles -->
+    <link rel="stylesheet" href="storytelling.css">
+
     <style>
-        :root {
-            --bauhaus-red: #D93025;
-            --bauhaus-blue: #1A73E8;
-            --bauhaus-yellow: #F9AB00;
-            --bauhaus-black: #111111;
-            --bauhaus-white: #F4F4F0;
-        }
-
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: var(--bauhaus-white);
-            color: var(--bauhaus-black);
-            overflow-x: hidden;
-        }
-
-        /* Prevent scroll during intro */
-        body.intro-active {
-            overflow: hidden;
-        }
-
-        /* ========================================
-           INTRO OVERLAY ANIMATIONS
-           ======================================== */
-        .intro-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            pointer-events: all;
-        }
-
-        .intro-overlay.hidden {
-            pointer-events: none;
-        }
-
-        /* Intro panels that slide away */
-        .intro-panel {
-            position: absolute;
-            transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1);
-        }
-
-        .intro-panel-left {
-            left: 0;
-            top: 0;
-            width: 50%;
-            height: 100%;
-            background: var(--bauhaus-black);
-            transform: translateX(0);
-        }
-
-        .intro-panel-right {
-            right: 0;
-            top: 0;
-            width: 50%;
-            height: 100%;
-            background: var(--bauhaus-yellow);
-            transform: translateX(0);
-        }
-
-        .intro-overlay.reveal .intro-panel-left {
-            transform: translateX(-100%);
-        }
-
-        .intro-overlay.reveal .intro-panel-right {
-            transform: translateX(100%);
-        }
-
-        /* Intro geometric shapes */
-        .intro-shape {
-            position: absolute;
-            z-index: 10000;
-        }
-
-        .intro-circle {
-            width: 120px;
-            height: 120px;
-            background: var(--bauhaus-red);
-            border-radius: 50%;
-            border: 3px solid var(--bauhaus-white);
-            animation: introCirclePulse 1.2s ease-in-out infinite alternate;
-        }
-
-        .intro-square {
-            width: 80px;
-            height: 80px;
-            background: var(--bauhaus-blue);
-            border: 3px solid var(--bauhaus-white);
-            animation: introSquareSpin 2s linear infinite;
-        }
-
-        @keyframes introCirclePulse {
-            0% {
-                transform: scale(1);
-            }
-
-            100% {
-                transform: scale(1.1);
-            }
-        }
-
-        @keyframes introSquareSpin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .intro-overlay.reveal .intro-shape {
-            opacity: 0;
-            transition: opacity 0.3s ease-out;
-        }
-
-        /* ========================================
-           HERO ENTRY ANIMATIONS
-           ======================================== */
-
-        /* Geometric shapes entering from edges */
-        @keyframes enterFromTopLeft {
-            0% {
-                transform: translate(-200%, -200%) scale(0.5);
-                opacity: 0;
-            }
-
-            60% {
-                transform: translate(10%, 10%) scale(1.1);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.8;
-            }
-        }
-
-        @keyframes enterFromBottomRight {
-            0% {
-                transform: translate(200%, 200%) rotate(0deg) scale(0.5);
-                opacity: 0;
-            }
-
-            60% {
-                transform: translate(-10%, -10%) rotate(200deg) scale(1.1);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translate(0, 0) rotate(180deg) scale(1);
-                opacity: 0.8;
-            }
-        }
-
-        @keyframes pulseIn {
-            0% {
-                transform: translate(-50%, -50%) scale(0);
-                opacity: 0;
-            }
-
-            50% {
-                opacity: 0.3;
-            }
-
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.2;
-            }
-        }
-
-        /* Text reveal animations */
-        @keyframes slideInFromLeft {
-            0% {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInFromRight {
-            0% {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes scaleIn {
-            0% {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        /* Hero animated elements - initially hidden */
-        .hero-shape-1,
-        .hero-shape-2,
-        .hero-shape-3,
-        .hero-title-1,
-        .hero-title-2,
-        .hero-subtitle,
-        .hero-cta {
-            opacity: 0;
-        }
-
-        /* When intro completes, animate elements in */
-        body.intro-complete .hero-shape-1 {
-            animation: enterFromTopLeft 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-            animation-delay: 0.2s;
-        }
-
-        body.intro-complete .hero-shape-2 {
-            animation: enterFromBottomRight 2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-            animation-delay: 0.5s;
-        }
-
-        body.intro-complete .hero-shape-3 {
-            animation: pulseIn 2.5s ease-out forwards;
-            animation-delay: 0.3s;
-        }
-
-        body.intro-complete .hero-title-1 {
-            animation: slideInFromLeft 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            animation-delay: 0.8s;
-        }
-
-        body.intro-complete .hero-title-2 {
-            animation: slideInFromRight 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            animation-delay: 1.2s;
-        }
-
-        body.intro-complete .hero-subtitle {
-            animation: fadeInUp 1.2s ease-out forwards;
-            animation-delay: 1.8s;
-        }
-
-        body.intro-complete .hero-cta {
-            animation: scaleIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        }
-
-        body.intro-complete .hero-cta:nth-child(1) {
-            animation-delay: 2.2s;
-        }
-
-        body.intro-complete .hero-cta:nth-child(2) {
-            animation-delay: 2.5s;
-        }
-
-        /* Creative continuous animations - diagonal drift, orbit */
-        @keyframes diagonalDrift {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            25% {
-                transform: translate(30px, -20px) scale(1.05);
-            }
-
-            50% {
-                transform: translate(-15px, -40px) scale(0.95);
-            }
-
-            75% {
-                transform: translate(-25px, 10px) scale(1.02);
-            }
-        }
-
-        @keyframes orbitFloat {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-
-            25% {
-                transform: translate(40px, 20px) rotate(90deg);
-            }
-
-            50% {
-                transform: translate(0, 40px) rotate(180deg);
-            }
-
-            75% {
-                transform: translate(-40px, 20px) rotate(270deg);
-            }
-
-            100% {
-                transform: translate(0, 0) rotate(360deg);
-            }
-        }
-
-        @keyframes breatheScale {
-
-            0%,
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.15;
-            }
-
-            50% {
-                transform: translate(-50%, -50%) scale(1.15);
-                opacity: 0.25;
-            }
-        }
-
-        /* After entry animation completes, transition to creative movements */
-        body.intro-complete .hero-shape-1.animate-after {
-            animation: diagonalDrift 12s ease-in-out infinite;
-            opacity: 0.8;
-        }
-
-        body.intro-complete .hero-shape-2.animate-after {
-            animation: orbitFloat 18s ease-in-out infinite;
-            opacity: 0.8;
-        }
-
-        body.intro-complete .hero-shape-3.animate-after {
-            animation: breatheScale 8s ease-in-out infinite;
-        }
-
-        /* Text outline effect for dramatic typography */
-        .text-outline {
-            -webkit-text-stroke: 2px var(--bauhaus-black);
-            color: transparent;
-            transition: all 0.3s ease;
-        }
-
-        .text-outline:hover {
-            -webkit-text-stroke: 0;
-            color: var(--bauhaus-red);
-        }
-
-        /* ========================================
-           SCROLL REVEAL ANIMATIONS
-           ======================================== */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .scroll-reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .scroll-reveal-left {
-            opacity: 0;
-            transform: translateX(-60px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .scroll-reveal-left.revealed {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .scroll-reveal-right {
-            opacity: 0;
-            transform: translateX(60px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .scroll-reveal-right.revealed {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .scroll-reveal-scale {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .scroll-reveal-scale.revealed {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* Stagger delays for groups */
-        .scroll-stagger-1 {
-            transition-delay: 0.1s;
-        }
-
-        .scroll-stagger-2 {
-            transition-delay: 0.2s;
-        }
-
-        .scroll-stagger-3 {
-            transition-delay: 0.3s;
-        }
-
-        .scroll-stagger-4 {
-            transition-delay: 0.4s;
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #F4F4F0;
-            border-left: 1px solid #111;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #111;
-            border: 2px solid #F4F4F0;
-        }
-
-        /* Bauhaus Utilities */
-        .bauhaus-border {
-            border: 2px solid #111111;
-        }
-
-        .bauhaus-shadow {
-            box-shadow: 4px 4px 0px #111111;
-        }
-
-        .bauhaus-shadow-hover:hover {
-            box-shadow: 6px 6px 0px #111111;
-            transform: translate(-2px, -2px);
-        }
-
         /* Marquee Animation */
-        .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
-        }
-
-        .marquee-content {
-            display: inline-block;
-            animation: marquee 20s linear infinite;
-        }
-
         @keyframes marquee {
             0% {
                 transform: translateX(0);
@@ -520,83 +63,48 @@
             }
         }
 
-        /* Floating Animation */
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
+        .marquee-content {
+            display: flex;
+            animation: marquee 20s linear infinite;
+            white-space: nowrap;
         }
 
-        /* Slow Spin Animation */
-        @keyframes slow-spin {
+        .marquee-container {
+            overflow: hidden;
+        }
+
+        /* Bauhaus Shadow */
+        .bauhaus-shadow {
+            box-shadow: 4px 4px 0 var(--bauhaus-black, #111111);
+        }
+
+        .bauhaus-shadow-hover:hover {
+            box-shadow: 6px 6px 0 var(--bauhaus-black, #111111);
+            transform: translate(-2px, -2px);
+        }
+
+        /* Plan card animation */
+        @keyframes fadeInUp {
             from {
-                transform: rotate(0deg);
+                opacity: 0;
+                transform: translateY(20px);
             }
 
             to {
-                transform: rotate(360deg);
+                opacity: 1;
+                transform: translateY(0);
             }
-        }
-
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .animate-spin-slow {
-            animation: slow-spin 20s linear infinite;
-        }
-
-        .animate-pulse-slow {
-            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-
-        /* Tab Content Transitions */
-        .tab-content {
-            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-        }
-
-        .tab-content.hidden {
-            opacity: 0;
-            transform: translateY(20px);
-            display: none;
-        }
-
-        .tab-content.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Plan Card Hover Animation */
-        .plan-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
     </style>
 </head>
 
-<body
-    class="bg-bauhaus-white text-bauhaus-black antialiased selection:bg-bauhaus-yellow selection:text-bauhaus-black intro-active">
-
-    <!-- Intro Overlay -->
-    <div id="intro-overlay" class="intro-overlay">
-        <div class="intro-panel intro-panel-left"></div>
-        <div class="intro-panel intro-panel-right"></div>
-        <div class="intro-shape intro-circle" style="top: 40%; left: 45%;"></div>
-        <div class="intro-shape intro-square" style="top: 50%; left: 52%;"></div>
-    </div>
+<body class="bg-bauhaus-white text-bauhaus-black font-sans">
 
     <!-- Header -->
     <header
         class="fixed w-full top-0 z-50 transition-all duration-300 bg-bauhaus-white border-b-2 border-bauhaus-black">
         <div class="container mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="block h-12 w-auto flex items-center gap-2">
+            <a href="#" class="block h-12 w-auto flex items-center gap-2">
                 <div class="w-8 h-8 bg-bauhaus-red rounded-full border-2 border-bauhaus-black"></div>
                 <div
                     class="w-8 h-8 bg-bauhaus-blue transform rotate-45 border-2 border-bauhaus-black -ml-4 mix-blend-multiply">
@@ -606,94 +114,114 @@
 
             <div class="hidden md:flex items-center gap-8">
                 <nav class="flex gap-8">
-                    <a href="servicios.html"
-                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-red transition-colors"
-                        data-i18n="nav_services">SERVICIOS</a>
-                    <a href="nosotros.html"
-                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-blue transition-colors"
-                        data-i18n="nav_about">NOSOTROS</a>
-                    <a href="#trabajos"
-                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-yellow transition-colors"
-                        data-i18n="nav_work">TRABAJOS</a>
+                    <a href="#info"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-red transition-colors">SERVICIOS</a>
+                    <a href="#planes"
+                        class="text-sm font-bold uppercase tracking-widest hover:text-bauhaus-blue transition-colors">PLANES</a>
                 </nav>
-
-                <!-- Language Toggle -->
-                <button id="lang-toggle"
-                    class="text-sm font-bold border-2 border-bauhaus-black px-2 py-1 hover:bg-bauhaus-black hover:text-bauhaus-white transition-colors">
-                    <span class="text-bauhaus-red">ES</span> / EN
-                </button>
-
-                <a href="contacto.html"
-                    class="px-6 py-2 bg-bauhaus-black text-bauhaus-white font-bold uppercase tracking-wider border-2 border-bauhaus-black hover:bg-bauhaus-white hover:text-bauhaus-black transition-all duration-300 bauhaus-shadow">
+                <a href="https://wa.me/5491171458944" target="_blank" rel="noopener noreferrer"
+                    class="px-6 py-2 bg-bauhaus-black text-bauhaus-white font-bold uppercase tracking-wider border-2 border-bauhaus-black hover:bg-bauhaus-white hover:text-bauhaus-black transition-all duration-300">
                     CONTACTAR
                 </a>
             </div>
-
-            <!-- Hamburger Menu Button -->
-            <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 group focus:outline-none z-50">
-                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-red transition-colors"></span>
-                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-blue transition-colors"></span>
-                <span class="w-8 h-1 bg-bauhaus-black group-hover:bg-bauhaus-yellow transition-colors"></span>
-            </button>
         </div>
     </header>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu"
-        class="fixed inset-0 bg-bauhaus-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center">
-        <nav class="flex flex-col gap-8 text-center">
-            <a href="servicios.html"
-                class="text-4xl font-display font-black uppercase hover:text-bauhaus-red transition-colors"
-                onclick="closeMobileMenu()" data-i18n="nav_services">SERVICIOS</a>
-            <a href="nosotros.html"
-                class="text-4xl font-display font-black uppercase hover:text-bauhaus-blue transition-colors"
-                onclick="closeMobileMenu()" data-i18n="nav_about">NOSOTROS</a>
-            <a href="#trabajos"
-                class="text-4xl font-display font-black uppercase hover:text-bauhaus-yellow transition-colors"
-                onclick="closeMobileMenu()" data-i18n="nav_work">TRABAJOS</a>
-            <a href="contacto.html"
-                class="text-4xl font-display font-black uppercase hover:text-bauhaus-black transition-colors"
-                onclick="closeMobileMenu()">CONTACTO</a>
-        </nav>
-    </div>
-
     <main class="pt-20">
-        <!-- Hero Section -->
-        <section id="hero-section"
-            class="min-h-[90vh] flex items-center justify-center bg-bauhaus-white relative overflow-hidden border-b-2 border-bauhaus-black">
-            <!-- Geometric Background Elements - Animated -->
-            <div class="hero-shape-1 absolute top-20 left-10 w-32 h-32 bg-bauhaus-red rounded-full mix-blend-multiply">
-            </div>
-            <div class="hero-shape-2 absolute bottom-20 right-10 w-48 h-48 bg-bauhaus-blue mix-blend-multiply">
-            </div>
-            <div class="hero-shape-3 absolute top-1/2 left-1/2 w-96 h-96 bg-bauhaus-yellow rounded-full blur-3xl">
-            </div>
+        <!-- Storytelling Hero Section -->
+        <section class="storytelling-hero" id="hero">
+            <div class="story-container">
 
-            <div class="container mx-auto px-6 text-center relative z-10">
-                <h1
-                    class="text-6xl md:text-9xl font-display font-black leading-none mb-8 tracking-tighter overflow-hidden">
-                    <span class="hero-title-1 block text-outline hover:text-bauhaus-red transition-colors duration-300"
-                        data-i18n="hero_title_1">FORMA</span>
-                    <span
-                        class="hero-title-2 block text-transparent bg-clip-text bg-gradient-to-r from-bauhaus-blue to-bauhaus-black"
-                        data-i18n="hero_title_2">DIGITAL</span>
-                </h1>
-                <p class="hero-subtitle text-xl md:text-2xl font-bold max-w-2xl mx-auto mb-12 text-gray-800"
-                    data-i18n="hero_subtitle">
-                    Transformamos ideas en experiencias digitales impactantes. Diseño, estrategia y tecnología en
-                    perfecta armonía.
-                </p>
-                <div class="flex flex-col md:flex-row gap-6 justify-center">
-                    <a href="#planes"
-                        class="hero-cta px-8 py-4 bg-bauhaus-black text-white font-black uppercase tracking-widest border-2 border-bauhaus-black hover:bg-white hover:text-bauhaus-black transition-all duration-300 bauhaus-shadow">
-                        <span data-i18n="hero_cta_primary">VER PLANES</span>
-                    </a>
-                    <a href="contacto.html"
-                        class="hero-cta px-8 py-4 bg-transparent text-bauhaus-black font-black uppercase tracking-widest border-2 border-bauhaus-black hover:bg-bauhaus-red hover:text-white transition-all duration-300 bauhaus-shadow-hover">
-                        <span data-i18n="hero_cta_secondary">HABLEMOS</span>
-                    </a>
+                <!-- Step 1: El Problema -->
+                <article class="story-step" data-step="1">
+                    <div class="step-content">
+                        <span class="step-number">01</span>
+                        <h2 class="step-title">¿Tu negocio aparece cuando alguien busca en Google?</h2>
+                        <p class="step-subtitle">La mayoría no lo sabe...</p>
+                    </div>
+                    <div class="step-illustration">
+                        <lottie-player src="illustrations/Sign up.json" background="transparent" speed="1" loop
+                            autoplay></lottie-player>
+                    </div>
+                </article>
+
+                <!-- Step 2: La Consecuencia -->
+                <article class="story-step" data-step="2">
+                    <div class="step-content">
+                        <span class="step-number">02</span>
+                        <h2 class="step-title">Ese cliente se fue a tu competencia</h2>
+                        <p class="step-subtitle">Y ni te enteraste</p>
+                    </div>
+                    <div class="step-illustration">
+                        <lottie-player src="illustrations/The traveler's walking cycle  delivery.json"
+                            background="transparent" speed="1" loop autoplay></lottie-player>
+                    </div>
+                </article>
+
+                <!-- Step 3: Lo que no sabés -->
+                <article class="story-step" data-step="3">
+                    <div class="step-content">
+                        <span class="step-number">03</span>
+                        <h2 class="step-title">No sabés lo que te falta</h2>
+                        <p class="step-subtitle">Porque nadie te lo explicó</p>
+                    </div>
+                    <div class="step-illustration">
+                        <lottie-player src="illustrations/Alot of things going in the head.json"
+                            background="transparent" speed="1" loop autoplay></lottie-player>
+                    </div>
+                </article>
+
+                <!-- Step 4: La Solución -->
+                <article class="story-step" data-step="4">
+                    <div class="step-content">
+                        <span class="step-number">04</span>
+                        <h2 class="step-title">Nosotros te lo mostramos</h2>
+                        <p class="step-subtitle">Y lo arreglamos</p>
+                    </div>
+                    <div class="step-illustration">
+                        <lottie-player src="illustrations/Success.json" background="transparent" speed="1" loop
+                            autoplay></lottie-player>
+                    </div>
+                </article>
+
+                <!-- Step 5: CTA -->
+                <article class="story-step story-step--cta" data-step="5">
+                    <div class="step-content step-content--cta">
+                        <span class="step-number">05</span>
+                        <h2 class="step-title">¿Querés saber qué le falta a tu negocio?</h2>
+                        <div class="cta-buttons">
+                            <a href="#planes" class="cta-button cta-button--primary">Ver Planes</a>
+                            <a href="https://wa.me/5491171458944" target="_blank" rel="noopener noreferrer"
+                                class="cta-button cta-button--secondary">Hablemos</a>
+                        </div>
+                    </div>
+                    <div class="step-illustration">
+                        <lottie-player src="illustrations/Travel Icons - Map.json" background="transparent" speed="1"
+                            loop autoplay></lottie-player>
+                    </div>
+                </article>
+
+                <!-- Progress Indicator -->
+                <nav class="progress-indicator" aria-label="Progreso de la historia">
+                    <div class="progress-line">
+                        <div class="progress-line-fill"></div>
+                    </div>
+                    <div class="progress-dots">
+                        <button class="progress-dot active" data-target="1" aria-label="Paso 1"></button>
+                        <button class="progress-dot" data-target="2" aria-label="Paso 2"></button>
+                        <button class="progress-dot" data-target="3" aria-label="Paso 3"></button>
+                        <button class="progress-dot" data-target="4" aria-label="Paso 4"></button>
+                        <button class="progress-dot" data-target="5" aria-label="Paso 5"></button>
+                    </div>
+                </nav>
+
+                <!-- Scroll Hint -->
+                <div class="scroll-hint">
+                    <span>Scroll</span>
+                    <div class="scroll-arrow"></div>
                 </div>
             </div>
+
         </section>
 
         <!-- Marquee Section -->
@@ -708,477 +236,438 @@
             </div>
         </div>
 
-        <!-- Services Preview -->
-        <section class="py-24 bg-white border-b-2 border-bauhaus-black">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Card 1 -->
-                    <div
-                        class="scroll-reveal scroll-stagger-1 p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all group">
-                        <div
-                            class="w-16 h-16 bg-bauhaus-red rounded-full mb-6 border-2 border-bauhaus-black group-hover:scale-110 transition-transform">
+        <!-- Collapsible Info Sections -->
+        <section id="info" class="py-16 bg-white border-b-2 border-bauhaus-black">
+            <div class="container mx-auto px-6 space-y-4">
+
+                <!-- SERVICIOS Accordion -->
+                <div class="border-2 border-bauhaus-black bg-bauhaus-white overflow-hidden bauhaus-shadow">
+                    <button onclick="toggleSection('servicios-content')"
+                        class="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="w-8 h-8 bg-bauhaus-red rounded-full border-2 border-bauhaus-black"></div>
+                            <span class="text-2xl font-display font-black uppercase">SERVICIOS</span>
                         </div>
-                        <h3 class="text-2xl font-display font-black mb-4 uppercase" data-i18n="service_1_title">
-                            Estrategia</h3>
-                        <p class="font-medium text-gray-600" data-i18n="service_1_desc">Analizamos tu mercado y
-                            definimos el camino más efectivo para alcanzar tus objetivos comerciales.</p>
-                    </div>
-                    <!-- Card 2 -->
-                    <div
-                        class="scroll-reveal scroll-stagger-2 p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all group">
-                        <div
-                            class="w-16 h-16 bg-bauhaus-blue transform rotate-3 mb-6 border-2 border-bauhaus-black group-hover:rotate-12 transition-transform">
+                        <span id="servicios-icon"
+                            class="text-bauhaus-red text-3xl font-black transition-transform duration-300">+</span>
+                    </button>
+                    <div id="servicios-content" class="hidden px-6 pb-6">
+                        <div class="border-t-2 border-bauhaus-black pt-6">
+                            <!-- What we offer -->
+                            <h4 class="text-xl font-black mb-4 uppercase text-bauhaus-blue">¿QUÉ OFRECEMOS?</h4>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+                                <li class="flex items-center gap-2 font-medium"><span
+                                        class="w-3 h-3 bg-bauhaus-red"></span>Adquisición de clientes</li>
+                                <li class="flex items-center gap-2 font-medium"><span
+                                        class="w-3 h-3 bg-bauhaus-blue rounded-full"></span>Mayor alcance y conciencia
+                                </li>
+                                <li class="flex items-center gap-2 font-medium"><span
+                                        class="w-3 h-3 bg-bauhaus-yellow rotate-45"></span>Marca empleadora</li>
+                                <li class="flex items-center gap-2 font-medium"><span
+                                        class="w-3 h-3 bg-bauhaus-black"></span>Lealtad y cuidado de imagen</li>
+                            </ul>
+
+                            <!-- Platforms -->
+                            <h4 class="text-xl font-black mb-4 uppercase text-bauhaus-blue">PLATAFORMAS</h4>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                                <div
+                                    class="p-4 border-2 border-bauhaus-black text-center hover:bg-bauhaus-blue/10 transition-colors">
+                                    <span class="font-black">Google Business</span>
+                                </div>
+                                <div
+                                    class="p-4 border-2 border-bauhaus-black text-center hover:bg-bauhaus-red/10 transition-colors">
+                                    <span class="font-black">Instagram</span>
+                                </div>
+                                <div
+                                    class="p-4 border-2 border-bauhaus-black text-center hover:bg-bauhaus-blue/10 transition-colors">
+                                    <span class="font-black">Facebook</span>
+                                </div>
+                                <div
+                                    class="p-4 border-2 border-bauhaus-black text-center hover:bg-bauhaus-yellow/10 transition-colors">
+                                    <span class="font-black">TikTok</span>
+                                </div>
+                            </div>
+
+                            <!-- Content Types -->
+                            <h4 class="text-xl font-black mb-4 uppercase text-bauhaus-blue">TIPOS DE CONTENIDO</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="border-t-4 border-bauhaus-red pt-4">
+                                    <h5 class="font-black mb-2">TEXTOS</h5>
+                                    <p class="text-sm text-gray-700">Posts, copys publicitarios, newsletters</p>
+                                </div>
+                                <div class="border-t-4 border-bauhaus-blue pt-4">
+                                    <h5 class="font-black mb-2">IMÁGENES</h5>
+                                    <p class="text-sm text-gray-700">Fotos de producto, diseños gráficos</p>
+                                </div>
+                                <div class="border-t-4 border-bauhaus-yellow pt-4">
+                                    <h5 class="font-black mb-2">VIDEOS</h5>
+                                    <p class="text-sm text-gray-700">Reels, Stories, testimonios</p>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="text-2xl font-display font-black mb-4 uppercase" data-i18n="service_2_title">
-                            Contenido</h3>
-                        <p class="font-medium text-gray-600" data-i18n="service_2_desc">Creamos narrativas visuales
-                            y textuales que conectan con tu audiencia y generan engagement real.</p>
-                    </div>
-                    <!-- Card 3 -->
-                    <div
-                        class="scroll-reveal scroll-stagger-3 p-8 border-2 border-bauhaus-black bg-bauhaus-white bauhaus-shadow-hover transition-all group">
-                        <div
-                            class="w-16 h-16 bg-bauhaus-yellow rounded-none mb-6 border-2 border-bauhaus-black group-hover:rounded-full transition-all">
-                        </div>
-                        <h3 class="text-2xl font-display font-black mb-4 uppercase" data-i18n="service_3_title">Diseño
-                        </h3>
-                        <p class="font-medium text-gray-600" data-i18n="service_3_desc">Identidades visuales
-                            memorables que destacan en un mercado saturado. Estética y función.</p>
                     </div>
                 </div>
+
+                <!-- NOSOTROS Accordion -->
+                <div class="border-2 border-bauhaus-black bg-bauhaus-white overflow-hidden bauhaus-shadow">
+                    <button onclick="toggleSection('nosotros-content')"
+                        class="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="w-8 h-8 bg-bauhaus-blue border-2 border-bauhaus-black"></div>
+                            <span class="text-2xl font-display font-black uppercase">NOSOTROS</span>
+                        </div>
+                        <span id="nosotros-icon"
+                            class="text-bauhaus-blue text-3xl font-black transition-transform duration-300">+</span>
+                    </button>
+                    <div id="nosotros-content" class="hidden px-6 pb-6">
+                        <div class="border-t-2 border-bauhaus-black pt-6">
+                            <!-- About -->
+                            <p class="text-lg font-medium text-gray-800 mb-8">
+                                Somos un equipo apasionado por la creatividad y la estrategia. Creemos en el poder de
+                                las historias para conectar marcas con personas.
+                            </p>
+
+                            <!-- Methodology -->
+                            <h4 class="text-xl font-black mb-6 uppercase text-bauhaus-blue">CÓMO TRABAJAMOS</h4>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                                <div class="p-4 border-2 border-bauhaus-black text-center">
+                                    <span class="text-3xl font-display font-black text-bauhaus-red">01</span>
+                                    <p class="font-black text-sm mt-2">SUSCRIPCIÓN</p>
+                                </div>
+                                <div class="p-4 border-2 border-bauhaus-black text-center">
+                                    <span class="text-3xl font-display font-black text-bauhaus-blue">02</span>
+                                    <p class="font-black text-sm mt-2">ESTRATEGIA</p>
+                                </div>
+                                <div class="p-4 border-2 border-bauhaus-black text-center">
+                                    <span class="text-3xl font-display font-black text-bauhaus-yellow">03</span>
+                                    <p class="font-black text-sm mt-2">CREACIÓN</p>
+                                </div>
+                                <div class="p-4 border-2 border-bauhaus-black text-center">
+                                    <span class="text-3xl font-display font-black text-bauhaus-black">04</span>
+                                    <p class="font-black text-sm mt-2">ENTREGA</p>
+                                </div>
+                            </div>
+
+                            <!-- Why Choose Us -->
+                            <h4 class="text-xl font-black mb-4 uppercase text-bauhaus-blue">¿POR QUÉ ELEGIRNOS?</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <span class="w-4 h-4 bg-bauhaus-red mt-1 flex-shrink-0"></span>
+                                    <div><strong>Experiencia Práctica:</strong> Campañas exitosas en múltiples nichos.
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-4 h-4 bg-bauhaus-blue mt-1 flex-shrink-0 rounded-full"></span>
+                                    <div><strong>Conocimiento del Mercado:</strong> Tendencias actuales y qué funciona.
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-4 h-4 bg-bauhaus-yellow mt-1 flex-shrink-0 rotate-45"></span>
+                                    <div><strong>Comunicación Fluida:</strong> Sin tecnicismos, siempre disponibles.
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- Portfolio Preview -->
-        <section id="trabajos" class="py-24 bg-bauhaus-white border-b-2 border-bauhaus-black">
-            <div class="container mx-auto px-6">
-                <div class="flex justify-between items-end mb-16">
-                    <h2 class="scroll-reveal text-5xl md:text-7xl font-display font-black uppercase">
-                        TRABAJOS <span class="text-bauhaus-red">RECENTES</span>
-                    </h2>
-                    <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
-                        class="scroll-reveal hidden md:block px-6 py-3 border-2 border-bauhaus-black font-bold uppercase hover:bg-bauhaus-black hover:text-white transition-colors">
-                        VER INSTAGRAM
-                    </a>
-                </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div
-                        class="scroll-reveal-left scroll-stagger-1 group relative border-2 border-bauhaus-black overflow-hidden aspect-video bauhaus-shadow">
-                        <img src="images/post-image-1761850652612.jpeg" alt="Portfolio 1"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div
-                            class="absolute inset-0 bg-bauhaus-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-white font-display font-black text-3xl uppercase">Social Media</span>
-                        </div>
-                    </div>
-                    <div
-                        class="scroll-reveal-right scroll-stagger-2 group relative border-2 border-bauhaus-black overflow-hidden aspect-video bauhaus-shadow">
-                        <img src="images/post-image-1761851067915.jpeg" alt="Portfolio 2"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div
-                            class="absolute inset-0 bg-bauhaus-blue/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-white font-display font-black text-3xl uppercase">Branding</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Plans Section -->
         <section id="planes" class="py-24 bg-white border-b-2 border-bauhaus-black">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12 scroll-reveal">
-                    <h2 class="text-5xl md:text-7xl font-display font-black mb-4 uppercase" data-i18n="planes_title">
-                        PLANES</h2>
-                    <p class="text-lg text-gray-600 font-medium" data-i18n="planes_subtitle">Soluciones adaptadas a tu
-                        negocio</p>
+                <div class="text-center mb-12">
+                    <h2 class="text-5xl md:text-7xl font-display font-black mb-4 uppercase">PLANES</h2>
+                    <p class="text-lg text-gray-600 font-medium">Soluciones adaptadas a tu negocio</p>
                 </div>
 
                 <!-- Service Tabs -->
-                <div class="flex justify-center mb-12 scroll-reveal scroll-stagger-1">
+                <div class="flex justify-center mb-12">
                     <div class="inline-flex border-2 border-bauhaus-black">
-                        <button id="tab-gmb"
-                            class="px-8 py-4 font-display font-black uppercase tracking-wider text-lg transition-all duration-300 bg-bauhaus-black text-white hover:bg-bauhaus-red"
-                            onclick="switchTab('gmb')">
-                            <span class="flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                                </svg>
-                                GMB
-                            </span>
+                        <button id="tab-gmb" onclick="switchTab('gmb')"
+                            class="px-8 py-4 font-display font-black uppercase tracking-wider text-lg transition-all duration-300 bg-bauhaus-black text-white hover:bg-bauhaus-red">
+                            <span class="flex items-center gap-2">📍 GMB</span>
                         </button>
-                        <button id="tab-rrss"
-                            class="px-8 py-4 font-display font-black uppercase tracking-wider text-lg transition-all duration-300 bg-bauhaus-white text-bauhaus-black hover:bg-bauhaus-blue hover:text-white"
-                            onclick="switchTab('rrss')">
-                            <span class="flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z" />
-                                </svg>
-                                RRSS
-                            </span>
+                        <button id="tab-rrss" onclick="switchTab('rrss')"
+                            class="px-8 py-4 font-display font-black uppercase tracking-wider text-lg transition-all duration-300 bg-bauhaus-white text-bauhaus-black hover:bg-bauhaus-blue hover:text-white">
+                            <span class="flex items-center gap-2">📱 RRSS</span>
                         </button>
                     </div>
                 </div>
 
                 <!-- GMB Plans -->
-                <div id="planes-gmb" class="tab-content transition-all duration-500">
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-8">
-
-                        <!-- GMB Pack Inicial -->
-                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white transition-all duration-300 flex flex-col hover:shadow-[6px_6px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5"
-                            style="animation: fadeInUp 0.5s ease-out 0.1s both;">
+                <div id="planes-gmb" class="tab-content">
+                    <!-- Featured Plan -->
+                    <div class="max-w-md mx-auto mb-8">
+                        <div
+                            class="plan-card p-8 border-2 border-bauhaus-black bg-bauhaus-black text-white flex flex-col relative shadow-[6px_6px_0px_#D93025]">
                             <div
-                                class="w-12 h-12 bg-bauhaus-red rounded-full mb-4 border-2 border-bauhaus-black flex items-center justify-center">
-                                <span class="text-white font-black text-lg">1</span>
-                            </div>
-                            <h3 class="text-xl font-display font-black uppercase mb-2">INICIAL</h3>
-                            <p class="text-xs text-gray-500 mb-4 font-medium">Contrato mínimo 3 meses</p>
-                            <div class="mb-4">
-                                <div class="flex items-baseline">
-                                    <span class="text-3xl font-black">$100.000</span>
-                                    <span class="text-sm font-bold text-gray-500 ml-1">/mes</span>
-                                </div>
-                            </div>
-                            <ul class="space-y-3 mb-6 flex-1 text-sm">
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
-                                    <span>Auditoría completa</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
-                                    <span>Plan de acción</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
-                                    <span>Respuesta reseñas (50/mes)</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
-                                    <span>Condición "Caso de Éxito"</span>
-                                </li>
-                            </ul>
-                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20GMB%20INICIAL"
-                                target="_blank"
-                                class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm border-2 border-bauhaus-black hover:bg-bauhaus-red transition-colors duration-300">
-                                CONSULTAR
-                            </a>
-                        </div>
-
-                        <!-- GMB Mantenimiento Básico -->
-                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white transition-all duration-300 flex flex-col hover:shadow-[6px_6px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5"
-                            style="animation: fadeInUp 0.5s ease-out 0.2s both;">
+                                class="absolute top-0 right-0 bg-bauhaus-red text-white px-4 py-2 font-black uppercase text-sm">
+                                ⭐ RECOMENDADO</div>
                             <div
-                                class="w-12 h-12 bg-bauhaus-blue mb-4 border-2 border-bauhaus-black flex items-center justify-center">
-                                <span class="text-white font-black text-lg">B</span>
+                                class="w-16 h-16 bg-bauhaus-red rounded-full mb-6 border-2 border-white flex items-center justify-center animate-pulse">
+                                <span class="text-white font-black text-2xl">∞</span>
                             </div>
-                            <h3 class="text-xl font-display font-black uppercase mb-2">BÁSICO</h3>
-                            <p class="text-xs text-gray-500 mb-4 font-medium">Mantenimiento mensual</p>
-                            <div class="mb-4">
-                                <div class="flex items-baseline">
-                                    <span class="text-3xl font-black">$30.000</span>
-                                    <span class="text-sm font-bold text-gray-500 ml-1">/mes</span>
-                                </div>
+                            <h3 class="text-2xl font-display font-black uppercase mb-2 text-bauhaus-yellow">GMB
+                                ILIMITADO</h3>
+                            <p class="text-sm text-gray-400 mb-4">Mantenimiento premium</p>
+                            <div class="mb-6">
+                                <span class="text-5xl font-black">$100.000</span>
+                                <span class="text-lg font-bold text-gray-400">/mes</span>
                             </div>
-                            <ul class="space-y-3 mb-6 flex-1 text-sm">
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-blue mt-1.5 flex-shrink-0"></span>
-                                    <span>2 fotos al mes</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-blue mt-1.5 flex-shrink-0"></span>
-                                    <span>Gestión de reseñas (5)</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-blue mt-1.5 flex-shrink-0"></span>
-                                    <span>2 revisiones anuales</span>
-                                </li>
-                            </ul>
-                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20GMB%20BÁSICO"
-                                target="_blank"
-                                class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm border-2 border-bauhaus-black hover:bg-bauhaus-blue transition-colors duration-300">
-                                CONSULTAR
-                            </a>
-                        </div>
-
-                        <!-- GMB Mantenimiento Intermedio -->
-                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white transition-all duration-300 flex flex-col hover:shadow-[6px_6px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5"
-                            style="animation: fadeInUp 0.5s ease-out 0.3s both;">
-                            <div
-                                class="w-12 h-12 bg-bauhaus-yellow mb-4 border-2 border-bauhaus-black flex items-center justify-center transform rotate-12">
-                                <span class="text-bauhaus-black font-black text-lg -rotate-12">I</span>
-                            </div>
-                            <h3 class="text-xl font-display font-black uppercase mb-2">INTERMEDIO</h3>
-                            <p class="text-xs text-gray-500 mb-4 font-medium">Mantenimiento mensual</p>
-                            <div class="mb-4">
-                                <div class="flex items-baseline">
-                                    <span class="text-3xl font-black">$50.000</span>
-                                    <span class="text-sm font-bold text-gray-500 ml-1">/mes</span>
-                                </div>
-                            </div>
-                            <ul class="space-y-3 mb-6 flex-1 text-sm">
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
-                                    <span>1 foto por semana</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
-                                    <span>Gestión de reseñas (10)</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
-                                    <span>2 revisiones anuales</span>
-                                </li>
-                            </ul>
-                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20GMB%20INTERMEDIO"
-                                target="_blank"
-                                class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm border-2 border-bauhaus-black hover:bg-bauhaus-yellow hover:text-bauhaus-black transition-colors duration-300">
-                                CONSULTAR
-                            </a>
-                        </div>
-
-                        <!-- GMB Mantenimiento Ilimitado (Featured) -->
-                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-black text-white transition-all duration-300 flex flex-col relative shadow-[4px_4px_0px_#D93025] hover:shadow-[8px_8px_0px_#D93025] hover:-translate-x-1 hover:-translate-y-1"
-                            style="animation: fadeInUp 0.5s ease-out 0.4s both;">
-                            <div
-                                class="absolute top-0 right-0 bg-bauhaus-red text-white px-3 py-1 font-black uppercase text-xs border-l-2 border-b-2 border-bauhaus-black">
-                                POPULAR
-                            </div>
-                            <div
-                                class="w-12 h-12 bg-bauhaus-red rounded-full mb-4 border-2 border-white flex items-center justify-center animate-pulse">
-                                <span class="text-white font-black text-lg">∞</span>
-                            </div>
-                            <h3 class="text-xl font-display font-black uppercase mb-2 text-bauhaus-yellow">ILIMITADO
-                            </h3>
-                            <p class="text-xs text-gray-400 mb-4 font-medium">Mantenimiento premium</p>
-                            <div class="mb-4">
-                                <div class="flex items-baseline">
-                                    <span class="text-3xl font-black">$100.000</span>
-                                    <span class="text-sm font-bold text-gray-400 ml-1">/mes</span>
-                                </div>
-                            </div>
-                            <ul class="space-y-3 mb-6 flex-1 text-sm">
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
-                                    <span>2 fotos por semana</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
-                                    <span>Gestión de reseñas (50)</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
-                                    <span>2 revisiones anuales</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium text-bauhaus-yellow">
-                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
-                                    <span>+ Página web GRATIS (6 meses)</span>
-                                </li>
+                            <ul class="space-y-4 mb-8 text-base">
+                                <li class="flex items-start gap-3"><span class="w-3 h-3 bg-bauhaus-yellow mt-1"></span>4
+                                    fotos por semana</li>
+                                <li class="flex items-start gap-3"><span
+                                        class="w-3 h-3 bg-bauhaus-yellow mt-1"></span>Gestión reseñas (50/mes)</li>
+                                <li class="flex items-start gap-3 text-bauhaus-yellow font-bold"><span
+                                        class="w-3 h-3 bg-bauhaus-red mt-1"></span>+ Página web GRATIS</li>
                             </ul>
                             <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20GMB%20ILIMITADO"
-                                target="_blank"
-                                class="w-full py-3 bg-bauhaus-yellow text-bauhaus-black font-black uppercase text-center text-sm border-2 border-white hover:bg-white transition-colors duration-300">
-                                CONSULTAR
+                                target="_blank" rel="noopener noreferrer"
+                                class="w-full py-4 bg-bauhaus-yellow text-bauhaus-black font-black uppercase text-center text-lg border-2 border-white hover:bg-white transition-colors block">
+                                CONSULTAR AHORA
                             </a>
                         </div>
                     </div>
 
-                    <!-- Add-on: Página Web -->
-                    <div class="max-w-2xl mx-auto mt-8" style="animation: fadeInUp 0.5s ease-out 0.5s both;">
-                        <div
-                            class="p-6 border-2 border-dashed border-bauhaus-black bg-gray-50 flex flex-col md:flex-row items-center justify-between gap-4 hover:border-solid hover:bg-bauhaus-yellow/10 transition-all duration-300">
-                            <div class="flex items-center gap-4">
+                    <!-- Toggle Button -->
+                    <div class="text-center mb-8">
+                        <button onclick="toggleSection('gmb-otros')"
+                            class="px-6 py-3 border-2 border-bauhaus-black font-black uppercase hover:bg-bauhaus-black hover:text-white transition-colors">
+                            <span id="gmb-otros-icon">+</span> VER MÁS PLANES GMB
+                        </button>
+                    </div>
+
+                    <!-- Other Plans (hidden by default) -->
+                    <div id="gmb-otros" class="hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                            <!-- GMB Inicial -->
+                            <div
+                                class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white flex flex-col hover:shadow-[6px_6px_0px_#111111] transition-all">
                                 <div
-                                    class="w-10 h-10 bg-bauhaus-blue flex items-center justify-center border-2 border-bauhaus-black">
-                                    <span class="text-white font-black">+</span>
+                                    class="w-12 h-12 bg-bauhaus-red rounded-full mb-4 border-2 border-bauhaus-black flex items-center justify-center">
+                                    <span class="text-white font-black text-lg">1</span>
                                 </div>
-                                <div>
-                                    <h4 class="font-display font-black uppercase">Página Web Básica</h4>
-                                    <p class="text-sm text-gray-600">Sin personalización • Hosting 1 año incluido</p>
+                                <h3 class="text-xl font-display font-black uppercase mb-2">INICIAL</h3>
+                                <p class="text-xs text-gray-500 mb-4">Contrato mínimo 3 meses</p>
+                                <div class="mb-4">
+                                    <span class="text-3xl font-black">$100.000</span>
+                                    <span class="text-sm font-bold text-gray-500">/mes</span>
                                 </div>
+                                <ul class="space-y-3 mb-6 flex-1 text-sm">
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-red mt-1.5"></span>Auditoría completa</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-red mt-1.5"></span>Plan de acción</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-red mt-1.5"></span>Respuesta reseñas (50/mes)</li>
+                                </ul>
+                                <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20GMB%20INICIAL"
+                                    target="_blank" rel="noopener noreferrer"
+                                    class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm hover:bg-bauhaus-red transition-colors block">
+                                    CONSULTAR
+                                </a>
                             </div>
-                            <div class="flex items-center gap-4">
-                                <span class="text-2xl font-black">$80.000</span>
-                                <span class="text-sm font-bold text-gray-500">pago único</span>
+
+                            <!-- GMB Básico -->
+                            <div
+                                class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white flex flex-col hover:shadow-[6px_6px_0px_#111111] transition-all">
+                                <div
+                                    class="w-12 h-12 bg-bauhaus-blue mb-4 border-2 border-bauhaus-black flex items-center justify-center">
+                                    <span class="text-white font-black text-lg">B</span>
+                                </div>
+                                <h3 class="text-xl font-display font-black uppercase mb-2">BÁSICO</h3>
+                                <p class="text-xs text-gray-500 mb-4">Mantenimiento mensual</p>
+                                <div class="mb-4">
+                                    <span class="text-3xl font-black">$30.000</span>
+                                    <span class="text-sm font-bold text-gray-500">/mes</span>
+                                </div>
+                                <ul class="space-y-3 mb-6 flex-1 text-sm">
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-blue mt-1.5"></span>2 fotos al mes</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-blue mt-1.5"></span>Gestión reseñas (5)</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-blue mt-1.5"></span>2 revisiones anuales</li>
+                                </ul>
+                                <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20GMB%20BÁSICO"
+                                    target="_blank" rel="noopener noreferrer"
+                                    class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm hover:bg-bauhaus-blue transition-colors block">
+                                    CONSULTAR
+                                </a>
+                            </div>
+
+                            <!-- GMB Intermedio -->
+                            <div
+                                class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white flex flex-col hover:shadow-[6px_6px_0px_#111111] transition-all">
+                                <div
+                                    class="w-12 h-12 bg-bauhaus-yellow mb-4 border-2 border-bauhaus-black flex items-center justify-center transform rotate-12">
+                                    <span class="text-bauhaus-black font-black text-lg -rotate-12">I</span>
+                                </div>
+                                <h3 class="text-xl font-display font-black uppercase mb-2">INTERMEDIO</h3>
+                                <p class="text-xs text-gray-500 mb-4">Mantenimiento mensual</p>
+                                <div class="mb-4">
+                                    <span class="text-3xl font-black">$50.000</span>
+                                    <span class="text-sm font-bold text-gray-500">/mes</span>
+                                </div>
+                                <ul class="space-y-3 mb-6 flex-1 text-sm">
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-yellow mt-1.5"></span>1 foto por semana</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-yellow mt-1.5"></span>Gestión reseñas (10)</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-yellow mt-1.5"></span>2 revisiones anuales</li>
+                                </ul>
+                                <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20GMB%20INTERMEDIO"
+                                    target="_blank" rel="noopener noreferrer"
+                                    class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm hover:bg-bauhaus-yellow hover:text-bauhaus-black transition-colors block">
+                                    CONSULTAR
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- RRSS Plans -->
-                <div id="planes-rrss" class="tab-content hidden transition-all duration-500">
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-
-                        <!-- RRSS Básico -->
-                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white transition-all duration-300 flex flex-col hover:shadow-[6px_6px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5"
-                            style="animation: fadeInUp 0.5s ease-out 0.1s both;">
+                <!-- RRSS Plans (hidden by default) -->
+                <div id="planes-rrss" class="tab-content hidden">
+                    <!-- Featured Plan -->
+                    <div class="max-w-md mx-auto mb-8">
+                        <div
+                            class="plan-card p-8 border-2 border-bauhaus-black bg-bauhaus-black text-white flex flex-col relative shadow-[6px_6px_0px_#1A73E8]">
                             <div
-                                class="w-12 h-12 bg-bauhaus-red rounded-full mb-4 border-2 border-bauhaus-black flex items-center justify-center">
-                                <span class="text-white font-black text-sm">FB+IG</span>
-                            </div>
-                            <h3 class="text-xl font-display font-black uppercase mb-2">BÁSICO</h3>
-                            <p class="text-xs text-gray-500 mb-4 font-medium">FB + IG (espejo)</p>
-                            <div class="mb-4">
-                                <div class="flex items-baseline">
-                                    <span class="text-3xl font-black">$150.000</span>
-                                    <span class="text-sm font-bold text-gray-500 ml-1">/mes</span>
-                                </div>
-                            </div>
-                            <ul class="space-y-3 mb-6 flex-1 text-sm">
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
-                                    <span>8 Posts</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
-                                    <span>2 Stories</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-red mt-1.5 flex-shrink-0"></span>
-                                    <span>2 Reels simples</span>
-                                </li>
-                            </ul>
-                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20RRSS%20BÁSICO"
-                                target="_blank"
-                                class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm border-2 border-bauhaus-black hover:bg-bauhaus-red transition-colors duration-300">
-                                CONSULTAR
-                            </a>
-                        </div>
-
-                        <!-- RRSS Básico Plus -->
-                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white transition-all duration-300 flex flex-col hover:shadow-[6px_6px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5"
-                            style="animation: fadeInUp 0.5s ease-out 0.2s both;">
+                                class="absolute top-0 right-0 bg-bauhaus-blue text-white px-4 py-2 font-black uppercase text-sm">
+                                ⭐ RECOMENDADO</div>
                             <div
-                                class="w-12 h-12 bg-bauhaus-blue mb-4 border-2 border-bauhaus-black flex items-center justify-center">
-                                <span class="text-white font-black text-xs">FB+IG+</span>
+                                class="w-16 h-16 bg-bauhaus-blue rounded-full mb-6 border-2 border-white flex items-center justify-center">
+                                <span class="text-white font-black text-2xl">★</span>
                             </div>
-                            <h3 class="text-xl font-display font-black uppercase mb-2">BÁSICO PLUS</h3>
-                            <p class="text-xs text-gray-500 mb-4 font-medium">FB + IG o TikTok o LinkedIn</p>
-                            <div class="mb-4">
-                                <div class="flex items-baseline">
-                                    <span class="text-3xl font-black">$200.000</span>
-                                    <span class="text-sm font-bold text-gray-500 ml-1">/mes</span>
-                                </div>
+                            <h3 class="text-2xl font-display font-black uppercase mb-2 text-bauhaus-yellow">RRSS
+                                PERSONALIZADO</h3>
+                            <p class="text-sm text-gray-400 mb-4">Servicio a medida</p>
+                            <div class="mb-6">
+                                <span class="text-lg font-bold text-gray-400">Desde</span>
+                                <span class="text-5xl font-black">$280.000</span>
+                                <span class="text-lg font-bold text-gray-400">/mes</span>
                             </div>
-                            <ul class="space-y-3 mb-6 flex-1 text-sm">
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-blue mt-1.5 flex-shrink-0"></span>
-                                    <span>8 Posts</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-blue mt-1.5 flex-shrink-0"></span>
-                                    <span>4 Stories</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-blue mt-1.5 flex-shrink-0"></span>
-                                    <span>4 Reels simples</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium text-gray-500 text-xs">
-                                    <span class="w-2 h-2 bg-gray-400 mt-1.5 flex-shrink-0"></span>
-                                    <span>o TikTok 8 / LinkedIn 8</span>
-                                </li>
-                            </ul>
-                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20RRSS%20BÁSICO%20PLUS"
-                                target="_blank"
-                                class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm border-2 border-bauhaus-black hover:bg-bauhaus-blue transition-colors duration-300">
-                                CONSULTAR
-                            </a>
-                        </div>
-
-                        <!-- RRSS Intermedio -->
-                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white transition-all duration-300 flex flex-col hover:shadow-[6px_6px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-0.5"
-                            style="animation: fadeInUp 0.5s ease-out 0.3s both;">
-                            <div
-                                class="w-12 h-12 bg-bauhaus-yellow mb-4 border-2 border-bauhaus-black flex items-center justify-center transform -rotate-6">
-                                <span class="text-bauhaus-black font-black text-xs rotate-6">ALL</span>
-                            </div>
-                            <h3 class="text-xl font-display font-black uppercase mb-2">INTERMEDIO</h3>
-                            <p class="text-xs text-gray-500 mb-4 font-medium">FB + IG o TikTok</p>
-                            <div class="mb-4">
-                                <div class="flex items-baseline">
-                                    <span class="text-3xl font-black">$250.000</span>
-                                    <span class="text-sm font-bold text-gray-500 ml-1">/mes</span>
-                                </div>
-                            </div>
-                            <ul class="space-y-3 mb-6 flex-1 text-sm">
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
-                                    <span>12 Posts</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
-                                    <span>8 Stories</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
-                                    <span>4 Reels simples</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium text-gray-500 text-xs">
-                                    <span class="w-2 h-2 bg-gray-400 mt-1.5 flex-shrink-0"></span>
-                                    <span>o TikTok 12</span>
-                                </li>
-                            </ul>
-                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20RRSS%20INTERMEDIO"
-                                target="_blank"
-                                class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm border-2 border-bauhaus-black hover:bg-bauhaus-yellow hover:text-bauhaus-black transition-colors duration-300">
-                                CONSULTAR
-                            </a>
-                        </div>
-
-                        <!-- RRSS Personalizado (Featured) -->
-                        <div class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-black text-white transition-all duration-300 flex flex-col relative shadow-[4px_4px_0px_#1A73E8] hover:shadow-[8px_8px_0px_#1A73E8] hover:-translate-x-1 hover:-translate-y-1"
-                            style="animation: fadeInUp 0.5s ease-out 0.4s both;">
-                            <div
-                                class="absolute top-0 right-0 bg-bauhaus-blue text-white px-3 py-1 font-black uppercase text-xs border-l-2 border-b-2 border-bauhaus-black">
-                                PRO
-                            </div>
-                            <div
-                                class="w-12 h-12 bg-bauhaus-blue rounded-full mb-4 border-2 border-white flex items-center justify-center">
-                                <span class="text-white font-black text-lg">★</span>
-                            </div>
-                            <h3 class="text-xl font-display font-black uppercase mb-2 text-bauhaus-yellow">PERSONALIZADO
-                            </h3>
-                            <p class="text-xs text-gray-400 mb-4 font-medium">Servicio a medida</p>
-                            <div class="mb-4">
-                                <div class="flex items-baseline">
-                                    <span class="text-sm font-bold text-gray-400 mr-1">Desde</span>
-                                    <span class="text-3xl font-black">$280.000</span>
-                                    <span class="text-xs font-bold text-gray-400 ml-1">/mes*</span>
-                                </div>
-                                <p class="text-[10px] text-gray-400 mt-1 leading-tight">*El precio final puede variar
-                                    según los requerimientos específicos del proyecto.</p>
-                            </div>
-                            <ul class="space-y-3 mb-6 flex-1 text-sm">
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
-                                    <span>Contenido a medida</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
-                                    <span>Estrategia personalizada</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
-                                    <span>Múltiples plataformas</span>
-                                </li>
-                                <li class="flex items-start gap-2 font-medium">
-                                    <span class="w-2 h-2 bg-bauhaus-yellow mt-1.5 flex-shrink-0"></span>
-                                    <span>Soporte prioritario</span>
-                                </li>
+                            <ul class="space-y-4 mb-8 text-base">
+                                <li class="flex items-start gap-3"><span
+                                        class="w-3 h-3 bg-bauhaus-yellow mt-1"></span>Contenido a medida</li>
+                                <li class="flex items-start gap-3"><span
+                                        class="w-3 h-3 bg-bauhaus-yellow mt-1"></span>Estrategia personalizada</li>
+                                <li class="flex items-start gap-3 text-bauhaus-yellow font-bold"><span
+                                        class="w-3 h-3 bg-bauhaus-blue mt-1"></span>Múltiples plataformas</li>
                             </ul>
                             <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20RRSS%20PERSONALIZADO"
-                                target="_blank"
-                                class="w-full py-3 bg-bauhaus-yellow text-bauhaus-black font-black uppercase text-center text-sm border-2 border-white hover:bg-white transition-colors duration-300">
-                                CONSULTAR
+                                target="_blank" rel="noopener noreferrer"
+                                class="w-full py-4 bg-bauhaus-yellow text-bauhaus-black font-black uppercase text-center text-lg border-2 border-white hover:bg-white transition-colors block">
+                                CONSULTAR AHORA
                             </a>
+                        </div>
+                    </div>
+
+                    <!-- Toggle Button -->
+                    <div class="text-center mb-8">
+                        <button onclick="toggleSection('rrss-otros')"
+                            class="px-6 py-3 border-2 border-bauhaus-black font-black uppercase hover:bg-bauhaus-black hover:text-white transition-colors">
+                            <span id="rrss-otros-icon">+</span> VER MÁS PLANES RRSS
+                        </button>
+                    </div>
+
+                    <!-- Other Plans (hidden by default) -->
+                    <div id="rrss-otros" class="hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                            <!-- RRSS Básico -->
+                            <div
+                                class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white flex flex-col hover:shadow-[6px_6px_0px_#111111] transition-all">
+                                <div
+                                    class="w-12 h-12 bg-bauhaus-red rounded-full mb-4 border-2 border-bauhaus-black flex items-center justify-center">
+                                    <span class="text-white font-black text-xs">FB+IG</span>
+                                </div>
+                                <h3 class="text-xl font-display font-black uppercase mb-2">BÁSICO</h3>
+                                <p class="text-xs text-gray-500 mb-4">FB + IG (espejo)</p>
+                                <div class="mb-4">
+                                    <span class="text-3xl font-black">$150.000</span>
+                                    <span class="text-sm font-bold text-gray-500">/mes</span>
+                                </div>
+                                <ul class="space-y-3 mb-6 flex-1 text-sm">
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-red mt-1.5"></span>8 Posts</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-red mt-1.5"></span>2 Stories</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-red mt-1.5"></span>2 Reels simples</li>
+                                </ul>
+                                <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20RRSS%20BÁSICO"
+                                    target="_blank" rel="noopener noreferrer"
+                                    class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm hover:bg-bauhaus-red transition-colors block">
+                                    CONSULTAR
+                                </a>
+                            </div>
+
+                            <!-- RRSS Básico Plus -->
+                            <div
+                                class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white flex flex-col hover:shadow-[6px_6px_0px_#111111] transition-all">
+                                <div
+                                    class="w-12 h-12 bg-bauhaus-blue mb-4 border-2 border-bauhaus-black flex items-center justify-center">
+                                    <span class="text-white font-black text-xs">FB+IG+</span>
+                                </div>
+                                <h3 class="text-xl font-display font-black uppercase mb-2">BÁSICO PLUS</h3>
+                                <p class="text-xs text-gray-500 mb-4">FB + IG o TikTok</p>
+                                <div class="mb-4">
+                                    <span class="text-3xl font-black">$200.000</span>
+                                    <span class="text-sm font-bold text-gray-500">/mes</span>
+                                </div>
+                                <ul class="space-y-3 mb-6 flex-1 text-sm">
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-blue mt-1.5"></span>8 Posts</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-blue mt-1.5"></span>4 Stories</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-blue mt-1.5"></span>4 Reels simples</li>
+                                </ul>
+                                <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20RRSS%20BÁSICO%20PLUS"
+                                    target="_blank" rel="noopener noreferrer"
+                                    class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm hover:bg-bauhaus-blue transition-colors block">
+                                    CONSULTAR
+                                </a>
+                            </div>
+
+                            <!-- RRSS Intermedio -->
+                            <div
+                                class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white flex flex-col hover:shadow-[6px_6px_0px_#111111] transition-all">
+                                <div
+                                    class="w-12 h-12 bg-bauhaus-yellow mb-4 border-2 border-bauhaus-black flex items-center justify-center transform -rotate-6">
+                                    <span class="text-bauhaus-black font-black text-xs rotate-6">ALL</span>
+                                </div>
+                                <h3 class="text-xl font-display font-black uppercase mb-2">INTERMEDIO</h3>
+                                <p class="text-xs text-gray-500 mb-4">FB + IG o TikTok</p>
+                                <div class="mb-4">
+                                    <span class="text-3xl font-black">$250.000</span>
+                                    <span class="text-sm font-bold text-gray-500">/mes</span>
+                                </div>
+                                <ul class="space-y-3 mb-6 flex-1 text-sm">
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-yellow mt-1.5"></span>12 Posts</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-yellow mt-1.5"></span>8 Stories</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-2 h-2 bg-bauhaus-yellow mt-1.5"></span>4 Reels simples</li>
+                                </ul>
+                                <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20RRSS%20INTERMEDIO"
+                                    target="_blank" rel="noopener noreferrer"
+                                    class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm hover:bg-bauhaus-yellow hover:text-bauhaus-black transition-colors block">
+                                    CONSULTAR
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- CTA Note -->
-                <div class="text-center mt-12 opacity-0" style="animation: fadeInUp 0.5s ease-out 0.6s forwards;">
+                <div class="text-center mt-12">
                     <p class="text-gray-500 text-sm font-medium">Todos los precios en ARS • Consultas sin compromiso</p>
                 </div>
             </div>
@@ -1188,226 +677,120 @@
         <footer id="contacto" class="bg-bauhaus-black text-white pt-24 pb-12">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start mb-20">
-                    <div class="w-full scroll-reveal-left">
-                        <h2 class="text-5xl md:text-7xl font-display font-black mb-8 leading-tight"
-                            data-i18n="footer_form_title">
+                    <div class="w-full">
+                        <h2 class="text-5xl md:text-7xl font-display font-black mb-8 leading-tight">
                             EMPECEMOS<br>
                             <span class="text-bauhaus-yellow underline decoration-4 underline-offset-8">AHORA</span>
                         </h2>
                         <div class="bg-white p-8 border-2 border-white/20">
                             <form action="https://formspree.io/f/manlpzyq" method="POST" class="space-y-4">
                                 <div>
-                                    <label class="block text-sm font-black text-bauhaus-black mb-2 uppercase"
-                                        data-i18n="contact_form_name">Nombre</label>
+                                    <label
+                                        class="block text-sm font-black text-bauhaus-black mb-2 uppercase">Nombre</label>
                                     <input type="text" name="name"
                                         class="w-full bg-gray-100 border-2 border-bauhaus-black px-4 py-3 text-bauhaus-black focus:bg-white focus:outline-none focus:border-bauhaus-blue transition-colors font-bold"
-                                        placeholder="TU NOMBRE" data-i18n-placeholder="contact_form_name_placeholder"
-                                        required>
+                                        placeholder="TU NOMBRE" required>
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-black text-bauhaus-black mb-2 uppercase"
-                                        data-i18n="contact_form_email">Email</label>
+                                    <label
+                                        class="block text-sm font-black text-bauhaus-black mb-2 uppercase">Email</label>
                                     <input type="email" name="email"
                                         class="w-full bg-gray-100 border-2 border-bauhaus-black px-4 py-3 text-bauhaus-black focus:bg-white focus:outline-none focus:border-bauhaus-blue transition-colors font-bold"
-                                        placeholder="TU@EMAIL.COM"
-                                        data-i18n-placeholder="contact_form_email_placeholder" required>
+                                        placeholder="TU@EMAIL.COM" required>
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-black text-bauhaus-black mb-2 uppercase"
-                                        data-i18n="contact_form_message">Mensaje</label>
+                                    <label
+                                        class="block text-sm font-black text-bauhaus-black mb-2 uppercase">Mensaje</label>
                                     <textarea name="message" rows="3"
                                         class="w-full bg-gray-100 border-2 border-bauhaus-black px-4 py-3 text-bauhaus-black focus:bg-white focus:outline-none focus:border-bauhaus-blue transition-colors font-bold"
-                                        placeholder="CUÉNTANOS SOBRE TU PROYECTO..."
-                                        data-i18n-placeholder="contact_form_message_placeholder" required></textarea>
+                                        placeholder="CUÉNTANOS SOBRE TU PROYECTO..." required></textarea>
                                 </div>
                                 <button type="submit"
-                                    class="w-full py-4 bg-bauhaus-red text-white font-black uppercase tracking-widest border-2 border-bauhaus-black hover:bg-bauhaus-blue transition-colors"
-                                    data-i18n="contact_form_submit">
+                                    class="w-full py-4 bg-bauhaus-red text-white font-black uppercase tracking-widest border-2 border-bauhaus-black hover:bg-bauhaus-blue transition-colors">
                                     ENVIAR MENSAJE
                                 </button>
                             </form>
                         </div>
                     </div>
 
-                    <div class="flex flex-col gap-8 lg:pt-8 scroll-reveal-right">
+                    <div class="flex flex-col gap-8 lg:pt-8">
                         <div>
-                            <h3 class="text-bauhaus-yellow font-black mb-4 uppercase tracking-widest"
-                                data-i18n="footer_contact_direct">CONTACTO DIRECTO</h3>
+                            <h3 class="text-bauhaus-yellow font-black mb-4 uppercase tracking-widest">CONTACTO DIRECTO
+                            </h3>
                             <a href="mailto:forma.digital.ar@gmail.com"
                                 class="block text-2xl font-bold hover:text-bauhaus-red transition-colors mb-2">forma.digital.ar@gmail.com</a>
-                            <a href="https://wa.me/5491171458944" target="_blank"
+                            <a href="https://wa.me/5491171458944" target="_blank" rel="noopener noreferrer"
                                 class="block text-2xl font-bold hover:text-bauhaus-red transition-colors">+54 9 11
                                 7145-8944</a>
                         </div>
                         <div>
-                            <h3 class="text-bauhaus-yellow font-black mb-4 uppercase tracking-widest"
-                                data-i18n="footer_location_title">UBICACIÓN</h3>
-                            <p class="text-xl font-bold" data-i18n="footer_location_text">Buenos Aires, Argentina</p>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-bold mb-6">Legal</h4>
-                            <ul class="space-y-2">
-                                <li><a href="privacidad.html"
-                                        class="text-gray-400 hover:text-bauhaus-yellow transition-colors font-bold">Privacidad</a>
-                                </li>
-                                <li><a href="terminos.html"
-                                        class="text-gray-400 hover:text-bauhaus-yellow transition-colors font-bold">Términos</a>
-                                </li>
-                                <li><a href="cookies.html"
-                                        class="text-gray-400 hover:text-bauhaus-yellow transition-colors font-bold">Cookies</a>
-                                </li>
-                            </ul>
+                            <h3 class="text-bauhaus-yellow font-black mb-4 uppercase tracking-widest">UBICACIÓN</h3>
+                            <p class="text-xl font-bold">Buenos Aires, Argentina</p>
                         </div>
                     </div>
                 </div>
 
-                <div
-                    class="scroll-reveal border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-gray-400 text-sm font-bold" data-i18n="footer_copyright">© 2025 Forma Digital.
-                        Bauhaus Edition.</p>
+                <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-400 text-sm font-bold">© 2026 Forma Digital.</p>
                     <div class="flex gap-4">
-                        <a href="https://www.instagram.com/forma.digital.ar/" target="_blank"
+                        <a href="https://www.instagram.com/forma.digital.ar/" target="_blank" rel="noopener noreferrer"
                             class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-yellow transition-colors">IG</a>
                         <a href="https://www.facebook.com/profile.php?id=61583157747489" target="_blank"
+                            rel="noopener noreferrer"
                             class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-blue transition-colors">FB</a>
-                        <a href="https://www.linkedin.com/company/forma-digital" target="_blank"
-                            class="w-10 h-10 bg-white text-bauhaus-black flex items-center justify-center font-bold hover:bg-bauhaus-red transition-colors">LI</a>
                     </div>
                 </div>
             </div>
         </footer>
-
     </main>
 
+    <!-- Storytelling Controller -->
+    <script src="storytelling.js"></script>
+
+    <!-- Tab Switching Logic -->
     <script>
-            // ========================================
-            // INTRO ANIMATION SEQUENCE
-            // ========================================
-            (function initIntroAnimation() {
-                const overlay = document.getElementById('intro-overlay');
-                const body = document.body;
-
-                // Start reveal after a brief moment (slower)
-                setTimeout(() => {
-                    overlay.classList.add('reveal');
-                }, 1800);
-
-                // Complete intro and trigger hero animations (slower)
-                setTimeout(() => {
-                    body.classList.remove('intro-active');
-                    body.classList.add('intro-complete');
-                    overlay.classList.add('hidden');
-
-                    // Add continuous animations after initial entry completes
-                    setTimeout(() => {
-                        const shape1 = document.querySelector('.hero-shape-1');
-                        const shape2 = document.querySelector('.hero-shape-2');
-                        const shape3 = document.querySelector('.hero-shape-3');
-                        if (shape1) shape1.classList.add('animate-after');
-                        if (shape2) shape2.classList.add('animate-after');
-                        if (shape3) shape3.classList.add('animate-after');
-                    }, 4000);
-                }, 3200);
-            })();
-
-        // ========================================
-        // SCROLL REVEAL ANIMATIONS
-        // ========================================
-        const scrollRevealObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    // Optionally unobserve after reveal for performance
-                    scrollRevealObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        // Apply scroll reveal to elements after intro completes
-        document.addEventListener('DOMContentLoaded', () => {
-            // Wait for intro to complete, then observe scroll elements
-            setTimeout(() => {
-                document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale')
-                    .forEach(el => scrollRevealObserver.observe(el));
-            }, 2500);
-        });
-
-        // ========================================
-        // MOBILE MENU LOGIC
-        // ========================================
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        function toggleMobileMenu() {
-            mobileMenu.classList.toggle('translate-x-full');
-        }
-
-        function closeMobileMenu() {
-            mobileMenu.classList.add('translate-x-full');
-        }
-
-        menuToggle.addEventListener('click', toggleMobileMenu);
-
-        // ========================================
-        // TAB SWITCHING LOGIC FOR PRICING SECTION
-        // ========================================
         function switchTab(tabName) {
             const gmbTab = document.getElementById('tab-gmb');
             const rrssTab = document.getElementById('tab-rrss');
             const gmbContent = document.getElementById('planes-gmb');
             const rrssContent = document.getElementById('planes-rrss');
 
-            // Reset animations on cards
-            const resetAnimations = (container) => {
-                container.querySelectorAll('.plan-card').forEach((card, index) => {
-                    card.style.animation = 'none';
-                    card.offsetHeight; // Trigger reflow
-                    card.style.animation = `fadeInUp 0.5s ease-out ${0.1 + index * 0.1}s both`;
-                });
-            };
-
             if (tabName === 'gmb') {
-                // Update tab styles
                 gmbTab.classList.remove('bg-bauhaus-white', 'text-bauhaus-black');
                 gmbTab.classList.add('bg-bauhaus-black', 'text-white');
                 rrssTab.classList.remove('bg-bauhaus-black', 'text-white');
                 rrssTab.classList.add('bg-bauhaus-white', 'text-bauhaus-black');
-
-                // Show/Hide content with animation
                 rrssContent.classList.add('hidden');
-                rrssContent.classList.remove('active');
                 gmbContent.classList.remove('hidden');
-                gmbContent.classList.add('active');
-
-                // Reset animations
-                resetAnimations(gmbContent);
             } else {
-                // Update tab styles
                 rrssTab.classList.remove('bg-bauhaus-white', 'text-bauhaus-black');
                 rrssTab.classList.add('bg-bauhaus-black', 'text-white');
                 gmbTab.classList.remove('bg-bauhaus-black', 'text-white');
                 gmbTab.classList.add('bg-bauhaus-white', 'text-bauhaus-black');
-
-                // Show/Hide content with animation
                 gmbContent.classList.add('hidden');
-                gmbContent.classList.remove('active');
                 rrssContent.classList.remove('hidden');
-                rrssContent.classList.add('active');
-
-                // Reset animations
-                resetAnimations(rrssContent);
             }
         }
 
-        // Initialize with GMB tab active
-        document.addEventListener('DOMContentLoaded', () => {
-            switchTab('gmb');
-        });
+        // Collapsible Section Toggle
+        function toggleSection(contentId) {
+            const content = document.getElementById(contentId);
+            // Handle both patterns: xxx-content -> xxx-icon, or xxx-otros -> xxx-otros-icon
+            let iconId = contentId.replace('-content', '-icon');
+            if (contentId.endsWith('-otros')) {
+                iconId = contentId + '-icon';
+            }
+            const icon = document.getElementById(iconId);
+
+            if (content && content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                if (icon) icon.textContent = '−';
+            } else if (content) {
+                content.classList.add('hidden');
+                if (icon) icon.textContent = '+';
+            }
+        }
     </script>
-    <script src="src/translations.js"></script>
 </body>
 
 </html>
