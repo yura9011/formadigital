@@ -299,76 +299,85 @@
             </div>
         </div>
 
-        <!-- Collapsible Info Sections -->
-        <section id="info" class="py-16 bg-white border-b-2 border-bauhaus-black">
-            <div class="container mx-auto px-6 space-y-4">
-
-                <!-- SERVICIOS Accordion -->
-                <div class="border-2 border-bauhaus-black bg-bauhaus-white overflow-hidden bauhaus-shadow">
-                    <button onclick="toggleSection('servicios-content')"
-                        class="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors">
-                        <div class="flex items-center gap-4">
-                            <div class="w-8 h-8 bg-bauhaus-red rounded-full border-2 border-bauhaus-black"></div>
-                            <span class="text-2xl font-display font-black uppercase">SERVICIOS</span>
-                        </div>
-                        <span id="servicios-icon"
-                            class="text-bauhaus-red text-3xl font-black transition-transform duration-300">+</span>
-                    </button>
-                    <div id="servicios-content" class="hidden px-6 pb-6">
-                        <div class="border-t-2 border-bauhaus-black pt-6">
-                            <!-- What we offer -->
-                            <h4 class="text-xl font-black mb-4 uppercase text-bauhaus-blue">¿QUÉ OFRECEMOS?</h4>
-                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
-                                <li class="flex items-center gap-2 font-medium"><span
-                                        class="w-3 h-3 bg-bauhaus-red"></span>Adquisición de clientes</li>
-                                <li class="flex items-center gap-2 font-medium"><span
-                                        class="w-3 h-3 bg-bauhaus-blue rounded-full"></span>Mayor alcance y conciencia
-                                </li>
-                                <li class="flex items-center gap-2 font-medium"><span
-                                        class="w-3 h-3 bg-bauhaus-yellow rotate-45"></span>Marca empleadora</li>
-                                <li class="flex items-center gap-2 font-medium"><span
-                                        class="w-3 h-3 bg-bauhaus-black"></span>Lealtad y cuidado de imagen</li>
-                            </ul>
-
-                            <!-- Platforms -->
-                            <h4 class="text-xl font-black mb-4 uppercase text-bauhaus-blue">PLATAFORMAS</h4>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                                <div
-                                    class="p-4 border-2 border-bauhaus-black text-center hover:bg-bauhaus-blue/10 transition-colors">
-                                    <span class="font-black">Google Business</span>
-                                </div>
-                                <div
-                                    class="p-4 border-2 border-bauhaus-black text-center hover:bg-bauhaus-red/10 transition-colors">
-                                    <span class="font-black">Instagram</span>
-                                </div>
-                                <div
-                                    class="p-4 border-2 border-bauhaus-black text-center hover:bg-bauhaus-blue/10 transition-colors">
-                                    <span class="font-black">Facebook</span>
-                                </div>
-                                <div
-                                    class="p-4 border-2 border-bauhaus-black text-center hover:bg-bauhaus-yellow/10 transition-colors">
-                                    <span class="font-black">TikTok</span>
-                                </div>
-                            </div>
-
-                            <!-- Content Types -->
-                            <h4 class="text-xl font-black mb-4 uppercase text-bauhaus-blue">TIPOS DE CONTENIDO</h4>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <div class="border-t-4 border-bauhaus-red pt-4">
-                                    <h5 class="font-black mb-2">TEXTOS</h5>
-                                    <p class="text-sm text-gray-700">Posts, copys publicitarios, newsletters</p>
-                                </div>
-                                <div class="border-t-4 border-bauhaus-blue pt-4">
-                                    <h5 class="font-black mb-2">IMÁGENES</h5>
-                                    <p class="text-sm text-gray-700">Fotos de producto, diseños gráficos</p>
-                                </div>
-                                <div class="border-t-4 border-bauhaus-yellow pt-4">
-                                    <h5 class="font-black mb-2">VIDEOS</h5>
-                                    <p class="text-sm text-gray-700">Reels, Stories, testimonios</p>
-                                </div>
-                            </div>
-                        </div>
+        <!-- Services and About Sections -->
+        <section id="info" class="py-20 bg-white border-b-2 border-bauhaus-black">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mb-12">
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-10 h-10 bg-bauhaus-red rounded-full border-2 border-bauhaus-black"></div>
+                        <p class="font-black uppercase tracking-widest text-bauhaus-red">Lo que resolvemos</p>
                     </div>
+                    <h2 class="text-5xl md:text-7xl font-display font-black mb-5 uppercase">SERVICIOS</h2>
+                    <p class="text-xl md:text-2xl font-bold leading-tight">
+                        Soluciones para PYMEs que quieren operar mejor, no solo “verse bien”.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                    <article
+                        class="p-6 md:p-8 border-4 border-bauhaus-black bg-bauhaus-white shadow-[8px_8px_0px_#D93025]">
+                        <div class="flex items-start justify-between gap-4 mb-8">
+                            <span class="text-sm font-black uppercase tracking-widest text-bauhaus-red">01 / Visibilidad</span>
+                            <div class="w-10 h-10 bg-bauhaus-red rounded-full border-2 border-bauhaus-black"></div>
+                        </div>
+                        <h3 class="text-3xl font-display font-black uppercase mb-3">Presencia digital</h3>
+                        <p class="font-black mb-6">Google Business, sitio web y redes sociales.</p>
+                        <div class="border-t-2 border-bauhaus-black pt-5 space-y-4">
+                            <p><span class="font-black uppercase text-sm">El problema:</span> No nos encuentran y no
+                                tenemos una vidriera digital clara.</p>
+                            <p class="font-bold"><span class="font-black uppercase text-sm text-bauhaus-red">El
+                                    resultado:</span> Ficha verificada, sitio online y contenido constante.</p>
+                        </div>
+                    </article>
+
+                    <article
+                        class="p-6 md:p-8 border-4 border-bauhaus-black bg-bauhaus-yellow shadow-[8px_8px_0px_#111111]">
+                        <div class="flex items-start justify-between gap-4 mb-8">
+                            <span class="text-sm font-black uppercase tracking-widest">02 / Atención</span>
+                            <div class="w-10 h-10 bg-bauhaus-blue border-2 border-bauhaus-black rotate-45"></div>
+                        </div>
+                        <h3 class="text-3xl font-display font-black uppercase mb-3">WhatsApp Business con IA</h3>
+                        <p class="font-black mb-6">Bots, atención automática y catálogo integrado.</p>
+                        <div class="border-t-2 border-bauhaus-black pt-5 space-y-4">
+                            <p><span class="font-black uppercase text-sm">El problema:</span> Perdemos ventas
+                                respondiendo tarde las mismas consultas.</p>
+                            <p class="font-bold"><span class="font-black uppercase text-sm text-bauhaus-blue">El
+                                    resultado:</span> Respuesta 24/7 y +35 conversaciones gestionadas.</p>
+                        </div>
+                    </article>
+
+                    <article
+                        class="p-6 md:p-8 border-4 border-bauhaus-black bg-bauhaus-black text-white shadow-[8px_8px_0px_#1A73E8]">
+                        <div class="flex items-start justify-between gap-4 mb-8">
+                            <span class="text-sm font-black uppercase tracking-widest text-bauhaus-yellow">03 / Control</span>
+                            <div class="w-10 h-10 bg-bauhaus-yellow border-2 border-white"></div>
+                        </div>
+                        <h3 class="text-3xl font-display font-black uppercase mb-3">ERP / Operaciones</h3>
+                        <p class="font-black text-bauhaus-yellow mb-6">Odoo, inventario, compras, ventas y CAE.</p>
+                        <div class="border-t-2 border-white pt-5 space-y-4">
+                            <p><span class="font-black uppercase text-sm">El problema:</span> Todo está en Excel, no
+                                sabemos el stock real y facturamos a mano.</p>
+                            <p class="font-bold"><span class="font-black uppercase text-sm text-bauhaus-yellow">El
+                                    resultado:</span> Operación centralizada, facturación electrónica y stock en
+                                tiempo real.</p>
+                        </div>
+                    </article>
+
+                    <article
+                        class="p-6 md:p-8 border-4 border-bauhaus-black bg-bauhaus-white shadow-[8px_8px_0px_#F9AB00]">
+                        <div class="flex items-start justify-between gap-4 mb-8">
+                            <span class="text-sm font-black uppercase tracking-widest text-bauhaus-blue">04 / Continuidad</span>
+                            <div class="w-10 h-10 bg-bauhaus-blue rounded-full border-2 border-bauhaus-black"></div>
+                        </div>
+                        <h3 class="text-3xl font-display font-black uppercase mb-3">Soporte IT remoto</h3>
+                        <p class="font-black mb-6">Mantenimiento, monitoreo y soporte reactivo.</p>
+                        <div class="border-t-2 border-bauhaus-black pt-5 space-y-4">
+                            <p><span class="font-black uppercase text-sm">El problema:</span> Algo se rompió y no hay
+                                quién lo resuelva rápido.</p>
+                            <p class="font-bold"><span class="font-black uppercase text-sm text-bauhaus-blue">El
+                                    resultado:</span> Diagnóstico y resolución sin desplazamiento.</p>
+                        </div>
+                    </article>
                 </div>
 
                 <!-- NOSOTROS Accordion -->
@@ -535,297 +544,146 @@
         <!-- Plans Section -->
         <section id="planes" class="py-24 bg-white border-b-2 border-bauhaus-black">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-5xl md:text-7xl font-display font-black mb-4 uppercase">PLANES</h2>
-                    <p class="text-lg text-gray-600 font-medium">Soluciones adaptadas a tu negocio</p>
+                <div class="max-w-4xl mb-12">
+                    <p class="font-black uppercase tracking-widest text-bauhaus-red mb-4">Elegí qué necesitás resolver</p>
+                    <h2 class="text-5xl md:text-7xl font-display font-black mb-5 uppercase">PLANES</h2>
+                    <p class="text-xl md:text-2xl font-bold">Una solución concreta, un alcance claro y un próximo paso.</p>
                 </div>
 
-                <!-- Service Tabs -->
-                <div class="flex justify-center mb-12">
-                    <div class="inline-flex border-2 border-bauhaus-black">
-                        <button id="tab-gmb" onclick="switchTab('gmb')"
-                            class="px-8 py-4 font-display font-black uppercase tracking-wider text-lg transition-all duration-300 bg-bauhaus-black text-white hover:bg-bauhaus-red">
-                            <span class="flex items-center gap-2">📍 GMB</span>
-                        </button>
-                        <button id="tab-rrss" onclick="switchTab('rrss')"
-                            class="px-8 py-4 font-display font-black uppercase tracking-wider text-lg transition-all duration-300 bg-bauhaus-white text-bauhaus-black hover:bg-bauhaus-blue hover:text-white">
-                            <span class="flex items-center gap-2">📱 RRSS</span>
-                        </button>
-                    </div>
+                <div class="grid grid-cols-2 lg:grid-cols-4 border-2 border-bauhaus-black mb-10" role="tablist"
+                    aria-label="Tipo de solución">
+                    <button id="tab-presencia" type="button" role="tab" aria-selected="true"
+                        aria-controls="plan-presencia" data-solution-tab="presencia" onclick="switchSolution('presencia')"
+                        class="min-h-20 px-4 py-4 font-display font-black uppercase tracking-wide text-sm md:text-base bg-bauhaus-black text-white border-b-2 border-r-2 lg:border-b-0 border-bauhaus-black transition-colors">
+                        Presencia digital
+                    </button>
+                    <button id="tab-operaciones" type="button" role="tab" aria-selected="false"
+                        aria-controls="plan-operaciones" data-solution-tab="operaciones" onclick="switchSolution('operaciones')"
+                        class="min-h-20 px-4 py-4 font-display font-black uppercase tracking-wide text-sm md:text-base bg-bauhaus-white text-bauhaus-black border-b-2 lg:border-b-0 lg:border-r-2 border-bauhaus-black transition-colors hover:bg-bauhaus-yellow">
+                        Odoo / ERP
+                    </button>
+                    <button id="tab-whatsapp" type="button" role="tab" aria-selected="false"
+                        aria-controls="plan-whatsapp" data-solution-tab="whatsapp" onclick="switchSolution('whatsapp')"
+                        class="min-h-20 px-4 py-4 font-display font-black uppercase tracking-wide text-sm md:text-base bg-bauhaus-white text-bauhaus-black border-r-2 border-bauhaus-black transition-colors hover:bg-bauhaus-yellow">
+                        WhatsApp
+                    </button>
+                    <button id="tab-soporte" type="button" role="tab" aria-selected="false"
+                        aria-controls="plan-soporte" data-solution-tab="soporte" onclick="switchSolution('soporte')"
+                        class="min-h-20 px-4 py-4 font-display font-black uppercase tracking-wide text-sm md:text-base bg-bauhaus-white text-bauhaus-black transition-colors hover:bg-bauhaus-yellow">
+                        Soporte IT
+                    </button>
                 </div>
 
-                <!-- GMB Plans -->
-                <div id="planes-gmb" class="tab-content">
-                    <!-- Featured Plan -->
-                    <div class="max-w-md mx-auto mb-8">
-                        <div
-                            class="plan-card p-8 border-2 border-bauhaus-black bg-bauhaus-black text-white flex flex-col relative shadow-[6px_6px_0px_#D93025]">
-                            <div
-                                class="absolute top-0 right-0 bg-bauhaus-red text-white px-4 py-2 font-black uppercase text-sm">
-                                ⭐ RECOMENDADO</div>
-                            <div
-                                class="w-16 h-16 bg-bauhaus-red rounded-full mb-6 border-2 border-white flex items-center justify-center animate-pulse">
-                                <span class="text-white font-black text-2xl">∞</span>
+                <div class="max-w-5xl">
+                    <article id="plan-presencia" role="tabpanel" aria-labelledby="tab-presencia"
+                        data-solution-panel="presencia"
+                        class="solution-panel grid grid-cols-1 lg:grid-cols-[1fr_1.35fr] border-4 border-bauhaus-black shadow-[10px_10px_0px_#D93025]">
+                        <div class="bg-bauhaus-black text-white p-7 md:p-10 flex flex-col justify-between">
+                            <div>
+                                <p class="font-black uppercase tracking-widest text-bauhaus-yellow mb-4">Plan mensual</p>
+                                <h3 class="text-4xl md:text-5xl font-display font-black uppercase mb-8">Presencia activa</h3>
                             </div>
-                            <h3 class="text-2xl font-display font-black uppercase mb-2 text-bauhaus-yellow">GMB
-                                ILIMITADO</h3>
-                            <p class="text-sm text-gray-400 mb-4">Mantenimiento premium</p>
-                            <div class="mb-6">
-                                <span class="text-5xl font-black">$100.000</span>
-                                <span class="text-lg font-bold text-gray-400">/mes</span>
+                            <div>
+                                <p class="text-4xl md:text-6xl font-black">$100.000</p>
+                                <p class="font-bold text-gray-400">ARS / mes</p>
                             </div>
-                            <ul class="space-y-4 mb-8 text-base">
-                                <li class="flex items-start gap-3"><span class="w-3 h-3 bg-bauhaus-yellow mt-1"></span>4
-                                    fotos por semana</li>
-                                <li class="flex items-start gap-3"><span
-                                        class="w-3 h-3 bg-bauhaus-yellow mt-1"></span>Gestión reseñas (50/mes)</li>
-                                <li class="flex items-start gap-3 text-bauhaus-yellow font-bold"><span
-                                        class="w-3 h-3 bg-bauhaus-red mt-1"></span>+ Página web GRATIS</li>
+                        </div>
+                        <div class="p-7 md:p-10 bg-bauhaus-white">
+                            <p class="font-black uppercase tracking-widest text-sm text-bauhaus-red mb-5">Incluye</p>
+                            <ul class="space-y-4 mb-8 text-lg font-bold">
+                                <li class="flex items-start gap-3"><span class="w-3 h-3 bg-bauhaus-red mt-2 flex-shrink-0"></span>Google Business optimizado y gestionado.</li>
+                                <li class="flex items-start gap-3"><span class="w-3 h-3 bg-bauhaus-blue mt-2 flex-shrink-0"></span>Sitio web para presentar y convertir.</li>
+                                <li class="flex items-start gap-3"><span class="w-3 h-3 bg-bauhaus-yellow mt-2 flex-shrink-0"></span>Contenido constante para redes.</li>
                             </ul>
-                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20GMB%20ILIMITADO"
+                            <p class="border-l-8 border-bauhaus-yellow pl-4 mb-8 font-black">Resultado esperado: tu negocio aparece, explica qué vende y recibe consultas.</p>
+                            <a href="https://wa.me/5491171458944?text=Hola,%20quiero%20consultar%20por%20Presencia%20Digital"
                                 target="_blank" rel="noopener noreferrer"
-                                class="w-full py-4 bg-bauhaus-yellow text-bauhaus-black font-black uppercase text-center text-lg border-2 border-white hover:bg-white transition-colors block">
-                                CONSULTAR AHORA
+                                class="block w-full py-4 px-5 bg-bauhaus-red text-white border-2 border-bauhaus-black font-black uppercase text-center tracking-wider hover:bg-bauhaus-black transition-colors">
+                                Consultar ahora
                             </a>
                         </div>
-                    </div>
+                    </article>
 
-                    <!-- Toggle Button -->
-                    <div class="text-center mb-8">
-                        <button onclick="toggleSection('gmb-otros')"
-                            class="px-6 py-3 border-2 border-bauhaus-black font-black uppercase hover:bg-bauhaus-black hover:text-white transition-colors">
-                            <span id="gmb-otros-icon">+</span> VER MÁS PLANES GMB
-                        </button>
-                    </div>
-
-                    <!-- Other Plans (hidden by default) -->
-                    <div id="gmb-otros" class="hidden">
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                            <!-- GMB Inicial -->
-                            <div
-                                class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white flex flex-col hover:shadow-[6px_6px_0px_#111111] transition-all">
-                                <div
-                                    class="w-12 h-12 bg-bauhaus-red rounded-full mb-4 border-2 border-bauhaus-black flex items-center justify-center">
-                                    <span class="text-white font-black text-lg">1</span>
-                                </div>
-                                <h3 class="text-xl font-display font-black uppercase mb-2">INICIAL</h3>
-                                <p class="text-xs text-gray-500 mb-4">Contrato mínimo 3 meses</p>
-                                <div class="mb-4">
-                                    <span class="text-3xl font-black">$100.000</span>
-                                    <span class="text-sm font-bold text-gray-500">/mes</span>
-                                </div>
-                                <ul class="space-y-3 mb-6 flex-1 text-sm">
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-red mt-1.5"></span>Auditoría completa</li>
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-red mt-1.5"></span>Plan de acción</li>
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-red mt-1.5"></span>Respuesta reseñas (50/mes)</li>
-                                </ul>
-                                <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20GMB%20INICIAL"
-                                    target="_blank" rel="noopener noreferrer"
-                                    class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm hover:bg-bauhaus-red transition-colors block">
-                                    CONSULTAR
-                                </a>
+                    <article id="plan-operaciones" role="tabpanel" aria-labelledby="tab-operaciones"
+                        data-solution-panel="operaciones"
+                        class="solution-panel hidden grid grid-cols-1 lg:grid-cols-[1fr_1.35fr] border-4 border-bauhaus-black shadow-[10px_10px_0px_#F9AB00]">
+                        <div class="bg-bauhaus-yellow p-7 md:p-10 flex flex-col justify-between">
+                            <div>
+                                <p class="font-black uppercase tracking-widest mb-4">Proyecto a medida</p>
+                                <h3 class="text-4xl md:text-5xl font-display font-black uppercase mb-8">Operaciones con Odoo</h3>
                             </div>
-
-                            <!-- GMB Básico -->
-                            <div
-                                class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white flex flex-col hover:shadow-[6px_6px_0px_#111111] transition-all">
-                                <div
-                                    class="w-12 h-12 bg-bauhaus-blue mb-4 border-2 border-bauhaus-black flex items-center justify-center">
-                                    <span class="text-white font-black text-lg">B</span>
-                                </div>
-                                <h3 class="text-xl font-display font-black uppercase mb-2">BÁSICO</h3>
-                                <p class="text-xs text-gray-500 mb-4">Mantenimiento mensual</p>
-                                <div class="mb-4">
-                                    <span class="text-3xl font-black">$30.000</span>
-                                    <span class="text-sm font-bold text-gray-500">/mes</span>
-                                </div>
-                                <ul class="space-y-3 mb-6 flex-1 text-sm">
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-blue mt-1.5"></span>2 fotos al mes</li>
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-blue mt-1.5"></span>Gestión reseñas (5)</li>
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-blue mt-1.5"></span>2 revisiones anuales</li>
-                                </ul>
-                                <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20GMB%20BÁSICO"
-                                    target="_blank" rel="noopener noreferrer"
-                                    class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm hover:bg-bauhaus-blue transition-colors block">
-                                    CONSULTAR
-                                </a>
-                            </div>
-
-                            <!-- GMB Intermedio -->
-                            <div
-                                class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white flex flex-col hover:shadow-[6px_6px_0px_#111111] transition-all">
-                                <div
-                                    class="w-12 h-12 bg-bauhaus-yellow mb-4 border-2 border-bauhaus-black flex items-center justify-center transform rotate-12">
-                                    <span class="text-bauhaus-black font-black text-lg -rotate-12">I</span>
-                                </div>
-                                <h3 class="text-xl font-display font-black uppercase mb-2">INTERMEDIO</h3>
-                                <p class="text-xs text-gray-500 mb-4">Mantenimiento mensual</p>
-                                <div class="mb-4">
-                                    <span class="text-3xl font-black">$50.000</span>
-                                    <span class="text-sm font-bold text-gray-500">/mes</span>
-                                </div>
-                                <ul class="space-y-3 mb-6 flex-1 text-sm">
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-yellow mt-1.5"></span>1 foto por semana</li>
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-yellow mt-1.5"></span>Gestión reseñas (10)</li>
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-yellow mt-1.5"></span>2 revisiones anuales</li>
-                                </ul>
-                                <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20GMB%20INTERMEDIO"
-                                    target="_blank" rel="noopener noreferrer"
-                                    class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm hover:bg-bauhaus-yellow hover:text-bauhaus-black transition-colors block">
-                                    CONSULTAR
-                                </a>
-                            </div>
+                            <p class="text-4xl md:text-6xl font-black uppercase">A cotizar</p>
                         </div>
-                    </div>
-                </div>
-
-                <!-- RRSS Plans (hidden by default) -->
-                <div id="planes-rrss" class="tab-content hidden">
-                    <!-- Featured Plan -->
-                    <div class="max-w-md mx-auto mb-8">
-                        <div
-                            class="plan-card p-8 border-2 border-bauhaus-black bg-bauhaus-black text-white flex flex-col relative shadow-[6px_6px_0px_#1A73E8]">
-                            <div
-                                class="absolute top-0 right-0 bg-bauhaus-blue text-white px-4 py-2 font-black uppercase text-sm">
-                                ⭐ RECOMENDADO</div>
-                            <div
-                                class="w-16 h-16 bg-bauhaus-blue rounded-full mb-6 border-2 border-white flex items-center justify-center">
-                                <span class="text-white font-black text-2xl">★</span>
-                            </div>
-                            <h3 class="text-2xl font-display font-black uppercase mb-2 text-bauhaus-yellow">RRSS
-                                PERSONALIZADO</h3>
-                            <p class="text-sm text-gray-400 mb-4">Servicio a medida</p>
-                            <div class="mb-6">
-                                <span class="text-lg font-bold text-gray-400">Desde</span>
-                                <span class="text-5xl font-black">$280.000</span>
-                                <span class="text-lg font-bold text-gray-400">/mes</span>
-                            </div>
-                            <ul class="space-y-4 mb-8 text-base">
-                                <li class="flex items-start gap-3"><span
-                                        class="w-3 h-3 bg-bauhaus-yellow mt-1"></span>Contenido a medida</li>
-                                <li class="flex items-start gap-3"><span
-                                        class="w-3 h-3 bg-bauhaus-yellow mt-1"></span>Estrategia personalizada</li>
-                                <li class="flex items-start gap-3 text-bauhaus-yellow font-bold"><span
-                                        class="w-3 h-3 bg-bauhaus-blue mt-1"></span>Múltiples plataformas</li>
+                        <div class="p-7 md:p-10 bg-bauhaus-white">
+                            <p class="font-black uppercase tracking-widest text-sm text-bauhaus-red mb-5">Incluye</p>
+                            <ul class="space-y-4 mb-8 text-lg font-bold">
+                                <li class="flex items-start gap-3"><span class="w-3 h-3 bg-bauhaus-red mt-2 flex-shrink-0"></span>Implementación de Odoo según tu operación.</li>
+                                <li class="flex items-start gap-3"><span class="w-3 h-3 bg-bauhaus-blue mt-2 flex-shrink-0"></span>Inventario, compras, ventas y automatizaciones.</li>
+                                <li class="flex items-start gap-3"><span class="w-3 h-3 bg-bauhaus-yellow mt-2 flex-shrink-0"></span>Facturación electrónica con CAE.</li>
                             </ul>
-                            <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20RRSS%20PERSONALIZADO"
+                            <p class="border-l-8 border-bauhaus-yellow pl-4 mb-8 font-black">Resultado esperado: stock real, procesos centralizados y menos carga manual.</p>
+                            <a href="https://wa.me/5491171458944?text=Hola,%20quiero%20consultar%20por%20Odoo%20y%20operaciones"
                                 target="_blank" rel="noopener noreferrer"
-                                class="w-full py-4 bg-bauhaus-yellow text-bauhaus-black font-black uppercase text-center text-lg border-2 border-white hover:bg-white transition-colors block">
-                                CONSULTAR AHORA
+                                class="block w-full py-4 px-5 bg-bauhaus-red text-white border-2 border-bauhaus-black font-black uppercase text-center tracking-wider hover:bg-bauhaus-black transition-colors">
+                                Consultar ahora
                             </a>
                         </div>
-                    </div>
+                    </article>
 
-                    <!-- Toggle Button -->
-                    <div class="text-center mb-8">
-                        <button onclick="toggleSection('rrss-otros')"
-                            class="px-6 py-3 border-2 border-bauhaus-black font-black uppercase hover:bg-bauhaus-black hover:text-white transition-colors">
-                            <span id="rrss-otros-icon">+</span> VER MÁS PLANES RRSS
-                        </button>
-                    </div>
-
-                    <!-- Other Plans (hidden by default) -->
-                    <div id="rrss-otros" class="hidden">
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                            <!-- RRSS Básico -->
-                            <div
-                                class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white flex flex-col hover:shadow-[6px_6px_0px_#111111] transition-all">
-                                <div
-                                    class="w-12 h-12 bg-bauhaus-red rounded-full mb-4 border-2 border-bauhaus-black flex items-center justify-center">
-                                    <span class="text-white font-black text-xs">FB+IG</span>
-                                </div>
-                                <h3 class="text-xl font-display font-black uppercase mb-2">BÁSICO</h3>
-                                <p class="text-xs text-gray-500 mb-4">FB + IG (espejo)</p>
-                                <div class="mb-4">
-                                    <span class="text-3xl font-black">$150.000</span>
-                                    <span class="text-sm font-bold text-gray-500">/mes</span>
-                                </div>
-                                <ul class="space-y-3 mb-6 flex-1 text-sm">
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-red mt-1.5"></span>8 Posts</li>
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-red mt-1.5"></span>2 Stories</li>
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-red mt-1.5"></span>2 Reels simples</li>
-                                </ul>
-                                <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20RRSS%20BÁSICO"
-                                    target="_blank" rel="noopener noreferrer"
-                                    class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm hover:bg-bauhaus-red transition-colors block">
-                                    CONSULTAR
-                                </a>
+                    <article id="plan-whatsapp" role="tabpanel" aria-labelledby="tab-whatsapp"
+                        data-solution-panel="whatsapp"
+                        class="solution-panel hidden grid grid-cols-1 lg:grid-cols-[1fr_1.35fr] border-4 border-bauhaus-black shadow-[10px_10px_0px_#1A73E8]">
+                        <div class="bg-bauhaus-blue text-white p-7 md:p-10 flex flex-col justify-between">
+                            <div>
+                                <p class="font-black uppercase tracking-widest text-bauhaus-yellow mb-4">Proyecto a medida</p>
+                                <h3 class="text-4xl md:text-5xl font-display font-black uppercase mb-8">WhatsApp con IA</h3>
                             </div>
-
-                            <!-- RRSS Básico Plus -->
-                            <div
-                                class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white flex flex-col hover:shadow-[6px_6px_0px_#111111] transition-all">
-                                <div
-                                    class="w-12 h-12 bg-bauhaus-blue mb-4 border-2 border-bauhaus-black flex items-center justify-center">
-                                    <span class="text-white font-black text-xs">FB+IG+</span>
-                                </div>
-                                <h3 class="text-xl font-display font-black uppercase mb-2">BÁSICO PLUS</h3>
-                                <p class="text-xs text-gray-500 mb-4">FB + IG o TikTok</p>
-                                <div class="mb-4">
-                                    <span class="text-3xl font-black">$200.000</span>
-                                    <span class="text-sm font-bold text-gray-500">/mes</span>
-                                </div>
-                                <ul class="space-y-3 mb-6 flex-1 text-sm">
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-blue mt-1.5"></span>8 Posts</li>
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-blue mt-1.5"></span>4 Stories</li>
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-blue mt-1.5"></span>4 Reels simples</li>
-                                </ul>
-                                <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20RRSS%20BÁSICO%20PLUS"
-                                    target="_blank" rel="noopener noreferrer"
-                                    class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm hover:bg-bauhaus-blue transition-colors block">
-                                    CONSULTAR
-                                </a>
-                            </div>
-
-                            <!-- RRSS Intermedio -->
-                            <div
-                                class="plan-card p-6 border-2 border-bauhaus-black bg-bauhaus-white flex flex-col hover:shadow-[6px_6px_0px_#111111] transition-all">
-                                <div
-                                    class="w-12 h-12 bg-bauhaus-yellow mb-4 border-2 border-bauhaus-black flex items-center justify-center transform -rotate-6">
-                                    <span class="text-bauhaus-black font-black text-xs rotate-6">ALL</span>
-                                </div>
-                                <h3 class="text-xl font-display font-black uppercase mb-2">INTERMEDIO</h3>
-                                <p class="text-xs text-gray-500 mb-4">FB + IG o TikTok</p>
-                                <div class="mb-4">
-                                    <span class="text-3xl font-black">$250.000</span>
-                                    <span class="text-sm font-bold text-gray-500">/mes</span>
-                                </div>
-                                <ul class="space-y-3 mb-6 flex-1 text-sm">
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-yellow mt-1.5"></span>12 Posts</li>
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-yellow mt-1.5"></span>8 Stories</li>
-                                    <li class="flex items-start gap-2"><span
-                                            class="w-2 h-2 bg-bauhaus-yellow mt-1.5"></span>4 Reels simples</li>
-                                </ul>
-                                <a href="https://wa.me/5491171458944?text=Hola,%20me%20interesa%20el%20pack%20RRSS%20INTERMEDIO"
-                                    target="_blank" rel="noopener noreferrer"
-                                    class="w-full py-3 bg-bauhaus-black text-white font-black uppercase text-center text-sm hover:bg-bauhaus-yellow hover:text-bauhaus-black transition-colors block">
-                                    CONSULTAR
-                                </a>
-                            </div>
+                            <p class="text-4xl md:text-6xl font-black uppercase">A cotizar</p>
                         </div>
-                    </div>
+                        <div class="p-7 md:p-10 bg-bauhaus-white">
+                            <p class="font-black uppercase tracking-widest text-sm text-bauhaus-red mb-5">Incluye</p>
+                            <ul class="space-y-4 mb-8 text-lg font-bold">
+                                <li class="flex items-start gap-3"><span class="w-3 h-3 bg-bauhaus-red mt-2 flex-shrink-0"></span>Bot entrenado para consultas frecuentes.</li>
+                                <li class="flex items-start gap-3"><span class="w-3 h-3 bg-bauhaus-blue mt-2 flex-shrink-0"></span>Atención automática y derivación humana.</li>
+                                <li class="flex items-start gap-3"><span class="w-3 h-3 bg-bauhaus-yellow mt-2 flex-shrink-0"></span>Catálogo integrado al flujo de venta.</li>
+                            </ul>
+                            <p class="border-l-8 border-bauhaus-yellow pl-4 mb-8 font-black">Caso comparable: +35 conversaciones gestionadas para Dolce Party.</p>
+                            <a href="https://wa.me/5491171458944?text=Hola,%20quiero%20consultar%20por%20WhatsApp%20Business%20con%20IA"
+                                target="_blank" rel="noopener noreferrer"
+                                class="block w-full py-4 px-5 bg-bauhaus-red text-white border-2 border-bauhaus-black font-black uppercase text-center tracking-wider hover:bg-bauhaus-black transition-colors">
+                                Consultar ahora
+                            </a>
+                        </div>
+                    </article>
+
+                    <article id="plan-soporte" role="tabpanel" aria-labelledby="tab-soporte"
+                        data-solution-panel="soporte"
+                        class="solution-panel hidden grid grid-cols-1 lg:grid-cols-[1fr_1.35fr] border-4 border-bauhaus-black shadow-[10px_10px_0px_#111111]">
+                        <div class="bg-bauhaus-black text-white p-7 md:p-10 flex flex-col justify-between">
+                            <div>
+                                <p class="font-black uppercase tracking-widest text-bauhaus-yellow mb-4">Según alcance</p>
+                                <h3 class="text-4xl md:text-5xl font-display font-black uppercase mb-8">Soporte IT remoto</h3>
+                            </div>
+                            <p class="text-4xl md:text-6xl font-black uppercase">A cotizar</p>
+                        </div>
+                        <div class="p-7 md:p-10 bg-bauhaus-white">
+                            <p class="font-black uppercase tracking-widest text-sm text-bauhaus-red mb-5">Incluye</p>
+                            <ul class="space-y-4 mb-8 text-lg font-bold">
+                                <li class="flex items-start gap-3"><span class="w-3 h-3 bg-bauhaus-red mt-2 flex-shrink-0"></span>Diagnóstico y resolución remota.</li>
+                                <li class="flex items-start gap-3"><span class="w-3 h-3 bg-bauhaus-blue mt-2 flex-shrink-0"></span>Mantenimiento y monitoreo preventivo.</li>
+                                <li class="flex items-start gap-3"><span class="w-3 h-3 bg-bauhaus-yellow mt-2 flex-shrink-0"></span>Soporte reactivo cuando algo falla.</li>
+                            </ul>
+                            <p class="border-l-8 border-bauhaus-yellow pl-4 mb-8 font-black">Resultado esperado: menos interrupciones y resolución sin desplazamientos.</p>
+                            <a href="https://wa.me/5491171458944?text=Hola,%20quiero%20consultar%20por%20Soporte%20IT%20remoto"
+                                target="_blank" rel="noopener noreferrer"
+                                class="block w-full py-4 px-5 bg-bauhaus-red text-white border-2 border-bauhaus-black font-black uppercase text-center tracking-wider hover:bg-bauhaus-black transition-colors">
+                                Consultar ahora
+                            </a>
+                        </div>
+                    </article>
                 </div>
 
-                <div class="text-center mt-12">
-                    <p class="text-gray-500 text-sm font-medium">Todos los precios en ARS • Consultas sin compromiso</p>
-                </div>
+                <p class="mt-10 text-sm font-bold uppercase tracking-wider">Precios en ARS. Alcances a medida se cotizan luego de una breve reunión.</p>
             </div>
         </section>
 
@@ -903,29 +761,22 @@
     <!-- Storytelling Controller -->
     <script src="storytelling.js"></script>
 
-    <!-- Tab Switching Logic -->
+    <!-- Solution Selector Logic -->
     <script>
-        function switchTab(tabName) {
-            const gmbTab = document.getElementById('tab-gmb');
-            const rrssTab = document.getElementById('tab-rrss');
-            const gmbContent = document.getElementById('planes-gmb');
-            const rrssContent = document.getElementById('planes-rrss');
+        function switchSolution(solutionName) {
+            document.querySelectorAll('[data-solution-tab]').forEach((tab) => {
+                const isActive = tab.dataset.solutionTab === solutionName;
+                tab.setAttribute('aria-selected', isActive);
+                tab.classList.toggle('bg-bauhaus-black', isActive);
+                tab.classList.toggle('text-white', isActive);
+                tab.classList.toggle('bg-bauhaus-white', !isActive);
+                tab.classList.toggle('text-bauhaus-black', !isActive);
+                tab.classList.toggle('hover:bg-bauhaus-yellow', !isActive);
+            });
 
-            if (tabName === 'gmb') {
-                gmbTab.classList.remove('bg-bauhaus-white', 'text-bauhaus-black');
-                gmbTab.classList.add('bg-bauhaus-black', 'text-white');
-                rrssTab.classList.remove('bg-bauhaus-black', 'text-white');
-                rrssTab.classList.add('bg-bauhaus-white', 'text-bauhaus-black');
-                rrssContent.classList.add('hidden');
-                gmbContent.classList.remove('hidden');
-            } else {
-                rrssTab.classList.remove('bg-bauhaus-white', 'text-bauhaus-black');
-                rrssTab.classList.add('bg-bauhaus-black', 'text-white');
-                gmbTab.classList.remove('bg-bauhaus-black', 'text-white');
-                gmbTab.classList.add('bg-bauhaus-white', 'text-bauhaus-black');
-                gmbContent.classList.add('hidden');
-                rrssContent.classList.remove('hidden');
-            }
+            document.querySelectorAll('[data-solution-panel]').forEach((panel) => {
+                panel.classList.toggle('hidden', panel.dataset.solutionPanel !== solutionName);
+            });
         }
 
         // Collapsible Section Toggle
